@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses - Mechanical Engineering Helper</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-N9Z2PDQ677"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N9Z2PDQ677');
+</script>
+
+</head>
+
+<body>
+
+  <!-- MENU BUTTON -->
+<div class="menu-button" onclick="toggleMenu()">
+  ☰ <span>MENU</span>
+</div>
+
+<!-- SIDE MENU -->
+<div id="sideMenu" class="side-menu">
+
+  <a href="index.html">Home</a>
+
+  <div class="courses-section">
+
+  <div class="courses-toggle" onclick="toggleCourses()">
+    ▼ Courses
+  </div>
+
+  <div id="coursesSubmenu" class="courses-submenu">
+
+    <a href="courses.html">Courses Page</a>
+
+    <a href="statics.html">Statics</a>
+
+    <a href="kinematics.html">Kinematics</a>
+
+    <a href="strength-materials.html">
+      Strength of Materials
+    </a>
+
+    <a href="dynamics.html">Dynamics</a>
+
+    <a href="thermodynamics.html">
+      Thermodynamics
+    </a>
+
+    <a href="units-math.html">
+      Units & Engineering Math
+    </a>
+
+  </div>
+
+</div>
+
+  <a href="creators-journey.html">
+    Creator's Journey
+  </a>
+
+  <a href="reviews.html">
+    Reviews
+  </a>
+
+  <a href="donate.html">
+    Donate
+  </a>
+
+  <a href="about-me.html">
+    About Me
+  </a>
+
+</div>
+
+  <div class="ruler-frame"></div>
+  <div class="background"></div>
+
+  <div class="courses-container">
+
+    <h1 class="courses-title">Courses</h1>
+
+    <p class="courses-description">
+  These courses are designed to introduce students to important concepts in
+  mechanical engineering through lessons, worked examples, quizzes, real-world
+  applications, and experiment demonstrations.
+
+  Each course focuses on a specific topic and is intended to build both
+  engineering knowledge and problem-solving skills. Whether you are learning
+  these concepts for the first time, reviewing for a class, or exploring
+  engineering as a future career, these courses provide a structured way to
+  learn and practice.
+
+  Most courses include:
+</p>
+
+<ul class="course-features">
+  <li><strong>Lessons</strong> – Learn the fundamental concepts and equations.</li>
+  <li><strong>Worked Example Problems</strong> – See step-by-step solutions.</li>
+  <li><strong>Quizzes</strong> – Test your understanding with randomized questions.</li>
+  <li><strong>Real World Applications</strong> – Discover how engineers use these concepts.</li>
+  <li><strong>Experiment Demonstrations</strong> – Watch concepts applied through hands-on experiments.</li>
+</ul>
+
+    <div class="course-grid">
+
+      <div class="course-card">
+  <h2>Statics</h2>
+  <p>Force & Equilibrium</p>
+  <a href="statics.html">
+    <button>Start Course</button>
+  </a>
+</div>
+
+<div class="course-card">
+  <h2>Kinematics</h2>
+  <p>Motion Without Forces</p>
+  <a href="kinematics.html">
+    <button>Start Course</button>
+  </a>
+</div>
+
+<div class="course-card">
+  <h2>Strength of Materials</h2>
+  <p>Stress & Strain</p>
+  <a href="strength-materials.html">
+    <button>Start Course</button>
+  </a>
+</div>
+
+<div class="course-card">
+  <h2>Dynamics</h2>
+  <p>Forces + Motion Combined</p>
+  <a href="dynamics.html">
+    <button>Start Course</button>
+  </a>
+</div>
+
+<div class="course-card">
+  <h2>Thermodynamics</h2>
+  <p>Intro Level</p>
+  <a href="thermodynamics.html">
+    <button>Start Course</button>
+  </a>
+</div>
+
+<div class="course-card">
+  <h2>Units, Conversions & Engineering Math Basics</h2>
+  <p>Build the foundation before advanced topics</p>
+  <a href="units-math.html">
+    <button>Start Course</button>
+  </a>
+</div>
+
+    </div>
+
+    <a href="index.html" class="back-link">
+      <button class="back-button">Back Home</button>
+    </a>
+
+  </div>
+
+  <script>
+
+function toggleMenu(){
+
+  document
+    .getElementById("sideMenu")
+    .classList
+    .toggle("open");
+
+}
+
+function toggleCourses(){
+
+  document
+    .getElementById("coursesSubmenu")
+    .classList
+    .toggle("open");
+
+}
+
+</script>
+
+</body>
+</html>
