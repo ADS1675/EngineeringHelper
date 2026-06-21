@@ -1107,3 +1107,39 @@ button:hover {
   }
 
 }
+
+.logo-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+}
+
+.logo-button img {
+  width: 130px;
+  height: auto;
+  display: block;
+
+  filter:
+    drop-shadow(0 0 4px white)
+    drop-shadow(0 0 8px white)
+    drop-shadow(0 0 14px white);
+
+  transition: transform 0.3s ease;
+}
+
+.logo-button img:hover {
+  transform: scale(1.05);
+}
+
+.journey-logo {
+  width: 300px;
+  max-width: 90%;
+  display: block;
+  margin: 25px auto;
+
+  filter:
+    drop-shadow(0 0 4px white)
+    drop-shadow(0 0 8px white)
+    drop-shadow(0 0 15px white);
+}
