@@ -113,8 +113,8 @@
     <!-- TAB BUTTONS -->
     <div class="tabs">
       <button onclick="showSection('lessons', this)">Lessons</button>
-<button onclick="showSection('problem', this)">Problems</button>
-<button onclick="showSection('qui', this)">Quiz</button>
+<button onclick="showSection('problems', this)">Problems</button>
+<button onclick="showSection('quiz', this)">Quiz</button>
 <button onclick="showSection('rea', this)">Real World Applications</button>
 <button onclick="showSection('vide', this)">Video</button>
     </div>
@@ -592,115 +592,86 @@ accelerate, stop, and respond to forces.
 
         <h2>Example Problems</h2>
 
-        <h3>Problem 1: Calculating Stress</h3>
+        <h3>Problem 1: Finding Net Force</h3>
 
         <p>
-          A metal rod has a cross-sectional area of 0.005 m². A force of 1,000 N is applied to it.
-          Find the stress in the rod.
+          A box is pushed with 80 N to the right while friction applies 20 N to the left.
+          Find the net force.
         </p>
 
-        <p><strong>Step 1: Use the stress formula</strong></p>
-        <p>σ = F / A</p>
+        <p><strong>Step 1: Identify the force directions</strong></p>
+        <p>Right = positive, left = negative</p>
 
-        <p><strong>Step 2: Substitute values</strong></p>
-        <p>σ = 1000 / 0.005</p>
+        <p><strong>Step 2: Add the forces</strong></p>
+        <p>F<sub>net</sub> = 80 - 20</p>
 
         <p><strong>Step 3: Calculate</strong></p>
-        <p>σ = 200,000 Pa</p>
+        <p>F<sub>net</sub> = 60 N</p>
 
-        <p><strong>Answer:</strong> The stress is 200,000 Pa, or 200 kPa.</p>
+        <p><strong>Answer:</strong> The net force is 60 N to the right.</p>
 
         <hr>
 
-        <h3>Problem 2: Calculating Strain</h3>
+        <h3>Problem 2: Using Newton's Second Law</h3>
 
         <p>
-          A 2 m long rod stretches by 0.004 m when a load is applied.
-          Find the strain.
+          A 10 kg object experiences a net force of 50 N.
+          Find the acceleration of the object.
         </p>
 
-        <p><strong>Step 1: Use the strain formula</strong></p>
-        <p>ε = ΔL / L₀</p>
+        <p><strong>Step 1: Use Newton's Second Law</strong></p>
+        <p>F = ma</p>
+
+        <p><strong>Step 2: Rearrange to solve for acceleration</strong></p>
+        <p>a = F / m</p>
+
+        <p><strong>Step 3: Substitute values</strong></p>
+        <p>a = 50 / 10</p>
+
+        <p><strong>Step 4: Calculate</strong></p>
+        <p>a = 5 m/s²</p>
+
+        <p><strong>Answer:</strong> The object accelerates at 5 m/s².</p>
+
+        <hr>
+
+        <h3>Problem 3: Calculating Friction Force</h3>
+
+        <p>
+          A box has a normal force of 300 N. The coefficient of friction is 0.25.
+          Find the friction force.
+        </p>
+
+        <p><strong>Step 1: Use the friction formula</strong></p>
+        <p>F<sub>f</sub> = μN</p>
 
         <p><strong>Step 2: Substitute values</strong></p>
-        <p>ε = 0.004 / 2</p>
+        <p>F<sub>f</sub> = 0.25 × 300</p>
 
         <p><strong>Step 3: Calculate</strong></p>
-        <p>ε = 0.002</p>
+        <p>F<sub>f</sub> = 75 N</p>
 
-        <p><strong>Answer:</strong> The strain is 0.002. Strain has no units.</p>
-
-        <hr>
-
-        <h3>Problem 3: Finding Force from Stress</h3>
-
-        <p>
-          A part experiences a stress of 500,000 Pa over an area of 0.01 m².
-          Find the applied force.
-        </p>
-
-        <p><strong>Step 1: Start with the stress formula</strong></p>
-        <p>σ = F / A</p>
-
-        <p><strong>Step 2: Rearrange to solve for force</strong></p>
-        <p>F = σA</p>
-
-        <p><strong>Step 3: Substitute values</strong></p>
-        <p>F = 500,000 × 0.01</p>
-
-        <p><strong>Step 4: Calculate</strong></p>
-        <p>F = 5,000 N</p>
-
-        <p><strong>Answer:</strong> The applied force is 5,000 N.</p>
+        <p><strong>Answer:</strong> The friction force is 75 N.</p>
 
         <hr>
 
-        <h3>Problem 4: Finding Change in Length</h3>
+        <h3>Problem 4: Calculating Momentum</h3>
 
         <p>
-          A rod has an original length of 3 m and a strain of 0.0015.
-          Find the change in length.
+          A 1,200 kg car is moving at 20 m/s.
+          Find the momentum of the car.
         </p>
 
-        <p><strong>Step 1: Use the strain formula</strong></p>
-        <p>ε = ΔL / L₀</p>
+        <p><strong>Step 1: Use the momentum formula</strong></p>
+        <p>p = mv</p>
 
-        <p><strong>Step 2: Rearrange to solve for change in length</strong></p>
-        <p>ΔL = εL₀</p>
+        <p><strong>Step 2: Substitute values</strong></p>
+        <p>p = 1200 × 20</p>
 
-        <p><strong>Step 3: Substitute values</strong></p>
-        <p>ΔL = 0.0015 × 3</p>
+        <p><strong>Step 3: Calculate</strong></p>
+        <p>p = 24,000 kg·m/s</p>
 
-        <p><strong>Step 4: Calculate</strong></p>
-        <p>ΔL = 0.0045 m</p>
-
-        <p><strong>Answer:</strong> The rod stretches by 0.0045 m, or 4.5 mm.</p>
-
-        <hr>
-
-        <h3>Problem 5: Hooke's Law / Young's Modulus</h3>
-
-        <p>
-          A material has a stress of 400 MPa and a strain of 0.002.
-          Find Young's Modulus.
-        </p>
-
-        <p><strong>Step 1: Use Hooke's Law</strong></p>
-        <p>σ = Eε</p>
-
-        <p><strong>Step 2: Rearrange to solve for Young's Modulus</strong></p>
-        <p>E = σ / ε</p>
-
-        <p><strong>Step 3: Convert stress to Pascals</strong></p>
-        <p>400 MPa = 400,000,000 Pa</p>
-
-        <p><strong>Step 4: Substitute values</strong></p>
-        <p>E = 400,000,000 / 0.002</p>
-
-        <p><strong>Step 5: Calculate</strong></p>
-        <p>E = 200,000,000,000 Pa</p>
-
-        <p><strong>Answer:</strong> Young's Modulus is 200 GPa.</p>
+        <p><strong>Answer:</strong> The car's momentum is 24,000 kg·m/s.</p>
 
       </div>
 
@@ -712,44 +683,51 @@ accelerate, stop, and respond to forces.
       <h3>Formula Sheet</h3>
 
       <p>
-        <strong>Stress:</strong><br>
-        σ = F / A<br>
-        σ = Stress (Pa)<br>
+        <strong>Newton's Second Law:</strong><br>
+        F = ma<br>
+        F = Net Force (N)<br>
+        m = Mass (kg)<br>
+        a = Acceleration (m/s²)
+      </p>
+
+      <p>
+        <strong>Acceleration from Force:</strong><br>
+        a = F / m
+      </p>
+
+      <p>
+        <strong>Mass from Force:</strong><br>
+        m = F / a
+      </p>
+
+      <p>
+        <strong>Net Force:</strong><br>
+        F<sub>net</sub> = Sum of all forces<br>
+        Forces in opposite directions subtract.
+      </p>
+
+      <p>
+        <strong>Friction Force:</strong><br>
+        F<sub>f</sub> = μN<br>
+        F<sub>f</sub> = Friction Force (N)<br>
+        μ = Coefficient of Friction<br>
+        N = Normal Force (N)
+      </p>
+
+      <p>
+        <strong>Momentum:</strong><br>
+        p = mv<br>
+        p = Momentum (kg·m/s)<br>
+        m = Mass (kg)<br>
+        v = Velocity (m/s)
+      </p>
+
+      <p>
+        <strong>Work:</strong><br>
+        W = Fd<br>
+        W = Work (J)<br>
         F = Force (N)<br>
-        A = Area (m²)
-      </p>
-
-      <p>
-        <strong>Strain:</strong><br>
-        ε = ΔL / L₀<br>
-        ε = Strain<br>
-        ΔL = Change in Length (m)<br>
-        L₀ = Original Length (m)
-      </p>
-
-      <p>
-        <strong>Hooke's Law:</strong><br>
-        σ = Eε<br>
-        E = Young's Modulus (Pa)<br>
-        σ = Stress (Pa)<br>
-        ε = Strain
-      </p>
-
-      <p>
-        <strong>Force from Stress:</strong><br>
-        F = σA
-      </p>
-
-      <p>
-        <strong>Change in Length:</strong><br>
-        ΔL = εL₀
-      </p>
-
-      <p>
-        <strong>Unit Conversions:</strong><br>
-        1 MPa = 1,000,000 Pa<br>
-        1 GPa = 1,000,000,000 Pa<br>
-        1 m = 1000 mm
+        d = Distance (m)
       </p>
 
     </div>
@@ -1022,115 +1000,115 @@ let allQuestions = [];
 let answeredQuestions = {};
 
 const quizQuestions = [
-  {q:"What is Strength of Materials mainly about?",choices:["How materials respond to forces","How fluids move","How circuits work","How objects orbit"],answer:0},
-  {q:"Why do engineers study Strength of Materials?",choices:["To make parts safely withstand loads","To remove all forces","To make materials weightless","To avoid using equations"],answer:0},
-  {q:"What does stress measure?",choices:["Internal force per unit area","Change in temperature","Total distance traveled","Speed over time"],answer:0},
-  {q:"What symbol is commonly used for stress?",choices:["σ","ε","E","ΔL"],answer:0},
-  {q:"What is the formula for stress?",choices:["σ = F / A","ε = ΔL / L₀","σ = Eε","F = ma"],answer:0},
-  {q:"In the stress formula, what does F represent?",choices:["Applied force","Final length","Friction","Frequency"],answer:0},
-  {q:"In the stress formula, what does A represent?",choices:["Cross-sectional area","Acceleration","Angle","Original length"],answer:0},
-  {q:"What happens to stress if force increases and area stays the same?",choices:["Stress increases","Stress decreases","Stress becomes zero","Stress stays the same"],answer:0},
-  {q:"What happens to stress if area increases and force stays the same?",choices:["Stress decreases","Stress increases","Stress doubles automatically","Stress becomes strain"],answer:0},
-  {q:"Stress is usually measured in what type of unit?",choices:["Pressure units","Length units","Time units","Mass units"],answer:0},
+  {q:"What is dynamics mainly about?",choices:["How forces affect motion","How objects remain perfectly still","How materials stretch only","How heat transfers"],answer:0},
+  {q:"How is dynamics different from statics?",choices:["Dynamics studies unbalanced forces and acceleration","Dynamics only studies objects at rest","Dynamics ignores motion","Dynamics only studies temperature"],answer:0},
+  {q:"Dynamics combines ideas from which two areas?",choices:["Statics and kinematics","Thermodynamics and chemistry","Electricity and magnetism","Biology and coding"],answer:0},
+  {q:"What does statics mainly teach?",choices:["Forces","Chemical reactions","Computer graphics","Heat engines"],answer:0},
+  {q:"What does kinematics mainly teach?",choices:["Motion","Stress","Friction only","Material failure"],answer:0},
+  {q:"What does dynamics explain?",choices:["How forces create motion","How objects stay weightless","How circuits store charge","How materials change color"],answer:0},
+  {q:"If forces are unbalanced, what can happen?",choices:["Acceleration","No motion change","Mass disappears","Gravity stops"],answer:0},
+  {q:"If net force is zero, what happens to acceleration?",choices:["Acceleration is zero","Acceleration increases","Acceleration becomes infinite","Acceleration equals mass"],answer:0},
+  {q:"What is Newton's First Law also related to?",choices:["Inertia","Momentum only","Heat transfer","Stress"],answer:0},
+  {q:"Newton's First Law says an object remains at rest or constant velocity unless acted on by what?",choices:["An unbalanced force","A balanced force","A smaller mass","A lower temperature"],answer:0},
 
-  {q:"Which unit is commonly used for stress?",choices:["Pascals","Meters","Kilograms","Seconds"],answer:0},
-  {q:"What does MPa stand for?",choices:["Megapascal","Meter per acceleration","Mechanical pressure amount","Mass per area"],answer:0},
-  {q:"A larger area helps reduce stress because the force is spread over what?",choices:["More area","Less area","More time","Less mass"],answer:0},
-  {q:"What type of stress comes from pulling?",choices:["Tensile stress","Compressive stress","Thermal stress","Electrical stress"],answer:0},
-  {q:"What type of stress comes from pushing or squeezing?",choices:["Compressive stress","Tensile stress","Magnetic stress","Velocity stress"],answer:0},
-  {q:"What type of stress acts parallel to a surface?",choices:["Shear stress","Tensile stress","Compressive stress","Normal force"],answer:0},
-  {q:"A cable being pulled is mainly experiencing what type of stress?",choices:["Tensile stress","Compressive stress","Shear stress","No stress"],answer:0},
-  {q:"A column being squeezed downward is mainly experiencing what?",choices:["Compressive stress","Tensile stress","Electrical stress","Velocity"],answer:0},
-  {q:"A force causing layers of material to slide is related to what?",choices:["Shear stress","Tensile stress","Compressive stress","Young's strain"],answer:0},
-  {q:"What does strain describe?",choices:["Deformation caused by loading","Force per unit area","The weight of an object","The speed of a part"],answer:0},
+  {q:"What is inertia?",choices:["An object's tendency to resist changes in motion","The force of friction only","The speed of an object","The distance traveled"],answer:0},
+  {q:"What happens to inertia when mass increases?",choices:["Inertia increases","Inertia decreases","Inertia becomes zero","Inertia becomes velocity"],answer:0},
+  {q:"Which object has more inertia?",choices:["A loaded truck","An empty shopping cart","A tennis ball","A pencil"],answer:0},
+  {q:"Why is a loaded truck harder to stop than a bicycle?",choices:["It has more mass and inertia","It has less momentum","It has no forces","It has no acceleration"],answer:0},
+  {q:"A passenger lurching forward when a car brakes is an example of what?",choices:["Inertia","Static equilibrium","Thermal expansion","Young's Modulus"],answer:0},
+  {q:"What is Newton's Second Law?",choices:["F = ma","p = mv","W = Fd","F = μN"],answer:0},
+  {q:"In F = ma, what does F represent?",choices:["Net force","Friction only","Final distance","Frequency"],answer:0},
+  {q:"In F = ma, what does m represent?",choices:["Mass","Momentum","Meters traveled","Mechanical energy"],answer:0},
+  {q:"In F = ma, what does a represent?",choices:["Acceleration","Area","Applied distance","Angle"],answer:0},
+  {q:"What unit is force measured in?",choices:["Newtons","Kilograms","Meters","Seconds"],answer:0},
 
-  {q:"What symbol is commonly used for strain?",choices:["ε","σ","E","F"],answer:0},
-  {q:"What is the formula for strain?",choices:["ε = ΔL / L₀","σ = F / A","F = σA","W = mg"],answer:0},
-  {q:"In the strain formula, what does ΔL mean?",choices:["Change in length","Original length","Applied force","Area"],answer:0},
-  {q:"In the strain formula, what does L₀ mean?",choices:["Original length","Final force","Stress","Area"],answer:0},
-  {q:"Why does strain have no units?",choices:["It is a ratio of two lengths","It is a force","It is measured in Pascals","It is always zero"],answer:0},
-  {q:"If an object stretches more, what happens to strain?",choices:["Strain increases","Strain decreases","Strain becomes stress","Strain disappears"],answer:0},
-  {q:"If original length is larger but change in length stays the same, strain becomes what?",choices:["Smaller","Larger","Always zero","Equal to stress"],answer:0},
-  {q:"A rod changes length from a force. That change relates most directly to what?",choices:["Strain","Pressure","Velocity","Temperature"],answer:0},
-  {q:"Stress describes the loading, while strain describes what?",choices:["The resulting deformation","The color change","The weight only","The time taken"],answer:0},
-  {q:"Elastic deformation means the material does what after the load is removed?",choices:["Returns to its original shape","Stays permanently deformed","Breaks instantly","Turns into liquid"],answer:0},
+  {q:"If force increases and mass stays the same, acceleration does what?",choices:["Increases","Decreases","Becomes zero","Becomes mass"],answer:0},
+  {q:"If mass increases and force stays the same, acceleration does what?",choices:["Decreases","Increases","Stays infinite","Turns into friction"],answer:0},
+  {q:"A shopping cart accelerates more easily than a loaded truck because it has what?",choices:["Less mass","More friction","No inertia","No acceleration"],answer:0},
+  {q:"What is Newton's Third Law?",choices:["For every action, there is an equal and opposite reaction","Force equals mass times acceleration","Objects resist motion change","Momentum equals mass times velocity"],answer:0},
+  {q:"When you walk forward, what do you push backward on?",choices:["The ground","The air only","Your shoes only","Nothing"],answer:0},
+  {q:"A rocket moves upward because exhaust is pushed which direction?",choices:["Downward","Upward","Sideways only","Nowhere"],answer:0},
+  {q:"A swimmer moves forward by pushing water in what direction?",choices:["Backward","Forward","Upward only","Downward only"],answer:0},
+  {q:"What is net force?",choices:["The sum of all forces acting on an object","Only the largest force","Only the smallest force","Mass times velocity"],answer:0},
+  {q:"If forces are 50 N right and 50 N left, what is net force?",choices:["0 N","100 N right","50 N right","50 N left"],answer:0},
+  {q:"If forces are 80 N right and 20 N left, what is net force?",choices:["60 N right","100 N right","60 N left","0 N"],answer:0},
 
-  {q:"Plastic deformation means the material does what after the load is removed?",choices:["Stays permanently deformed","Returns fully to original shape","Has no stress","Has no strain"],answer:0},
-  {q:"Engineers usually want parts to stay in what region during normal operation?",choices:["Elastic region","Plastic region","Broken region","Melted region"],answer:0},
-  {q:"Which deformation is temporary?",choices:["Elastic deformation","Plastic deformation","Permanent deformation","Fracture"],answer:0},
-  {q:"Which deformation is permanent?",choices:["Plastic deformation","Elastic deformation","Temporary deformation","No deformation"],answer:0},
-  {q:"If a spring-like material returns to its shape, it experienced what?",choices:["Elastic deformation","Plastic deformation","Failure","No load"],answer:0},
-  {q:"If a bent metal piece stays bent after unloading, it experienced what?",choices:["Plastic deformation","Elastic deformation","No strain","No stress"],answer:0},
-  {q:"Hooke's Law describes the relationship between what?",choices:["Stress and strain","Mass and speed","Heat and time","Force and color"],answer:0},
-  {q:"What is the Hooke's Law formula from the lesson?",choices:["σ = Eε","ε = ΔL / L₀","σ = F / A","F = σA"],answer:0},
-  {q:"In σ = Eε, what does E represent?",choices:["Young's Modulus","Elastic strain only","Energy loss","External force"],answer:0},
-  {q:"Young's Modulus is a measure of what?",choices:["Stiffness","Weight","Color","Speed"],answer:0},
+  {q:"Forces are vector quantities because they have what?",choices:["Magnitude and direction","Only magnitude","Only direction","No units"],answer:0},
+  {q:"Why do engineers break angled forces into components?",choices:["To analyze horizontal and vertical effects separately","To remove mass","To avoid using Newtons","To make force disappear"],answer:0},
+  {q:"What does Fx usually represent?",choices:["Horizontal force component","Vertical force component","Friction coefficient","Final velocity"],answer:0},
+  {q:"What does Fy usually represent?",choices:["Vertical force component","Horizontal force component","Final distance","Frequency"],answer:0},
+  {q:"What is a Free Body Diagram?",choices:["A diagram showing all forces acting on an object","A graph of temperature","A drawing of only motion","A stress-strain chart"],answer:0},
+  {q:"Why are Free Body Diagrams useful?",choices:["They help identify forces and directions","They remove the need for equations","They only show speed","They only show mass"],answer:0},
+  {q:"Which is a common force shown on a Free Body Diagram?",choices:["Weight","Voltage","Density","Temperature"],answer:0},
+  {q:"Which force acts downward due to gravity?",choices:["Weight","Normal force","Tension","Applied force"],answer:0},
+  {q:"Which force is often provided by a surface?",choices:["Normal force","Weight","Momentum","Velocity"],answer:0},
+  {q:"Which force is transmitted through a rope or cable?",choices:["Tension","Weight","Normal force","Momentum"],answer:0},
 
-  {q:"A material with larger Young's Modulus resists deformation how?",choices:["More effectively","Less effectively","Not at all","Only when hot"],answer:0},
-  {q:"Hooke's Law applies while the material remains in what region?",choices:["Elastic region","Plastic region","Broken region","Melted region"],answer:0},
-  {q:"If stress and strain are proportional, the material is behaving how?",choices:["Elastically","Randomly","Permanently deformed","Without force"],answer:0},
-  {q:"What does a high Young's Modulus usually mean?",choices:["The material is stiffer","The material is weaker automatically","The material has no area","The material has no stress"],answer:0},
-  {q:"What formula can be rearranged to find force from stress?",choices:["σ = F / A","ε = ΔL / L₀","σ = Eε","v = d / t"],answer:0},
-  {q:"If σ = F / A, then F equals what?",choices:["σA","σ / A","A / σ","εL₀"],answer:0},
-  {q:"If ε = ΔL / L₀, then ΔL equals what?",choices:["εL₀","ε / L₀","L₀ / ε","σA"],answer:0},
-  {q:"If σ = Eε, then E equals what?",choices:["σ / ε","σε","ε / σ","F / A"],answer:0},
-  {q:"A bridge supporting vehicles is an example where engineers use what?",choices:["Stress and strain analysis","Only color design","No calculations","Only coding"],answer:0},
-  {q:"Bolts holding machine components together are affected by what?",choices:["Stress and strain","Only sound","Only light","No forces"],answer:0},
+  {q:"What does friction do?",choices:["Opposes motion between surfaces","Always increases speed","Removes gravity","Creates mass"],answer:0},
+  {q:"What is the friction formula from the lesson?",choices:["F = μN","F = ma","p = mv","W = Fd"],answer:0},
+  {q:"In F = μN, what does μ represent?",choices:["Coefficient of friction","Momentum","Mass","Velocity"],answer:0},
+  {q:"In F = μN, what does N represent?",choices:["Normal force","Net work","Newton's Third Law","Number of objects"],answer:0},
+  {q:"Friction can slow objects down because it does what?",choices:["Opposes motion","Increases mass","Removes velocity instantly","Cancels gravity"],answer:0},
+  {q:"Static friction acts when surfaces are doing what?",choices:["Not sliding relative to each other","Already sliding","Melting","Accelerating upward only"],answer:0},
+  {q:"Kinetic friction acts when surfaces are doing what?",choices:["Sliding against each other","Not touching","Perfectly still with no force","Orbiting"],answer:0},
+  {q:"Which friction usually prevents motion from starting?",choices:["Static friction","Kinetic friction","Air pressure","Momentum"],answer:0},
+  {q:"Which friction acts after sliding begins?",choices:["Kinetic friction","Static friction","Normal friction","Elastic friction"],answer:0},
+  {q:"Kinetic friction is usually what compared to static friction?",choices:["Smaller","Larger","Always zero","The same as mass"],answer:0},
 
-  {q:"Crane cables lifting heavy objects mainly deal with what pulling effect?",choices:["Tensile stress","Compressive stress","No stress","Thermal motion"],answer:0},
-  {q:"Vehicle frames supporting passengers must be designed to handle what?",choices:["Loads safely","No forces","Only air","Only color"],answer:0},
-  {q:"Aircraft wings carrying aerodynamic loads require what kind of analysis?",choices:["Stress and strain analysis","Grammar analysis","Music analysis","Only temperature reading"],answer:0},
-  {q:"Stress is caused when external force creates internal resisting forces inside what?",choices:["A material","Empty space","Only water","Only air"],answer:0},
-  {q:"The cross-sectional area in stress calculations is the area resisting what?",choices:["The applied force","The clock time","The color","The website layout"],answer:0},
-  {q:"If force is 1000 N and area is 0.005 m², what is stress?",choices:["200,000 Pa","5 Pa","995 Pa","0.000005 Pa"],answer:0},
-  {q:"If force is 500 N and area is 0.01 m², what is stress?",choices:["50,000 Pa","5 Pa","500 Pa","0.02 Pa"],answer:0},
-  {q:"If force is 2000 N and area is 0.02 m², what is stress?",choices:["100,000 Pa","40 Pa","2000 Pa","0.00001 Pa"],answer:0},
-  {q:"If force is 300 N and area is 0.003 m², what is stress?",choices:["100,000 Pa","900 Pa","0.00001 Pa","303 Pa"],answer:0},
-  {q:"If force is 800 N and area is 0.004 m², what is stress?",choices:["200,000 Pa","3200 Pa","0.005 Pa","804 Pa"],answer:0},
+  {q:"Acceleration can mean which of the following?",choices:["Speeding up, slowing down, or changing direction","Only speeding up","Only stopping","Only moving straight"],answer:0},
+  {q:"If a car changes direction while speed stays constant, is it accelerating?",choices:["Yes, because velocity changes","No, because speed is constant","Only if mass changes","Only if friction is zero"],answer:0},
+  {q:"Circular motion involves constant changes in what?",choices:["Direction","Mass","Material strength","Temperature"],answer:0},
+  {q:"What is centripetal acceleration?",choices:["Acceleration toward the center of circular motion","Acceleration away from all forces","Acceleration caused only by heat","Acceleration with no direction"],answer:0},
+  {q:"Which is an example of circular motion?",choices:["A car driving around a curve","A book resting on a table","A box hanging still","A rod stretching"],answer:0},
+  {q:"Momentum describes what?",choices:["Quantity of motion","Amount of heat","Stress per area","Change in length"],answer:0},
+  {q:"What is the formula for momentum?",choices:["p = mv","F = ma","F = μN","W = Fd"],answer:0},
+  {q:"In p = mv, what does p represent?",choices:["Momentum","Pressure","Power","Position"],answer:0},
+  {q:"In p = mv, what does v represent?",choices:["Velocity","Volume","Voltage","Vertical force"],answer:0},
+  {q:"What happens to momentum if mass increases and velocity stays the same?",choices:["Momentum increases","Momentum decreases","Momentum becomes zero","Momentum becomes acceleration"],answer:0},
 
-  {q:"If stress is 200,000 Pa and area is 0.005 m², what is force?",choices:["1000 N","40 N","200,005 N","0.000025 N"],answer:0},
-  {q:"If stress is 50,000 Pa and area is 0.01 m², what is force?",choices:["500 N","50,000 N","5 N","0.0002 N"],answer:0},
-  {q:"If stress is 100,000 Pa and area is 0.02 m², what is force?",choices:["2000 N","5000 N","100 N","0.0000002 N"],answer:0},
-  {q:"If stress is 75,000 Pa and area is 0.004 m², what is force?",choices:["300 N","18,750 N","75,004 N","0.000053 N"],answer:0},
-  {q:"If stress is 120,000 Pa and area is 0.01 m², what is force?",choices:["1200 N","12 N","120,000 N","0.000083 N"],answer:0},
-  {q:"If a 2 m rod stretches by 0.004 m, what is strain?",choices:["0.002","0.008","500","2.004"],answer:0},
-  {q:"If a 4 m rod stretches by 0.008 m, what is strain?",choices:["0.002","0.032","500","4.008"],answer:0},
-  {q:"If a 5 m rod stretches by 0.01 m, what is strain?",choices:["0.002","0.05","500","5.01"],answer:0},
-  {q:"If a 10 m rod stretches by 0.02 m, what is strain?",choices:["0.002","0.2","500","10.02"],answer:0},
-  {q:"If a 1 m rod stretches by 0.001 m, what is strain?",choices:["0.001","1000","1.001","0.000001"],answer:0},
+  {q:"What happens to momentum if velocity increases and mass stays the same?",choices:["Momentum increases","Momentum decreases","Momentum becomes friction","Momentum becomes normal force"],answer:0},
+  {q:"Why does a fast-moving truck have more momentum than a bicycle?",choices:["It has much greater mass and may have high velocity","It has less inertia","It has no net force","It has no kinetic motion"],answer:0},
+  {q:"Changing momentum requires what?",choices:["Force","Color","Temperature only","No interaction"],answer:0},
+  {q:"Engineers study momentum when designing what?",choices:["Vehicle safety systems","Paint colors","Website fonts","Chemical formulas"],answer:0},
+  {q:"Which safety device relates to momentum and force during crashes?",choices:["Airbags","Thermometers","Pulleys only","Calipers"],answer:0},
+  {q:"What is work in dynamics?",choices:["A force causing displacement","Mass sitting still","Stress divided by strain","Heat with no motion"],answer:0},
+  {q:"What is the basic formula for work?",choices:["W = Fd","F = ma","p = mv","F = μN"],answer:0},
+  {q:"In W = Fd, what does d represent?",choices:["Distance or displacement","Density","Diameter only","Direction only"],answer:0},
+  {q:"What is energy?",choices:["The ability to do work","The same as mass","Only friction","Only acceleration"],answer:0},
+  {q:"Machines often convert energy into what?",choices:["Motion","Color","Mass","Area"],answer:0},
 
-  {q:"If strain is 0.002 and original length is 2 m, what is change in length?",choices:["0.004 m","0.001 m","4 m","1000 m"],answer:0},
-  {q:"If strain is 0.003 and original length is 3 m, what is change in length?",choices:["0.009 m","0.001 m","9 m","1000 m"],answer:0},
-  {q:"If strain is 0.0015 and original length is 3 m, what is change in length?",choices:["0.0045 m","0.5 m","2000 m","3.0015 m"],answer:0},
-  {q:"If strain is 0.002 and original length is 5 m, what is change in length?",choices:["0.01 m","0.4 m","2500 m","5.002 m"],answer:0},
-  {q:"If strain is 0.004 and original length is 1.5 m, what is change in length?",choices:["0.006 m","0.375 m","1.504 m","375 m"],answer:0},
-  {q:"If stress is 400,000,000 Pa and strain is 0.002, what is Young's Modulus?",choices:["200,000,000,000 Pa","800,000 Pa","400,000,000 Pa","0.000005 Pa"],answer:0},
-  {q:"If stress is 100,000,000 Pa and strain is 0.001, what is Young's Modulus?",choices:["100,000,000,000 Pa","100,000 Pa","100,000,001 Pa","0.00001 Pa"],answer:0},
-  {q:"If stress is 150,000,000 Pa and strain is 0.003, what is Young's Modulus?",choices:["50,000,000,000 Pa","450,000 Pa","150,000,003 Pa","0.00002 Pa"],answer:0},
-  {q:"If stress is 60,000,000 Pa and strain is 0.002, what is Young's Modulus?",choices:["30,000,000,000 Pa","120,000 Pa","60,000,002 Pa","0.00003 Pa"],answer:0},
-  {q:"If stress is 200,000,000 Pa and strain is 0.001, what is Young's Modulus?",choices:["200,000,000,000 Pa","200,000 Pa","200,000,001 Pa","0.000005 Pa"],answer:0},
+  {q:"If a 5 kg object accelerates at 3 m/s², what is net force?",choices:["15 N","8 N","1.67 N","0 N"],answer:0},
+  {q:"If a 10 kg object accelerates at 2 m/s², what is net force?",choices:["20 N","12 N","5 N","0 N"],answer:0},
+  {q:"If a 4 kg object accelerates at 6 m/s², what is net force?",choices:["24 N","10 N","1.5 N","0 N"],answer:0},
+  {q:"If a 50 N net force acts on a 10 kg object, what is acceleration?",choices:["5 m/s²","500 m/s²","0.2 m/s²","60 m/s²"],answer:0},
+  {q:"If a 60 N net force acts on a 20 kg object, what is acceleration?",choices:["3 m/s²","80 m/s²","40 m/s²","0.33 m/s²"],answer:0},
+  {q:"If a 100 N net force acts on a 25 kg object, what is acceleration?",choices:["4 m/s²","2500 m/s²","125 m/s²","0.25 m/s²"],answer:0},
+  {q:"If mass is 12 kg and acceleration is 4 m/s², what is force?",choices:["48 N","16 N","3 N","0 N"],answer:0},
+  {q:"If mass is 8 kg and acceleration is 5 m/s², what is force?",choices:["40 N","13 N","1.6 N","0 N"],answer:0},
+  {q:"According to Newton's Second Law, increasing force while keeping mass constant causes acceleration to do what?",choices:["Increase","Decrease","Become zero","Remain unchanged"],answer:0},
+  {q:"According to Newton's Second Law, increasing mass while keeping force constant causes acceleration to do what?",choices:["Decrease","Increase","Become infinite","Remain unchanged"],answer:0},
 
-  {q:"1 MPa equals how many Pascals?",choices:["1,000,000 Pa","1,000 Pa","100 Pa","1 Pa"],answer:0},
-  {q:"1 GPa equals how many Pascals?",choices:["1,000,000,000 Pa","1,000,000 Pa","1000 Pa","10 Pa"],answer:0},
-  {q:"400 MPa equals how many Pascals?",choices:["400,000,000 Pa","400,000 Pa","400 Pa","4,000 Pa"],answer:0},
-  {q:"200 GPa equals how many Pascals?",choices:["200,000,000,000 Pa","200,000,000 Pa","200,000 Pa","200 Pa"],answer:0},
-  {q:"Which formula would you use to find stress if force and area are known?",choices:["σ = F / A","ε = ΔL / L₀","σ = Eε","ΔL = εL₀"],answer:0},
-  {q:"Which formula would you use to find strain if change in length and original length are known?",choices:["ε = ΔL / L₀","σ = F / A","F = σA","E = σ / ε"],answer:0},
-  {q:"Which formula would you use to find Young's Modulus if stress and strain are known?",choices:["E = σ / ε","F = σA","ΔL = εL₀","σ = F / A"],answer:0},
-  {q:"Which formula would you use to find applied force if stress and area are known?",choices:["F = σA","ε = ΔL / L₀","E = σ / ε","ΔL = εL₀"],answer:0},
-  {q:"Which formula would you use to find change in length if strain and original length are known?",choices:["ΔL = εL₀","F = σA","E = σ / ε","σ = F / A"],answer:0},
-  {q:"What is the main foundation topic of Strength of Materials in this lesson?",choices:["Stress and strain","Thermodynamic cycles","Fluid pressure","Electric current"],answer:0},
+  {q:"If 70 N acts right and 30 N acts left, what is net force?",choices:["40 N right","100 N right","40 N left","0 N"],answer:0},
+  {q:"If 100 N acts left and 45 N acts right, what is net force?",choices:["55 N left","145 N left","55 N right","0 N"],answer:0},
+  {q:"If 25 N right, 35 N right, and 40 N left act on an object, what is net force?",choices:["20 N right","100 N right","20 N left","0 N"],answer:0},
+  {q:"If 90 N right and 90 N left act on an object, what is net force?",choices:["0 N","180 N right","90 N right","90 N left"],answer:0},
+  {q:"If net force is 0 N, what can be said about acceleration?",choices:["Acceleration is zero","Acceleration is maximum","Acceleration equals mass","Acceleration equals velocity"],answer:0},
+  {q:"What happens when the net force equals zero?",choices:["No acceleration occurs","Acceleration increases","Mass becomes zero","Momentum disappears"],answer:0},
+  {q:"What happens when the net force does not equal zero?",choices:["The object accelerates","The object must stop","The object loses mass","No motion is possible"],answer:0},
+  {q:"If μ = 0.2 and N = 500 N, what is friction force?",choices:["100 N","2500 N","500.2 N","0.0004 N"],answer:0},
+  {q:"If μ = 0.4 and N = 300 N, what is friction force?",choices:["120 N","750 N","300.4 N","0.0013 N"],answer:0},
+  {q:"If μ = 0.25 and N = 800 N, what is friction force?",choices:["200 N","3200 N","800.25 N","0.0003 N"],answer:0},
 
-  {q:"If a material deforms under a load, engineers compare that deformation to what?",choices:["Original length","Color","Time of day","Temperature only"],answer:0},
-  {q:"If two rods have the same force but one has a larger area, which has lower stress?",choices:["The rod with larger area","The rod with smaller area","Both must have zero stress","Area does not matter"],answer:0},
-  {q:"If two rods have the same area but one has larger force, which has higher stress?",choices:["The rod with larger force","The rod with smaller force","Both have no stress","Force does not matter"],answer:0},
-  {q:"Why can strain be written as a decimal like 0.002?",choices:["Because it is a ratio","Because it is measured in Newtons","Because it is pressure","Because it is always a whole number"],answer:0},
-  {q:"Which statement is true?",choices:["Stress uses force and area","Stress uses only time","Strain uses only force","Young's Modulus measures color"],answer:0},
-  {q:"Which statement is true?",choices:["Strain compares change in length to original length","Strain is measured in Pascals","Strain is always larger than stress","Strain means weight"],answer:0},
-  {q:"Which statement is true?",choices:["Young's Modulus measures stiffness","Young's Modulus measures mass only","Young's Modulus measures speed","Young's Modulus measures volume only"],answer:0},
-  {q:"Which statement is true about elastic deformation?",choices:["It is temporary","It is always permanent","It means no stress exists","It means the material melted"],answer:0},
-  {q:"Which statement is true about plastic deformation?",choices:["It is permanent","It is always temporary","It means stress is zero","It means no load was applied"],answer:0},
-  {q:"In normal design, engineers usually try to avoid what?",choices:["Plastic deformation","Elastic behavior","Safe loading","Stiffness calculations"],answer:0}
+  {q:"If a 2 kg object moves at 6 m/s, what is momentum?",choices:["12 kg·m/s","8 kg·m/s","3 kg·m/s","0 kg·m/s"],answer:0},
+  {q:"If a 5 kg object moves at 4 m/s, what is momentum?",choices:["20 kg·m/s","9 kg·m/s","1.25 kg·m/s","0 kg·m/s"],answer:0},
+  {q:"If a 1,000 kg car moves at 15 m/s, what is momentum?",choices:["15,000 kg·m/s","1,015 kg·m/s","66.7 kg·m/s","0 kg·m/s"],answer:0},
+  {q:"Which type of motion causes acceleration even when speed stays constant?",choices:["Changing direction","Moving in a straight line","Remaining at rest","Having zero force"],answer:0},
+  {q:"Which object from the lesson demonstrates circular motion?",choices:["A satellite orbiting Earth","A book resting on a table","A hanging picture frame","A parked car"],answer:0},
+  {q:"If a force of 40 N moves an object 5 m, how much work is done?",choices:["200 J","45 J","8 J","0 J"],answer:0},
+  {q:"If a force of 100 N moves an object 3 m, how much work is done?",choices:["300 J","103 J","33.3 J","0 J"],answer:0},
+  {q:"Which safety devices mentioned in the lesson are designed using momentum concepts?",choices:["Airbags and seatbelts","Thermometers and rulers","Bolts and gears","Springs and pulleys"],answer:0},
+  {q:"Machines constantly convert energy into what?",choices:["Motion","Mass","Temperature","Density"],answer:0},
+  {q:"Why does dynamics matter in mechanical engineering?",choices:["Most machines move, accelerate, stop, or respond to forces","Machines never move","Dynamics only studies colors","Dynamics avoids force analysis"],answer:0}
 ];
 
 function shuffleQuestions() {
