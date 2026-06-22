@@ -1303,7 +1303,7 @@ function submitQuiz() {
   allQuestions.forEach((question, index) => {
     const saved = answeredQuestions[index];
 
-    if (saved && saved.selectedIndex === question.answer) {
+    if (saved && saved.selectedIndex === saved.correctIndex) {
       correct++;
     } else {
       wrong++;
