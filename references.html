@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="References and further reading for the Statics, Kinematics, Strength of Materials, and Dynamics lessons on Mechanical Engineering Helper."
+  >
+
+  <title>
+    References & Further Reading - Mechanical Engineering Helper
+  </title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-N9Z2PDQ677">
+  </script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+
+    gtag("config", "G-N9Z2PDQ677");
+  </script>
+</head>
+
+<body>
+
+  <!-- MENU BUTTON -->
+  <button
+    class="menu-button"
+    id="menuButton"
+    type="button"
+    onclick="toggleMenu()"
+    aria-label="Open navigation menu"
+    aria-controls="sideMenu"
+    aria-expanded="false"
+  >
+    ☰ <span>MENU</span>
+  </button>
+
+  <!-- WEBSITE LOGO -->
+  <div class="logo-button">
+    <a href="index.html">
+      <img
+        src="images/Mechanical Engineering Helper Logo.png"
+        alt="Mechanical Engineering Helper Logo"
+      >
+    </a>
+  </div>
+
+  <!-- SIDE MENU -->
+  <nav
+    id="sideMenu"
+    class="side-menu"
+    aria-label="Main navigation"
+  >
+
+    <a href="index.html">
+      Home
+    </a>
+
+    <div class="courses-section">
+
+      <div class="courses-toggle" onclick="toggleCourses()">
+  ▼ Courses
+</div>
+
+      <div
+        id="coursesSubmenu"
+        class="courses-submenu"
+      >
+
+        <a href="courses.html">
+          Courses Page
+        </a>
+
+        <a href="statics.html">
+          Statics
+        </a>
+
+        <a href="kinematics.html">
+          Kinematics
+        </a>
+
+        <a href="strength-materials.html">
+          Strength of Materials
+        </a>
+
+        <a href="dynamics.html">
+          Dynamics
+        </a>
+
+        <a href="thermodynamics.html">
+          Thermodynamics
+        </a>
+
+        <a href="units-math.html">
+          Units & Engineering Math
+        </a>
+
+      </div>
+    </div>
+
+    <a href="references.html" aria-current="page">
+      References & Further Reading
+    </a>
+
+    <a href="creators-journey.html">
+      Creator's Journey
+    </a>
+
+    <a href="reviews.html">
+      Reviews
+    </a>
+
+    <a href="donate.html">
+      Donate
+    </a>
+
+    <a href="about-me.html">
+      About Me
+    </a>
+
+    <a href="references.html" aria-current="page">
+  References & Further Reading
+</a>
+
+  </nav>
+
+  <!-- PAGE DESIGN ELEMENTS -->
+  <div class="ruler-frame"></div>
+  <div class="background"></div>
+
+  <!-- MAIN PAGE -->
+  <main class="course-page references-page">
+
+    <h1>
+      References & Further Reading
+    </h1>
+
+    <p class="coming-text">
+      Select a course below to view the textbooks, online resources,
+      government publications, and or further-reading materials connected
+      to its lessons.
+    </p>
+
+    <!-- COURSE TAB BUTTONS -->
+    <div
+      class="reference-tab-buttons"
+      role="tablist"
+      aria-label="Course reference sections"
+    >
+
+      <button
+        type="button"
+        class="reference-tab-button"
+        id="staticsTab"
+        role="tab"
+        aria-selected="false"
+        aria-controls="staticsReferences"
+        onclick="toggleReferenceTab('staticsReferences', this)"
+      >
+        Statics
+      </button>
+
+      <button
+        type="button"
+        class="reference-tab-button"
+        id="kinematicsTab"
+        role="tab"
+        aria-selected="false"
+        aria-controls="kinematicsReferences"
+        onclick="toggleReferenceTab('kinematicsReferences', this)"
+      >
+        Kinematics
+      </button>
+
+      <button
+        type="button"
+        class="reference-tab-button"
+        id="strengthTab"
+        role="tab"
+        aria-selected="false"
+        aria-controls="strengthReferences"
+        onclick="toggleReferenceTab('strengthReferences', this)"
+      >
+        Strength of Materials
+      </button>
+
+      <button
+        type="button"
+        class="reference-tab-button"
+        id="dynamicsTab"
+        role="tab"
+        aria-selected="false"
+        aria-controls="dynamicsReferences"
+        onclick="toggleReferenceTab('dynamicsReferences', this)"
+      >
+        Dynamics
+      </button>
+
+    </div>
+
+    <!-- INITIAL MESSAGE -->
+    <section
+      id="referenceInstructions"
+      class="reference-instructions lesson-content"
+    >
+      <h2>Select a Course</h2>
+
+      <p>
+        Click one of the course buttons above to open its complete
+        references and further-reading section.
+      </p>
+    </section>
+
+    <!-- =====================================================
+         STATICS REFERENCES
+         ===================================================== -->
+    <section
+      id="staticsReferences"
+      class="reference-tab-content lesson-content"
+      role="tabpanel"
+      aria-labelledby="staticsTab"
+      hidden
+    >
+
+      <section
+        class="references-section"
+        aria-labelledby="statics-references-heading"
+      >
+
+        <h2
+          id="statics-references-heading"
+          class="references-heading"
+        >
+          Statics References and Further Reading
+        </h2>
+
+        <p class="references-intro">
+          These sources provide additional explanations of force vectors,
+          common forces, free-body diagrams, and equilibrium.
+        </p>
+
+        <div class="references-grid">
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Engineering Textbook
+            </span>
+
+            <h3>
+              Engineering Mechanics: Statics
+            </h3>
+
+            <p class="reference-author">
+              <strong>Author:</strong>
+              Russell C. Hibbeler
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Publisher:</strong>
+              Pearson
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Force vectors</li>
+                <li>Free-body diagrams</li>
+                <li>Particle equilibrium</li>
+                <li>Force components</li>
+                <li>Normal force and tension</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://www.pearson.com/en-us/subject-catalog/p/engineering-mechanics-statics/P200000003369/9780137514663"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the official Pearson page for Engineering Mechanics Statics"
+            >
+              Visit Official Source
+            </a>
+
+          </article>
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Engineering Textbook
+            </span>
+
+            <h3>
+              Vector Mechanics for Engineers: Statics
+            </h3>
+
+            <p class="reference-author">
+              <strong>Authors:</strong>
+              Beer, Johnston, Mazurek and Cornwell
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Publisher:</strong>
+              McGraw Hill
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Vector forces</li>
+                <li>Equilibrium equations</li>
+                <li>Horizontal and vertical components</li>
+                <li>Engineering problem-solving</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://www.mheducation.com/highered/product/vector-mechanics-for-engineers-statics-beer.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the official McGraw Hill page for Vector Mechanics for Engineers Statics"
+            >
+              Visit Official Source
+            </a>
+
+          </article>
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Free Online Textbook
+            </span>
+
+            <h3>
+              University Physics: Common Forces
+            </h3>
+
+            <p class="reference-author">
+              <strong>Organization:</strong>
+              OpenStax
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Access:</strong>
+              Free online
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Weight</li>
+                <li>Normal force</li>
+                <li>Tension</li>
+                <li>Friction</li>
+                <li>Force diagrams</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://openstax.org/books/university-physics-volume-1/pages/5-6-common-forces"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read the OpenStax lesson about common forces"
+            >
+              Read Free Source
+            </a>
+
+          </article>
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Government Reference
+            </span>
+
+            <h3>
+              The International System of Units
+            </h3>
+
+            <p class="reference-author">
+              <strong>Organization:</strong>
+              National Institute of Standards and Technology
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Abbreviation:</strong>
+              NIST
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>The newton</li>
+                <li>SI measurement units</li>
+                <li>Force-unit definitions</li>
+                <li>Scientific unit conventions</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://physics.nist.gov/cuu/pdf/sp330.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the NIST International System of Units publication"
+            >
+              View NIST Publication
+            </a>
+
+          </article>
+
+        </div>
+
+        <p class="reference-note">
+          <strong>Source note:</strong>
+          This lesson presents established introductory engineering
+          concepts in original wording. Textbooks may require purchase,
+          while OpenStax and NIST resources are publicly accessible.
+        </p>
+
+        <a
+          href="statics.html"
+          class="course-reference-link"
+        >
+          Return to the Statics course
+        </a>
+
+      </section>
+
+    </section>
+
+    <!-- =====================================================
+         KINEMATICS REFERENCES
+         ===================================================== -->
+    <section
+      id="kinematicsReferences"
+      class="reference-tab-content lesson-content"
+      role="tabpanel"
+      aria-labelledby="kinematicsTab"
+      hidden
+    >
+
+      <section
+        class="references-section"
+        aria-labelledby="kinematics-references-heading"
+      >
+
+        <h2
+          id="kinematics-references-heading"
+          class="references-heading"
+        >
+          Kinematics References and Further Reading
+        </h2>
+
+        <p class="references-intro">
+          These sources provide additional explanations of position,
+          displacement, velocity, acceleration, and
+          constant-acceleration motion.
+        </p>
+
+        <div class="references-grid">
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Engineering Textbook
+            </span>
+
+            <h3>
+              Engineering Mechanics: Statics &amp; Dynamics
+            </h3>
+
+            <p class="reference-author">
+              <strong>Author:</strong>
+              Russell C. Hibbeler
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Publisher:</strong>
+              Pearson
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Particle kinematics</li>
+                <li>Position and displacement</li>
+                <li>Velocity</li>
+                <li>Acceleration</li>
+                <li>Rectilinear motion</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://www.pearson.com/en-us/subject-catalog/p/engineering-mechanics-statics-dynamics/P200000013571/9780135435854"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the official Pearson Engineering Mechanics Statics and Dynamics page"
+            >
+              Visit Official Source
+            </a>
+
+          </article>
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Engineering Textbook
+            </span>
+
+            <h3>
+              Vector Mechanics for Engineers: Dynamics
+            </h3>
+
+            <p class="reference-author">
+              <strong>Authors:</strong>
+              Beer, Johnston, Mazurek and Cornwell
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Publisher:</strong>
+              McGraw Hill
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Motion analysis</li>
+                <li>Particle kinematics</li>
+                <li>Velocity relationships</li>
+                <li>Acceleration relationships</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://www.mheducation.com/highered/product/vector-mechanics-engineers-dynamics.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the official McGraw Hill Vector Mechanics for Engineers Dynamics page"
+            >
+              Visit Official Source
+            </a>
+
+          </article>
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Free Online Textbook
+            </span>
+
+            <h3>
+              University Physics: Motion Along a Straight Line
+            </h3>
+
+            <p class="reference-author">
+              <strong>Organization:</strong>
+              OpenStax
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Access:</strong>
+              Free online
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Position</li>
+                <li>Displacement</li>
+                <li>Average velocity</li>
+                <li>Instantaneous velocity</li>
+                <li>Acceleration</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://openstax.org/books/university-physics-volume-1/pages/3-introduction"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read the OpenStax introduction to motion along a straight line"
+            >
+              Read Free Source
+            </a>
+
+          </article>
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Physics Textbook
+            </span>
+
+            <h3>
+              Fundamentals of Physics, Extended
+            </h3>
+
+            <p class="reference-author">
+              <strong>Authors:</strong>
+              Halliday, Resnick and Walker
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Publisher:</strong>
+              Wiley
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Distance and displacement</li>
+                <li>Speed and velocity</li>
+                <li>Acceleration</li>
+                <li>Motion equations</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://www.wiley.com/en-us/Fundamentals%2Bof%2BPhysics%2C%2BExtended%2C%2B12th%2BEdition-p-9781119773511"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the official Wiley Fundamentals of Physics page"
+            >
+              Visit Official Source
+            </a>
+
+          </article>
+
+        </div>
+
+        <p class="reference-note">
+          <strong>Important:</strong>
+          Equations such as
+          v<sub>f</sub> = v<sub>i</sub> + at and
+          Δx = v<sub>i</sub>t + ½at² require constant acceleration.
+        </p>
+
+        <a
+          href="kinematics.html"
+          class="course-reference-link"
+        >
+          Return to the Kinematics course
+        </a>
+
+      </section>
+
+    </section>
+
+    <!-- =====================================================
+         STRENGTH OF MATERIALS REFERENCES
+         ===================================================== -->
+    <section
+      id="strengthReferences"
+      class="reference-tab-content lesson-content"
+      role="tabpanel"
+      aria-labelledby="strengthTab"
+      hidden
+    >
+
+      <section
+        class="references-section"
+        aria-labelledby="materials-references-heading"
+      >
+
+        <h2
+          id="materials-references-heading"
+          class="references-heading"
+        >
+          Strength of Materials References and Further Reading
+        </h2>
+
+        <p class="references-intro">
+          These sources provide additional explanations of stress,
+          strain, material deformation, Hooke's law, and Young's modulus.
+        </p>
+
+        <div class="references-grid">
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Engineering Textbook
+            </span>
+
+            <h3>
+              Mechanics of Materials
+            </h3>
+
+            <p class="reference-author">
+              <strong>Author:</strong>
+              Russell C. Hibbeler
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Publisher:</strong>
+              Pearson
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Normal stress</li>
+                <li>Normal strain</li>
+                <li>Axial loading</li>
+                <li>Elastic deformation</li>
+                <li>Young's modulus</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://www.pearson.com/en-us/subject-catalog/p/mechanics-of-materials/P200000003409/9780137605385"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the official Pearson Mechanics of Materials page"
+            >
+              Visit Official Source
+            </a>
+
+          </article>
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Engineering Textbook
+            </span>
+
+            <h3>
+              Mechanics of Materials
+            </h3>
+
+            <p class="reference-author">
+              <strong>Authors:</strong>
+              Beer, Johnston, DeWolf and Mazurek
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Publisher:</strong>
+              McGraw Hill
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Tensile stress</li>
+                <li>Compressive stress</li>
+                <li>Shear stress</li>
+                <li>Stress-strain behavior</li>
+                <li>Material deformation</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://www.mheducation.com/highered/product/mechanics-of-materials-beer.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the official McGraw Hill Mechanics of Materials page"
+            >
+              Visit Official Source
+            </a>
+
+          </article>
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Combined Engineering Textbook
+            </span>
+
+            <h3>
+              Statics and Mechanics of Materials
+            </h3>
+
+            <p class="reference-author">
+              <strong>Authors:</strong>
+              Beer, Johnston, DeWolf and Mazurek
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Publisher:</strong>
+              McGraw Hill
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Applied loading</li>
+                <li>Internal forces</li>
+                <li>Stress and strain</li>
+                <li>Engineering design</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://www.mheducation.com/highered/product/statics-and-mechanics-of-materials-beer.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the official McGraw Hill Statics and Mechanics of Materials page"
+            >
+              Visit Official Source
+            </a>
+
+          </article>
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Government Reference
+            </span>
+
+            <h3>
+              International System of Units
+            </h3>
+
+            <p class="reference-author">
+              <strong>Organization:</strong>
+              National Institute of Standards and Technology
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Abbreviation:</strong>
+              NIST
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Pascal</li>
+                <li>Megapascal</li>
+                <li>Pressure and stress units</li>
+                <li>SI notation</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://physics.nist.gov/cuu/pdf/sp330.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the NIST International System of Units publication"
+            >
+              View NIST Publication
+            </a>
+
+          </article>
+
+        </div>
+
+        <p class="reference-note">
+          <strong>Important:</strong>
+          The equation σ = Eε describes linear-elastic behavior.
+          It should not be assumed to apply after a material leaves
+          its linear-elastic range.
+        </p>
+
+        <a
+          href="strength-materials.html"
+          class="course-reference-link"
+        >
+          Return to the Strength of Materials course
+        </a>
+
+      </section>
+
+    </section>
+
+    <!-- =====================================================
+         DYNAMICS REFERENCES
+         ===================================================== -->
+    <section
+      id="dynamicsReferences"
+      class="reference-tab-content lesson-content"
+      role="tabpanel"
+      aria-labelledby="dynamicsTab"
+      hidden
+    >
+
+      <section
+        class="references-section"
+        aria-labelledby="dynamics-references-heading"
+      >
+
+        <h2
+          id="dynamics-references-heading"
+          class="references-heading"
+        >
+          Dynamics References and Further Reading
+        </h2>
+
+        <p class="references-intro">
+          These sources provide additional explanations of Newton's laws,
+          free-body diagrams, friction, circular motion, momentum,
+          work, and energy.
+        </p>
+
+        <div class="references-grid">
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Engineering Textbook
+            </span>
+
+            <h3>
+              Engineering Mechanics: Statics &amp; Dynamics
+            </h3>
+
+            <p class="reference-author">
+              <strong>Author:</strong>
+              Russell C. Hibbeler
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Publisher:</strong>
+              Pearson
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Newton's laws</li>
+                <li>Force and acceleration</li>
+                <li>Free-body diagrams</li>
+                <li>Work and energy</li>
+                <li>Impulse and momentum</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://www.pearson.com/en-us/subject-catalog/p/engineering-mechanics-statics-dynamics/P200000013571/9780135435854"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the official Pearson Engineering Mechanics Statics and Dynamics page"
+            >
+              Visit Official Source
+            </a>
+
+          </article>
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Engineering Textbook
+            </span>
+
+            <h3>
+              Vector Mechanics for Engineers: Dynamics
+            </h3>
+
+            <p class="reference-author">
+              <strong>Authors:</strong>
+              Beer, Johnston, Mazurek and Cornwell
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Publisher:</strong>
+              McGraw Hill
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Particle kinetics</li>
+                <li>Newton's second law</li>
+                <li>Work-energy methods</li>
+                <li>Momentum methods</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://www.mheducation.com/highered/product/vector-mechanics-engineers-dynamics.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the official McGraw Hill Vector Mechanics for Engineers Dynamics page"
+            >
+              Visit Official Source
+            </a>
+
+          </article>
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Government Educational Source
+            </span>
+
+            <h3>
+              Newton's Laws of Motion
+            </h3>
+
+            <p class="reference-author">
+              <strong>Organization:</strong>
+              NASA Glenn Research Center
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Program:</strong>
+              Beginner's Guide to Aeronautics
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Newton's first law</li>
+                <li>Inertia</li>
+                <li>Newton's second law</li>
+                <li>Newton's third law</li>
+                <li>Engineering applications</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/newtons-laws-of-motion/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read NASA's explanation of Newton's laws of motion"
+            >
+              Read NASA Source
+            </a>
+
+          </article>
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Free Online Textbook
+            </span>
+
+            <h3>
+              University Physics: Newton's Laws
+            </h3>
+
+            <p class="reference-author">
+              <strong>Organization:</strong>
+              OpenStax
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Access:</strong>
+              Free online
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Forces</li>
+                <li>Equilibrium</li>
+                <li>Free-body diagrams</li>
+                <li>Friction</li>
+                <li>Acceleration</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://openstax.org/books/university-physics-volume-1/pages/5-introduction"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read the OpenStax chapter about Newton's laws of motion"
+            >
+              Read Free Source
+            </a>
+
+          </article>
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Free Online Textbook
+            </span>
+
+            <h3>
+              Work, Energy and Power
+            </h3>
+
+            <p class="reference-author">
+              <strong>Organization:</strong>
+              OpenStax
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Access:</strong>
+              Free online
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Mechanical work</li>
+                <li>Kinetic energy</li>
+                <li>Power</li>
+                <li>Work-energy theorem</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://openstax.org/books/university-physics-volume-1/pages/7-introduction"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Read the OpenStax chapter about work and kinetic energy"
+            >
+              Read Free Source
+            </a>
+
+          </article>
+
+          <article class="reference-card">
+
+            <span class="reference-type">
+              Physics Textbook
+            </span>
+
+            <h3>
+              Fundamentals of Physics, Extended
+            </h3>
+
+            <p class="reference-author">
+              <strong>Authors:</strong>
+              Halliday, Resnick and Walker
+            </p>
+
+            <p class="reference-publisher">
+              <strong>Publisher:</strong>
+              Wiley
+            </p>
+
+            <div class="reference-topics">
+              <strong>Related topics:</strong>
+
+              <ul>
+                <li>Force and motion</li>
+                <li>Circular motion</li>
+                <li>Momentum</li>
+                <li>Work and energy</li>
+              </ul>
+            </div>
+
+            <a
+              class="reference-button"
+              href="https://www.wiley.com/en-us/Fundamentals%2Bof%2BPhysics%2C%2BExtended%2C%2B12th%2BEdition-p-9781119773511"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open the official Wiley Fundamentals of Physics page"
+            >
+              Visit Official Source
+            </a>
+
+          </article>
+
+        </div>
+
+        <p class="reference-note">
+          <strong>Important:</strong>
+          Static friction satisfies
+          F<sub>s</sub> ≤ μ<sub>s</sub>N, while the common
+          kinetic-friction model is
+          F<sub>k</sub> = μ<sub>k</sub>N.
+          For a constant force, work is
+          W = Fd cos(θ).
+        </p>
+
+        <a
+          href="dynamics.html"
+          class="course-reference-link"
+        >
+          Return to the Dynamics course
+        </a>
+
+      </section>
+
+    </section>
+
+    <a href="index.html" class="back-link">
+      <button
+        class="back-button"
+        type="button"
+      >
+        Back Home
+      </button>
+    </a>
+
+  </main>
+
+  <script>
+    function toggleMenu() {
+      const sideMenu =
+        document.getElementById("sideMenu");
+
+      const menuButton =
+        document.getElementById("menuButton");
+
+      const menuIsOpen =
+        sideMenu.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        menuIsOpen.toString()
+      );
+    }
+
+    function toggleCourses() {
+  document
+    .getElementById("coursesSubmenu")
+    .classList
+    .toggle("open");
+}
+
+    function toggleReferenceTab(tabId, clickedButton) {
+      const allTabContents =
+        document.querySelectorAll(".reference-tab-content");
+
+      const allTabButtons =
+        document.querySelectorAll(".reference-tab-button");
+
+      const selectedContent =
+        document.getElementById(tabId);
+
+      const instructions =
+        document.getElementById("referenceInstructions");
+
+      const selectedTabIsOpen =
+        !selectedContent.hasAttribute("hidden");
+
+      allTabContents.forEach(function(content) {
+        content.setAttribute("hidden", "");
+      });
+
+      allTabButtons.forEach(function(button) {
+        button.classList.remove("active");
+        button.setAttribute("aria-selected", "false");
+      });
+
+      if (selectedTabIsOpen) {
+        instructions.style.display = "block";
+        return;
+      }
+
+      selectedContent.removeAttribute("hidden");
+
+      clickedButton.classList.add("active");
+
+      clickedButton.setAttribute(
+        "aria-selected",
+        "true"
+      );
+
+      instructions.style.display = "none";
+
+      selectedContent.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+      if (typeof gtag === "function") {
+        gtag("event", "reference_tab_opened", {
+          course_reference_tab: tabId
+        });
+      }
+    }
+
+    document.addEventListener("click", function(event) {
+      const sideMenu =
+        document.getElementById("sideMenu");
+
+      const menuButton =
+        document.getElementById("menuButton");
+
+      const clickedInsideMenu =
+        sideMenu.contains(event.target);
+
+      const clickedMenuButton =
+        menuButton.contains(event.target);
+
+      if (
+        sideMenu.classList.contains("open") &&
+        !clickedInsideMenu &&
+        !clickedMenuButton
+      ) {
+        sideMenu.classList.remove("open");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+      }
+    });
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        document
+          .getElementById("sideMenu")
+          .classList
+          .remove("open");
+
+        document
+          .getElementById("menuButton")
+          .setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
+
+</body>
+</html>
