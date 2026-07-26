@@ -767,119 +767,747 @@ let allQuestions = [];
 let answeredQuestions = {};
 
 const quizQuestions = [
-  {q:"What is kinematics mainly about?",choices:["Forces that cause motion","Motion without focusing on forces","Heat transfer","Material strength"],answer:1},
-  {q:"Kinematics focuses on describing what?",choices:["How objects move","Why forces act","How materials bend","How energy is lost"],answer:0},
-  {q:"Motion happens when an object changes what over time?",choices:["Mass","Position","Color","Temperature"],answer:1},
-  {q:"Which quantity tells where an object is located?",choices:["Position","Velocity","Acceleration","Time"],answer:0},
-  {q:"Which quantity tells how long motion takes?",choices:["Velocity","Displacement","Time","Acceleration"],answer:2},
-  {q:"Which quantity tells how quickly position changes?",choices:["Velocity","Mass","Force","Friction"],answer:0},
-  {q:"Which quantity tells how quickly velocity changes?",choices:["Position","Acceleration","Distance","Time"],answer:1},
-  {q:"What is displacement?",choices:["Total path traveled","Change in position from start to finish","Speed only","Time traveled"],answer:1},
-  {q:"What is distance?",choices:["Total path traveled","Change in position only","Direction only","Acceleration"],answer:0},
-  {q:"Which one includes direction?",choices:["Distance","Displacement","Time","Path length"],answer:1},
+  {
+  q: "What is kinematics mainly about?",
+  choices: ["Forces that cause motion", "Motion without focusing on forces", "Heat transfer", "Material strength"],
+  answer: 1,
+  explanation: "Kinematics is the study of motion without considering the forces that cause the motion. It focuses on describing how objects move."
+},
 
-  {q:"A robot moves 5 m forward and 2 m backward. What is the total distance?",choices:["3 m","5 m","7 m","10 m"],answer:2},
-  {q:"A robot moves 5 m forward and 2 m backward. What is the displacement?",choices:["7 m forward","3 m forward","2 m backward","5 m forward"],answer:1},
-  {q:"Speed tells what?",choices:["How fast something moves","How fast and in what direction","Change in velocity","Change in position with direction"],answer:0},
-  {q:"Velocity tells what?",choices:["Only how fast something moves","How fast something moves and in what direction","Only time","Only distance"],answer:1},
-  {q:"Why is velocity a vector?",choices:["It has magnitude and direction","It has no direction","It only measures time","It only measures distance"],answer:0},
-  {q:"Which quantity is most directly calculated using v = d / t?",choices:["Velocity","Acceleration","Time squared","Mass"],answer:0},
-  {q:"In v = d / t, what does d represent?",choices:["Distance or displacement","Density","Direction only","Drag"],answer:0},
-  {q:"In v = d / t, what does t represent?",choices:["Tension","Temperature","Time","Total force"],answer:2},
-  {q:"What unit is commonly used for velocity?",choices:["m/s","kg","N","m/s²"],answer:0},
-  {q:"What unit is commonly used for acceleration?",choices:["m/s","m/s²","kg","N"],answer:1},
+{
+  q: "Kinematics focuses on describing what?",
+  choices: ["How objects move", "Why forces act", "How materials bend", "How energy is lost"],
+  answer: 0,
+  explanation: "Kinematics describes an object's motion by examining quantities such as position, velocity, acceleration, and time."
+},
 
-  {q:"A robot moves 12 m in 4 s. What is its velocity?",choices:["2 m/s","3 m/s","4 m/s","48 m/s"],answer:1},
-  {q:"A cart moves 20 m in 5 s. What is its velocity?",choices:["2 m/s","4 m/s","5 m/s","100 m/s"],answer:1},
-  {q:"A machine part moves 30 m in 10 s. What is its velocity?",choices:["3 m/s","10 m/s","30 m/s","300 m/s"],answer:0},
-  {q:"A car travels 60 m in 6 s. What is its average velocity?",choices:["6 m/s","10 m/s","60 m/s","360 m/s"],answer:1},
-  {q:"An elevator moves 15 m upward in 5 s. What is its velocity?",choices:["3 m/s upward","5 m/s upward","10 m/s upward","75 m/s upward"],answer:0},
-  {q:"A robot travels 24 m in 8 s. What is its velocity?",choices:["2 m/s","3 m/s","4 m/s","8 m/s"],answer:1},
-  {q:"A conveyor belt moves 18 m in 6 s. What is its speed?",choices:["2 m/s","3 m/s","6 m/s","12 m/s"],answer:1},
-  {q:"If displacement is 50 m and time is 10 s, what is velocity?",choices:["5 m/s","10 m/s","40 m/s","500 m/s"],answer:0},
-  {q:"If velocity is 4 m/s and time is 5 s, what displacement is covered?",choices:["9 m","20 m","1.25 m","45 m"],answer:1},
-  {q:"If velocity is 6 m/s and time is 3 s, what displacement is covered?",choices:["2 m","9 m","18 m","36 m"],answer:2},
+{
+  q: "Motion happens when an object changes what over time?",
+  choices: ["Mass", "Position", "Color", "Temperature"],
+  answer: 1,
+  explanation: "Motion occurs whenever an object's position changes over time relative to a reference point."
+},
 
-  {q:"Acceleration is the rate of change of what?",choices:["Position","Velocity","Distance","Time"],answer:1},
-  {q:"An object accelerates when it does what?",choices:["Speeds up only","Slows down only","Changes direction only","Speeds up, slows down, or changes direction"],answer:3},
-  {q:"What does Δv mean?",choices:["Change in velocity","Change in position","Change in time","Final velocity only"],answer:0},
-  {q:"What formula finds acceleration?",choices:["a = Δv / t","v = d / t","d = vt only","vf = vi"],answer:0},
-  {q:"What formula finds change in velocity?",choices:["Δv = vf − vi","Δv = vi − vf","Δv = d / t","Δv = at²"],answer:0},
-  {q:"In Δv = vf − vi, what does vf mean?",choices:["Final velocity","Force value","Friction velocity","First velocity"],answer:0},
-  {q:"In Δv = vf − vi, what does vi mean?",choices:["Initial velocity","Instant velocity only","Inclined velocity","Internal velocity"],answer:0},
-  {q:"A cart speeds up from 2 m/s to 10 m/s. What is Δv?",choices:["8 m/s","12 m/s","20 m/s","5 m/s"],answer:0},
-  {q:"A car slows from 20 m/s to 12 m/s. What is Δv?",choices:["8 m/s","-8 m/s","32 m/s","12 m/s"],answer:1},
-  {q:"A runner speeds up from 0 m/s to 6 m/s. What is Δv?",choices:["0 m/s","3 m/s","6 m/s","12 m/s"],answer:2},
+{
+  q: "Which quantity tells where an object is located?",
+  choices: ["Position", "Velocity", "Acceleration", "Time"],
+  answer: 0,
+  explanation: "Position describes an object's location relative to a chosen reference point."
+},
 
-  {q:"A cart speeds up from 2 m/s to 10 m/s in 4 s. What is acceleration?",choices:["2 m/s²","4 m/s²","8 m/s²","12 m/s²"],answer:0},
-  {q:"A car speeds up from 5 m/s to 15 m/s in 5 s. What is acceleration?",choices:["1 m/s²","2 m/s²","3 m/s²","10 m/s²"],answer:1},
-  {q:"An object speeds up from 0 m/s to 20 m/s in 10 s. What is acceleration?",choices:["1 m/s²","2 m/s²","10 m/s²","20 m/s²"],answer:1},
-  {q:"A machine part changes velocity from 4 m/s to 16 m/s in 3 s. What is acceleration?",choices:["3 m/s²","4 m/s²","6 m/s²","12 m/s²"],answer:1},
-  {q:"A cart changes from 10 m/s to 22 m/s in 6 s. What is acceleration?",choices:["2 m/s²","3 m/s²","6 m/s²","12 m/s²"],answer:0},
-  {q:"A vehicle slows from 30 m/s to 10 m/s in 5 s. What is acceleration?",choices:["4 m/s²","-4 m/s²","8 m/s²","-8 m/s²"],answer:1},
-  {q:"A car slows from 18 m/s to 6 m/s in 4 s. What is acceleration?",choices:["3 m/s²","-3 m/s²","12 m/s²","-12 m/s²"],answer:1},
-  {q:"If Δv = 15 m/s and t = 5 s, what is acceleration?",choices:["3 m/s²","5 m/s²","10 m/s²","75 m/s²"],answer:0},
-  {q:"If Δv = 24 m/s and t = 8 s, what is acceleration?",choices:["2 m/s²","3 m/s²","4 m/s²","32 m/s²"],answer:1},
-  {q:"If acceleration is negative, what could be happening?",choices:["The object is slowing down","The object has no motion","The object has no position","Time stopped"],answer:0},
+{
+  q: "Which quantity tells how long motion takes?",
+  choices: ["Velocity", "Displacement", "Time", "Acceleration"],
+  answer: 2,
+  explanation: "Time measures the duration over which motion occurs and is commonly measured in seconds."
+},
 
-  {q:"Which formula finds final velocity?",choices:["vf = vi + at","v = d / t","a = d / t","d = vf − vi"],answer:0},
-  {q:"In vf = vi + at, what does vi mean?",choices:["Initial velocity","Final velocity","Velocity increase","Instant force"],answer:0},
-  {q:"In vf = vi + at, what does a mean?",choices:["Acceleration","Area","Angle","Average distance"],answer:0},
-  {q:"In vf = vi + at, what does t mean?",choices:["Time","Tension","Total distance","Temperature"],answer:0},
-  {q:"A car starts at 5 m/s and accelerates at 3 m/s² for 6 s. What is vf?",choices:["8 m/s","18 m/s","23 m/s","30 m/s"],answer:2},
-  {q:"A robot starts at 2 m/s and accelerates at 4 m/s² for 3 s. What is vf?",choices:["6 m/s","12 m/s","14 m/s","24 m/s"],answer:2},
-  {q:"A cart starts from rest and accelerates at 2 m/s² for 5 s. What is vf?",choices:["5 m/s","7 m/s","10 m/s","20 m/s"],answer:2},
-  {q:"A vehicle starts at 10 m/s and accelerates at 1 m/s² for 8 s. What is vf?",choices:["11 m/s","18 m/s","80 m/s","8 m/s"],answer:1},
-  {q:"A machine part starts at 6 m/s and accelerates at 2 m/s² for 4 s. What is vf?",choices:["8 m/s","10 m/s","14 m/s","24 m/s"],answer:2},
-  {q:"A car starts at 20 m/s and accelerates at -2 m/s² for 5 s. What is vf?",choices:["10 m/s","15 m/s","20 m/s","30 m/s"],answer:0},
+{
+  q: "Which quantity tells how quickly position changes?",
+  choices: ["Velocity", "Mass", "Force", "Friction"],
+  answer: 0,
+  explanation: "Velocity describes how quickly an object's position changes and includes both speed and direction."
+},
 
-  {q:"Which formula includes displacement, initial velocity, acceleration, and time?",choices:["d = vit + ½at²","v = d / t","a = Δv / t","Δv = vf − vi"],answer:0},
-  {q:"In d = vit + ½at², what does d represent?",choices:["Displacement","Distance only","Density","Direction"],answer:0},
-  {q:"In d = vit + ½at², what does vi represent?",choices:["Initial velocity","Final velocity","Velocity squared","Instant acceleration"],answer:0},
-  {q:"In d = vit + ½at², what does t represent?",choices:["Time","Tension","Temperature","Total force"],answer:0},
-  {q:"If vi = 0, a = 2 m/s², and t = 4 s, what is d?",choices:["8 m","16 m","32 m","4 m"],answer:1},
-  {q:"If vi = 0, a = 3 m/s², and t = 2 s, what is d?",choices:["3 m","6 m","12 m","18 m"],answer:1},
-  {q:"If vi = 5 m/s, a = 0, and t = 4 s, what is d?",choices:["5 m","9 m","20 m","40 m"],answer:2},
-  {q:"If vi = 2 m/s, a = 1 m/s², and t = 4 s, what is d?",choices:["8 m","12 m","16 m","20 m"],answer:2},
-  {q:"If vi = 3 m/s, a = 2 m/s², and t = 3 s, what is d?",choices:["9 m","18 m","27 m","12 m"],answer:1},
-  {q:"If vi = 4 m/s, a = 2 m/s², and t = 5 s, what is d?",choices:["25 m","35 m","45 m","60 m"],answer:2},
+{
+  q: "Which quantity tells how quickly velocity changes?",
+  choices: ["Position", "Acceleration", "Distance", "Time"],
+  answer: 1,
+  explanation: "Acceleration measures the rate at which velocity changes with respect to time."
+},
 
-  {q:"A robot moves 10 m forward and 10 m backward. What is its displacement?",choices:["20 m","10 m","0 m","100 m"],answer:2},
-  {q:"A robot moves 10 m forward and 10 m backward. What is its distance?",choices:["20 m","10 m","0 m","100 m"],answer:0},
-  {q:"A machine part moves 6 m left, then 2 m right. What is displacement?",choices:["8 m left","4 m left","4 m right","2 m left"],answer:1},
-  {q:"A machine part moves 6 m left, then 2 m right. What is total distance?",choices:["4 m","6 m","8 m","12 m"],answer:2},
-  {q:"A car moves 30 m east and then 10 m west. What is displacement?",choices:["40 m east","20 m east","20 m west","10 m west"],answer:1},
-  {q:"A car moves 30 m east and then 10 m west. What is distance?",choices:["20 m","30 m","40 m","300 m"],answer:2},
-  {q:"A person walks 3 m north, 3 m south, and 4 m north. What is displacement?",choices:["10 m north","4 m north","3 m south","0 m"],answer:1},
-  {q:"A person walks 3 m north, 3 m south, and 4 m north. What is distance?",choices:["4 m","6 m","10 m","0 m"],answer:2},
-  {q:"If final position is 15 m and starting position is 5 m, what is displacement?",choices:["20 m","10 m","5 m","75 m"],answer:1},
-  {q:"If final position is 2 m and starting position is 8 m, what is displacement?",choices:["6 m forward","-6 m","10 m","16 m"],answer:1},
+{
+  q: "What is displacement?",
+  choices: ["Total path traveled", "Change in position from start to finish", "Speed only", "Time traveled"],
+  answer: 1,
+  explanation: "Displacement is the straight-line change in position from an object's starting point to its ending point and includes direction."
+},
 
-  {q:"Why is kinematics important in mechanical engineering?",choices:["It helps engineers understand and control motion","It removes the need for math","It only studies heat","It only applies to chemistry"],answer:0},
-  {q:"Which system from the lesson uses kinematics?",choices:["Robotic arms","Chemical reactions","Only static bridges","Only still objects"],answer:0},
-  {q:"Which example uses kinematics?",choices:["A conveyor belt moving parts","A wall doing nothing","A parked block only","A table at rest"],answer:0},
-  {q:"Which example best represents acceleration?",choices:["A car speeding up","A still book","A wall","A stopped machine"],answer:0},
-  {q:"Which example best represents constant velocity?",choices:["A conveyor moving at steady speed","A car speeding up","A cart slowing down","A robot changing direction"],answer:0},
-  {q:"Which example best represents displacement?",choices:["A robot’s change from starting point to ending point","The total winding path only","The object’s mass","The object’s temperature"],answer:0},
-  {q:"Which example best represents distance?",choices:["Total path traveled by a moving part","Only final position","Only direction","Only acceleration"],answer:0},
-  {q:"Why do engineers care about direction in velocity?",choices:["Direction affects how moving parts behave","Direction removes time","Direction makes speed zero","Direction replaces acceleration"],answer:0},
-  {q:"Which quantity changes when an object speeds up?",choices:["Velocity","Mass","Material","Color"],answer:0},
-  {q:"Which quantity changes when an object slows down?",choices:["Velocity","Mass","Time unit","Position unit"],answer:0},
+{
+  q: "What is distance?",
+  choices: ["Total path traveled", "Change in position only", "Direction only", "Acceleration"],
+  answer: 0,
+  explanation: "Distance is the total length of the path traveled regardless of direction."
+},
 
-  {q:"A cart starts at 0 m/s and reaches 12 m/s in 3 s. What is acceleration?",choices:["3 m/s²","4 m/s²","9 m/s²","12 m/s²"],answer:1},
-  {q:"A car starts at 4 m/s and accelerates at 2 m/s² for 5 s. What is final velocity?",choices:["6 m/s","10 m/s","14 m/s","20 m/s"],answer:2},
-  {q:"A robot moves 36 m in 9 s. What is velocity?",choices:["3 m/s","4 m/s","9 m/s","36 m/s"],answer:1},
-  {q:"An elevator moves 40 m upward in 8 s. What is velocity?",choices:["5 m/s upward","8 m/s upward","32 m/s upward","40 m/s upward"],answer:0},
-  {q:"A vehicle slows from 25 m/s to 5 m/s in 4 s. What is acceleration?",choices:["5 m/s²","-5 m/s²","20 m/s²","-20 m/s²"],answer:1},
-  {q:"A moving part starts at 1 m/s and accelerates at 3 m/s² for 4 s. What is vf?",choices:["4 m/s","12 m/s","13 m/s","16 m/s"],answer:2},
-  {q:"If vi = 0, a = 4 m/s², and t = 3 s, what is d?",choices:["6 m","12 m","18 m","36 m"],answer:2},
-  {q:"If vi = 2 m/s, a = 2 m/s², and t = 5 s, what is d?",choices:["25 m","35 m","45 m","50 m"],answer:1},
-  {q:"A robot travels 14 m total but ends 6 m from where it started. What is distance?",choices:["6 m","8 m","14 m","20 m"],answer:2},
-  {q:"A robot travels 14 m total but ends 6 m from where it started. What is displacement magnitude?",choices:["6 m","8 m","14 m","20 m"],answer:0}
+{
+  q: "Which one includes direction?",
+  choices: ["Distance", "Displacement", "Time", "Path length"],
+  answer: 1,
+  explanation: "Displacement is a vector quantity because it includes both magnitude and direction, while distance only has magnitude."
+},
+
+{
+  q: "A robot moves 5 m forward and 2 m backward. What is the total distance?",
+  choices: ["3 m", "5 m", "7 m", "10 m"],
+  answer: 2,
+  explanation: "Distance is the total path traveled. The robot moves 5 m forward and then 2 m backward, so the total distance is 7 m."
+},
+
+{
+  q: "A robot moves 5 m forward and 2 m backward. What is the displacement?",
+  choices: ["7 m forward", "3 m forward", "2 m backward", "5 m forward"],
+  answer: 1,
+  explanation: "Displacement is the net change in position. The robot ends up 3 m forward from where it started."
+},
+
+{
+  q: "Speed tells what?",
+  choices: ["How fast something moves", "How fast and in what direction", "Change in velocity", "Change in position with direction"],
+  answer: 0,
+  explanation: "Speed measures how fast an object moves without considering its direction."
+},
+
+{
+  q: "Velocity tells what?",
+  choices: ["Only how fast something moves", "How fast something moves and in what direction", "Only time", "Only distance"],
+  answer: 1,
+  explanation: "Velocity includes both the speed of an object and the direction in which it is moving."
+},
+
+{
+  q: "Why is velocity a vector?",
+  choices: ["It has magnitude and direction", "It has no direction", "It only measures time", "It only measures distance"],
+  answer: 0,
+  explanation: "Velocity is a vector because it includes both magnitude (how fast) and direction."
+},
+
+{
+  q: "Which quantity is most directly calculated using v = d / t?",
+  choices: ["Velocity", "Acceleration", "Time squared", "Mass"],
+  answer: 0,
+  explanation: "The equation v = d/t calculates average velocity by dividing distance or displacement by time."
+},
+
+{
+  q: "In v = d / t, what does d represent?",
+  choices: ["Distance or displacement", "Density", "Direction only", "Drag"],
+  answer: 0,
+  explanation: "The variable d represents the distance traveled or displacement, depending on the problem."
+},
+
+{
+  q: "In v = d / t, what does t represent?",
+  choices: ["Tension", "Temperature", "Time", "Total force"],
+  answer: 2,
+  explanation: "The variable t represents the elapsed time during the motion."
+},
+
+{
+  q: "What unit is commonly used for velocity?",
+  choices: ["m/s", "kg", "N", "m/s²"],
+  answer: 0,
+  explanation: "Velocity is commonly measured in meters per second (m/s), indicating how many meters an object travels each second."
+},
+
+{
+  q: "What unit is commonly used for acceleration?",
+  choices: ["m/s", "m/s²", "kg", "N"],
+  answer: 1,
+  explanation: "Acceleration is measured in meters per second squared (m/s²), showing how much velocity changes each second."
+},
+
+  {
+  q: "A robot moves 12 m in 4 s. What is its velocity?",
+  choices: ["2 m/s", "3 m/s", "4 m/s", "48 m/s"],
+  answer: 1,
+  explanation: "Use the velocity formula v = d/t. Dividing 12 m by 4 s gives a velocity of 3 m/s."
+},
+
+{
+  q: "A cart moves 20 m in 5 s. What is its velocity?",
+  choices: ["2 m/s", "4 m/s", "5 m/s", "100 m/s"],
+  answer: 1,
+  explanation: "Use v = d/t. Dividing 20 m by 5 s gives 4 m/s."
+},
+
+{
+  q: "A machine part moves 30 m in 10 s. What is its velocity?",
+  choices: ["3 m/s", "10 m/s", "30 m/s", "300 m/s"],
+  answer: 0,
+  explanation: "Use v = d/t. Dividing 30 m by 10 s gives 3 m/s."
+},
+
+{
+  q: "A car travels 60 m in 6 s. What is its average velocity?",
+  choices: ["6 m/s", "10 m/s", "60 m/s", "360 m/s"],
+  answer: 1,
+  explanation: "Average velocity equals displacement divided by time. 60 ÷ 6 = 10 m/s."
+},
+
+{
+  q: "An elevator moves 15 m upward in 5 s. What is its velocity?",
+  choices: ["3 m/s upward", "5 m/s upward", "10 m/s upward", "75 m/s upward"],
+  answer: 0,
+  explanation: "Velocity equals displacement divided by time. 15 ÷ 5 = 3 m/s upward."
+},
+
+{
+  q: "A robot travels 24 m in 8 s. What is its velocity?",
+  choices: ["2 m/s", "3 m/s", "4 m/s", "8 m/s"],
+  answer: 1,
+  explanation: "Use v = d/t. Dividing 24 m by 8 s gives 3 m/s."
+},
+
+{
+  q: "A conveyor belt moves 18 m in 6 s. What is its speed?",
+  choices: ["2 m/s", "3 m/s", "6 m/s", "12 m/s"],
+  answer: 1,
+  explanation: "Speed is calculated using distance divided by time. 18 ÷ 6 = 3 m/s."
+},
+
+{
+  q: "If displacement is 50 m and time is 10 s, what is velocity?",
+  choices: ["5 m/s", "10 m/s", "40 m/s", "500 m/s"],
+  answer: 0,
+  explanation: "Use v = d/t. Dividing 50 m by 10 s gives 5 m/s."
+},
+
+{
+  q: "If velocity is 4 m/s and time is 5 s, what displacement is covered?",
+  choices: ["9 m", "20 m", "1.25 m", "45 m"],
+  answer: 1,
+  explanation: "Rearrange the velocity equation to d = vt. Multiplying 4 m/s by 5 s gives 20 m."
+},
+
+{
+  q: "If velocity is 6 m/s and time is 3 s, what displacement is covered?",
+  choices: ["2 m", "9 m", "18 m", "36 m"],
+  answer: 2,
+  explanation: "Use d = vt. Multiplying 6 m/s by 3 s gives 18 m."
+},
+
+{
+  q: "Acceleration is the rate of change of what?",
+  choices: ["Position", "Velocity", "Distance", "Time"],
+  answer: 1,
+  explanation: "Acceleration measures how quickly an object's velocity changes over time."
+},
+
+{
+  q: "An object accelerates when it does what?",
+  choices: ["Speeds up only", "Slows down only", "Changes direction only", "Speeds up, slows down, or changes direction"],
+  answer: 3,
+  explanation: "Acceleration occurs whenever velocity changes. That includes speeding up, slowing down, or changing direction."
+},
+
+{
+  q: "What does Δv mean?",
+  choices: ["Change in velocity", "Change in position", "Change in time", "Final velocity only"],
+  answer: 0,
+  explanation: "The symbol Δ (delta) means 'change in.' Therefore, Δv means the change in velocity."
+},
+
+{
+  q: "What formula finds acceleration?",
+  choices: ["a = Δv / t", "v = d / t", "d = vt only", "vf = vi"],
+  answer: 0,
+  explanation: "Acceleration is calculated by dividing the change in velocity by the time over which the change occurs."
+},
+
+{
+  q: "What formula finds change in velocity?",
+  choices: ["Δv = vf − vi", "Δv = vi − vf", "Δv = d / t", "Δv = at²"],
+  answer: 0,
+  explanation: "Change in velocity equals the final velocity minus the initial velocity."
+},
+
+{
+  q: "In Δv = vf − vi, what does vf mean?",
+  choices: ["Final velocity", "Force value", "Friction velocity", "First velocity"],
+  answer: 0,
+  explanation: "The symbol vf represents the final velocity, or the velocity after the motion or acceleration has occurred."
+},
+
+{
+  q: "In Δv = vf − vi, what does vi mean?",
+  choices: ["Initial velocity", "Instant velocity only", "Inclined velocity", "Internal velocity"],
+  answer: 0,
+  explanation: "The symbol vi represents the initial velocity, or the velocity before the motion changes."
+},
+
+{
+  q: "A cart speeds up from 2 m/s to 10 m/s. What is Δv?",
+  choices: ["8 m/s", "12 m/s", "20 m/s", "5 m/s"],
+  answer: 0,
+  explanation: "Use Δv = vf − vi. The calculation is 10 − 2 = 8 m/s."
+},
+
+{
+  q: "A car slows from 20 m/s to 12 m/s. What is Δv?",
+  choices: ["8 m/s", "-8 m/s", "32 m/s", "12 m/s"],
+  answer: 1,
+  explanation: "Use Δv = vf − vi. The calculation is 12 − 20 = -8 m/s. The negative value indicates the object slowed down."
+},
+
+{
+  q: "A runner speeds up from 0 m/s to 6 m/s. What is Δv?",
+  choices: ["0 m/s", "3 m/s", "6 m/s", "12 m/s"],
+  answer: 2,
+  explanation: "Use Δv = vf − vi. The calculation is 6 − 0 = 6 m/s."
+},
+
+  {
+  q: "A cart speeds up from 2 m/s to 10 m/s in 4 s. What is acceleration?",
+  choices: ["2 m/s²", "4 m/s²", "8 m/s²", "12 m/s²"],
+  answer: 0,
+  explanation: "Use the formula a = Δv/t. The change in velocity is 10 − 2 = 8 m/s. Dividing by 4 s gives an acceleration of 2 m/s²."
+},
+
+{
+  q: "A car speeds up from 5 m/s to 15 m/s in 5 s. What is acceleration?",
+  choices: ["1 m/s²", "2 m/s²", "3 m/s²", "10 m/s²"],
+  answer: 1,
+  explanation: "Use a = Δv/t. The change in velocity is 15 − 5 = 10 m/s. Dividing by 5 s gives 2 m/s²."
+},
+
+{
+  q: "An object speeds up from 0 m/s to 20 m/s in 10 s. What is acceleration?",
+  choices: ["1 m/s²", "2 m/s²", "10 m/s²", "20 m/s²"],
+  answer: 1,
+  explanation: "The change in velocity is 20 m/s. Divide by 10 s to find an acceleration of 2 m/s²."
+},
+
+{
+  q: "A machine part changes velocity from 4 m/s to 16 m/s in 3 s. What is acceleration?",
+  choices: ["3 m/s²", "4 m/s²", "6 m/s²", "12 m/s²"],
+  answer: 1,
+  explanation: "Calculate Δv = 16 − 4 = 12 m/s. Then divide by 3 s to get an acceleration of 4 m/s²."
+},
+
+{
+  q: "A cart changes from 10 m/s to 22 m/s in 6 s. What is acceleration?",
+  choices: ["2 m/s²", "3 m/s²", "6 m/s²", "12 m/s²"],
+  answer: 0,
+  explanation: "The change in velocity is 22 − 10 = 12 m/s. Dividing by 6 s gives an acceleration of 2 m/s²."
+},
+
+{
+  q: "A vehicle slows from 30 m/s to 10 m/s in 5 s. What is acceleration?",
+  choices: ["4 m/s²", "-4 m/s²", "8 m/s²", "-8 m/s²"],
+  answer: 1,
+  explanation: "Use a = (10 − 30)/5. The result is -20/5 = -4 m/s². The negative sign indicates the vehicle is slowing down."
+},
+
+{
+  q: "A car slows from 18 m/s to 6 m/s in 4 s. What is acceleration?",
+  choices: ["3 m/s²", "-3 m/s²", "12 m/s²", "-12 m/s²"],
+  answer: 1,
+  explanation: "The change in velocity is 6 − 18 = -12 m/s. Dividing by 4 s gives -3 m/s²."
+},
+
+{
+  q: "If Δv = 15 m/s and t = 5 s, what is acceleration?",
+  choices: ["3 m/s²", "5 m/s²", "10 m/s²", "75 m/s²"],
+  answer: 0,
+  explanation: "Use a = Δv/t. Dividing 15 m/s by 5 s gives an acceleration of 3 m/s²."
+},
+
+{
+  q: "If Δv = 24 m/s and t = 8 s, what is acceleration?",
+  choices: ["2 m/s²", "3 m/s²", "4 m/s²", "32 m/s²"],
+  answer: 1,
+  explanation: "Use a = Δv/t. Dividing 24 m/s by 8 s gives an acceleration of 3 m/s²."
+},
+
+{
+  q: "If acceleration is negative, what could be happening?",
+  choices: ["The object is slowing down", "The object has no motion", "The object has no position", "Time stopped"],
+  answer: 0,
+  explanation: "Negative acceleration means the acceleration acts opposite the chosen positive direction. In many problems, this indicates the object is slowing down."
+},
+
+{
+  q: "Which formula finds final velocity?",
+  choices: ["vf = vi + at", "v = d / t", "a = d / t", "d = vf − vi"],
+  answer: 0,
+  explanation: "The equation vf = vi + at calculates an object's final velocity when acceleration is constant."
+},
+
+{
+  q: "In vf = vi + at, what does vi mean?",
+  choices: ["Initial velocity", "Final velocity", "Velocity increase", "Instant force"],
+  answer: 0,
+  explanation: "The symbol vi represents the initial velocity before acceleration begins."
+},
+
+{
+  q: "In vf = vi + at, what does a mean?",
+  choices: ["Acceleration", "Area", "Angle", "Average distance"],
+  answer: 0,
+  explanation: "The variable a represents acceleration, which is the rate of change of velocity."
+},
+
+{
+  q: "In vf = vi + at, what does t mean?",
+  choices: ["Time", "Tension", "Total distance", "Temperature"],
+  answer: 0,
+  explanation: "The variable t represents the amount of time during which the object accelerates."
+},
+
+{
+  q: "A car starts at 5 m/s and accelerates at 3 m/s² for 6 s. What is vf?",
+  choices: ["8 m/s", "18 m/s", "23 m/s", "30 m/s"],
+  answer: 2,
+  explanation: "Use vf = vi + at. The calculation is 5 + (3 × 6) = 23 m/s."
+},
+
+{
+  q: "A robot starts at 2 m/s and accelerates at 4 m/s² for 3 s. What is vf?",
+  choices: ["6 m/s", "12 m/s", "14 m/s", "24 m/s"],
+  answer: 2,
+  explanation: "Use vf = vi + at. The calculation is 2 + (4 × 3) = 14 m/s."
+},
+
+{
+  q: "A cart starts from rest and accelerates at 2 m/s² for 5 s. What is vf?",
+  choices: ["5 m/s", "7 m/s", "10 m/s", "20 m/s"],
+  answer: 2,
+  explanation: "Starting from rest means the initial velocity is 0 m/s. Using vf = 0 + (2 × 5) gives a final velocity of 10 m/s."
+},
+
+{
+  q: "A vehicle starts at 10 m/s and accelerates at 1 m/s² for 8 s. What is vf?",
+  choices: ["11 m/s", "18 m/s", "80 m/s", "8 m/s"],
+  answer: 1,
+  explanation: "Use vf = vi + at. The calculation is 10 + (1 × 8) = 18 m/s."
+},
+
+{
+  q: "A machine part starts at 6 m/s and accelerates at 2 m/s² for 4 s. What is vf?",
+  choices: ["8 m/s", "10 m/s", "14 m/s", "24 m/s"],
+  answer: 2,
+  explanation: "Using vf = vi + at gives 6 + (2 × 4) = 14 m/s."
+},
+
+{
+  q: "A car starts at 20 m/s and accelerates at -2 m/s² for 5 s. What is vf?",
+  choices: ["10 m/s", "15 m/s", "20 m/s", "30 m/s"],
+  answer: 0,
+  explanation: "Use vf = vi + at. The calculation is 20 + (-2 × 5) = 10 m/s. The negative acceleration decreases the car's speed."
+},
+
+  {
+  q: "Which formula includes displacement, initial velocity, acceleration, and time?",
+  choices: ["d = vit + ½at²", "v = d / t", "a = Δv / t", "Δv = vf − vi"],
+  answer: 0,
+  explanation: "The equation d = vit + ½at² calculates displacement when an object moves with constant acceleration."
+},
+
+{
+  q: "In d = vit + ½at², what does d represent?",
+  choices: ["Displacement", "Distance only", "Density", "Direction"],
+  answer: 0,
+  explanation: "The variable d represents displacement, which is the change in an object's position from its starting point."
+},
+
+{
+  q: "In d = vit + ½at², what does vi represent?",
+  choices: ["Initial velocity", "Final velocity", "Velocity squared", "Instant acceleration"],
+  answer: 0,
+  explanation: "The symbol vi represents the object's initial velocity before it begins accelerating."
+},
+
+{
+  q: "In d = vit + ½at², what does t represent?",
+  choices: ["Time", "Tension", "Temperature", "Total force"],
+  answer: 0,
+  explanation: "The variable t represents the time over which the object is moving."
+},
+
+{
+  q: "If vi = 0, a = 2 m/s², and t = 4 s, what is d?",
+  choices: ["8 m", "16 m", "32 m", "4 m"],
+  answer: 1,
+  explanation: "Use d = vit + ½at². Since vi = 0, the first term is zero. The calculation is ½ × 2 × 4² = 16 m."
+},
+
+{
+  q: "If vi = 0, a = 3 m/s², and t = 2 s, what is d?",
+  choices: ["3 m", "6 m", "12 m", "18 m"],
+  answer: 1,
+  explanation: "Use d = vit + ½at². The calculation is ½ × 3 × 2² = 6 m."
+},
+
+{
+  q: "If vi = 5 m/s, a = 0, and t = 4 s, what is d?",
+  choices: ["5 m", "9 m", "20 m", "40 m"],
+  answer: 2,
+  explanation: "With zero acceleration, the equation becomes d = vit. Multiplying 5 m/s by 4 s gives 20 m."
+},
+
+{
+  q: "If vi = 2 m/s, a = 1 m/s², and t = 4 s, what is d?",
+  choices: ["8 m", "12 m", "16 m", "20 m"],
+  answer: 2,
+  explanation: "Use d = vit + ½at². The calculation is (2 × 4) + (½ × 1 × 4²) = 8 + 8 = 16 m."
+},
+
+{
+  q: "If vi = 3 m/s, a = 2 m/s², and t = 3 s, what is d?",
+  choices: ["9 m", "18 m", "27 m", "12 m"],
+  answer: 1,
+  explanation: "Use d = vit + ½at². The calculation is (3 × 3) + (½ × 2 × 3²) = 9 + 9 = 18 m."
+},
+
+{
+  q: "If vi = 4 m/s, a = 2 m/s², and t = 5 s, what is d?",
+  choices: ["25 m", "35 m", "45 m", "60 m"],
+  answer: 2,
+  explanation: "Using d = vit + ½at² gives (4 × 5) + (½ × 2 × 5²) = 20 + 25 = 45 m."
+},
+
+{
+  q: "A robot moves 10 m forward and 10 m backward. What is its displacement?",
+  choices: ["20 m", "10 m", "0 m", "100 m"],
+  answer: 2,
+  explanation: "Displacement measures the overall change in position. Since the robot returns to where it started, its displacement is 0 m."
+},
+
+{
+  q: "A robot moves 10 m forward and 10 m backward. What is its distance?",
+  choices: ["20 m", "10 m", "0 m", "100 m"],
+  answer: 0,
+  explanation: "Distance is the total path traveled. The robot travels 10 m forward and 10 m backward for a total distance of 20 m."
+},
+
+{
+  q: "A machine part moves 6 m left, then 2 m right. What is displacement?",
+  choices: ["8 m left", "4 m left", "4 m right", "2 m left"],
+  answer: 1,
+  explanation: "The object ends up 4 m left of where it started, so its displacement is 4 m left."
+},
+
+{
+  q: "A machine part moves 6 m left, then 2 m right. What is total distance?",
+  choices: ["4 m", "6 m", "8 m", "12 m"],
+  answer: 2,
+  explanation: "Distance is the total path traveled. The object moves 6 m and then 2 m, giving a total distance of 8 m."
+},
+
+{
+  q: "A car moves 30 m east and then 10 m west. What is displacement?",
+  choices: ["40 m east", "20 m east", "20 m west", "10 m west"],
+  answer: 1,
+  explanation: "The car finishes 20 m east of its starting position, so its displacement is 20 m east."
+},
+
+{
+  q: "A car moves 30 m east and then 10 m west. What is distance?",
+  choices: ["20 m", "30 m", "40 m", "300 m"],
+  answer: 2,
+  explanation: "Distance is the total length of the path traveled. The car travels 30 m plus 10 m, giving 40 m."
+},
+
+{
+  q: "A person walks 3 m north, 3 m south, and 4 m north. What is displacement?",
+  choices: ["10 m north", "4 m north", "3 m south", "0 m"],
+  answer: 1,
+  explanation: "The first two movements cancel each other, leaving the person 4 m north of the starting point."
+},
+
+{
+  q: "A person walks 3 m north, 3 m south, and 4 m north. What is distance?",
+  choices: ["4 m", "6 m", "10 m", "0 m"],
+  answer: 2,
+  explanation: "Distance is the total path traveled: 3 + 3 + 4 = 10 m."
+},
+
+{
+  q: "If final position is 15 m and starting position is 5 m, what is displacement?",
+  choices: ["20 m", "10 m", "5 m", "75 m"],
+  answer: 1,
+  explanation: "Displacement equals final position minus initial position. The calculation is 15 − 5 = 10 m."
+},
+
+{
+  q: "If final position is 2 m and starting position is 8 m, what is displacement?",
+  choices: ["6 m forward", "-6 m", "10 m", "16 m"],
+  answer: 1,
+  explanation: "Displacement equals final position minus initial position. The calculation is 2 − 8 = -6 m, indicating motion in the negative direction."
+},
+
+  {
+  q: "Why is kinematics important in mechanical engineering?",
+  choices: ["It helps engineers understand and control motion", "It removes the need for math", "It only studies heat", "It only applies to chemistry"],
+  answer: 0,
+  explanation: "Kinematics helps mechanical engineers analyze and predict how machines and components move, allowing them to design safer and more efficient systems."
+},
+
+{
+  q: "Which system from the lesson uses kinematics?",
+  choices: ["Robotic arms", "Chemical reactions", "Only static bridges", "Only still objects"],
+  answer: 0,
+  explanation: "Robotic arms rely on kinematics to accurately control the position, speed, and movement of each joint."
+},
+
+{
+  q: "Which example uses kinematics?",
+  choices: ["A conveyor belt moving parts", "A wall doing nothing", "A parked block only", "A table at rest"],
+  answer: 0,
+  explanation: "A moving conveyor belt demonstrates motion, making it an example of kinematics in action."
+},
+
+{
+  q: "Which example best represents acceleration?",
+  choices: ["A car speeding up", "A still book", "A wall", "A stopped machine"],
+  answer: 0,
+  explanation: "Acceleration occurs whenever velocity changes. A car speeding up is a common example."
+},
+
+{
+  q: "Which example best represents constant velocity?",
+  choices: ["A conveyor moving at steady speed", "A car speeding up", "A cart slowing down", "A robot changing direction"],
+  answer: 0,
+  explanation: "Constant velocity means both speed and direction remain unchanged, such as a conveyor belt moving steadily."
+},
+
+{
+  q: "Which example best represents displacement?",
+  choices: ["A robot’s change from starting point to ending point", "The total winding path only", "The object’s mass", "The object’s temperature"],
+  answer: 0,
+  explanation: "Displacement is the straight-line change in position from where an object starts to where it finishes."
+},
+
+{
+  q: "Which example best represents distance?",
+  choices: ["Total path traveled by a moving part", "Only final position", "Only direction", "Only acceleration"],
+  answer: 0,
+  explanation: "Distance is the total length of the path traveled, regardless of direction."
+},
+
+{
+  q: "Why do engineers care about direction in velocity?",
+  choices: ["Direction affects how moving parts behave", "Direction removes time", "Direction makes speed zero", "Direction replaces acceleration"],
+  answer: 0,
+  explanation: "Velocity includes direction, which is essential for predicting how mechanisms and moving parts interact."
+},
+
+{
+  q: "Which quantity changes when an object speeds up?",
+  choices: ["Velocity", "Mass", "Material", "Color"],
+  answer: 0,
+  explanation: "When an object speeds up, its velocity changes because its speed increases."
+},
+
+{
+  q: "Which quantity changes when an object slows down?",
+  choices: ["Velocity", "Mass", "Time unit", "Position unit"],
+  answer: 0,
+  explanation: "Slowing down changes an object's velocity because its speed decreases."
+},
+
+{
+  q: "A cart starts at 0 m/s and reaches 12 m/s in 3 s. What is acceleration?",
+  choices: ["3 m/s²", "4 m/s²", "9 m/s²", "12 m/s²"],
+  answer: 1,
+  explanation: "Use a = Δv/t. The change in velocity is 12 m/s, and 12 ÷ 3 = 4 m/s²."
+},
+
+{
+  q: "A car starts at 4 m/s and accelerates at 2 m/s² for 5 s. What is final velocity?",
+  choices: ["6 m/s", "10 m/s", "14 m/s", "20 m/s"],
+  answer: 2,
+  explanation: "Use vf = vi + at. The calculation is 4 + (2 × 5) = 14 m/s."
+},
+
+{
+  q: "A robot moves 36 m in 9 s. What is velocity?",
+  choices: ["3 m/s", "4 m/s", "9 m/s", "36 m/s"],
+  answer: 1,
+  explanation: "Use v = d/t. Dividing 36 m by 9 s gives a velocity of 4 m/s."
+},
+
+{
+  q: "An elevator moves 40 m upward in 8 s. What is velocity?",
+  choices: ["5 m/s upward", "8 m/s upward", "32 m/s upward", "40 m/s upward"],
+  answer: 0,
+  explanation: "Velocity equals displacement divided by time. 40 ÷ 8 = 5 m/s upward."
+},
+
+{
+  q: "A vehicle slows from 25 m/s to 5 m/s in 4 s. What is acceleration?",
+  choices: ["5 m/s²", "-5 m/s²", "20 m/s²", "-20 m/s²"],
+  answer: 1,
+  explanation: "Use a = (vf − vi)/t. The calculation is (5 − 25) ÷ 4 = -5 m/s²."
+},
+
+{
+  q: "A moving part starts at 1 m/s and accelerates at 3 m/s² for 4 s. What is vf?",
+  choices: ["4 m/s", "12 m/s", "13 m/s", "16 m/s"],
+  answer: 2,
+  explanation: "Use vf = vi + at. The calculation is 1 + (3 × 4) = 13 m/s."
+},
+
+{
+  q: "If vi = 0, a = 4 m/s², and t = 3 s, what is d?",
+  choices: ["6 m", "12 m", "18 m", "36 m"],
+  answer: 2,
+  explanation: "Use d = vit + ½at². Since vi = 0, d = ½ × 4 × 3² = 18 m."
+},
+
+{
+  q: "If vi = 2 m/s, a = 2 m/s², and t = 5 s, what is d?",
+  choices: ["25 m", "35 m", "45 m", "50 m"],
+  answer: 1,
+  explanation: "Use d = vit + ½at². The calculation is (2 × 5) + (½ × 2 × 5²) = 10 + 25 = 35 m."
+},
+
+{
+  q: "A robot travels 14 m total but ends 6 m from where it started. What is distance?",
+  choices: ["6 m", "8 m", "14 m", "20 m"],
+  answer: 2,
+  explanation: "Distance is the total length of the path traveled, which is given as 14 m."
+},
+
+{
+  q: "A robot travels 14 m total but ends 6 m from where it started. What is displacement magnitude?",
+  choices: ["6 m", "8 m", "14 m", "20 m"],
+  answer: 0,
+  explanation: "Displacement is the straight-line change in position from the starting point to the ending point. Its magnitude is 6 m."
+},
 ];
 
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+
+    [array[i], array[randomIndex]] =
+      [array[randomIndex], array[i]];
+  }
+
+  return array;
+}
+
 function shuffleQuestions() {
-  allQuestions = [...quizQuestions].sort(() => Math.random() - 0.5);
+  allQuestions = quizQuestions.map(question => {
+
+    // Connect each choice to whether it is the correct answer.
+    const shuffledChoices = question.choices.map((choice, index) => {
+      return {
+        text: choice,
+        isCorrect: index === question.answer
+      };
+    });
+
+    // Randomize the four answer choices.
+    shuffleArray(shuffledChoices);
+
+    // Create a new copy of the question with randomized choices.
+    return {
+      ...question,
+
+      choices: shuffledChoices.map(choice => choice.text),
+
+      // Find the correct answer's new position after shuffling.
+      answer: shuffledChoices.findIndex(
+        choice => choice.isCorrect
+      )
+    };
+  });
+
+  // Randomize the order of the questions too.
+  shuffleArray(allQuestions);
 }
 
 function openRandomQuizSet() {
@@ -903,8 +1531,15 @@ function loadQuestion() {
   let choicesHTML = "";
 
   question.choices.forEach((choice, index) => {
-    let checked = saved && saved.selectedIndex === index ? "checked" : "";
-    let disabled = saved ? "disabled" : "";
+    const checked =
+      saved && saved.selectedIndex === index
+        ? "checked"
+        : "";
+
+    const disabled =
+      saved
+        ? "disabled"
+        : "";
 
     let extraClass = "";
 
@@ -913,46 +1548,137 @@ function loadQuestion() {
         extraClass = "correct-answer";
       }
 
-      if (index === saved.selectedIndex && index !== saved.correctIndex) {
+      if (
+        index === saved.selectedIndex &&
+        index !== saved.correctIndex
+      ) {
         extraClass = "wrong-answer";
       }
     }
 
     choicesHTML += `
-      <label class="answer-choice ${extraClass}" data-index="${index}">
-        <input type="radio" name="question" ${checked} ${disabled}>
+      <label
+        class="answer-choice ${extraClass}"
+        data-index="${index}"
+      >
+        <input
+          type="radio"
+          name="question"
+          ${checked}
+          ${disabled}
+        >
+
         ${choice}
       </label>
     `;
   });
 
-  const isLastQuestion = currentQuestionIndex === allQuestions.length - 1;
+  let feedbackHTML = "";
+
+  if (saved) {
+    const wasCorrect =
+      saved.selectedIndex === saved.correctIndex;
+
+    const correctAnswer =
+      question.choices[saved.correctIndex];
+
+    const explanation =
+      question.explanation ||
+      "Review the lesson section connected to this question.";
+
+    if (wasCorrect) {
+      feedbackHTML = `
+        <div class="quiz-feedback correct-feedback">
+          <h4>Correct!</h4>
+
+          <p>
+            ${explanation}
+          </p>
+        </div>
+      `;
+    } else {
+      feedbackHTML = `
+        <div class="quiz-feedback incorrect-feedback">
+          <h4>Incorrect</h4>
+
+          <p>
+            <strong>Correct answer:</strong>
+            ${correctAnswer}
+          </p>
+
+          <p>
+            ${explanation}
+          </p>
+        </div>
+      `;
+    }
+  }
+
+  const isLastQuestion =
+    currentQuestionIndex === allQuestions.length - 1;
 
   container.innerHTML = `
     <div class="quiz-question">
-      <p><strong>Q${currentQuestionIndex + 1} of ${allQuestions.length}:</strong> ${question.q}</p>
+
+      <p>
+        <strong>
+          Q${currentQuestionIndex + 1}
+          of
+          ${allQuestions.length}:
+        </strong>
+
+        ${question.q}
+      </p>
 
       ${choicesHTML}
 
-      <button id="check-answer-btn" onclick="checkAnswer()" ${saved ? "disabled" : ""}>
+      <button
+        id="check-answer-btn"
+        onclick="checkAnswer()"
+        ${saved ? "disabled" : ""}
+      >
         Check Answer
       </button>
 
+      ${feedbackHTML}
+
       <div class="quiz-nav-buttons">
 
-  ${
-    currentQuestionIndex > 0
-      ? `<button onclick="prevQuestion()" id="back-btn">Back</button>`
-      : ``
-  }
+        ${
+          currentQuestionIndex > 0
+            ? `
+              <button
+                onclick="prevQuestion()"
+                id="back-btn"
+              >
+                Back
+              </button>
+            `
+            : ""
+        }
 
-  ${
-    isLastQuestion
-      ? `<button onclick="submitQuiz()" id="submit-btn">Submit</button>`
-      : `<button onclick="nextQuestion()" id="next-btn">Next</button>`
-  }
+        ${
+          isLastQuestion
+            ? `
+              <button
+                onclick="submitQuiz()"
+                id="submit-btn"
+              >
+                Submit
+              </button>
+            `
+            : `
+              <button
+                onclick="nextQuestion()"
+                id="next-btn"
+              >
+                Next
+              </button>
+            `
+        }
 
-</div>
+      </div>
+
     </div>
   `;
 }
