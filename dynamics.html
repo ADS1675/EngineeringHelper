@@ -1218,119 +1218,747 @@ let allQuestions = [];
 let answeredQuestions = {};
 
 const quizQuestions = [
-  {q:"What is dynamics mainly about?",choices:["How forces affect motion","How objects remain perfectly still","How materials stretch only","How heat transfers"],answer:0},
-  {q:"How is dynamics different from statics?",choices:["Dynamics studies unbalanced forces and acceleration","Dynamics only studies objects at rest","Dynamics ignores motion","Dynamics only studies temperature"],answer:0},
-  {q:"Dynamics combines ideas from which two areas?",choices:["Statics and kinematics","Thermodynamics and chemistry","Electricity and magnetism","Biology and coding"],answer:0},
-  {q:"What does statics mainly teach?",choices:["Forces","Chemical reactions","Computer graphics","Heat engines"],answer:0},
-  {q:"What does kinematics mainly teach?",choices:["Motion","Stress","Friction only","Material failure"],answer:0},
-  {q:"What does dynamics explain?",choices:["How forces create motion","How objects stay weightless","How circuits store charge","How materials change color"],answer:0},
-  {q:"If forces are unbalanced, what can happen?",choices:["Acceleration","No motion change","Mass disappears","Gravity stops"],answer:0},
-  {q:"If net force is zero, what happens to acceleration?",choices:["Acceleration is zero","Acceleration increases","Acceleration becomes infinite","Acceleration equals mass"],answer:0},
-  {q:"What is Newton's First Law also related to?",choices:["Inertia","Momentum only","Heat transfer","Stress"],answer:0},
-  {q:"Newton's First Law says an object remains at rest or constant velocity unless acted on by what?",choices:["An unbalanced force","A balanced force","A smaller mass","A lower temperature"],answer:0},
+  {
+  q:"What is dynamics mainly about?",
+  choices:["How forces affect motion","How objects remain perfectly still","How materials stretch only","How heat transfers"],
+  answer:0,
+  explanation:"Dynamics is the study of how forces affect the motion of objects, including how they accelerate and change direction."
+},
 
-  {q:"What is inertia?",choices:["An object's tendency to resist changes in motion","The force of friction only","The speed of an object","The distance traveled"],answer:0},
-  {q:"What happens to inertia when mass increases?",choices:["Inertia increases","Inertia decreases","Inertia becomes zero","Inertia becomes velocity"],answer:0},
-  {q:"Which object has more inertia?",choices:["A loaded truck","An empty shopping cart","A tennis ball","A pencil"],answer:0},
-  {q:"Why is a loaded truck harder to stop than a bicycle?",choices:["It has more mass and inertia","It has less momentum","It has no forces","It has no acceleration"],answer:0},
-  {q:"A passenger lurching forward when a car brakes is an example of what?",choices:["Inertia","Static equilibrium","Thermal expansion","Young's Modulus"],answer:0},
-  {q:"What is Newton's Second Law?",choices:["F = ma","p = mv","W = Fd","F = μN"],answer:0},
-  {q:"In F = ma, what does F represent?",choices:["Net force","Friction only","Final distance","Frequency"],answer:0},
-  {q:"In F = ma, what does m represent?",choices:["Mass","Momentum","Meters traveled","Mechanical energy"],answer:0},
-  {q:"In F = ma, what does a represent?",choices:["Acceleration","Area","Applied distance","Angle"],answer:0},
-  {q:"What unit is force measured in?",choices:["Newtons","Kilograms","Meters","Seconds"],answer:0},
+{
+  q:"How is dynamics different from statics?",
+  choices:["Dynamics studies unbalanced forces and acceleration","Dynamics only studies objects at rest","Dynamics ignores motion","Dynamics only studies temperature"],
+  answer:0,
+  explanation:"Unlike statics, which focuses on objects in equilibrium, dynamics studies objects that are accelerating due to unbalanced forces."
+},
 
-  {q:"If force increases and mass stays the same, acceleration does what?",choices:["Increases","Decreases","Becomes zero","Becomes mass"],answer:0},
-  {q:"If mass increases and force stays the same, acceleration does what?",choices:["Decreases","Increases","Stays infinite","Turns into friction"],answer:0},
-  {q:"A shopping cart accelerates more easily than a loaded truck because it has what?",choices:["Less mass","More friction","No inertia","No acceleration"],answer:0},
-  {q:"What is Newton's Third Law?",choices:["For every action, there is an equal and opposite reaction","Force equals mass times acceleration","Objects resist motion change","Momentum equals mass times velocity"],answer:0},
-  {q:"When you walk forward, what do you push backward on?",choices:["The ground","The air only","Your shoes only","Nothing"],answer:0},
-  {q:"A rocket moves upward because exhaust is pushed which direction?",choices:["Downward","Upward","Sideways only","Nowhere"],answer:0},
-  {q:"A swimmer moves forward by pushing water in what direction?",choices:["Backward","Forward","Upward only","Downward only"],answer:0},
-  {q:"What is net force?",choices:["The sum of all forces acting on an object","Only the largest force","Only the smallest force","Mass times velocity"],answer:0},
-  {q:"If forces are 50 N right and 50 N left, what is net force?",choices:["0 N","100 N right","50 N right","50 N left"],answer:0},
-  {q:"If forces are 80 N right and 20 N left, what is net force?",choices:["60 N right","100 N right","60 N left","0 N"],answer:0},
+{
+  q:"Dynamics combines ideas from which two areas?",
+  choices:["Statics and kinematics","Thermodynamics and chemistry","Electricity and magnetism","Biology and coding"],
+  answer:0,
+  explanation:"Dynamics combines statics, which studies forces, and kinematics, which studies motion, to explain how forces cause motion."
+},
 
-  {q:"Forces are vector quantities because they have what?",choices:["Magnitude and direction","Only magnitude","Only direction","No units"],answer:0},
-  {q:"Why do engineers break angled forces into components?",choices:["To analyze horizontal and vertical effects separately","To remove mass","To avoid using Newtons","To make force disappear"],answer:0},
-  {q:"What does Fx usually represent?",choices:["Horizontal force component","Vertical force component","Friction coefficient","Final velocity"],answer:0},
-  {q:"What does Fy usually represent?",choices:["Vertical force component","Horizontal force component","Final distance","Frequency"],answer:0},
-  {q:"What is a Free Body Diagram?",choices:["A diagram showing all forces acting on an object","A graph of temperature","A drawing of only motion","A stress-strain chart"],answer:0},
-  {q:"Why are Free Body Diagrams useful?",choices:["They help identify forces and directions","They remove the need for equations","They only show speed","They only show mass"],answer:0},
-  {q:"Which is a common force shown on a Free Body Diagram?",choices:["Weight","Voltage","Density","Temperature"],answer:0},
-  {q:"Which force acts downward due to gravity?",choices:["Weight","Normal force","Tension","Applied force"],answer:0},
-  {q:"Which force is often provided by a surface?",choices:["Normal force","Weight","Momentum","Velocity"],answer:0},
-  {q:"Which force is transmitted through a rope or cable?",choices:["Tension","Weight","Normal force","Momentum"],answer:0},
+{
+  q:"What does statics mainly teach?",
+  choices:["Forces","Chemical reactions","Computer graphics","Heat engines"],
+  answer:0,
+  explanation:"Statics focuses on analyzing forces acting on objects that are in equilibrium."
+},
 
-  {q:"What does friction do?",choices:["Opposes motion between surfaces","Always increases speed","Removes gravity","Creates mass"],answer:0},
-  {q:"What is the friction formula from the lesson?",choices:["F = μN","F = ma","p = mv","W = Fd"],answer:0},
-  {q:"In F = μN, what does μ represent?",choices:["Coefficient of friction","Momentum","Mass","Velocity"],answer:0},
-  {q:"In F = μN, what does N represent?",choices:["Normal force","Net work","Newton's Third Law","Number of objects"],answer:0},
-  {q:"Friction can slow objects down because it does what?",choices:["Opposes motion","Increases mass","Removes velocity instantly","Cancels gravity"],answer:0},
-  {q:"Static friction acts when surfaces are doing what?",choices:["Not sliding relative to each other","Already sliding","Melting","Accelerating upward only"],answer:0},
-  {q:"Kinetic friction acts when surfaces are doing what?",choices:["Sliding against each other","Not touching","Perfectly still with no force","Orbiting"],answer:0},
-  {q:"Which friction usually prevents motion from starting?",choices:["Static friction","Kinetic friction","Air pressure","Momentum"],answer:0},
-  {q:"Which friction acts after sliding begins?",choices:["Kinetic friction","Static friction","Normal friction","Elastic friction"],answer:0},
-  {q:"Kinetic friction is usually what compared to static friction?",choices:["Smaller","Larger","Always zero","The same as mass"],answer:0},
+{
+  q:"What does kinematics mainly teach?",
+  choices:["Motion","Stress","Friction only","Material failure"],
+  answer:0,
+  explanation:"Kinematics describes motion such as position, velocity, and acceleration without considering the forces causing it."
+},
 
-  {q:"Acceleration can mean which of the following?",choices:["Speeding up, slowing down, or changing direction","Only speeding up","Only stopping","Only moving straight"],answer:0},
-  {q:"If a car changes direction while speed stays constant, is it accelerating?",choices:["Yes, because velocity changes","No, because speed is constant","Only if mass changes","Only if friction is zero"],answer:0},
-  {q:"Circular motion involves constant changes in what?",choices:["Direction","Mass","Material strength","Temperature"],answer:0},
-  {q:"What is centripetal acceleration?",choices:["Acceleration toward the center of circular motion","Acceleration away from all forces","Acceleration caused only by heat","Acceleration with no direction"],answer:0},
-  {q:"Which is an example of circular motion?",choices:["A car driving around a curve","A book resting on a table","A box hanging still","A rod stretching"],answer:0},
-  {q:"Momentum describes what?",choices:["Quantity of motion","Amount of heat","Stress per area","Change in length"],answer:0},
-  {q:"What is the formula for momentum?",choices:["p = mv","F = ma","F = μN","W = Fd"],answer:0},
-  {q:"In p = mv, what does p represent?",choices:["Momentum","Pressure","Power","Position"],answer:0},
-  {q:"In p = mv, what does v represent?",choices:["Velocity","Volume","Voltage","Vertical force"],answer:0},
-  {q:"What happens to momentum if mass increases and velocity stays the same?",choices:["Momentum increases","Momentum decreases","Momentum becomes zero","Momentum becomes acceleration"],answer:0},
+{
+  q:"What does dynamics explain?",
+  choices:["How forces create motion","How objects stay weightless","How circuits store charge","How materials change color"],
+  answer:0,
+  explanation:"Dynamics explains how applied forces cause objects to accelerate, slow down, or change direction."
+},
 
-  {q:"What happens to momentum if velocity increases and mass stays the same?",choices:["Momentum increases","Momentum decreases","Momentum becomes friction","Momentum becomes normal force"],answer:0},
-  {q:"Why does a fast-moving truck have more momentum than a bicycle?",choices:["It has much greater mass and may have high velocity","It has less inertia","It has no net force","It has no kinetic motion"],answer:0},
-  {q:"Changing momentum requires what?",choices:["Force","Color","Temperature only","No interaction"],answer:0},
-  {q:"Engineers study momentum when designing what?",choices:["Vehicle safety systems","Paint colors","Website fonts","Chemical formulas"],answer:0},
-  {q:"Which safety device relates to momentum and force during crashes?",choices:["Airbags","Thermometers","Pulleys only","Calipers"],answer:0},
-  {q:"What is work in dynamics?",choices:["A force causing displacement","Mass sitting still","Stress divided by strain","Heat with no motion"],answer:0},
-  {q:"What is the basic formula for work?",choices:["W = Fd","F = ma","p = mv","F = μN"],answer:0},
-  {q:"In W = Fd, what does d represent?",choices:["Distance or displacement","Density","Diameter only","Direction only"],answer:0},
-  {q:"What is energy?",choices:["The ability to do work","The same as mass","Only friction","Only acceleration"],answer:0},
-  {q:"Machines often convert energy into what?",choices:["Motion","Color","Mass","Area"],answer:0},
+{
+  q:"If forces are unbalanced, what can happen?",
+  choices:["Acceleration","No motion change","Mass disappears","Gravity stops"],
+  answer:0,
+  explanation:"An unbalanced force creates a net force, causing an object to accelerate according to Newton's Second Law."
+},
 
-  {q:"If a 5 kg object accelerates at 3 m/s², what is net force?",choices:["15 N","8 N","1.67 N","0 N"],answer:0},
-  {q:"If a 10 kg object accelerates at 2 m/s², what is net force?",choices:["20 N","12 N","5 N","0 N"],answer:0},
-  {q:"If a 4 kg object accelerates at 6 m/s², what is net force?",choices:["24 N","10 N","1.5 N","0 N"],answer:0},
-  {q:"If a 50 N net force acts on a 10 kg object, what is acceleration?",choices:["5 m/s²","500 m/s²","0.2 m/s²","60 m/s²"],answer:0},
-  {q:"If a 60 N net force acts on a 20 kg object, what is acceleration?",choices:["3 m/s²","80 m/s²","40 m/s²","0.33 m/s²"],answer:0},
-  {q:"If a 100 N net force acts on a 25 kg object, what is acceleration?",choices:["4 m/s²","2500 m/s²","125 m/s²","0.25 m/s²"],answer:0},
-  {q:"If mass is 12 kg and acceleration is 4 m/s², what is force?",choices:["48 N","16 N","3 N","0 N"],answer:0},
-  {q:"If mass is 8 kg and acceleration is 5 m/s², what is force?",choices:["40 N","13 N","1.6 N","0 N"],answer:0},
-  {q:"According to Newton's Second Law, increasing force while keeping mass constant causes acceleration to do what?",choices:["Increase","Decrease","Become zero","Remain unchanged"],answer:0},
-  {q:"According to Newton's Second Law, increasing mass while keeping force constant causes acceleration to do what?",choices:["Decrease","Increase","Become infinite","Remain unchanged"],answer:0},
+{
+  q:"If net force is zero, what happens to acceleration?",
+  choices:["Acceleration is zero","Acceleration increases","Acceleration becomes infinite","Acceleration equals mass"],
+  answer:0,
+  explanation:"When the net force is zero, there is no acceleration, so the object remains at rest or continues moving at constant velocity."
+},
 
-  {q:"If 70 N acts right and 30 N acts left, what is net force?",choices:["40 N right","100 N right","40 N left","0 N"],answer:0},
-  {q:"If 100 N acts left and 45 N acts right, what is net force?",choices:["55 N left","145 N left","55 N right","0 N"],answer:0},
-  {q:"If 25 N right, 35 N right, and 40 N left act on an object, what is net force?",choices:["20 N right","100 N right","20 N left","0 N"],answer:0},
-  {q:"If 90 N right and 90 N left act on an object, what is net force?",choices:["0 N","180 N right","90 N right","90 N left"],answer:0},
-  {q:"If net force is 0 N, what can be said about acceleration?",choices:["Acceleration is zero","Acceleration is maximum","Acceleration equals mass","Acceleration equals velocity"],answer:0},
-  {q:"What happens when the net force equals zero?",choices:["No acceleration occurs","Acceleration increases","Mass becomes zero","Momentum disappears"],answer:0},
-  {q:"What happens when the net force does not equal zero?",choices:["The object accelerates","The object must stop","The object loses mass","No motion is possible"],answer:0},
-  {q:"If μ = 0.2 and N = 500 N, what is friction force?",choices:["100 N","2500 N","500.2 N","0.0004 N"],answer:0},
-  {q:"If μ = 0.4 and N = 300 N, what is friction force?",choices:["120 N","750 N","300.4 N","0.0013 N"],answer:0},
-  {q:"If μ = 0.25 and N = 800 N, what is friction force?",choices:["200 N","3200 N","800.25 N","0.0003 N"],answer:0},
+{
+  q:"What is Newton's First Law also related to?",
+  choices:["Inertia","Momentum only","Heat transfer","Stress"],
+  answer:0,
+  explanation:"Newton's First Law is often called the Law of Inertia because it describes an object's resistance to changes in motion."
+},
 
-  {q:"If a 2 kg object moves at 6 m/s, what is momentum?",choices:["12 kg·m/s","8 kg·m/s","3 kg·m/s","0 kg·m/s"],answer:0},
-  {q:"If a 5 kg object moves at 4 m/s, what is momentum?",choices:["20 kg·m/s","9 kg·m/s","1.25 kg·m/s","0 kg·m/s"],answer:0},
-  {q:"If a 1,000 kg car moves at 15 m/s, what is momentum?",choices:["15,000 kg·m/s","1,015 kg·m/s","66.7 kg·m/s","0 kg·m/s"],answer:0},
-  {q:"Which type of motion causes acceleration even when speed stays constant?",choices:["Changing direction","Moving in a straight line","Remaining at rest","Having zero force"],answer:0},
-  {q:"Which object from the lesson demonstrates circular motion?",choices:["A satellite orbiting Earth","A book resting on a table","A hanging picture frame","A parked car"],answer:0},
-  {q:"If a force of 40 N moves an object 5 m, how much work is done?",choices:["200 J","45 J","8 J","0 J"],answer:0},
-  {q:"If a force of 100 N moves an object 3 m, how much work is done?",choices:["300 J","103 J","33.3 J","0 J"],answer:0},
-  {q:"Which safety devices mentioned in the lesson are designed using momentum concepts?",choices:["Airbags and seatbelts","Thermometers and rulers","Bolts and gears","Springs and pulleys"],answer:0},
-  {q:"Machines constantly convert energy into what?",choices:["Motion","Mass","Temperature","Density"],answer:0},
-  {q:"Why does dynamics matter in mechanical engineering?",choices:["Most machines move, accelerate, stop, or respond to forces","Machines never move","Dynamics only studies colors","Dynamics avoids force analysis"],answer:0}
+{
+  q:"Newton's First Law says an object remains at rest or constant velocity unless acted on by what?",
+  choices:["An unbalanced force","A balanced force","A smaller mass","A lower temperature"],
+  answer:0,
+  explanation:"An object will not change its motion unless an unbalanced force acts upon it."
+},
+
+{
+  q:"What is inertia?",
+  choices:["An object's tendency to resist changes in motion","The force of friction only","The speed of an object","The distance traveled"],
+  answer:0,
+  explanation:"Inertia is an object's natural tendency to resist changes in its state of motion."
+},
+
+{
+  q:"What happens to inertia when mass increases?",
+  choices:["Inertia increases","Inertia decreases","Inertia becomes zero","Inertia becomes velocity"],
+  answer:0,
+  explanation:"Objects with greater mass have greater inertia, making them harder to start, stop, or change direction."
+},
+
+{
+  q:"Which object has more inertia?",
+  choices:["A loaded truck","An empty shopping cart","A tennis ball","A pencil"],
+  answer:0,
+  explanation:"A loaded truck has much more mass than the other objects, so it has the greatest inertia."
+},
+
+{
+  q:"Why is a loaded truck harder to stop than a bicycle?",
+  choices:["It has more mass and inertia","It has less momentum","It has no forces","It has no acceleration"],
+  answer:0,
+  explanation:"Because the truck has much greater mass, it has greater inertia and resists changes in motion more than a bicycle."
+},
+
+{
+  q:"A passenger lurching forward when a car brakes is an example of what?",
+  choices:["Inertia","Static equilibrium","Thermal expansion","Young's Modulus"],
+  answer:0,
+  explanation:"The passenger's body tends to keep moving forward due to inertia even though the car is slowing down."
+},
+
+{
+  q:"What is Newton's Second Law?",
+  choices:["F = ma","p = mv","W = Fd","F = μN"],
+  answer:0,
+  explanation:"Newton's Second Law states that the net force acting on an object equals its mass multiplied by its acceleration."
+},
+
+{
+  q:"In F = ma, what does F represent?",
+  choices:["Net force","Friction only","Final distance","Frequency"],
+  answer:0,
+  explanation:"F represents the net force, which is the total force acting on an object after all forces are combined."
+},
+
+{
+  q:"In F = ma, what does m represent?",
+  choices:["Mass","Momentum","Meters traveled","Mechanical energy"],
+  answer:0,
+  explanation:"The variable m represents the object's mass, usually measured in kilograms."
+},
+
+{
+  q:"In F = ma, what does a represent?",
+  choices:["Acceleration","Area","Applied distance","Angle"],
+  answer:0,
+  explanation:"The variable a represents acceleration, which is the rate at which an object's velocity changes."
+},
+
+{
+  q:"What unit is force measured in?",
+  choices:["Newtons","Kilograms","Meters","Seconds"],
+  answer:0,
+  explanation:"Force is measured in newtons (N), the SI unit of force, where 1 N equals 1 kg·m/s²."
+},
+
+  {
+  q:"If force increases and mass stays the same, acceleration does what?",
+  choices:["Increases","Decreases","Becomes zero","Becomes mass"],
+  answer:0,
+  explanation:"According to Newton's Second Law (F = ma), increasing the net force while keeping mass constant increases acceleration."
+},
+
+{
+  q:"If mass increases and force stays the same, acceleration does what?",
+  choices:["Decreases","Increases","Stays infinite","Turns into friction"],
+  answer:0,
+  explanation:"Using F = ma, if the same force acts on a larger mass, the resulting acceleration becomes smaller."
+},
+
+{
+  q:"A shopping cart accelerates more easily than a loaded truck because it has what?",
+  choices:["Less mass","More friction","No inertia","No acceleration"],
+  answer:0,
+  explanation:"A shopping cart has much less mass than a loaded truck, so the same force produces greater acceleration."
+},
+
+{
+  q:"What is Newton's Third Law?",
+  choices:["For every action, there is an equal and opposite reaction","Force equals mass times acceleration","Objects resist motion change","Momentum equals mass times velocity"],
+  answer:0,
+  explanation:"Newton's Third Law states that forces always occur in equal and opposite pairs acting on different objects."
+},
+
+{
+  q:"When you walk forward, what do you push backward on?",
+  choices:["The ground","The air only","Your shoes only","Nothing"],
+  answer:0,
+  explanation:"Your feet push backward on the ground, and the ground pushes you forward with an equal and opposite force."
+},
+
+{
+  q:"A rocket moves upward because exhaust is pushed which direction?",
+  choices:["Downward","Upward","Sideways only","Nowhere"],
+  answer:0,
+  explanation:"The rocket pushes exhaust gases downward, and the gases push the rocket upward with an equal and opposite force."
+},
+
+{
+  q:"A swimmer moves forward by pushing water in what direction?",
+  choices:["Backward","Forward","Upward only","Downward only"],
+  answer:0,
+  explanation:"A swimmer pushes water backward, and the water pushes the swimmer forward according to Newton's Third Law."
+},
+
+{
+  q:"What is net force?",
+  choices:["The sum of all forces acting on an object","Only the largest force","Only the smallest force","Mass times velocity"],
+  answer:0,
+  explanation:"Net force is the overall force found by adding all forces acting on an object while considering their directions."
+},
+
+{
+  q:"If forces are 50 N right and 50 N left, what is net force?",
+  choices:["0 N","100 N right","50 N right","50 N left"],
+  answer:0,
+  explanation:"Equal forces acting in opposite directions cancel each other, giving a net force of 0 N."
+},
+
+{
+  q:"If forces are 80 N right and 20 N left, what is net force?",
+  choices:["60 N right","100 N right","60 N left","0 N"],
+  answer:0,
+  explanation:"Subtract the smaller opposing force from the larger one: 80 N − 20 N = 60 N to the right."
+},
+
+{
+  q:"Forces are vector quantities because they have what?",
+  choices:["Magnitude and direction","Only magnitude","Only direction","No units"],
+  answer:0,
+  explanation:"A vector has both magnitude and direction, so both are needed to completely describe a force."
+},
+
+{
+  q:"Why do engineers break angled forces into components?",
+  choices:["To analyze horizontal and vertical effects separately","To remove mass","To avoid using Newtons","To make force disappear"],
+  answer:0,
+  explanation:"Resolving forces into horizontal and vertical components makes engineering calculations much easier."
+},
+
+{
+  q:"What does Fx usually represent?",
+  choices:["Horizontal force component","Vertical force component","Friction coefficient","Final velocity"],
+  answer:0,
+  explanation:"Fx represents the component of a force acting in the horizontal, or x, direction."
+},
+
+{
+  q:"What does Fy usually represent?",
+  choices:["Vertical force component","Horizontal force component","Final distance","Frequency"],
+  answer:0,
+  explanation:"Fy represents the component of a force acting in the vertical, or y, direction."
+},
+
+{
+  q:"What is a Free Body Diagram?",
+  choices:["A diagram showing all forces acting on an object","A graph of temperature","A drawing of only motion","A stress-strain chart"],
+  answer:0,
+  explanation:"A Free Body Diagram shows an object isolated from its surroundings with every external force acting on it."
+},
+
+{
+  q:"Why are Free Body Diagrams useful?",
+  choices:["They help identify forces and directions","They remove the need for equations","They only show speed","They only show mass"],
+  answer:0,
+  explanation:"Free Body Diagrams help engineers visualize forces so they can correctly apply equations such as Newton's Laws."
+},
+
+{
+  q:"Which is a common force shown on a Free Body Diagram?",
+  choices:["Weight","Voltage","Density","Temperature"],
+  answer:0,
+  explanation:"Weight is one of the most common forces shown on a Free Body Diagram because gravity acts on all objects with mass."
+},
+
+{
+  q:"Which force acts downward due to gravity?",
+  choices:["Weight","Normal force","Tension","Applied force"],
+  answer:0,
+  explanation:"Weight is the gravitational force pulling an object toward Earth."
+},
+
+{
+  q:"Which force is often provided by a surface?",
+  choices:["Normal force","Weight","Momentum","Velocity"],
+  answer:0,
+  explanation:"The normal force is the support force exerted by a surface, acting perpendicular to that surface."
+},
+
+{
+  q:"Which force is transmitted through a rope or cable?",
+  choices:["Tension","Weight","Normal force","Momentum"],
+  answer:0,
+  explanation:"Tension is the pulling force transmitted through a rope, cable, or chain when it is under load."
+},
+
+  {
+  q:"What does friction do?",
+  choices:["Opposes motion between surfaces","Always increases speed","Removes gravity","Creates mass"],
+  answer:0,
+  explanation:"Friction is a force that opposes the relative motion or attempted motion between two surfaces in contact."
+},
+
+{
+  q:"What is the friction formula from the lesson?",
+  choices:["F = μN","F = ma","p = mv","W = Fd"],
+  answer:0,
+  explanation:"The friction force is calculated using F = μN, where the coefficient of friction is multiplied by the normal force."
+},
+
+{
+  q:"In F = μN, what does μ represent?",
+  choices:["Coefficient of friction","Momentum","Mass","Velocity"],
+  answer:0,
+  explanation:"The Greek letter μ (mu) represents the coefficient of friction, which depends on the types of surfaces in contact."
+},
+
+{
+  q:"In F = μN, what does N represent?",
+  choices:["Normal force","Net work","Newton's Third Law","Number of objects"],
+  answer:0,
+  explanation:"N represents the normal force, which is the support force exerted by a surface on an object."
+},
+
+{
+  q:"Friction can slow objects down because it does what?",
+  choices:["Opposes motion","Increases mass","Removes velocity instantly","Cancels gravity"],
+  answer:0,
+  explanation:"Friction acts opposite the direction of motion, causing moving objects to slow down if no other force keeps them moving."
+},
+
+{
+  q:"Static friction acts when surfaces are doing what?",
+  choices:["Not sliding relative to each other","Already sliding","Melting","Accelerating upward only"],
+  answer:0,
+  explanation:"Static friction acts between surfaces that are in contact but not sliding relative to one another."
+},
+
+{
+  q:"Kinetic friction acts when surfaces are doing what?",
+  choices:["Sliding against each other","Not touching","Perfectly still with no force","Orbiting"],
+  answer:0,
+  explanation:"Kinetic friction acts once two surfaces are sliding past one another."
+},
+
+{
+  q:"Which friction usually prevents motion from starting?",
+  choices:["Static friction","Kinetic friction","Air pressure","Momentum"],
+  answer:0,
+  explanation:"Static friction resists the start of motion and must be overcome before an object begins to slide."
+},
+
+{
+  q:"Which friction acts after sliding begins?",
+  choices:["Kinetic friction","Static friction","Normal friction","Elastic friction"],
+  answer:0,
+  explanation:"Once motion begins, static friction is replaced by kinetic friction."
+},
+
+{
+  q:"Kinetic friction is usually what compared to static friction?",
+  choices:["Smaller","Larger","Always zero","The same as mass"],
+  answer:0,
+  explanation:"For most materials, kinetic friction is slightly smaller than the maximum static friction."
+},
+
+{
+  q:"Acceleration can mean which of the following?",
+  choices:["Speeding up, slowing down, or changing direction","Only speeding up","Only stopping","Only moving straight"],
+  answer:0,
+  explanation:"Acceleration is any change in velocity, including changes in speed or direction."
+},
+
+{
+  q:"If a car changes direction while speed stays constant, is it accelerating?",
+  choices:["Yes, because velocity changes","No, because speed is constant","Only if mass changes","Only if friction is zero"],
+  answer:0,
+  explanation:"Velocity includes both speed and direction, so changing direction means the car is accelerating."
+},
+
+{
+  q:"Circular motion involves constant changes in what?",
+  choices:["Direction","Mass","Material strength","Temperature"],
+  answer:0,
+  explanation:"During circular motion, an object's direction changes continuously, even if its speed stays constant."
+},
+
+{
+  q:"What is centripetal acceleration?",
+  choices:["Acceleration toward the center of circular motion","Acceleration away from all forces","Acceleration caused only by heat","Acceleration with no direction"],
+  answer:0,
+  explanation:"Centripetal acceleration always points toward the center of the circular path and keeps the object moving in a circle."
+},
+
+{
+  q:"Which is an example of circular motion?",
+  choices:["A car driving around a curve","A book resting on a table","A box hanging still","A rod stretching"],
+  answer:0,
+  explanation:"A car turning around a curve follows a curved path and experiences centripetal acceleration."
+},
+
+{
+  q:"Momentum describes what?",
+  choices:["Quantity of motion","Amount of heat","Stress per area","Change in length"],
+  answer:0,
+  explanation:"Momentum measures the quantity of motion and depends on both an object's mass and velocity."
+},
+
+{
+  q:"What is the formula for momentum?",
+  choices:["p = mv","F = ma","F = μN","W = Fd"],
+  answer:0,
+  explanation:"Momentum is calculated by multiplying an object's mass by its velocity using p = mv."
+},
+
+{
+  q:"In p = mv, what does p represent?",
+  choices:["Momentum","Pressure","Power","Position"],
+  answer:0,
+  explanation:"The variable p represents momentum, which describes the quantity of an object's motion."
+},
+
+{
+  q:"In p = mv, what does v represent?",
+  choices:["Velocity","Volume","Voltage","Vertical force"],
+  answer:0,
+  explanation:"The variable v represents velocity, which includes both an object's speed and direction."
+},
+
+{
+  q:"What happens to momentum if mass increases and velocity stays the same?",
+  choices:["Momentum increases","Momentum decreases","Momentum becomes zero","Momentum becomes acceleration"],
+  answer:0,
+  explanation:"Since momentum equals mass times velocity, increasing the mass while keeping velocity constant increases the momentum."
+},
+
+  {
+  q:"What happens to momentum if velocity increases and mass stays the same?",
+  choices:["Momentum increases","Momentum decreases","Momentum becomes friction","Momentum becomes normal force"],
+  answer:0,
+  explanation:"Since momentum is calculated using p = mv, increasing the velocity while keeping the mass constant increases the momentum."
+},
+
+{
+  q:"Why does a fast-moving truck have more momentum than a bicycle?",
+  choices:["It has much greater mass and may have high velocity","It has less inertia","It has no net force","It has no kinetic motion"],
+  answer:0,
+  explanation:"Momentum depends on both mass and velocity. A truck usually has much greater mass and can also move quickly, giving it much greater momentum."
+},
+
+{
+  q:"Changing momentum requires what?",
+  choices:["Force","Color","Temperature only","No interaction"],
+  answer:0,
+  explanation:"A net force changes an object's momentum by changing its speed, direction, or both."
+},
+
+{
+  q:"Engineers study momentum when designing what?",
+  choices:["Vehicle safety systems","Paint colors","Website fonts","Chemical formulas"],
+  answer:0,
+  explanation:"Engineers use momentum principles when designing vehicle safety systems that reduce injuries during collisions."
+},
+
+{
+  q:"Which safety device relates to momentum and force during crashes?",
+  choices:["Airbags","Thermometers","Pulleys only","Calipers"],
+  answer:0,
+  explanation:"Airbags increase the time over which a passenger stops, reducing the force experienced during a crash."
+},
+
+{
+  q:"What is work in dynamics?",
+  choices:["A force causing displacement","Mass sitting still","Stress divided by strain","Heat with no motion"],
+  answer:0,
+  explanation:"Work is done when a force causes an object to move through a distance in the direction of the force."
+},
+
+{
+  q:"What is the basic formula for work?",
+  choices:["W = Fd","F = ma","p = mv","F = μN"],
+  answer:0,
+  explanation:"The basic equation for work is W = Fd, where force acts through a distance."
+},
+
+{
+  q:"In W = Fd, what does d represent?",
+  choices:["Distance or displacement","Density","Diameter only","Direction only"],
+  answer:0,
+  explanation:"The variable d represents the distance, or displacement, over which the force acts."
+},
+
+{
+  q:"What is energy?",
+  choices:["The ability to do work","The same as mass","Only friction","Only acceleration"],
+  answer:0,
+  explanation:"Energy is the ability to do work or cause change in a system."
+},
+
+{
+  q:"Machines often convert energy into what?",
+  choices:["Motion","Color","Mass","Area"],
+  answer:0,
+  explanation:"Many machines convert electrical, chemical, or fuel energy into mechanical motion to perform useful work."
+},
+
+{
+  q:"If a 5 kg object accelerates at 3 m/s², what is net force?",
+  choices:["15 N","8 N","1.67 N","0 N"],
+  answer:0,
+  explanation:"Use Newton's Second Law: F = ma. Multiplying 5 kg by 3 m/s² gives 15 N."
+},
+
+{
+  q:"If a 10 kg object accelerates at 2 m/s², what is net force?",
+  choices:["20 N","12 N","5 N","0 N"],
+  answer:0,
+  explanation:"Apply F = ma. Multiplying 10 kg by 2 m/s² gives a net force of 20 N."
+},
+
+{
+  q:"If a 4 kg object accelerates at 6 m/s², what is net force?",
+  choices:["24 N","10 N","1.5 N","0 N"],
+  answer:0,
+  explanation:"Using F = ma, multiply 4 kg by 6 m/s² to obtain 24 N."
+},
+
+{
+  q:"If a 50 N net force acts on a 10 kg object, what is acceleration?",
+  choices:["5 m/s²","500 m/s²","0.2 m/s²","60 m/s²"],
+  answer:0,
+  explanation:"Rearrange Newton's Second Law to a = F/m. Dividing 50 N by 10 kg gives 5 m/s²."
+},
+
+{
+  q:"If a 60 N net force acts on a 20 kg object, what is acceleration?",
+  choices:["3 m/s²","80 m/s²","40 m/s²","0.33 m/s²"],
+  answer:0,
+  explanation:"Use a = F/m. Dividing 60 N by 20 kg gives an acceleration of 3 m/s²."
+},
+
+{
+  q:"If a 100 N net force acts on a 25 kg object, what is acceleration?",
+  choices:["4 m/s²","2500 m/s²","125 m/s²","0.25 m/s²"],
+  answer:0,
+  explanation:"Using a = F/m, divide 100 N by 25 kg to obtain 4 m/s²."
+},
+
+{
+  q:"If mass is 12 kg and acceleration is 4 m/s², what is force?",
+  choices:["48 N","16 N","3 N","0 N"],
+  answer:0,
+  explanation:"Apply F = ma. Multiplying 12 kg by 4 m/s² gives 48 N."
+},
+
+{
+  q:"If mass is 8 kg and acceleration is 5 m/s², what is force?",
+  choices:["40 N","13 N","1.6 N","0 N"],
+  answer:0,
+  explanation:"Using F = ma, multiply 8 kg by 5 m/s² to calculate a force of 40 N."
+},
+
+{
+  q:"According to Newton's Second Law, increasing force while keeping mass constant causes acceleration to do what?",
+  choices:["Increase","Decrease","Become zero","Remain unchanged"],
+  answer:0,
+  explanation:"Acceleration is directly proportional to force, so increasing the force while mass stays constant increases the acceleration."
+},
+
+{
+  q:"According to Newton's Second Law, increasing mass while keeping force constant causes acceleration to do what?",
+  choices:["Decrease","Increase","Become infinite","Remain unchanged"],
+  answer:0,
+  explanation:"Acceleration is inversely proportional to mass, so increasing the mass while keeping the force constant decreases the acceleration."
+},
+
+  {
+  q:"If 70 N acts right and 30 N acts left, what is net force?",
+  choices:["40 N right","100 N right","40 N left","0 N"],
+  answer:0,
+  explanation:"Subtract the opposing forces: 70 N − 30 N = 40 N, with the direction of the larger force (right)."
+},
+
+{
+  q:"If 100 N acts left and 45 N acts right, what is net force?",
+  choices:["55 N left","145 N left","55 N right","0 N"],
+  answer:0,
+  explanation:"Subtract the opposing forces: 100 N − 45 N = 55 N, in the direction of the larger force (left)."
+},
+
+{
+  q:"If 25 N right, 35 N right, and 40 N left act on an object, what is net force?",
+  choices:["20 N right","100 N right","20 N left","0 N"],
+  answer:0,
+  explanation:"Add the rightward forces (25 N + 35 N = 60 N) and subtract the leftward force (40 N), leaving a net force of 20 N to the right."
+},
+
+{
+  q:"If 90 N right and 90 N left act on an object, what is net force?",
+  choices:["0 N","180 N right","90 N right","90 N left"],
+  answer:0,
+  explanation:"Equal forces acting in opposite directions cancel each other, producing a net force of 0 N."
+},
+
+{
+  q:"If net force is 0 N, what can be said about acceleration?",
+  choices:["Acceleration is zero","Acceleration is maximum","Acceleration equals mass","Acceleration equals velocity"],
+  answer:0,
+  explanation:"According to Newton's Second Law, zero net force means zero acceleration."
+},
+
+{
+  q:"What happens when the net force equals zero?",
+  choices:["No acceleration occurs","Acceleration increases","Mass becomes zero","Momentum disappears"],
+  answer:0,
+  explanation:"With zero net force, an object remains at rest or continues moving with constant velocity."
+},
+
+{
+  q:"What happens when the net force does not equal zero?",
+  choices:["The object accelerates","The object must stop","The object loses mass","No motion is possible"],
+  answer:0,
+  explanation:"A nonzero net force causes an object to accelerate according to Newton's Second Law."
+},
+
+{
+  q:"If μ = 0.2 and N = 500 N, what is friction force?",
+  choices:["100 N","2500 N","500.2 N","0.0004 N"],
+  answer:0,
+  explanation:"Use the friction equation F = μN. Multiplying 0.2 by 500 N gives 100 N."
+},
+
+{
+  q:"If μ = 0.4 and N = 300 N, what is friction force?",
+  choices:["120 N","750 N","300.4 N","0.0013 N"],
+  answer:0,
+  explanation:"Apply F = μN. Multiplying 0.4 by 300 N gives a friction force of 120 N."
+},
+
+{
+  q:"If μ = 0.25 and N = 800 N, what is friction force?",
+  choices:["200 N","3200 N","800.25 N","0.0003 N"],
+  answer:0,
+  explanation:"Use F = μN. Multiplying 0.25 by 800 N gives a friction force of 200 N."
+},
+
+{
+  q:"If a 2 kg object moves at 6 m/s, what is momentum?",
+  choices:["12 kg·m/s","8 kg·m/s","3 kg·m/s","0 kg·m/s"],
+  answer:0,
+  explanation:"Use the momentum equation p = mv. Multiplying 2 kg by 6 m/s gives 12 kg·m/s."
+},
+
+{
+  q:"If a 5 kg object moves at 4 m/s, what is momentum?",
+  choices:["20 kg·m/s","9 kg·m/s","1.25 kg·m/s","0 kg·m/s"],
+  answer:0,
+  explanation:"Momentum equals mass times velocity. Multiplying 5 kg by 4 m/s gives 20 kg·m/s."
+},
+
+{
+  q:"If a 1,000 kg car moves at 15 m/s, what is momentum?",
+  choices:["15,000 kg·m/s","1,015 kg·m/s","66.7 kg·m/s","0 kg·m/s"],
+  answer:0,
+  explanation:"Using p = mv, multiply 1,000 kg by 15 m/s to obtain 15,000 kg·m/s."
+},
+
+{
+  q:"Which type of motion causes acceleration even when speed stays constant?",
+  choices:["Changing direction","Moving in a straight line","Remaining at rest","Having zero force"],
+  answer:0,
+  explanation:"Acceleration is any change in velocity. Since velocity includes direction, changing direction causes acceleration even if speed stays the same."
+},
+
+{
+  q:"Which object from the lesson demonstrates circular motion?",
+  choices:["A satellite orbiting Earth","A book resting on a table","A hanging picture frame","A parked car"],
+  answer:0,
+  explanation:"A satellite continuously changes direction as it orbits Earth, making it an example of circular motion."
+},
+
+{
+  q:"If a force of 40 N moves an object 5 m, how much work is done?",
+  choices:["200 J","45 J","8 J","0 J"],
+  answer:0,
+  explanation:"Use the work equation W = Fd. Multiplying 40 N by 5 m gives 200 joules (J)."
+},
+
+{
+  q:"If a force of 100 N moves an object 3 m, how much work is done?",
+  choices:["300 J","103 J","33.3 J","0 J"],
+  answer:0,
+  explanation:"Apply W = Fd. Multiplying 100 N by 3 m gives 300 joules (J)."
+},
+
+{
+  q:"Which safety devices mentioned in the lesson are designed using momentum concepts?",
+  choices:["Airbags and seatbelts","Thermometers and rulers","Bolts and gears","Springs and pulleys"],
+  answer:0,
+  explanation:"Airbags and seatbelts increase the time over which a person stops, reducing the force experienced during a collision."
+},
+
+{
+  q:"Machines constantly convert energy into what?",
+  choices:["Motion","Mass","Temperature","Density"],
+  answer:0,
+  explanation:"Machines convert various forms of energy into mechanical motion to perform useful work."
+},
+
+{
+  q:"Why does dynamics matter in mechanical engineering?",
+  choices:["Most machines move, accelerate, stop, or respond to forces","Machines never move","Dynamics only studies colors","Dynamics avoids force analysis"],
+  answer:0,
+  explanation:"Dynamics is essential in mechanical engineering because most machines contain moving parts that accelerate, slow down, change direction, and respond to applied forces."
+},
 ];
 
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+
+    [array[i], array[randomIndex]] =
+      [array[randomIndex], array[i]];
+  }
+
+  return array;
+}
+
 function shuffleQuestions() {
-  allQuestions = [...quizQuestions].sort(() => Math.random() - 0.5);
+  allQuestions = quizQuestions.map(question => {
+
+    // Connect each choice to whether it is the correct answer.
+    const shuffledChoices = question.choices.map((choice, index) => {
+      return {
+        text: choice,
+        isCorrect: index === question.answer
+      };
+    });
+
+    // Randomize the four answer choices.
+    shuffleArray(shuffledChoices);
+
+    // Create a new copy of the question with randomized choices.
+    return {
+      ...question,
+
+      choices: shuffledChoices.map(choice => choice.text),
+
+      // Find the correct answer's new position after shuffling.
+      answer: shuffledChoices.findIndex(
+        choice => choice.isCorrect
+      )
+    };
+  });
+
+  // Randomize the order of the questions too.
+  shuffleArray(allQuestions);
 }
 
 function openRandomQuizSet() {
@@ -1370,29 +1998,19 @@ function shuffleChoices(question) {
 }
 
 function loadQuestion() {
-
   const container = document.getElementById("quiz-container");
-
   const question = allQuestions[currentQuestionIndex];
-
-  if (!question.shuffledData) {
-    question.shuffledData = shuffleChoices(question);
-  }
-
-  const shuffled = question.shuffledData;
-
   const saved = answeredQuestions[currentQuestionIndex];
 
   let choicesHTML = "";
 
-  shuffled.choices.forEach((choiceObj, index) => {
-
-    let checked =
+  question.choices.forEach((choice, index) => {
+    const checked =
       saved && saved.selectedIndex === index
         ? "checked"
         : "";
 
-    let disabled =
+    const disabled =
       saved
         ? "disabled"
         : "";
@@ -1400,7 +2018,6 @@ function loadQuestion() {
     let extraClass = "";
 
     if (saved) {
-
       if (index === saved.correctIndex) {
         extraClass = "correct-answer";
       }
@@ -1414,12 +2031,62 @@ function loadQuestion() {
     }
 
     choicesHTML += `
-      <label class="answer-choice ${extraClass}" data-index="${index}">
-        <input type="radio" name="question" ${checked} ${disabled}>
-        ${choiceObj.text}
+      <label
+        class="answer-choice ${extraClass}"
+        data-index="${index}"
+      >
+        <input
+          type="radio"
+          name="question"
+          ${checked}
+          ${disabled}
+        >
+
+        ${choice}
       </label>
     `;
   });
+
+  let feedbackHTML = "";
+
+  if (saved) {
+    const wasCorrect =
+      saved.selectedIndex === saved.correctIndex;
+
+    const correctAnswer =
+      question.choices[saved.correctIndex];
+
+    const explanation =
+      question.explanation ||
+      "Review the lesson section connected to this question.";
+
+    if (wasCorrect) {
+      feedbackHTML = `
+        <div class="quiz-feedback correct-feedback">
+          <h4>Correct!</h4>
+
+          <p>
+            ${explanation}
+          </p>
+        </div>
+      `;
+    } else {
+      feedbackHTML = `
+        <div class="quiz-feedback incorrect-feedback">
+          <h4>Incorrect</h4>
+
+          <p>
+            <strong>Correct answer:</strong>
+            ${correctAnswer}
+          </p>
+
+          <p>
+            ${explanation}
+          </p>
+        </div>
+      `;
+    }
+  }
 
   const isLastQuestion =
     currentQuestionIndex === allQuestions.length - 1;
@@ -1447,18 +2114,41 @@ function loadQuestion() {
         Check Answer
       </button>
 
+      ${feedbackHTML}
+
       <div class="quiz-nav-buttons">
 
         ${
           currentQuestionIndex > 0
-            ? `<button onclick="prevQuestion()">Back</button>`
-            : ``
+            ? `
+              <button
+                onclick="prevQuestion()"
+                id="back-btn"
+              >
+                Back
+              </button>
+            `
+            : ""
         }
 
         ${
           isLastQuestion
-            ? `<button onclick="submitQuiz()">Submit</button>`
-            : `<button onclick="nextQuestion()">Next</button>`
+            ? `
+              <button
+                onclick="submitQuiz()"
+                id="submit-btn"
+              >
+                Submit
+              </button>
+            `
+            : `
+              <button
+                onclick="nextQuestion()"
+                id="next-btn"
+              >
+                Next
+              </button>
+            `
         }
 
       </div>
@@ -1468,30 +2158,15 @@ function loadQuestion() {
 }
 
 function checkAnswer() {
-
-  const selected =
-    document.querySelector(
-      'input[name="question"]:checked'
-    );
-
+  const selected = document.querySelector('input[name="question"]:checked');
   if (!selected) return;
 
-  const question =
-    allQuestions[currentQuestionIndex];
-
-  const shuffled =
-    question.shuffledData;
-
-  const selectedIndex =
-    Number(
-      selected.parentElement.dataset.index
-    );
+  const selectedIndex = Number(selected.parentElement.dataset.index);
+  const correctIndex = allQuestions[currentQuestionIndex].answer;
 
   answeredQuestions[currentQuestionIndex] = {
-
     selectedIndex: selectedIndex,
-
-    correctIndex: shuffled.correctIndex
+    correctIndex: correctIndex
   };
 
   loadQuestion();
