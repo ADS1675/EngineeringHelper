@@ -843,119 +843,913 @@ let allQuestions = [];
 let answeredQuestions = {};
 
 const quizQuestions = [
-  {q:"What is statics mainly about?",choices:["Objects accelerating","Objects at rest or moving at constant velocity","Objects melting","Objects changing shape"],answer:1},
-  {q:"According to the lesson, if there is no acceleration, what must the net force be?",choices:["Zero","Equal to mass","Equal to weight","Greater than friction"],answer:0},
-  {q:"Why is force considered a vector?",choices:["It has only size","It has magnitude and direction","It has only direction","It has no units"],answer:1},
-  {q:"What unit is force measured in?",choices:["Kilograms","Meters","Newtons","Seconds"],answer:2},
-  {q:"Which force always acts downward?",choices:["Normal force","Weight","Tension","Friction"],answer:1},
-  {q:"What is the formula for weight?",choices:["W = mg","F = μN","Fx = Fcosθ","Fy = Fsinθ"],answer:0},
-  {q:"A 10 kg box rests on a table. What is its weight?",choices:["10 N","98 N","1000 N","9.8 N"],answer:1},
-  {q:"A box rests on a flat table. What force balances its weight?",choices:["Tension","Friction","Normal force","Applied force"],answer:2},
-  {q:"The normal force acts in what direction compared to a surface?",choices:["Parallel","Perpendicular","Always downward","Always sideways"],answer:1},
-  {q:"A 20 kg object rests on a horizontal floor. What is the normal force?",choices:["20 N","98 N","196 N","392 N"],answer:2},
+  {
+    q: "What is statics mainly about?",
+    choices: [
+      "Objects accelerating",
+      "Objects at rest or moving at constant velocity",
+      "Objects melting",
+      "Objects changing shape"
+    ],
+    answer: 1,
+    explanation:
+      "Statics studies objects that are at rest or moving at constant velocity. In both cases, the acceleration is zero."
+  },
 
-  {q:"What force is transmitted through a rope or cable?",choices:["Weight","Tension","Normal force","Friction"],answer:1},
-  {q:"What force resists motion between surfaces?",choices:["Friction","Tension","Weight","Normal force"],answer:0},
-  {q:"What is the friction formula from the lesson?",choices:["W = mg","F = μN","Fx = Fcosθ","ΣFx = 0"],answer:1},
-  {q:"If μ = 0.25 and N = 400 N, what is friction?",choices:["25 N","100 N","160 N","400 N"],answer:1},
-  {q:"What does ΣFx = 0 mean?",choices:["Vertical forces are balanced","Horizontal forces are balanced","The object has no mass","Friction is zero"],answer:1},
-  {q:"What does ΣFy = 0 mean?",choices:["Horizontal forces are balanced","Vertical forces are balanced","The object rotates","Weight disappears"],answer:1},
-  {q:"If ΣFx is not zero, what happens?",choices:["The object accelerates horizontally","The object must stay still","Mass becomes zero","Gravity stops"],answer:0},
-  {q:"If ΣFy is not zero, what happens?",choices:["The object accelerates vertically","The object remains still","Friction becomes zero","Weight disappears"],answer:0},
-  {q:"Balanced forces do what to each other?",choices:["Cancel out","Double","Create mass","Remove gravity"],answer:0},
-  {q:"A 50 N force pushes right and 50 N pushes left. What is ΣFx?",choices:["100 N","50 N","0 N","25 N"],answer:2},
+  {
+    q: "According to the lesson, if there is no acceleration, what must the net force be?",
+    choices: [
+      "Zero",
+      "Equal to mass",
+      "Equal to weight",
+      "Greater than friction"
+    ],
+    answer: 0,
+    explanation:
+      "Newton's Second Law is F = ma. When acceleration is zero, the net force must also equal zero."
+  },
 
-  {q:"A 5 kg object hangs motionless from one rope. What is the tension?",choices:["5 N","49 N","98 N","0 N"],answer:1},
-  {q:"A 15 kg box rests on a table. What is its weight?",choices:["15 N","147 N","1500 N","9.8 N"],answer:1},
-  {q:"A 15 kg box rests on a table. What is the normal force?",choices:["15 N","147 N","1500 N","0 N"],answer:1},
-  {q:"A 30 kg object rests on a horizontal floor. What is its weight?",choices:["30 N","294 N","3000 N","9.8 N"],answer:1},
-  {q:"A 30 kg object rests on a horizontal floor. What is the normal force?",choices:["30 N","294 N","3000 N","0 N"],answer:1},
-  {q:"A 40 kg hanging object is motionless. What is the rope tension?",choices:["40 N","392 N","4000 N","9.8 N"],answer:1},
-  {q:"A 60 kg object rests on level ground. What is its normal force?",choices:["60 N","588 N","6000 N","294 N"],answer:1},
-  {q:"A 100 kg object rests on the floor. What is its weight?",choices:["100 N","980 N","1000 N","490 N"],answer:1},
-  {q:"If a table pushes upward with 980 N on a 100 kg object, what force is being balanced?",choices:["Friction","Weight","Tension","Horizontal force"],answer:1},
-  {q:"If upward force is 500 N and downward force is 500 N, what is ΣFy?",choices:["1000 N","500 N","0 N","250 N"],answer:2},
+  {
+    q: "Why is force considered a vector?",
+    choices: [
+      "It has only size",
+      "It has magnitude and direction",
+      "It has only direction",
+      "It has no units"
+    ],
+    answer: 1,
+    explanation:
+      "A vector has both magnitude and direction. A force must describe how strong it is and the direction in which it acts."
+  },
 
-  {q:"Why do engineers break angled forces into components?",choices:["To separate horizontal and vertical effects","To remove gravity","To make mass zero","To avoid using units"],answer:0},
-  {q:"Which formula finds the horizontal component of an angled force?",choices:["Fx = Fcosθ","Fy = Fsinθ","W = mg","F = μN"],answer:0},
-  {q:"Which formula finds the vertical component of an angled force?",choices:["Fx = Fsinθ","Fy = Fsinθ","W = mg","ΣFx = 0"],answer:1},
-  {q:"A 100 N force acts at 30°. What is Fx approximately?",choices:["50 N","86.6 N","100 N","30 N"],answer:1},
-  {q:"A 100 N force acts at 30°. What is Fy?",choices:["50 N","86.6 N","100 N","30 N"],answer:0},
-  {q:"A 100 N force acts at 60°. What is Fx?",choices:["50 N","86.6 N","100 N","160 N"],answer:0},
-  {q:"A 100 N force acts at 60°. What is Fy approximately?",choices:["50 N","86.6 N","100 N","160 N"],answer:1},
-  {q:"A 150 N force acts at 30°. What is Fx approximately?",choices:["75 N","129.9 N","150 N","30 N"],answer:1},
-  {q:"A 150 N force acts at 30°. What is Fy?",choices:["75 N","129.9 N","150 N","30 N"],answer:0},
-  {q:"A 200 N force acts at 60°. What is Fx?",choices:["100 N","173.2 N","200 N","60 N"],answer:0},
+  {
+    q: "What unit is force measured in?",
+    choices: [
+      "Kilograms",
+      "Meters",
+      "Newtons",
+      "Seconds"
+    ],
+    answer: 2,
+    explanation:
+      "Force is measured in newtons, abbreviated N. One newton is equivalent to one kilogram-meter per second squared."
+  },
 
-  {q:"A 200 N force acts at 60°. What is Fy approximately?",choices:["100 N","173.2 N","200 N","60 N"],answer:1},
-  {q:"A 250 N force acts at 45°. What is Fx approximately?",choices:["125 N","176.8 N","250 N","353.6 N"],answer:1},
-  {q:"A 250 N force acts at 45°. What is Fy approximately?",choices:["125 N","176.8 N","250 N","353.6 N"],answer:1},
-  {q:"A 300 N force acts at 60°. What is Fx?",choices:["150 N","259.8 N","300 N","60 N"],answer:0},
-  {q:"A 300 N force acts at 60°. What is Fy approximately?",choices:["150 N","259.8 N","300 N","60 N"],answer:1},
-  {q:"A crate has 120 N right and 90 N left. What is the net horizontal force?",choices:["210 N right","30 N right","30 N left","0 N"],answer:1},
-  {q:"A crate has 80 N right and 80 N left. What is ΣFx?",choices:["160 N","80 N","0 N","40 N"],answer:2},
-  {q:"A box has 100 N right, 40 N right, and 140 N left. What is ΣFx?",choices:["280 N","140 N right","0 N","40 N left"],answer:2},
-  {q:"A box has 220 N right and friction balances it. What must friction be?",choices:["220 N left","220 N right","110 N left","0 N"],answer:0},
-  {q:"A box has 90 N right and 70 N left. What extra force is needed for equilibrium?",choices:["20 N left","20 N right","160 N left","0 N"],answer:0},
+  {
+    q: "Which force always acts downward?",
+    choices: [
+      "Normal force",
+      "Weight",
+      "Tension",
+      "Friction"
+    ],
+    answer: 1,
+    explanation:
+      "Weight is the gravitational force acting on an object, so it acts downward toward Earth."
+  },
 
-  {q:"If N = 300 N and μ = 0.4, what is friction?",choices:["75 N","120 N","300 N","700 N"],answer:1},
-  {q:"If N = 500 N and μ = 0.3, what is friction?",choices:["150 N","500 N","0.3 N","1667 N"],answer:0},
-  {q:"If N = 250 N and μ = 0.2, what is friction?",choices:["25 N","50 N","125 N","250 N"],answer:1},
-  {q:"If N = 600 N and μ = 0.15, what is friction?",choices:["90 N","600 N","4000 N","15 N"],answer:0},
-  {q:"If N = 800 N and μ = 0.45, what is friction?",choices:["360 N","800 N","1778 N","45 N"],answer:0},
-  {q:"If friction is 147 N left and the pull is 147 N right, what is ΣFx?",choices:["294 N","147 N","0 N","73.5 N"],answer:2},
-  {q:"If a 125 N pull right is balanced by 125 N friction left, is the object horizontally balanced?",choices:["Yes","No","Only vertically","Only if mass is zero"],answer:0},
-  {q:"A crate has μ = 0.25 and N = 500 N. What friction force resists motion?",choices:["125 N","250 N","500 N","2000 N"],answer:0},
-  {q:"If friction is 90 N left, what pull right is needed for horizontal equilibrium?",choices:["45 N","90 N","180 N","0 N"],answer:1},
-  {q:"Which force usually balances a horizontal push in simple statics problems?",choices:["Friction","Weight","Normal force","Gravity"],answer:0},
+  {
+    q: "What is the formula for weight?",
+    choices: [
+      "W = mg",
+      "F = μN",
+      "Fx = Fcosθ",
+      "Fy = Fsinθ"
+    ],
+    answer: 0,
+    explanation:
+      "Weight is calculated by multiplying mass by gravitational acceleration, so W = mg."
+  },
 
-  {q:"What is translational equilibrium?",choices:["No movement in any direction","No rotation only","Only upward motion","Only friction"],answer:0},
-  {q:"According to the lesson, what two equations are used for translational equilibrium?",choices:["ΣFx = 0 and ΣFy = 0","W = mg and F = ma","Fx = Fy and W = 0","μ = FN and m = Wg"],answer:0},
-  {q:"A box has balanced horizontal forces but unbalanced vertical forces. Is it in full translational equilibrium?",choices:["Yes","No","Only if friction exists","Only if it is heavy"],answer:1},
-  {q:"A box has balanced vertical forces but ΣFx = 20 N right. Is it in full translational equilibrium?",choices:["Yes","No","Only vertically","Only if mass is zero"],answer:1},
-  {q:"A box has 200 N up, 200 N down, 80 N right, and 80 N left. Is it in translational equilibrium?",choices:["Yes","No","Only horizontally","Only vertically"],answer:0},
-  {q:"A box has N = 500 N and W = 490 N. What is ΣFy?",choices:["990 N up","10 N up","10 N down","0 N"],answer:1},
-  {q:"Based on the previous situation, is the box vertically balanced?",choices:["Yes","No","Only if friction is zero","Only if tension exists"],answer:1},
-  {q:"If an object remains at rest, what can usually be concluded about net force?",choices:["Net force is zero","Net force is increasing","Only weight acts","No forces act"],answer:0},
-  {q:"If an object moves at constant velocity, what does the lesson say about net force?",choices:["Net force is zero","Net force is large","It has no mass","Gravity is off"],answer:0},
-  {q:"If both ΣFx and ΣFy equal zero, what happens to acceleration?",choices:["It is zero","It increases","It becomes gravity","It becomes friction"],answer:0},
+  {
+    q: "A 10 kg box rests on a table. What is its weight?",
+    choices: [
+      "10 N",
+      "98 N",
+      "1000 N",
+      "9.8 N"
+    ],
+    answer: 1,
+    explanation:
+      "Use W = mg. The calculation is W = 10 × 9.8 = 98 N."
+  },
 
-  {q:"A 400 N object is supported by two equal vertical ropes. What is tension in each rope?",choices:["100 N","200 N","400 N","800 N"],answer:1},
-  {q:"A 900 N sign hangs from two equal vertical cables. What is tension in each cable?",choices:["900 N","450 N","1800 N","90 N"],answer:1},
-  {q:"A 750 N load is supported equally by three vertical cables. What is tension in each?",choices:["750 N","375 N","250 N","1500 N"],answer:2},
-  {q:"A 300 N object is supported equally by two vertical cables. What is tension in each?",choices:["600 N","300 N","150 N","75 N"],answer:2},
-  {q:"A hanging object has W = 250 N. If it is motionless, what is T?",choices:["0 N","125 N","250 N","500 N"],answer:2},
-  {q:"A rope pulls upward with 400 N while weight pulls downward with 400 N. What is ΣFy?",choices:["800 N","400 N","0 N","200 N"],answer:2},
-  {q:"If weight is 600 N downward, what upward normal force is needed for vertical equilibrium?",choices:["300 N","600 N","1200 N","0 N"],answer:1},
-  {q:"A table pushes upward on a box. What force is this?",choices:["Weight","Normal force","Tension","Friction"],answer:1},
-  {q:"A rope pulls upward on a hanging mass. What force is this?",choices:["Tension","Normal force","Friction","Weight"],answer:0},
-  {q:"A force that resists sliding is called what?",choices:["Weight","Normal force","Friction","Tension"],answer:2},
+  {
+    q: "A box rests on a flat table. What force balances its weight?",
+    choices: [
+      "Tension",
+      "Friction",
+      "Normal force",
+      "Applied force"
+    ],
+    answer: 2,
+    explanation:
+      "The table pushes upward on the box with a normal force. When the box is at rest, this upward force balances its downward weight."
+  },
 
-  {q:"A force at an angle must be separated into what?",choices:["Components","Masses","Volumes","Densities"],answer:0},
-  {q:"Which component affects horizontal equilibrium?",choices:["Fx","Fy","Mass only","Friction only"],answer:0},
-  {q:"Which component affects vertical equilibrium?",choices:["Fx","Fy","Mass only","Horizontal push only"],answer:1},
-  {q:"A 180 N force at 60° has Fx = 90 N and Fy = 155.9 N. Which component helps balance weight?",choices:["Fx","Fy","Neither","Mass"],answer:1},
-  {q:"A 250 N angled force has Fx = 216.5 N and Fy = 125 N. Which component affects ΣFx?",choices:["Fx","Fy","Weight","Normal force"],answer:0},
-  {q:"If vertical forces are 155.9 N up and 155.9 N down, what is ΣFy?",choices:["311.8 N","155.9 N","0 N","90 N"],answer:2},
-  {q:"If horizontal forces are 90 N right and 70 N left, is horizontal equilibrium satisfied?",choices:["Yes","No","Only if vertical forces balance","Only if weight is zero"],answer:1},
-  {q:"A free object has 100 N right, 60 N left, and 40 N left. What is ΣFx?",choices:["200 N","0 N","40 N right","40 N left"],answer:1},
-  {q:"If upward forces equal downward forces and rightward forces equal leftward forces, what condition is met?",choices:["Translational equilibrium","Acceleration","Unbalanced force","Free fall"],answer:0},
-  {q:"Which final condition proves translational equilibrium?",choices:["ΣFx = 0 and ΣFy = 0","Only ΣFx = 0","Only weight exists","Friction is greater than normal"],answer:0},
+  {
+    q: "The normal force acts in what direction compared to a surface?",
+    choices: [
+      "Parallel",
+      "Perpendicular",
+      "Always downward",
+      "Always sideways"
+    ],
+    answer: 1,
+    explanation:
+      "The normal force always acts perpendicular, or at a 90-degree angle, to the surface."
+  },
 
-  {q:"If a box has 300 N upward and 300 N downward, what is ΣFy?",choices:["600 N","300 N","0 N","150 N"],answer:2},
-  {q:"If ΣFx = 0, what can you conclude?",choices:["Horizontal forces are balanced","Vertical forces are balanced","The object has no weight","The object must rotate"],answer:0},
-  {q:"What is the main goal of statics?",choices:["Analyze forces in equilibrium","Increase speed","Remove friction","Make objects accelerate"],answer:0},
-  {q:"If forces are not balanced, what happens?",choices:["Acceleration can occur","Equilibrium always occurs","Mass disappears","Gravity stops"],answer:0},
-  {q:"Which force acts perpendicular to a surface?",choices:["Friction","Normal force","Weight","Tension"],answer:1},
-  {q:"A 25 kg object rests on a table. What is its weight?",choices:["25 N","245 N","250 N","98 N"],answer:1},
-  {q:"A 25 kg object rests on a table. What is the normal force?",choices:["25 N","245 N","250 N","0 N"],answer:1},
-  {q:"If a force has both x and y components, what type of quantity is it?",choices:["Scalar","Vector","Constant","Unit"],answer:1},
-  {q:"If ΣFy is positive upward, what kind of acceleration could occur?",choices:["Upward acceleration","Downward acceleration","No acceleration","Sideways only"],answer:0},
-  {q:"If ΣFx is negative, what direction is the unbalanced force?",choices:["Left","Right","Up","Down"],answer:0}
+  {
+    q: "A 20 kg object rests on a horizontal floor. What is the normal force?",
+    choices: [
+      "20 N",
+      "98 N",
+      "196 N",
+      "392 N"
+    ],
+    answer: 2,
+    explanation:
+      "First calculate the weight: W = 20 × 9.8 = 196 N. Because the object is at rest on a horizontal floor, the normal force is also 196 N."
+  },
+
+  {
+    q: "What force is transmitted through a rope or cable?",
+    choices: [
+      "Weight",
+      "Tension",
+      "Normal force",
+      "Friction"
+    ],
+    answer: 1,
+    explanation:
+      "Tension is the pulling force carried through a rope, cable, chain, or similar object."
+  },
+
+  {
+    q: "What force resists motion between surfaces?",
+    choices: [
+      "Friction",
+      "Tension",
+      "Weight",
+      "Normal force"
+    ],
+    answer: 0,
+    explanation:
+      "Friction acts between surfaces and opposes sliding or attempted sliding."
+  },
+
+  {
+    q: "What is the friction formula from the lesson?",
+    choices: [
+      "W = mg",
+      "F = μN",
+      "Fx = Fcosθ",
+      "ΣFx = 0"
+    ],
+    answer: 1,
+    explanation:
+      "The friction force is found by multiplying the coefficient of friction by the normal force, written as F = μN."
+  },
+
+  {
+    q: "If μ = 0.25 and N = 400 N, what is friction?",
+    choices: [
+      "25 N",
+      "100 N",
+      "160 N",
+      "400 N"
+    ],
+    answer: 1,
+    explanation:
+      "Use F = μN. The calculation is F = 0.25 × 400 = 100 N."
+  },
+
+  {
+    q: "What does ΣFx = 0 mean?",
+    choices: [
+      "Vertical forces are balanced",
+      "Horizontal forces are balanced",
+      "The object has no mass",
+      "Friction is zero"
+    ],
+    answer: 1,
+    explanation:
+      "ΣFx = 0 means the sum of all forces in the horizontal direction equals zero, so the horizontal forces are balanced."
+  },
+
+  {
+    q: "What does ΣFy = 0 mean?",
+    choices: [
+      "Horizontal forces are balanced",
+      "Vertical forces are balanced",
+      "The object rotates",
+      "Weight disappears"
+    ],
+    answer: 1,
+    explanation:
+      "ΣFy = 0 means the sum of all vertical forces equals zero, so upward and downward forces are balanced."
+  },
+
+  {
+    q: "If ΣFx is not zero, what happens?",
+    choices: [
+      "The object accelerates horizontally",
+      "The object must stay still",
+      "Mass becomes zero",
+      "Gravity stops"
+    ],
+    answer: 0,
+    explanation:
+      "A nonzero horizontal net force means the forces are unbalanced, so the object can accelerate horizontally."
+  },
+
+  {
+    q: "If ΣFy is not zero, what happens?",
+    choices: [
+      "The object accelerates vertically",
+      "The object remains still",
+      "Friction becomes zero",
+      "Weight disappears"
+    ],
+    answer: 0,
+    explanation:
+      "A nonzero vertical net force means the vertical forces are unbalanced, so the object can accelerate upward or downward."
+  },
+
+  {
+    q: "Balanced forces do what to each other?",
+    choices: [
+      "Cancel out",
+      "Double",
+      "Create mass",
+      "Remove gravity"
+    ],
+    answer: 0,
+    explanation:
+      "Balanced forces are equal in size and opposite in direction, so their effects cancel and the net force is zero."
+  },
+
+  {
+    q: "A 50 N force pushes right and 50 N pushes left. What is ΣFx?",
+    choices: [
+      "100 N",
+      "50 N",
+      "0 N",
+      "25 N"
+    ],
+    answer: 2,
+    explanation:
+      "Take right as positive and left as negative. The sum is 50 - 50 = 0 N."
+  },
+
+
+  {
+  q: "A 5 kg object hangs motionless from one rope. What is the tension?",
+  choices: ["5 N", "49 N", "98 N", "0 N"],
+  answer: 1,
+  explanation:
+    "Because the object is motionless, the upward tension must balance the downward weight. T = mg = 5 × 9.8 = 49 N."
+},
+
+{
+  q: "A 15 kg box rests on a table. What is its weight?",
+  choices: ["15 N", "147 N", "1500 N", "9.8 N"],
+  answer: 1,
+  explanation:
+    "Use W = mg. The weight is W = 15 × 9.8 = 147 N."
+},
+
+{
+  q: "A 15 kg box rests on a table. What is the normal force?",
+  choices: ["15 N", "147 N", "1500 N", "0 N"],
+  answer: 1,
+  explanation:
+    "The box is at rest on a horizontal table, so the upward normal force balances its weight. Since W = 15 × 9.8 = 147 N, the normal force is 147 N."
+},
+
+{
+  q: "A 30 kg object rests on a horizontal floor. What is its weight?",
+  choices: ["30 N", "294 N", "3000 N", "9.8 N"],
+  answer: 1,
+  explanation:
+    "Use W = mg. The calculation is W = 30 × 9.8 = 294 N."
+},
+
+{
+  q: "A 30 kg object rests on a horizontal floor. What is the normal force?",
+  choices: ["30 N", "294 N", "3000 N", "0 N"],
+  answer: 1,
+  explanation:
+    "Since the object is resting on a level floor, the normal force balances the weight. The weight is 30 × 9.8 = 294 N, so the normal force is 294 N."
+},
+
+{
+  q: "A 40 kg hanging object is motionless. What is the rope tension?",
+  choices: ["40 N", "392 N", "4000 N", "9.8 N"],
+  answer: 1,
+  explanation:
+    "For a motionless hanging object, tension equals weight. T = mg = 40 × 9.8 = 392 N."
+},
+
+{
+  q: "A 60 kg object rests on level ground. What is its normal force?",
+  choices: ["60 N", "588 N", "6000 N", "294 N"],
+  answer: 1,
+  explanation:
+    "The normal force balances the object's weight. N = mg = 60 × 9.8 = 588 N."
+},
+
+{
+  q: "A 100 kg object rests on the floor. What is its weight?",
+  choices: ["100 N", "980 N", "1000 N", "490 N"],
+  answer: 1,
+  explanation:
+    "Use W = mg. The calculation is W = 100 × 9.8 = 980 N."
+},
+
+{
+  q: "If a table pushes upward with 980 N on a 100 kg object, what force is being balanced?",
+  choices: ["Friction", "Weight", "Tension", "Horizontal force"],
+  answer: 1,
+  explanation:
+    "A 100 kg object has a weight of 980 N downward. The table's 980 N upward normal force balances that weight."
+},
+
+{
+  q: "If upward force is 500 N and downward force is 500 N, what is ΣFy?",
+  choices: ["1000 N", "500 N", "0 N", "250 N"],
+  answer: 2,
+  explanation:
+    "The vertical forces are equal and opposite. Taking upward as positive gives ΣFy = 500 - 500 = 0 N."
+},
+
+{
+  q: "Why do engineers break angled forces into components?",
+  choices: [
+    "To separate horizontal and vertical effects",
+    "To remove gravity",
+    "To make mass zero",
+    "To avoid using units"
+  ],
+  answer: 0,
+  explanation:
+    "An angled force affects both the horizontal and vertical directions. Breaking it into components allows engineers to analyze each direction separately."
+},
+
+{
+  q: "Which formula finds the horizontal component of an angled force?",
+  choices: ["Fx = Fcosθ", "Fy = Fsinθ", "W = mg", "F = μN"],
+  answer: 0,
+  explanation:
+    "When the angle is measured from the horizontal, the horizontal component is found using Fx = Fcosθ."
+},
+
+{
+  q: "Which formula finds the vertical component of an angled force?",
+  choices: ["Fx = Fsinθ", "Fy = Fsinθ", "W = mg", "ΣFx = 0"],
+  answer: 1,
+  explanation:
+    "When the angle is measured from the horizontal, the vertical component is found using Fy = Fsinθ."
+},
+
+{
+  q: "A 100 N force acts at 30°. What is Fx approximately?",
+  choices: ["50 N", "86.6 N", "100 N", "30 N"],
+  answer: 1,
+  explanation:
+    "Use Fx = Fcosθ. Fx = 100cos30° ≈ 100 × 0.866 = 86.6 N."
+},
+
+{
+  q: "A 100 N force acts at 30°. What is Fy?",
+  choices: ["50 N", "86.6 N", "100 N", "30 N"],
+  answer: 0,
+  explanation:
+    "Use Fy = Fsinθ. Fy = 100sin30° = 100 × 0.5 = 50 N."
+},
+
+{
+  q: "A 100 N force acts at 60°. What is Fx?",
+  choices: ["50 N", "86.6 N", "100 N", "160 N"],
+  answer: 0,
+  explanation:
+    "Use Fx = Fcosθ. Fx = 100cos60° = 100 × 0.5 = 50 N."
+},
+
+{
+  q: "A 100 N force acts at 60°. What is Fy approximately?",
+  choices: ["50 N", "86.6 N", "100 N", "160 N"],
+  answer: 1,
+  explanation:
+    "Use Fy = Fsinθ. Fy = 100sin60° ≈ 100 × 0.866 = 86.6 N."
+},
+
+{
+  q: "A 150 N force acts at 30°. What is Fx approximately?",
+  choices: ["75 N", "129.9 N", "150 N", "30 N"],
+  answer: 1,
+  explanation:
+    "Use Fx = Fcosθ. Fx = 150cos30° ≈ 150 × 0.866 = 129.9 N."
+},
+
+{
+  q: "A 150 N force acts at 30°. What is Fy?",
+  choices: ["75 N", "129.9 N", "150 N", "30 N"],
+  answer: 0,
+  explanation:
+    "Use Fy = Fsinθ. Fy = 150sin30° = 150 × 0.5 = 75 N."
+},
+
+{
+  q: "A 200 N force acts at 60°. What is Fx?",
+  choices: ["100 N", "173.2 N", "200 N", "60 N"],
+  answer: 0,
+  explanation:
+    "Use Fx = Fcosθ. Fx = 200cos60° = 200 × 0.5 = 100 N."
+},
+
+  {
+  q: "A 200 N force acts at 60°. What is Fy approximately?",
+  choices: ["100 N", "173.2 N", "200 N", "60 N"],
+  answer: 1,
+  explanation:
+    "Use Fy = Fsinθ. Fy = 200sin60° ≈ 200 × 0.866 = 173.2 N."
+},
+
+{
+  q: "A 250 N force acts at 45°. What is Fx approximately?",
+  choices: ["125 N", "176.8 N", "250 N", "353.6 N"],
+  answer: 1,
+  explanation:
+    "Use Fx = Fcosθ. Fx = 250cos45° ≈ 250 × 0.707 = 176.8 N."
+},
+
+{
+  q: "A 250 N force acts at 45°. What is Fy approximately?",
+  choices: ["125 N", "176.8 N", "250 N", "353.6 N"],
+  answer: 1,
+  explanation:
+    "Use Fy = Fsinθ. Fy = 250sin45° ≈ 250 × 0.707 = 176.8 N."
+},
+
+{
+  q: "A 300 N force acts at 60°. What is Fx?",
+  choices: ["150 N", "259.8 N", "300 N", "60 N"],
+  answer: 0,
+  explanation:
+    "Use Fx = Fcosθ. Fx = 300cos60° = 300 × 0.5 = 150 N."
+},
+
+{
+  q: "A 300 N force acts at 60°. What is Fy approximately?",
+  choices: ["150 N", "259.8 N", "300 N", "60 N"],
+  answer: 1,
+  explanation:
+    "Use Fy = Fsinθ. Fy = 300sin60° ≈ 300 × 0.866 = 259.8 N."
+},
+
+{
+  q: "A crate has 120 N right and 90 N left. What is the net horizontal force?",
+  choices: ["210 N right", "30 N right", "30 N left", "0 N"],
+  answer: 1,
+  explanation:
+    "Subtract the opposing forces. 120 N right − 90 N left = 30 N to the right."
+},
+
+{
+  q: "A crate has 80 N right and 80 N left. What is ΣFx?",
+  choices: ["160 N", "80 N", "0 N", "40 N"],
+  answer: 2,
+  explanation:
+    "Equal and opposite horizontal forces cancel, so ΣFx = 0 N."
+},
+
+{
+  q: "A box has 100 N right, 40 N right, and 140 N left. What is ΣFx?",
+  choices: ["280 N", "140 N right", "0 N", "40 N left"],
+  answer: 2,
+  explanation:
+    "The total force to the right is 100 + 40 = 140 N, which is balanced by 140 N to the left. Therefore ΣFx = 0 N."
+},
+
+{
+  q: "A box has 220 N right and friction balances it. What must friction be?",
+  choices: ["220 N left", "220 N right", "110 N left", "0 N"],
+  answer: 0,
+  explanation:
+    "To create equilibrium, friction must be equal in magnitude and opposite in direction to the applied force."
+},
+
+{
+  q: "A box has 90 N right and 70 N left. What extra force is needed for equilibrium?",
+  choices: ["20 N left", "20 N right", "160 N left", "0 N"],
+  answer: 0,
+  explanation:
+    "The current net force is 20 N to the right, so an additional 20 N to the left is needed to make ΣFx = 0."
+},
+
+{
+  q: "If N = 300 N and μ = 0.4, what is friction?",
+  choices: ["75 N", "120 N", "300 N", "700 N"],
+  answer: 1,
+  explanation:
+    "Use F = μN. F = 0.4 × 300 = 120 N."
+},
+
+{
+  q: "If N = 500 N and μ = 0.3, what is friction?",
+  choices: ["150 N", "500 N", "0.3 N", "1667 N"],
+  answer: 0,
+  explanation:
+    "Use F = μN. F = 0.3 × 500 = 150 N."
+},
+
+{
+  q: "If N = 250 N and μ = 0.2, what is friction?",
+  choices: ["25 N", "50 N", "125 N", "250 N"],
+  answer: 1,
+  explanation:
+    "Use F = μN. F = 0.2 × 250 = 50 N."
+},
+
+{
+  q: "If N = 600 N and μ = 0.15, what is friction?",
+  choices: ["90 N", "600 N", "4000 N", "15 N"],
+  answer: 0,
+  explanation:
+    "Use F = μN. F = 0.15 × 600 = 90 N."
+},
+
+{
+  q: "If N = 800 N and μ = 0.45, what is friction?",
+  choices: ["360 N", "800 N", "1778 N", "45 N"],
+  answer: 0,
+  explanation:
+    "Use F = μN. F = 0.45 × 800 = 360 N."
+},
+
+{
+  q: "If friction is 147 N left and the pull is 147 N right, what is ΣFx?",
+  choices: ["294 N", "147 N", "0 N", "73.5 N"],
+  answer: 2,
+  explanation:
+    "The horizontal forces are equal and opposite, so they cancel. Therefore ΣFx = 0 N."
+},
+
+{
+  q: "If a 125 N pull right is balanced by 125 N friction left, is the object horizontally balanced?",
+  choices: ["Yes", "No", "Only vertically", "Only if mass is zero"],
+  answer: 0,
+  explanation:
+    "Yes. Equal forces acting in opposite directions produce zero net horizontal force."
+},
+
+{
+  q: "A crate has μ = 0.25 and N = 500 N. What friction force resists motion?",
+  choices: ["125 N", "250 N", "500 N", "2000 N"],
+  answer: 0,
+  explanation:
+    "Use F = μN. F = 0.25 × 500 = 125 N."
+},
+
+{
+  q: "If friction is 90 N left, what pull right is needed for horizontal equilibrium?",
+  choices: ["45 N", "90 N", "180 N", "0 N"],
+  answer: 1,
+  explanation:
+    "For equilibrium, the applied pull must exactly match the friction force in the opposite direction. Therefore the pull must be 90 N to the right."
+},
+
+{
+  q: "Which force usually balances a horizontal push in simple statics problems?",
+  choices: ["Friction", "Weight", "Normal force", "Gravity"],
+  answer: 0,
+  explanation:
+    "In simple statics problems, friction is the force that commonly opposes and balances a horizontal applied force."
+},
+
+  {
+  q: "What is translational equilibrium?",
+  choices: ["No movement in any direction", "No rotation only", "Only upward motion", "Only friction"],
+  answer: 0,
+  explanation: "Translational equilibrium occurs when the net force on an object is zero, so it has no linear acceleration. The object remains at rest or moves with constant velocity."
+},
+
+{
+  q: "According to the lesson, what two equations are used for translational equilibrium?",
+  choices: ["ΣFx = 0 and ΣFy = 0", "W = mg and F = ma", "Fx = Fy and W = 0", "μ = FN and m = Wg"],
+  answer: 0,
+  explanation: "For an object to be in translational equilibrium, the sum of the horizontal forces and the sum of the vertical forces must each equal zero."
+},
+
+{
+  q: "A box has balanced horizontal forces but unbalanced vertical forces. Is it in full translational equilibrium?",
+  choices: ["Yes", "No", "Only if friction exists", "Only if it is heavy"],
+  answer: 1,
+  explanation: "No. Both ΣFx and ΣFy must equal zero. If the vertical forces are unbalanced, the object can accelerate vertically."
+},
+
+{
+  q: "A box has balanced vertical forces but ΣFx = 20 N right. Is it in full translational equilibrium?",
+  choices: ["Yes", "No", "Only vertically", "Only if mass is zero"],
+  answer: 1,
+  explanation: "No. A net horizontal force of 20 N means the object is not in translational equilibrium because ΣFx is not zero."
+},
+
+{
+  q: "A box has 200 N up, 200 N down, 80 N right, and 80 N left. Is it in translational equilibrium?",
+  choices: ["Yes", "No", "Only horizontally", "Only vertically"],
+  answer: 0,
+  explanation: "Yes. The vertical forces cancel and the horizontal forces cancel, so both ΣFx and ΣFy equal zero."
+},
+
+{
+  q: "A box has N = 500 N and W = 490 N. What is ΣFy?",
+  choices: ["990 N up", "10 N up", "10 N down", "0 N"],
+  answer: 1,
+  explanation: "Taking upward as positive, ΣFy = 500 N − 490 N = 10 N upward."
+},
+
+{
+  q: "Based on the previous situation, is the box vertically balanced?",
+  choices: ["Yes", "No", "Only if friction is zero", "Only if tension exists"],
+  answer: 1,
+  explanation: "No. Since ΣFy = 10 N upward, the vertical forces are not balanced."
+},
+
+{
+  q: "If an object remains at rest, what can usually be concluded about net force?",
+  choices: ["Net force is zero", "Net force is increasing", "Only weight acts", "No forces act"],
+  answer: 0,
+  explanation: "If an object remains at rest in statics, the forces acting on it are balanced, giving a net force of zero."
+},
+
+{
+  q: "If an object moves at constant velocity, what does the lesson say about net force?",
+  choices: ["Net force is zero", "Net force is large", "It has no mass", "Gravity is off"],
+  answer: 0,
+  explanation: "Constant velocity means there is no acceleration, so Newton's Second Law tells us the net force must be zero."
+},
+
+{
+  q: "If both ΣFx and ΣFy equal zero, what happens to acceleration?",
+  choices: ["It is zero", "It increases", "It becomes gravity", "It becomes friction"],
+  answer: 0,
+  explanation: "When the net force is zero in every direction, the object's acceleration is zero."
+},
+
+{
+  q: "A 400 N object is supported by two equal vertical ropes. What is tension in each rope?",
+  choices: ["100 N", "200 N", "400 N", "800 N"],
+  answer: 1,
+  explanation: "The load is shared equally between the two ropes, so each carries 400 ÷ 2 = 200 N."
+},
+
+{
+  q: "A 900 N sign hangs from two equal vertical cables. What is tension in each cable?",
+  choices: ["900 N", "450 N", "1800 N", "90 N"],
+  answer: 1,
+  explanation: "Since both cables support the load equally, each cable has a tension of 900 ÷ 2 = 450 N."
+},
+
+{
+  q: "A 750 N load is supported equally by three vertical cables. What is tension in each?",
+  choices: ["750 N", "375 N", "250 N", "1500 N"],
+  answer: 2,
+  explanation: "Divide the total weight equally among the three cables: 750 ÷ 3 = 250 N."
+},
+
+{
+  q: "A 300 N object is supported equally by two vertical cables. What is tension in each?",
+  choices: ["600 N", "300 N", "150 N", "75 N"],
+  answer: 2,
+  explanation: "Each cable supports half the load, so T = 300 ÷ 2 = 150 N."
+},
+
+{
+  q: "A hanging object has W = 250 N. If it is motionless, what is T?",
+  choices: ["0 N", "125 N", "250 N", "500 N"],
+  answer: 2,
+  explanation: "A motionless hanging object has zero net force, so the rope tension must equal the object's weight."
+},
+
+{
+  q: "A rope pulls upward with 400 N while weight pulls downward with 400 N. What is ΣFy?",
+  choices: ["800 N", "400 N", "0 N", "200 N"],
+  answer: 2,
+  explanation: "The upward and downward forces are equal, so they cancel each other and ΣFy = 0."
+},
+
+{
+  q: "If weight is 600 N downward, what upward normal force is needed for vertical equilibrium?",
+  choices: ["300 N", "600 N", "1200 N", "0 N"],
+  answer: 1,
+  explanation: "For vertical equilibrium, the upward normal force must exactly equal the downward weight, so N = 600 N."
+},
+
+{
+  q: "A table pushes upward on a box. What force is this?",
+  choices: ["Weight", "Normal force", "Tension", "Friction"],
+  answer: 1,
+  explanation: "The supporting force exerted by a surface on an object is called the normal force."
+},
+
+{
+  q: "A rope pulls upward on a hanging mass. What force is this?",
+  choices: ["Tension", "Normal force", "Friction", "Weight"],
+  answer: 0,
+  explanation: "A rope, cable, or chain transmits a pulling force known as tension."
+},
+
+{
+  q: "A force that resists sliding is called what?",
+  choices: ["Weight", "Normal force", "Friction", "Tension"],
+  answer: 2,
+  explanation: "Friction is the force that opposes motion or attempted motion between two contacting surfaces."
+},
+
+  {
+  q: "A force at an angle must be separated into what?",
+  choices: ["Components", "Masses", "Volumes", "Densities"],
+  answer: 0,
+  explanation: "An angled force is separated into horizontal (Fx) and vertical (Fy) components so each direction can be analyzed independently."
+},
+
+{
+  q: "Which component affects horizontal equilibrium?",
+  choices: ["Fx", "Fy", "Mass only", "Friction only"],
+  answer: 0,
+  explanation: "Horizontal equilibrium depends only on the horizontal component of force, represented by Fx."
+},
+
+{
+  q: "Which component affects vertical equilibrium?",
+  choices: ["Fx", "Fy", "Mass only", "Horizontal push only"],
+  answer: 1,
+  explanation: "Vertical equilibrium depends on the vertical component of force, represented by Fy."
+},
+
+{
+  q: "A 180 N force at 60° has Fx = 90 N and Fy = 155.9 N. Which component helps balance weight?",
+  choices: ["Fx", "Fy", "Neither", "Mass"],
+  answer: 1,
+  explanation: "Weight acts vertically, so the vertical component (Fy) is the one that helps balance the weight."
+},
+
+{
+  q: "A 250 N angled force has Fx = 216.5 N and Fy = 125 N. Which component affects ΣFx?",
+  choices: ["Fx", "Fy", "Weight", "Normal force"],
+  answer: 0,
+  explanation: "The sum of horizontal forces (ΣFx) only includes horizontal components such as Fx."
+},
+
+{
+  q: "If vertical forces are 155.9 N up and 155.9 N down, what is ΣFy?",
+  choices: ["311.8 N", "155.9 N", "0 N", "90 N"],
+  answer: 2,
+  explanation: "Equal upward and downward forces cancel each other, giving ΣFy = 0 N."
+},
+
+{
+  q: "If horizontal forces are 90 N right and 70 N left, is horizontal equilibrium satisfied?",
+  choices: ["Yes", "No", "Only if vertical forces balance", "Only if weight is zero"],
+  answer: 1,
+  explanation: "The net horizontal force is 20 N to the right, so ΣFx is not zero and horizontal equilibrium is not satisfied."
+},
+
+{
+  q: "A free object has 100 N right, 60 N left, and 40 N left. What is ΣFx?",
+  choices: ["200 N", "0 N", "40 N right", "40 N left"],
+  answer: 1,
+  explanation: "The leftward forces total 100 N, which exactly balances the 100 N rightward force, so ΣFx = 0 N."
+},
+
+{
+  q: "If upward forces equal downward forces and rightward forces equal leftward forces, what condition is met?",
+  choices: ["Translational equilibrium", "Acceleration", "Unbalanced force", "Free fall"],
+  answer: 0,
+  explanation: "When both ΣFx = 0 and ΣFy = 0, the object is in translational equilibrium."
+},
+
+{
+  q: "Which final condition proves translational equilibrium?",
+  choices: ["ΣFx = 0 and ΣFy = 0", "Only ΣFx = 0", "Only weight exists", "Friction is greater than normal"],
+  answer: 0,
+  explanation: "Translational equilibrium requires that the sum of the forces in both the horizontal and vertical directions equals zero."
+},
+
+{
+  q: "If a box has 300 N upward and 300 N downward, what is ΣFy?",
+  choices: ["600 N", "300 N", "0 N", "150 N"],
+  answer: 2,
+  explanation: "The upward and downward forces are equal and opposite, so ΣFy = 0 N."
+},
+
+{
+  q: "If ΣFx = 0, what can you conclude?",
+  choices: ["Horizontal forces are balanced", "Vertical forces are balanced", "The object has no weight", "The object must rotate"],
+  answer: 0,
+  explanation: "A zero sum of horizontal forces means the horizontal forces are balanced."
+},
+
+{
+  q: "What is the main goal of statics?",
+  choices: ["Analyze forces in equilibrium", "Increase speed", "Remove friction", "Make objects accelerate"],
+  answer: 0,
+  explanation: "Statics is the study of forces acting on objects that are in equilibrium, meaning they have no acceleration."
+},
+
+{
+  q: "If forces are not balanced, what happens?",
+  choices: ["Acceleration can occur", "Equilibrium always occurs", "Mass disappears", "Gravity stops"],
+  answer: 0,
+  explanation: "Unbalanced forces create a nonzero net force, which causes acceleration according to Newton's Second Law."
+},
+
+{
+  q: "Which force acts perpendicular to a surface?",
+  choices: ["Friction", "Normal force", "Weight", "Tension"],
+  answer: 1,
+  explanation: "The normal force always acts perpendicular to the surface supporting an object."
+},
+
+{
+  q: "A 25 kg object rests on a table. What is its weight?",
+  choices: ["25 N", "245 N", "250 N", "98 N"],
+  answer: 1,
+  explanation: "Use W = mg. The calculation is W = 25 × 9.8 = 245 N."
+},
+
+{
+  q: "A 25 kg object rests on a table. What is the normal force?",
+  choices: ["25 N", "245 N", "250 N", "0 N"],
+  answer: 1,
+  explanation: "Since the object is resting on the table, the normal force balances its weight. Therefore N = 245 N."
+},
+
+{
+  q: "If a force has both x and y components, what type of quantity is it?",
+  choices: ["Scalar", "Vector", "Constant", "Unit"],
+  answer: 1,
+  explanation: "Only vectors have both magnitude and direction, allowing them to be resolved into x and y components."
+},
+
+{
+  q: "If ΣFy is positive upward, what kind of acceleration could occur?",
+  choices: ["Upward acceleration", "Downward acceleration", "No acceleration", "Sideways only"],
+  answer: 0,
+  explanation: "A positive net vertical force means the object could accelerate upward."
+},
+
+{
+  q: "If ΣFx is negative, what direction is the unbalanced force?",
+  choices: ["Left", "Right", "Up", "Down"],
+  answer: 0,
+  explanation: "Using the common sign convention where right is positive, a negative ΣFx indicates the net force acts to the left."
+}
 ];
 
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+
+    [array[i], array[randomIndex]] =
+      [array[randomIndex], array[i]];
+  }
+
+  return array;
+}
+
 function shuffleQuestions() {
-  allQuestions = [...quizQuestions].sort(() => Math.random() - 0.5);
+  allQuestions = quizQuestions.map(question => {
+
+    // Connect each choice to whether it is the correct answer.
+    const shuffledChoices = question.choices.map((choice, index) => {
+      return {
+        text: choice,
+        isCorrect: index === question.answer
+      };
+    });
+
+    // Randomize the four answer choices.
+    shuffleArray(shuffledChoices);
+
+    // Create a new copy of the question with randomized choices.
+    return {
+      ...question,
+
+      choices: shuffledChoices.map(choice => choice.text),
+
+      // Find the correct answer's new position after shuffling.
+      answer: shuffledChoices.findIndex(
+        choice => choice.isCorrect
+      )
+    };
+  });
+
+  // Randomize the order of the questions too.
+  shuffleArray(allQuestions);
 }
 
 function openRandomQuizSet() {
@@ -979,8 +1773,15 @@ function loadQuestion() {
   let choicesHTML = "";
 
   question.choices.forEach((choice, index) => {
-    let checked = saved && saved.selectedIndex === index ? "checked" : "";
-    let disabled = saved ? "disabled" : "";
+    const checked =
+      saved && saved.selectedIndex === index
+        ? "checked"
+        : "";
+
+    const disabled =
+      saved
+        ? "disabled"
+        : "";
 
     let extraClass = "";
 
@@ -989,46 +1790,137 @@ function loadQuestion() {
         extraClass = "correct-answer";
       }
 
-      if (index === saved.selectedIndex && index !== saved.correctIndex) {
+      if (
+        index === saved.selectedIndex &&
+        index !== saved.correctIndex
+      ) {
         extraClass = "wrong-answer";
       }
     }
 
     choicesHTML += `
-      <label class="answer-choice ${extraClass}" data-index="${index}">
-        <input type="radio" name="question" ${checked} ${disabled}>
+      <label
+        class="answer-choice ${extraClass}"
+        data-index="${index}"
+      >
+        <input
+          type="radio"
+          name="question"
+          ${checked}
+          ${disabled}
+        >
+
         ${choice}
       </label>
     `;
   });
 
-  const isLastQuestion = currentQuestionIndex === allQuestions.length - 1;
+  let feedbackHTML = "";
+
+  if (saved) {
+    const wasCorrect =
+      saved.selectedIndex === saved.correctIndex;
+
+    const correctAnswer =
+      question.choices[saved.correctIndex];
+
+    const explanation =
+      question.explanation ||
+      "Review the lesson section connected to this question.";
+
+    if (wasCorrect) {
+      feedbackHTML = `
+        <div class="quiz-feedback correct-feedback">
+          <h4>Correct!</h4>
+
+          <p>
+            ${explanation}
+          </p>
+        </div>
+      `;
+    } else {
+      feedbackHTML = `
+        <div class="quiz-feedback incorrect-feedback">
+          <h4>Incorrect</h4>
+
+          <p>
+            <strong>Correct answer:</strong>
+            ${correctAnswer}
+          </p>
+
+          <p>
+            ${explanation}
+          </p>
+        </div>
+      `;
+    }
+  }
+
+  const isLastQuestion =
+    currentQuestionIndex === allQuestions.length - 1;
 
   container.innerHTML = `
     <div class="quiz-question">
-      <p><strong>Q${currentQuestionIndex + 1} of ${allQuestions.length}:</strong> ${question.q}</p>
+
+      <p>
+        <strong>
+          Q${currentQuestionIndex + 1}
+          of
+          ${allQuestions.length}:
+        </strong>
+
+        ${question.q}
+      </p>
 
       ${choicesHTML}
 
-      <button id="check-answer-btn" onclick="checkAnswer()" ${saved ? "disabled" : ""}>
+      <button
+        id="check-answer-btn"
+        onclick="checkAnswer()"
+        ${saved ? "disabled" : ""}
+      >
         Check Answer
       </button>
 
+      ${feedbackHTML}
+
       <div class="quiz-nav-buttons">
 
-  ${
-    currentQuestionIndex > 0
-      ? `<button onclick="prevQuestion()" id="back-btn">Back</button>`
-      : ``
-  }
+        ${
+          currentQuestionIndex > 0
+            ? `
+              <button
+                onclick="prevQuestion()"
+                id="back-btn"
+              >
+                Back
+              </button>
+            `
+            : ""
+        }
 
-  ${
-    isLastQuestion
-      ? `<button onclick="submitQuiz()" id="submit-btn">Submit</button>`
-      : `<button onclick="nextQuestion()" id="next-btn">Next</button>`
-  }
+        ${
+          isLastQuestion
+            ? `
+              <button
+                onclick="submitQuiz()"
+                id="submit-btn"
+              >
+                Submit
+              </button>
+            `
+            : `
+              <button
+                onclick="nextQuestion()"
+                id="next-btn"
+              >
+                Next
+              </button>
+            `
+        }
 
-</div>
+      </div>
+
     </div>
   `;
 }
