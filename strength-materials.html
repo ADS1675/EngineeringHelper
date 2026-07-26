@@ -893,119 +893,747 @@ let allQuestions = [];
 let answeredQuestions = {};
 
 const quizQuestions = [
-  {q:"What is Strength of Materials mainly about?",choices:["How materials respond to forces","How fluids move","How circuits work","How objects orbit"],answer:0},
-  {q:"Why do engineers study Strength of Materials?",choices:["To make parts safely withstand loads","To remove all forces","To make materials weightless","To avoid using equations"],answer:0},
-  {q:"What does stress measure?",choices:["Internal force per unit area","Change in temperature","Total distance traveled","Speed over time"],answer:0},
-  {q:"What symbol is commonly used for stress?",choices:["σ","ε","E","ΔL"],answer:0},
-  {q:"What is the formula for stress?",choices:["σ = F / A","ε = ΔL / L₀","σ = Eε","F = ma"],answer:0},
-  {q:"In the stress formula, what does F represent?",choices:["Applied force","Final length","Friction","Frequency"],answer:0},
-  {q:"In the stress formula, what does A represent?",choices:["Cross-sectional area","Acceleration","Angle","Original length"],answer:0},
-  {q:"What happens to stress if force increases and area stays the same?",choices:["Stress increases","Stress decreases","Stress becomes zero","Stress stays the same"],answer:0},
-  {q:"What happens to stress if area increases and force stays the same?",choices:["Stress decreases","Stress increases","Stress doubles automatically","Stress becomes strain"],answer:0},
-  {q:"Stress is usually measured in what type of unit?",choices:["Pressure units","Length units","Time units","Mass units"],answer:0},
+  {
+  q: "What is Strength of Materials mainly about?",
+  choices: ["How materials respond to forces", "How fluids move", "How circuits work", "How objects orbit"],
+  answer: 0,
+  explanation: "Strength of Materials studies how solid materials respond to forces, including how they deform, carry loads, and possibly fail."
+},
 
-  {q:"Which unit is commonly used for stress?",choices:["Pascals","Meters","Kilograms","Seconds"],answer:0},
-  {q:"What does MPa stand for?",choices:["Megapascal","Meter per acceleration","Mechanical pressure amount","Mass per area"],answer:0},
-  {q:"A larger area helps reduce stress because the force is spread over what?",choices:["More area","Less area","More time","Less mass"],answer:0},
-  {q:"What type of stress comes from pulling?",choices:["Tensile stress","Compressive stress","Thermal stress","Electrical stress"],answer:0},
-  {q:"What type of stress comes from pushing or squeezing?",choices:["Compressive stress","Tensile stress","Magnetic stress","Velocity stress"],answer:0},
-  {q:"What type of stress acts parallel to a surface?",choices:["Shear stress","Tensile stress","Compressive stress","Normal force"],answer:0},
-  {q:"A cable being pulled is mainly experiencing what type of stress?",choices:["Tensile stress","Compressive stress","Shear stress","No stress"],answer:0},
-  {q:"A column being squeezed downward is mainly experiencing what?",choices:["Compressive stress","Tensile stress","Electrical stress","Velocity"],answer:0},
-  {q:"A force causing layers of material to slide is related to what?",choices:["Shear stress","Tensile stress","Compressive stress","Young's strain"],answer:0},
-  {q:"What does strain describe?",choices:["Deformation caused by loading","Force per unit area","The weight of an object","The speed of a part"],answer:0},
+{
+  q: "Why do engineers study Strength of Materials?",
+  choices: ["To make parts safely withstand loads", "To remove all forces", "To make materials weightless", "To avoid using equations"],
+  answer: 0,
+  explanation: "Engineers study Strength of Materials so they can design parts and structures that safely support expected loads without excessive deformation or failure."
+},
 
-  {q:"What symbol is commonly used for strain?",choices:["ε","σ","E","F"],answer:0},
-  {q:"What is the formula for strain?",choices:["ε = ΔL / L₀","σ = F / A","F = σA","W = mg"],answer:0},
-  {q:"In the strain formula, what does ΔL mean?",choices:["Change in length","Original length","Applied force","Area"],answer:0},
-  {q:"In the strain formula, what does L₀ mean?",choices:["Original length","Final force","Stress","Area"],answer:0},
-  {q:"Why does strain have no units?",choices:["It is a ratio of two lengths","It is a force","It is measured in Pascals","It is always zero"],answer:0},
-  {q:"If an object stretches more, what happens to strain?",choices:["Strain increases","Strain decreases","Strain becomes stress","Strain disappears"],answer:0},
-  {q:"If original length is larger but change in length stays the same, strain becomes what?",choices:["Smaller","Larger","Always zero","Equal to stress"],answer:0},
-  {q:"A rod changes length from a force. That change relates most directly to what?",choices:["Strain","Pressure","Velocity","Temperature"],answer:0},
-  {q:"Stress describes the loading, while strain describes what?",choices:["The resulting deformation","The color change","The weight only","The time taken"],answer:0},
-  {q:"Elastic deformation means the material does what after the load is removed?",choices:["Returns to its original shape","Stays permanently deformed","Breaks instantly","Turns into liquid"],answer:0},
+{
+  q: "What does stress measure?",
+  choices: ["Internal force per unit area", "Change in temperature", "Total distance traveled", "Speed over time"],
+  answer: 0,
+  explanation: "Stress measures the internal force distributed over a material's cross-sectional area."
+},
 
-  {q:"Plastic deformation means the material does what after the load is removed?",choices:["Stays permanently deformed","Returns fully to original shape","Has no stress","Has no strain"],answer:0},
-  {q:"Engineers usually want parts to stay in what region during normal operation?",choices:["Elastic region","Plastic region","Broken region","Melted region"],answer:0},
-  {q:"Which deformation is temporary?",choices:["Elastic deformation","Plastic deformation","Permanent deformation","Fracture"],answer:0},
-  {q:"Which deformation is permanent?",choices:["Plastic deformation","Elastic deformation","Temporary deformation","No deformation"],answer:0},
-  {q:"If a spring-like material returns to its shape, it experienced what?",choices:["Elastic deformation","Plastic deformation","Failure","No load"],answer:0},
-  {q:"If a bent metal piece stays bent after unloading, it experienced what?",choices:["Plastic deformation","Elastic deformation","No strain","No stress"],answer:0},
-  {q:"Hooke's Law describes the relationship between what?",choices:["Stress and strain","Mass and speed","Heat and time","Force and color"],answer:0},
-  {q:"What is the Hooke's Law formula from the lesson?",choices:["σ = Eε","ε = ΔL / L₀","σ = F / A","F = σA"],answer:0},
-  {q:"In σ = Eε, what does E represent?",choices:["Young's Modulus","Elastic strain only","Energy loss","External force"],answer:0},
-  {q:"Young's Modulus is a measure of what?",choices:["Stiffness","Weight","Color","Speed"],answer:0},
+{
+  q: "What symbol is commonly used for stress?",
+  choices: ["σ", "ε", "E", "ΔL"],
+  answer: 0,
+  explanation: "The Greek letter sigma, σ, is commonly used to represent normal stress."
+},
 
-  {q:"A material with larger Young's Modulus resists deformation how?",choices:["More effectively","Less effectively","Not at all","Only when hot"],answer:0},
-  {q:"Hooke's Law applies while the material remains in what region?",choices:["Elastic region","Plastic region","Broken region","Melted region"],answer:0},
-  {q:"If stress and strain are proportional, the material is behaving how?",choices:["Elastically","Randomly","Permanently deformed","Without force"],answer:0},
-  {q:"What does a high Young's Modulus usually mean?",choices:["The material is stiffer","The material is weaker automatically","The material has no area","The material has no stress"],answer:0},
-  {q:"What formula can be rearranged to find force from stress?",choices:["σ = F / A","ε = ΔL / L₀","σ = Eε","v = d / t"],answer:0},
-  {q:"If σ = F / A, then F equals what?",choices:["σA","σ / A","A / σ","εL₀"],answer:0},
-  {q:"If ε = ΔL / L₀, then ΔL equals what?",choices:["εL₀","ε / L₀","L₀ / ε","σA"],answer:0},
-  {q:"If σ = Eε, then E equals what?",choices:["σ / ε","σε","ε / σ","F / A"],answer:0},
-  {q:"A bridge supporting vehicles is an example where engineers use what?",choices:["Stress and strain analysis","Only color design","No calculations","Only coding"],answer:0},
-  {q:"Bolts holding machine components together are affected by what?",choices:["Stress and strain","Only sound","Only light","No forces"],answer:0},
+{
+  q: "What is the formula for stress?",
+  choices: ["σ = F / A", "ε = ΔL / L₀", "σ = Eε", "F = ma"],
+  answer: 0,
+  explanation: "Normal stress is calculated using σ = F/A, where force is divided by the cross-sectional area."
+},
 
-  {q:"Crane cables lifting heavy objects mainly deal with what pulling effect?",choices:["Tensile stress","Compressive stress","No stress","Thermal motion"],answer:0},
-  {q:"Vehicle frames supporting passengers must be designed to handle what?",choices:["Loads safely","No forces","Only air","Only color"],answer:0},
-  {q:"Aircraft wings carrying aerodynamic loads require what kind of analysis?",choices:["Stress and strain analysis","Grammar analysis","Music analysis","Only temperature reading"],answer:0},
-  {q:"Stress is caused when external force creates internal resisting forces inside what?",choices:["A material","Empty space","Only water","Only air"],answer:0},
-  {q:"The cross-sectional area in stress calculations is the area resisting what?",choices:["The applied force","The clock time","The color","The website layout"],answer:0},
-  {q:"If force is 1000 N and area is 0.005 m², what is stress?",choices:["200,000 Pa","5 Pa","995 Pa","0.000005 Pa"],answer:0},
-  {q:"If force is 500 N and area is 0.01 m², what is stress?",choices:["50,000 Pa","5 Pa","500 Pa","0.02 Pa"],answer:0},
-  {q:"If force is 2000 N and area is 0.02 m², what is stress?",choices:["100,000 Pa","40 Pa","2000 Pa","0.00001 Pa"],answer:0},
-  {q:"If force is 300 N and area is 0.003 m², what is stress?",choices:["100,000 Pa","900 Pa","0.00001 Pa","303 Pa"],answer:0},
-  {q:"If force is 800 N and area is 0.004 m², what is stress?",choices:["200,000 Pa","3200 Pa","0.005 Pa","804 Pa"],answer:0},
+{
+  q: "In the stress formula, what does F represent?",
+  choices: ["Applied force", "Final length", "Friction", "Frequency"],
+  answer: 0,
+  explanation: "In σ = F/A, F represents the applied force acting on the material."
+},
 
-  {q:"If stress is 200,000 Pa and area is 0.005 m², what is force?",choices:["1000 N","40 N","200,005 N","0.000025 N"],answer:0},
-  {q:"If stress is 50,000 Pa and area is 0.01 m², what is force?",choices:["500 N","50,000 N","5 N","0.0002 N"],answer:0},
-  {q:"If stress is 100,000 Pa and area is 0.02 m², what is force?",choices:["2000 N","5000 N","100 N","0.0000002 N"],answer:0},
-  {q:"If stress is 75,000 Pa and area is 0.004 m², what is force?",choices:["300 N","18,750 N","75,004 N","0.000053 N"],answer:0},
-  {q:"If stress is 120,000 Pa and area is 0.01 m², what is force?",choices:["1200 N","12 N","120,000 N","0.000083 N"],answer:0},
-  {q:"If a 2 m rod stretches by 0.004 m, what is strain?",choices:["0.002","0.008","500","2.004"],answer:0},
-  {q:"If a 4 m rod stretches by 0.008 m, what is strain?",choices:["0.002","0.032","500","4.008"],answer:0},
-  {q:"If a 5 m rod stretches by 0.01 m, what is strain?",choices:["0.002","0.05","500","5.01"],answer:0},
-  {q:"If a 10 m rod stretches by 0.02 m, what is strain?",choices:["0.002","0.2","500","10.02"],answer:0},
-  {q:"If a 1 m rod stretches by 0.001 m, what is strain?",choices:["0.001","1000","1.001","0.000001"],answer:0},
+{
+  q: "In the stress formula, what does A represent?",
+  choices: ["Cross-sectional area", "Acceleration", "Angle", "Original length"],
+  answer: 0,
+  explanation: "In the stress equation, A represents the cross-sectional area over which the force acts."
+},
 
-  {q:"If strain is 0.002 and original length is 2 m, what is change in length?",choices:["0.004 m","0.001 m","4 m","1000 m"],answer:0},
-  {q:"If strain is 0.003 and original length is 3 m, what is change in length?",choices:["0.009 m","0.001 m","9 m","1000 m"],answer:0},
-  {q:"If strain is 0.0015 and original length is 3 m, what is change in length?",choices:["0.0045 m","0.5 m","2000 m","3.0015 m"],answer:0},
-  {q:"If strain is 0.002 and original length is 5 m, what is change in length?",choices:["0.01 m","0.4 m","2500 m","5.002 m"],answer:0},
-  {q:"If strain is 0.004 and original length is 1.5 m, what is change in length?",choices:["0.006 m","0.375 m","1.504 m","375 m"],answer:0},
-  {q:"If stress is 400,000,000 Pa and strain is 0.002, what is Young's Modulus?",choices:["200,000,000,000 Pa","800,000 Pa","400,000,000 Pa","0.000005 Pa"],answer:0},
-  {q:"If stress is 100,000,000 Pa and strain is 0.001, what is Young's Modulus?",choices:["100,000,000,000 Pa","100,000 Pa","100,000,001 Pa","0.00001 Pa"],answer:0},
-  {q:"If stress is 150,000,000 Pa and strain is 0.003, what is Young's Modulus?",choices:["50,000,000,000 Pa","450,000 Pa","150,000,003 Pa","0.00002 Pa"],answer:0},
-  {q:"If stress is 60,000,000 Pa and strain is 0.002, what is Young's Modulus?",choices:["30,000,000,000 Pa","120,000 Pa","60,000,002 Pa","0.00003 Pa"],answer:0},
-  {q:"If stress is 200,000,000 Pa and strain is 0.001, what is Young's Modulus?",choices:["200,000,000,000 Pa","200,000 Pa","200,000,001 Pa","0.000005 Pa"],answer:0},
+{
+  q: "What happens to stress if force increases and area stays the same?",
+  choices: ["Stress increases", "Stress decreases", "Stress becomes zero", "Stress stays the same"],
+  answer: 0,
+  explanation: "Because σ = F/A, increasing the force while keeping the area constant causes stress to increase."
+},
 
-  {q:"1 MPa equals how many Pascals?",choices:["1,000,000 Pa","1,000 Pa","100 Pa","1 Pa"],answer:0},
-  {q:"1 GPa equals how many Pascals?",choices:["1,000,000,000 Pa","1,000,000 Pa","1000 Pa","10 Pa"],answer:0},
-  {q:"400 MPa equals how many Pascals?",choices:["400,000,000 Pa","400,000 Pa","400 Pa","4,000 Pa"],answer:0},
-  {q:"200 GPa equals how many Pascals?",choices:["200,000,000,000 Pa","200,000,000 Pa","200,000 Pa","200 Pa"],answer:0},
-  {q:"Which formula would you use to find stress if force and area are known?",choices:["σ = F / A","ε = ΔL / L₀","σ = Eε","ΔL = εL₀"],answer:0},
-  {q:"Which formula would you use to find strain if change in length and original length are known?",choices:["ε = ΔL / L₀","σ = F / A","F = σA","E = σ / ε"],answer:0},
-  {q:"Which formula would you use to find Young's Modulus if stress and strain are known?",choices:["E = σ / ε","F = σA","ΔL = εL₀","σ = F / A"],answer:0},
-  {q:"Which formula would you use to find applied force if stress and area are known?",choices:["F = σA","ε = ΔL / L₀","E = σ / ε","ΔL = εL₀"],answer:0},
-  {q:"Which formula would you use to find change in length if strain and original length are known?",choices:["ΔL = εL₀","F = σA","E = σ / ε","σ = F / A"],answer:0},
-  {q:"What is the main foundation topic of Strength of Materials in this lesson?",choices:["Stress and strain","Thermodynamic cycles","Fluid pressure","Electric current"],answer:0},
+{
+  q: "What happens to stress if area increases and force stays the same?",
+  choices: ["Stress decreases", "Stress increases", "Stress doubles automatically", "Stress becomes strain"],
+  answer: 0,
+  explanation: "Increasing the area spreads the same force over more material, so the stress decreases."
+},
 
-  {q:"If a material deforms under a load, engineers compare that deformation to what?",choices:["Original length","Color","Time of day","Temperature only"],answer:0},
-  {q:"If two rods have the same force but one has a larger area, which has lower stress?",choices:["The rod with larger area","The rod with smaller area","Both must have zero stress","Area does not matter"],answer:0},
-  {q:"If two rods have the same area but one has larger force, which has higher stress?",choices:["The rod with larger force","The rod with smaller force","Both have no stress","Force does not matter"],answer:0},
-  {q:"Why can strain be written as a decimal like 0.002?",choices:["Because it is a ratio","Because it is measured in Newtons","Because it is pressure","Because it is always a whole number"],answer:0},
-  {q:"Which statement is true?",choices:["Stress uses force and area","Stress uses only time","Strain uses only force","Young's Modulus measures color"],answer:0},
-  {q:"Which statement is true?",choices:["Strain compares change in length to original length","Strain is measured in Pascals","Strain is always larger than stress","Strain means weight"],answer:0},
-  {q:"Which statement is true?",choices:["Young's Modulus measures stiffness","Young's Modulus measures mass only","Young's Modulus measures speed","Young's Modulus measures volume only"],answer:0},
-  {q:"Which statement is true about elastic deformation?",choices:["It is temporary","It is always permanent","It means no stress exists","It means the material melted"],answer:0},
-  {q:"Which statement is true about plastic deformation?",choices:["It is permanent","It is always temporary","It means stress is zero","It means no load was applied"],answer:0},
-  {q:"In normal design, engineers usually try to avoid what?",choices:["Plastic deformation","Elastic behavior","Safe loading","Stiffness calculations"],answer:0}
+{
+  q: "Stress is usually measured in what type of unit?",
+  choices: ["Pressure units", "Length units", "Time units", "Mass units"],
+  answer: 0,
+  explanation: "Stress is force divided by area, so it is measured using pressure units such as pascals."
+},
+
+{
+  q: "Which unit is commonly used for stress?",
+  choices: ["Pascals", "Meters", "Kilograms", "Seconds"],
+  answer: 0,
+  explanation: "The pascal is the SI unit of stress and is equal to one newton per square meter."
+},
+
+{
+  q: "What does MPa stand for?",
+  choices: ["Megapascal", "Meter per acceleration", "Mechanical pressure amount", "Mass per area"],
+  answer: 0,
+  explanation: "MPa stands for megapascal. One megapascal equals one million pascals."
+},
+
+{
+  q: "A larger area helps reduce stress because the force is spread over what?",
+  choices: ["More area", "Less area", "More time", "Less mass"],
+  answer: 0,
+  explanation: "A larger cross-sectional area distributes the force over more material, reducing the force acting on each unit of area."
+},
+
+{
+  q: "What type of stress comes from pulling?",
+  choices: ["Tensile stress", "Compressive stress", "Thermal stress", "Electrical stress"],
+  answer: 0,
+  explanation: "Tensile stress occurs when forces pull a material apart and cause it to stretch."
+},
+
+{
+  q: "What type of stress comes from pushing or squeezing?",
+  choices: ["Compressive stress", "Tensile stress", "Magnetic stress", "Velocity stress"],
+  answer: 0,
+  explanation: "Compressive stress occurs when forces push inward on a material and cause it to shorten or compress."
+},
+
+{
+  q: "What type of stress acts parallel to a surface?",
+  choices: ["Shear stress", "Tensile stress", "Compressive stress", "Normal force"],
+  answer: 0,
+  explanation: "Shear stress acts parallel to a surface and tends to make sections of material slide past one another."
+},
+
+{
+  q: "A cable being pulled is mainly experiencing what type of stress?",
+  choices: ["Tensile stress", "Compressive stress", "Shear stress", "No stress"],
+  answer: 0,
+  explanation: "A pulled cable is under tension, so it primarily experiences tensile stress."
+},
+
+{
+  q: "A column being squeezed downward is mainly experiencing what?",
+  choices: ["Compressive stress", "Tensile stress", "Electrical stress", "Velocity"],
+  answer: 0,
+  explanation: "A downward squeezing force shortens the column, producing compressive stress."
+},
+
+{
+  q: "A force causing layers of material to slide is related to what?",
+  choices: ["Shear stress", "Tensile stress", "Compressive stress", "Young's strain"],
+  answer: 0,
+  explanation: "Shear stress causes nearby layers or sections of a material to slide relative to one another."
+},
+
+{
+  q: "What does strain describe?",
+  choices: ["Deformation caused by loading", "Force per unit area", "The weight of an object", "The speed of a part"],
+  answer: 0,
+  explanation: "Strain describes how much a material deforms compared with its original size when a load is applied."
+},
+
+  {
+  q: "What symbol is commonly used for strain?",
+  choices: ["ε","σ","E","F"],
+  answer: 0,
+  explanation: "The Greek letter epsilon (ε) is commonly used to represent strain, which measures how much a material deforms under a load."
+},
+
+{
+  q: "What is the formula for strain?",
+  choices: ["ε = ΔL / L₀","σ = F / A","F = σA","W = mg"],
+  answer: 0,
+  explanation: "Strain is calculated by dividing the change in length (ΔL) by the original length (L₀)."
+},
+
+{
+  q: "In the strain formula, what does ΔL mean?",
+  choices: ["Change in length","Original length","Applied force","Area"],
+  answer: 0,
+  explanation: "ΔL represents the change in length caused by the applied load."
+},
+
+{
+  q: "In the strain formula, what does L₀ mean?",
+  choices: ["Original length","Final force","Stress","Area"],
+  answer: 0,
+  explanation: "L₀ is the original length of the material before any force is applied."
+},
+
+{
+  q: "Why does strain have no units?",
+  choices: ["It is a ratio of two lengths","It is a force","It is measured in Pascals","It is always zero"],
+  answer: 0,
+  explanation: "Because strain is the ratio of two lengths, the units cancel, making strain dimensionless."
+},
+
+{
+  q: "If an object stretches more, what happens to strain?",
+  choices: ["Strain increases","Strain decreases","Strain becomes stress","Strain disappears"],
+  answer: 0,
+  explanation: "As the change in length increases, the strain also increases."
+},
+
+{
+  q: "If original length is larger but change in length stays the same, strain becomes what?",
+  choices: ["Smaller","Larger","Always zero","Equal to stress"],
+  answer: 0,
+  explanation: "Since strain equals ΔL divided by L₀, increasing the original length while keeping ΔL the same decreases the strain."
+},
+
+{
+  q: "A rod changes length from a force. That change relates most directly to what?",
+  choices: ["Strain","Pressure","Velocity","Temperature"],
+  answer: 0,
+  explanation: "A change in length caused by loading is described by strain."
+},
+
+{
+  q: "Stress describes the loading, while strain describes what?",
+  choices: ["The resulting deformation","The color change","The weight only","The time taken"],
+  answer: 0,
+  explanation: "Stress measures the applied loading, while strain measures how much the material deforms because of that loading."
+},
+
+{
+  q: "Elastic deformation means the material does what after the load is removed?",
+  choices: ["Returns to its original shape","Stays permanently deformed","Breaks instantly","Turns into liquid"],
+  answer: 0,
+  explanation: "Elastic deformation is temporary, so the material returns to its original shape after the load is removed."
+},
+
+{
+  q: "Plastic deformation means the material does what after the load is removed?",
+  choices: ["Stays permanently deformed","Returns fully to original shape","Has no stress","Has no strain"],
+  answer: 0,
+  explanation: "Plastic deformation is permanent, so the material does not return to its original shape after unloading."
+},
+
+{
+  q: "Engineers usually want parts to stay in what region during normal operation?",
+  choices: ["Elastic region","Plastic region","Broken region","Melted region"],
+  answer: 0,
+  explanation: "Most engineering components are designed to remain in the elastic region so they recover their original shape after the load is removed."
+},
+
+{
+  q: "Which deformation is temporary?",
+  choices: ["Elastic deformation","Plastic deformation","Permanent deformation","Fracture"],
+  answer: 0,
+  explanation: "Elastic deformation disappears once the load is removed."
+},
+
+{
+  q: "Which deformation is permanent?",
+  choices: ["Plastic deformation","Elastic deformation","Temporary deformation","No deformation"],
+  answer: 0,
+  explanation: "Plastic deformation permanently changes the shape of the material."
+},
+
+{
+  q: "If a spring-like material returns to its shape, it experienced what?",
+  choices: ["Elastic deformation","Plastic deformation","Failure","No load"],
+  answer: 0,
+  explanation: "A material that completely returns to its original shape has undergone elastic deformation."
+},
+
+{
+  q: "If a bent metal piece stays bent after unloading, it experienced what?",
+  choices: ["Plastic deformation","Elastic deformation","No strain","No stress"],
+  answer: 0,
+  explanation: "Remaining bent after the load is removed indicates permanent, or plastic, deformation."
+},
+
+{
+  q: "Hooke's Law describes the relationship between what?",
+  choices: ["Stress and strain","Mass and speed","Heat and time","Force and color"],
+  answer: 0,
+  explanation: "Hooke's Law states that stress is proportional to strain while the material remains in the elastic region."
+},
+
+{
+  q: "What is the Hooke's Law formula from the lesson?",
+  choices: ["σ = Eε","ε = ΔL / L₀","σ = F / A","F = σA"],
+  answer: 0,
+  explanation: "Hooke's Law is written as σ = Eε, relating stress to strain through Young's Modulus."
+},
+
+{
+  q: "In σ = Eε, what does E represent?",
+  choices: ["Young's Modulus","Elastic strain only","Energy loss","External force"],
+  answer: 0,
+  explanation: "E represents Young's Modulus, which measures a material's stiffness."
+},
+
+{
+  q: "Young's Modulus is a measure of what?",
+  choices: ["Stiffness","Weight","Color","Speed"],
+  answer: 0,
+  explanation: "Young's Modulus measures how resistant a material is to stretching or compressing. Materials with a higher Young's Modulus are stiffer and deform less under the same load."
+},
+
+  {
+  q:"A material with larger Young's Modulus resists deformation how?",
+  choices:["More effectively","Less effectively","Not at all","Only when hot"],
+  answer:0,
+  explanation:"A larger Young's Modulus means the material is stiffer, so it resists deformation more effectively under the same load."
+},
+
+{
+  q:"Hooke's Law applies while the material remains in what region?",
+  choices:["Elastic region","Plastic region","Broken region","Melted region"],
+  answer:0,
+  explanation:"Hooke's Law is valid only in the elastic region, where stress and strain are proportional and the material returns to its original shape after unloading."
+},
+
+{
+  q:"If stress and strain are proportional, the material is behaving how?",
+  choices:["Elastically","Randomly","Permanently deformed","Without force"],
+  answer:0,
+  explanation:"A proportional relationship between stress and strain means the material is behaving elastically according to Hooke's Law."
+},
+
+{
+  q:"What does a high Young's Modulus usually mean?",
+  choices:["The material is stiffer","The material is weaker automatically","The material has no area","The material has no stress"],
+  answer:0,
+  explanation:"A high Young's Modulus indicates a stiff material that experiences less deformation under the same applied load."
+},
+
+{
+  q:"What formula can be rearranged to find force from stress?",
+  choices:["σ = F / A","ε = ΔL / L₀","σ = Eε","v = d / t"],
+  answer:0,
+  explanation:"The stress equation σ = F/A can be rearranged to solve for the applied force."
+},
+
+{
+  q:"If σ = F / A, then F equals what?",
+  choices:["σA","σ / A","A / σ","εL₀"],
+  answer:0,
+  explanation:"Multiply both sides of σ = F/A by A to obtain F = σA."
+},
+
+{
+  q:"If ε = ΔL / L₀, then ΔL equals what?",
+  choices:["εL₀","ε / L₀","L₀ / ε","σA"],
+  answer:0,
+  explanation:"Multiply both sides of ε = ΔL/L₀ by L₀ to find ΔL = εL₀."
+},
+
+{
+  q:"If σ = Eε, then E equals what?",
+  choices:["σ / ε","σε","ε / σ","F / A"],
+  answer:0,
+  explanation:"Rearranging Hooke's Law gives E = σ/ε."
+},
+
+{
+  q:"A bridge supporting vehicles is an example where engineers use what?",
+  choices:["Stress and strain analysis","Only color design","No calculations","Only coding"],
+  answer:0,
+  explanation:"Engineers analyze stress and strain to ensure bridge members safely support vehicle loads."
+},
+
+{
+  q:"Bolts holding machine components together are affected by what?",
+  choices:["Stress and strain","Only sound","Only light","No forces"],
+  answer:0,
+  explanation:"Bolts experience stress and strain as they resist forces that hold machine parts together."
+},
+
+{
+  q:"Crane cables lifting heavy objects mainly deal with what pulling effect?",
+  choices:["Tensile stress","Compressive stress","No stress","Thermal motion"],
+  answer:0,
+  explanation:"Crane cables are pulled while lifting loads, so they primarily experience tensile stress."
+},
+
+{
+  q:"Vehicle frames supporting passengers must be designed to handle what?",
+  choices:["Loads safely","No forces","Only air","Only color"],
+  answer:0,
+  explanation:"Vehicle frames must safely support passenger, cargo, and road loads without excessive deformation or failure."
+},
+
+{
+  q:"Aircraft wings carrying aerodynamic loads require what kind of analysis?",
+  choices:["Stress and strain analysis","Grammar analysis","Music analysis","Only temperature reading"],
+  answer:0,
+  explanation:"Aircraft wings are designed using stress and strain analysis to safely withstand aerodynamic forces during flight."
+},
+
+{
+  q:"Stress is caused when external force creates internal resisting forces inside what?",
+  choices:["A material","Empty space","Only water","Only air"],
+  answer:0,
+  explanation:"Stress develops inside a material as it resists externally applied forces."
+},
+
+{
+  q:"The cross-sectional area in stress calculations is the area resisting what?",
+  choices:["The applied force","The clock time","The color","The website layout"],
+  answer:0,
+  explanation:"The cross-sectional area is the area over which the applied force is distributed."
+},
+
+{
+  q:"If force is 1000 N and area is 0.005 m², what is stress?",
+  choices:["200,000 Pa","5 Pa","995 Pa","0.000005 Pa"],
+  answer:0,
+  explanation:"Use σ = F/A. Dividing 1000 N by 0.005 m² gives a stress of 200,000 Pa."
+},
+
+{
+  q:"If force is 500 N and area is 0.01 m², what is stress?",
+  choices:["50,000 Pa","5 Pa","500 Pa","0.02 Pa"],
+  answer:0,
+  explanation:"Use σ = F/A. Dividing 500 N by 0.01 m² gives 50,000 Pa."
+},
+
+{
+  q:"If force is 2000 N and area is 0.02 m², what is stress?",
+  choices:["100,000 Pa","40 Pa","2000 Pa","0.00001 Pa"],
+  answer:0,
+  explanation:"Use σ = F/A. Dividing 2000 N by 0.02 m² gives a stress of 100,000 Pa."
+},
+
+{
+  q:"If force is 300 N and area is 0.003 m², what is stress?",
+  choices:["100,000 Pa","900 Pa","0.00001 Pa","303 Pa"],
+  answer:0,
+  explanation:"Using σ = F/A, dividing 300 N by 0.003 m² results in 100,000 Pa."
+},
+
+{
+  q:"If force is 800 N and area is 0.004 m², what is stress?",
+  choices:["200,000 Pa","3200 Pa","0.005 Pa","804 Pa"],
+  answer:0,
+  explanation:"Use σ = F/A. Dividing 800 N by 0.004 m² gives a stress of 200,000 Pa."
+},
+
+  {
+  q:"If stress is 200,000 Pa and area is 0.005 m², what is force?",
+  choices:["1000 N","40 N","200,005 N","0.000025 N"],
+  answer:0,
+  explanation:"Use the rearranged stress equation F = σA. Multiplying 200,000 Pa by 0.005 m² gives a force of 1000 N."
+},
+
+{
+  q:"If stress is 50,000 Pa and area is 0.01 m², what is force?",
+  choices:["500 N","50,000 N","5 N","0.0002 N"],
+  answer:0,
+  explanation:"Use F = σA. Multiplying 50,000 Pa by 0.01 m² gives 500 N."
+},
+
+{
+  q:"If stress is 100,000 Pa and area is 0.02 m², what is force?",
+  choices:["2000 N","5000 N","100 N","0.0000002 N"],
+  answer:0,
+  explanation:"Multiply stress by area: F = (100,000 Pa)(0.02 m²) = 2000 N."
+},
+
+{
+  q:"If stress is 75,000 Pa and area is 0.004 m², what is force?",
+  choices:["300 N","18,750 N","75,004 N","0.000053 N"],
+  answer:0,
+  explanation:"Using F = σA, multiply 75,000 Pa by 0.004 m² to obtain 300 N."
+},
+
+{
+  q:"If stress is 120,000 Pa and area is 0.01 m², what is force?",
+  choices:["1200 N","12 N","120,000 N","0.000083 N"],
+  answer:0,
+  explanation:"Use F = σA. Multiplying 120,000 Pa by 0.01 m² gives 1200 N."
+},
+
+{
+  q:"If a 2 m rod stretches by 0.004 m, what is strain?",
+  choices:["0.002","0.008","500","2.004"],
+  answer:0,
+  explanation:"Use ε = ΔL/L₀. Dividing 0.004 m by 2 m gives a strain of 0.002."
+},
+
+{
+  q:"If a 4 m rod stretches by 0.008 m, what is strain?",
+  choices:["0.002","0.032","500","4.008"],
+  answer:0,
+  explanation:"Using ε = ΔL/L₀, divide 0.008 m by 4 m to get 0.002."
+},
+
+{
+  q:"If a 5 m rod stretches by 0.01 m, what is strain?",
+  choices:["0.002","0.05","500","5.01"],
+  answer:0,
+  explanation:"Strain equals change in length divided by original length: 0.01 ÷ 5 = 0.002."
+},
+
+{
+  q:"If a 10 m rod stretches by 0.02 m, what is strain?",
+  choices:["0.002","0.2","500","10.02"],
+  answer:0,
+  explanation:"Apply ε = ΔL/L₀. Dividing 0.02 m by 10 m gives 0.002."
+},
+
+{
+  q:"If a 1 m rod stretches by 0.001 m, what is strain?",
+  choices:["0.001","1000","1.001","0.000001"],
+  answer:0,
+  explanation:"Divide the change in length by the original length: 0.001 ÷ 1 = 0.001."
+},
+
+{
+  q:"If strain is 0.002 and original length is 2 m, what is change in length?",
+  choices:["0.004 m","0.001 m","4 m","1000 m"],
+  answer:0,
+  explanation:"Rearrange the strain equation to ΔL = εL₀. Multiplying 0.002 by 2 m gives 0.004 m."
+},
+
+{
+  q:"If strain is 0.003 and original length is 3 m, what is change in length?",
+  choices:["0.009 m","0.001 m","9 m","1000 m"],
+  answer:0,
+  explanation:"Use ΔL = εL₀. Multiplying 0.003 by 3 m gives 0.009 m."
+},
+
+{
+  q:"If strain is 0.0015 and original length is 3 m, what is change in length?",
+  choices:["0.0045 m","0.5 m","2000 m","3.0015 m"],
+  answer:0,
+  explanation:"Multiply the strain by the original length: 0.0015 × 3 m = 0.0045 m."
+},
+
+{
+  q:"If strain is 0.002 and original length is 5 m, what is change in length?",
+  choices:["0.01 m","0.4 m","2500 m","5.002 m"],
+  answer:0,
+  explanation:"Using ΔL = εL₀, multiply 0.002 by 5 m to get 0.01 m."
+},
+
+{
+  q:"If strain is 0.004 and original length is 1.5 m, what is change in length?",
+  choices:["0.006 m","0.375 m","1.504 m","375 m"],
+  answer:0,
+  explanation:"Calculate ΔL by multiplying strain by original length: 0.004 × 1.5 m = 0.006 m."
+},
+
+{
+  q:"If stress is 400,000,000 Pa and strain is 0.002, what is Young's Modulus?",
+  choices:["200,000,000,000 Pa","800,000 Pa","400,000,000 Pa","0.000005 Pa"],
+  answer:0,
+  explanation:"Use Hooke's Law rearranged: E = σ/ε. Dividing 400,000,000 Pa by 0.002 gives 200,000,000,000 Pa."
+},
+
+{
+  q:"If stress is 100,000,000 Pa and strain is 0.001, what is Young's Modulus?",
+  choices:["100,000,000,000 Pa","100,000 Pa","100,000,001 Pa","0.00001 Pa"],
+  answer:0,
+  explanation:"Young's Modulus equals stress divided by strain. 100,000,000 ÷ 0.001 = 100,000,000,000 Pa."
+},
+
+{
+  q:"If stress is 150,000,000 Pa and strain is 0.003, what is Young's Modulus?",
+  choices:["50,000,000,000 Pa","450,000 Pa","150,000,003 Pa","0.00002 Pa"],
+  answer:0,
+  explanation:"Apply E = σ/ε. Dividing 150,000,000 Pa by 0.003 gives 50,000,000,000 Pa."
+},
+
+{
+  q:"If stress is 60,000,000 Pa and strain is 0.002, what is Young's Modulus?",
+  choices:["30,000,000,000 Pa","120,000 Pa","60,000,002 Pa","0.00003 Pa"],
+  answer:0,
+  explanation:"Use E = σ/ε. Dividing 60,000,000 Pa by 0.002 gives 30,000,000,000 Pa."
+},
+
+{
+  q:"If stress is 200,000,000 Pa and strain is 0.001, what is Young's Modulus?",
+  choices:["200,000,000,000 Pa","200,000 Pa","200,000,001 Pa","0.000005 Pa"],
+  answer:0,
+  explanation:"Using Hooke's Law, divide the stress by the strain: 200,000,000 ÷ 0.001 = 200,000,000,000 Pa."
+},
+
+  {
+  q:"1 MPa equals how many Pascals?",
+  choices:["1,000,000 Pa","1,000 Pa","100 Pa","1 Pa"],
+  answer:0,
+  explanation:"The prefix 'mega' means one million, so 1 MPa is equal to 1,000,000 Pascals."
+},
+
+{
+  q:"1 GPa equals how many Pascals?",
+  choices:["1,000,000,000 Pa","1,000,000 Pa","1000 Pa","10 Pa"],
+  answer:0,
+  explanation:"The prefix 'giga' means one billion, so 1 GPa equals 1,000,000,000 Pascals."
+},
+
+{
+  q:"400 MPa equals how many Pascals?",
+  choices:["400,000,000 Pa","400,000 Pa","400 Pa","4,000 Pa"],
+  answer:0,
+  explanation:"Multiply 400 MPa by 1,000,000 Pa/MPa to get 400,000,000 Pa."
+},
+
+{
+  q:"200 GPa equals how many Pascals?",
+  choices:["200,000,000,000 Pa","200,000,000 Pa","200,000 Pa","200 Pa"],
+  answer:0,
+  explanation:"Multiply 200 GPa by 1,000,000,000 Pa/GPa to obtain 200,000,000,000 Pa."
+},
+
+{
+  q:"Which formula would you use to find stress if force and area are known?",
+  choices:["σ = F / A","ε = ΔL / L₀","σ = Eε","ΔL = εL₀"],
+  answer:0,
+  explanation:"Stress is calculated by dividing the applied force by the cross-sectional area using σ = F/A."
+},
+
+{
+  q:"Which formula would you use to find strain if change in length and original length are known?",
+  choices:["ε = ΔL / L₀","σ = F / A","F = σA","E = σ / ε"],
+  answer:0,
+  explanation:"Strain is found by dividing the change in length by the original length: ε = ΔL/L₀."
+},
+
+{
+  q:"Which formula would you use to find Young's Modulus if stress and strain are known?",
+  choices:["E = σ / ε","F = σA","ΔL = εL₀","σ = F / A"],
+  answer:0,
+  explanation:"Young's Modulus equals stress divided by strain according to E = σ/ε."
+},
+
+{
+  q:"Which formula would you use to find applied force if stress and area are known?",
+  choices:["F = σA","ε = ΔL / L₀","E = σ / ε","ΔL = εL₀"],
+  answer:0,
+  explanation:"Rearranging the stress equation gives F = σA."
+},
+
+{
+  q:"Which formula would you use to find change in length if strain and original length are known?",
+  choices:["ΔL = εL₀","F = σA","E = σ / ε","σ = F / A"],
+  answer:0,
+  explanation:"Multiply the strain by the original length to find the change in length: ΔL = εL₀."
+},
+
+{
+  q:"What is the main foundation topic of Strength of Materials in this lesson?",
+  choices:["Stress and strain","Thermodynamic cycles","Fluid pressure","Electric current"],
+  answer:0,
+  explanation:"This lesson focuses on understanding stress and strain, which are the foundation of Strength of Materials."
+},
+
+{
+  q:"If a material deforms under a load, engineers compare that deformation to what?",
+  choices:["Original length","Color","Time of day","Temperature only"],
+  answer:0,
+  explanation:"Strain compares the change in length to the material's original length."
+},
+
+{
+  q:"If two rods have the same force but one has a larger area, which has lower stress?",
+  choices:["The rod with larger area","The rod with smaller area","Both must have zero stress","Area does not matter"],
+  answer:0,
+  explanation:"Stress equals force divided by area, so a larger cross-sectional area produces lower stress for the same force."
+},
+
+{
+  q:"If two rods have the same area but one has larger force, which has higher stress?",
+  choices:["The rod with larger force","The rod with smaller force","Both have no stress","Force does not matter"],
+  answer:0,
+  explanation:"With the same area, increasing the applied force increases the stress."
+},
+
+{
+  q:"Why can strain be written as a decimal like 0.002?",
+  choices:["Because it is a ratio","Because it is measured in Newtons","Because it is pressure","Because it is always a whole number"],
+  answer:0,
+  explanation:"Strain is a ratio of two lengths, so it has no units and is commonly written as a decimal."
+},
+
+{
+  q:"Which statement is true?",
+  choices:["Stress uses force and area","Stress uses only time","Strain uses only force","Young's Modulus measures color"],
+  answer:0,
+  explanation:"Stress is calculated from the applied force and the cross-sectional area using σ = F/A."
+},
+
+{
+  q:"Which statement is true?",
+  choices:["Strain compares change in length to original length","Strain is measured in Pascals","Strain is always larger than stress","Strain means weight"],
+  answer:0,
+  explanation:"Strain measures how much a material deforms by comparing the change in length to the original length."
+},
+
+{
+  q:"Which statement is true?",
+  choices:["Young's Modulus measures stiffness","Young's Modulus measures mass only","Young's Modulus measures speed","Young's Modulus measures volume only"],
+  answer:0,
+  explanation:"Young's Modulus measures how stiff a material is and how much it resists deformation."
+},
+
+{
+  q:"Which statement is true about elastic deformation?",
+  choices:["It is temporary","It is always permanent","It means no stress exists","It means the material melted"],
+  answer:0,
+  explanation:"Elastic deformation is temporary because the material returns to its original shape when the load is removed."
+},
+
+{
+  q:"Which statement is true about plastic deformation?",
+  choices:["It is permanent","It is always temporary","It means stress is zero","It means no load was applied"],
+  answer:0,
+  explanation:"Plastic deformation is permanent, so the material does not fully return to its original shape after unloading."
+},
+
+{
+  q:"In normal design, engineers usually try to avoid what?",
+  choices:["Plastic deformation","Elastic behavior","Safe loading","Stiffness calculations"],
+  answer:0,
+  explanation:"Engineers typically design parts to remain in the elastic region because plastic deformation permanently changes a component's shape and can reduce its performance or safety."
+},
 ];
 
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+
+    [array[i], array[randomIndex]] =
+      [array[randomIndex], array[i]];
+  }
+
+  return array;
+}
+
 function shuffleQuestions() {
-  allQuestions = [...quizQuestions].sort(() => Math.random() - 0.5);
+  allQuestions = quizQuestions.map(question => {
+
+    // Connect each choice to whether it is the correct answer.
+    const shuffledChoices = question.choices.map((choice, index) => {
+      return {
+        text: choice,
+        isCorrect: index === question.answer
+      };
+    });
+
+    // Randomize the four answer choices.
+    shuffleArray(shuffledChoices);
+
+    // Create a new copy of the question with randomized choices.
+    return {
+      ...question,
+
+      choices: shuffledChoices.map(choice => choice.text),
+
+      // Find the correct answer's new position after shuffling.
+      answer: shuffledChoices.findIndex(
+        choice => choice.isCorrect
+      )
+    };
+  });
+
+  // Randomize the order of the questions too.
+  shuffleArray(allQuestions);
 }
 
 function openRandomQuizSet() {
@@ -1045,29 +1673,19 @@ function shuffleChoices(question) {
 }
 
 function loadQuestion() {
-
   const container = document.getElementById("quiz-container");
-
   const question = allQuestions[currentQuestionIndex];
-
-  if (!question.shuffledData) {
-    question.shuffledData = shuffleChoices(question);
-  }
-
-  const shuffled = question.shuffledData;
-
   const saved = answeredQuestions[currentQuestionIndex];
 
   let choicesHTML = "";
 
-  shuffled.choices.forEach((choiceObj, index) => {
-
-    let checked =
+  question.choices.forEach((choice, index) => {
+    const checked =
       saved && saved.selectedIndex === index
         ? "checked"
         : "";
 
-    let disabled =
+    const disabled =
       saved
         ? "disabled"
         : "";
@@ -1075,7 +1693,6 @@ function loadQuestion() {
     let extraClass = "";
 
     if (saved) {
-
       if (index === saved.correctIndex) {
         extraClass = "correct-answer";
       }
@@ -1089,12 +1706,62 @@ function loadQuestion() {
     }
 
     choicesHTML += `
-      <label class="answer-choice ${extraClass}" data-index="${index}">
-        <input type="radio" name="question" ${checked} ${disabled}>
-        ${choiceObj.text}
+      <label
+        class="answer-choice ${extraClass}"
+        data-index="${index}"
+      >
+        <input
+          type="radio"
+          name="question"
+          ${checked}
+          ${disabled}
+        >
+
+        ${choice}
       </label>
     `;
   });
+
+  let feedbackHTML = "";
+
+  if (saved) {
+    const wasCorrect =
+      saved.selectedIndex === saved.correctIndex;
+
+    const correctAnswer =
+      question.choices[saved.correctIndex];
+
+    const explanation =
+      question.explanation ||
+      "Review the lesson section connected to this question.";
+
+    if (wasCorrect) {
+      feedbackHTML = `
+        <div class="quiz-feedback correct-feedback">
+          <h4>Correct!</h4>
+
+          <p>
+            ${explanation}
+          </p>
+        </div>
+      `;
+    } else {
+      feedbackHTML = `
+        <div class="quiz-feedback incorrect-feedback">
+          <h4>Incorrect</h4>
+
+          <p>
+            <strong>Correct answer:</strong>
+            ${correctAnswer}
+          </p>
+
+          <p>
+            ${explanation}
+          </p>
+        </div>
+      `;
+    }
+  }
 
   const isLastQuestion =
     currentQuestionIndex === allQuestions.length - 1;
@@ -1122,18 +1789,41 @@ function loadQuestion() {
         Check Answer
       </button>
 
+      ${feedbackHTML}
+
       <div class="quiz-nav-buttons">
 
         ${
           currentQuestionIndex > 0
-            ? `<button onclick="prevQuestion()">Back</button>`
-            : ``
+            ? `
+              <button
+                onclick="prevQuestion()"
+                id="back-btn"
+              >
+                Back
+              </button>
+            `
+            : ""
         }
 
         ${
           isLastQuestion
-            ? `<button onclick="submitQuiz()">Submit</button>`
-            : `<button onclick="nextQuestion()">Next</button>`
+            ? `
+              <button
+                onclick="submitQuiz()"
+                id="submit-btn"
+              >
+                Submit
+              </button>
+            `
+            : `
+              <button
+                onclick="nextQuestion()"
+                id="next-btn"
+              >
+                Next
+              </button>
+            `
         }
 
       </div>
@@ -1143,30 +1833,15 @@ function loadQuestion() {
 }
 
 function checkAnswer() {
-
-  const selected =
-    document.querySelector(
-      'input[name="question"]:checked'
-    );
-
+  const selected = document.querySelector('input[name="question"]:checked');
   if (!selected) return;
 
-  const question =
-    allQuestions[currentQuestionIndex];
-
-  const shuffled =
-    question.shuffledData;
-
-  const selectedIndex =
-    Number(
-      selected.parentElement.dataset.index
-    );
+  const selectedIndex = Number(selected.parentElement.dataset.index);
+  const correctIndex = allQuestions[currentQuestionIndex].answer;
 
   answeredQuestions[currentQuestionIndex] = {
-
     selectedIndex: selectedIndex,
-
-    correctIndex: shuffled.correctIndex
+    correctIndex: correctIndex
   };
 
   loadQuestion();
