@@ -1155,194 +1155,6 @@ button:hover {
     drop-shadow(0 0 15px white);
 }
 
-/* References section */
-.references-section {
-  margin-top: 45px;
-  padding: 25px;
-  background: rgba(255, 255, 255, 0.08);
-  border-left: 5px solid #ffffff;
-  border-radius: 10px;
-}
-
-.references-section h2 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 1.7rem;
-}
-
-.references-intro {
-  margin-bottom: 18px;
-  line-height: 1.6;
-}
-
-.references-list {
-  padding-left: 25px;
-  margin-bottom: 0;
-}
-
-.references-list li {
-  margin-bottom: 14px;
-  line-height: 1.6;
-}
-
-.references-list a {
-  color: #8fd3ff;
-  text-decoration: underline;
-}
-
-.references-list a:hover {
-  color: #ffffff;
-}
-
-.source-note {
-  margin-top: 18px;
-  padding: 12px 15px;
-  background: rgba(0, 0, 0, 0.18);
-  border-radius: 7px;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-/* =========================================
-   REFERENCES AND FURTHER READING
-========================================= */
-
-.references-section {
-  margin-top: 50px;
-  padding-top: 25px;
-  border-top: 2px solid rgba(255, 255, 255, 0.25);
-}
-
-.references-heading {
-  margin-bottom: 8px;
-  font-size: 2rem;
-  text-align: center;
-}
-
-.references-intro {
-  max-width: 850px;
-  margin: 0 auto 25px;
-  text-align: center;
-  line-height: 1.7;
-  opacity: 0.9;
-}
-
-.references-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.reference-card {
-  display: flex;
-  flex-direction: column;
-  padding: 22px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 14px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
-}
-
-.reference-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
-}
-
-.reference-type {
-  display: inline-block;
-  align-self: flex-start;
-  margin-bottom: 12px;
-  padding: 5px 11px;
-  background: rgba(255, 255, 255, 0.14);
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.reference-card h3 {
-  margin: 0 0 8px;
-  font-size: 1.25rem;
-}
-
-.reference-author,
-.reference-publisher {
-  margin: 3px 0;
-  line-height: 1.5;
-}
-
-.reference-topics {
-  margin-top: 15px;
-}
-
-.reference-topics strong {
-  display: block;
-  margin-bottom: 8px;
-}
-
-.reference-topics ul {
-  margin: 0;
-  padding-left: 22px;
-}
-
-.reference-topics li {
-  margin-bottom: 5px;
-}
-
-.reference-button {
-  display: inline-block;
-  align-self: flex-start;
-  margin-top: auto;
-  padding: 11px 18px;
-  color: #111;
-  background: #ffffff;
-  border: 2px solid #ffffff;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.reference-button:hover {
-  color: #ffffff;
-  background: transparent;
-  transform: scale(1.03);
-}
-
-.reference-note {
-  max-width: 900px;
-  margin: 25px auto 0;
-  padding: 15px 18px;
-  background: rgba(0, 0, 0, 0.2);
-  border-left: 4px solid #ffffff;
-  border-radius: 7px;
-  line-height: 1.6;
-}
-
-/* Tablet and phone layout */
-@media (max-width: 800px) {
-  .references-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .references-heading {
-    font-size: 1.65rem;
-  }
-
-  .reference-card {
-    padding: 18px;
-  }
-}
-
 /* =========================================================
    REFERENCES AND FURTHER READING PAGE
    ========================================================= */
@@ -1352,24 +1164,32 @@ button:hover {
   z-index: 2;
 }
 
+/* Make only the references page wider without changing lesson pages. */
+.references-page .lesson-content {
+  width: min(1100px, 95%);
+  max-width: 1100px;
+  margin: 20px auto 0;
+  box-sizing: border-box;
+  text-align: left;
+}
+
 /* Course tab button area */
 .reference-tab-buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 14px;
-  max-width: 1100px;
+  width: min(1100px, 95%);
   margin: 30px auto;
 }
 
-/* Course tab buttons */
 .reference-tab-button {
   min-width: 180px;
   padding: 14px 22px;
-  border: 2px solid white;
+  border: 2px solid #ffffff;
   border-radius: 8px;
   background: rgba(0, 0, 0, 0.75);
-  color: white;
+  color: #ffffff;
   font-family: inherit;
   font-size: 17px;
   font-weight: bold;
@@ -1392,8 +1212,8 @@ button:hover {
 }
 
 .reference-tab-button.active {
-  background: white;
-  color: black;
+  background: #ffffff;
+  color: #000000;
   box-shadow:
     0 0 12px rgba(255, 255, 255, 0.95),
     0 0 26px rgba(255, 255, 255, 0.5);
@@ -1421,64 +1241,73 @@ button:hover {
   }
 }
 
-/* Message before a course is selected */
 .reference-instructions {
   max-width: 850px;
   margin: 25px auto;
   text-align: center;
 }
 
-/* Main reference section */
+/* Main reference panel */
 .references-section {
   width: 100%;
+  margin-top: 50px;
+  padding: 25px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.08);
+  border-top: 2px solid rgba(255, 255, 255, 0.25);
+  border-left: 5px solid #ffffff;
+  border-radius: 10px;
 }
 
 .references-heading {
-  margin-bottom: 12px;
+  margin: 0 0 12px;
+  font-size: 2rem;
   text-align: center;
 }
 
 .references-intro {
   max-width: 900px;
   margin: 0 auto 28px;
-  text-align: center;
   font-size: 18px;
   line-height: 1.7;
+  text-align: center;
+  opacity: 0.9;
 }
 
 /* Reference card grid */
 .references-grid {
   display: grid;
-  grid-template-columns:
-    repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
-  margin-top: 25px;
-  margin-bottom: 30px;
+  width: 100%;
+  margin: 25px 0 30px;
+  box-sizing: border-box;
 }
 
-/* Individual reference card */
 .reference-card {
   display: flex;
   flex-direction: column;
+  min-width: 0;
   padding: 24px;
+  box-sizing: border-box;
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 12px;
   background: rgba(0, 0, 0, 0.55);
-  box-shadow:
-    0 0 8px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
   transition:
     transform 0.2s ease,
+    background-color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
 .reference-card:hover {
   transform: translateY(-4px);
+  background: rgba(0, 0, 0, 0.65);
   box-shadow:
     0 0 12px rgba(255, 255, 255, 0.35),
     0 0 25px rgba(255, 255, 255, 0.15);
 }
 
-/* Reference type label */
 .reference-type {
   display: inline-block;
   align-self: flex-start;
@@ -1494,8 +1323,7 @@ button:hover {
 }
 
 .reference-card h3 {
-  margin-top: 0;
-  margin-bottom: 14px;
+  margin: 0 0 14px;
   font-size: 22px;
   line-height: 1.3;
 }
@@ -1507,13 +1335,17 @@ button:hover {
 }
 
 .reference-topics {
-  margin-top: 16px;
-  margin-bottom: 20px;
+  margin: 16px 0 20px;
   line-height: 1.6;
 }
 
+.reference-topics strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
 .reference-topics ul {
-  margin-top: 8px;
+  margin: 8px 0 0;
   padding-left: 24px;
 }
 
@@ -1521,46 +1353,44 @@ button:hover {
   margin-bottom: 5px;
 }
 
-/* Source buttons */
 .reference-button {
   display: inline-block;
   align-self: flex-start;
   margin-top: auto;
   padding: 11px 16px;
-  border: 2px solid white;
+  border: 2px solid #ffffff;
   border-radius: 7px;
   background: rgba(0, 0, 0, 0.75);
-  color: white;
+  color: #ffffff;
   font-weight: bold;
   text-decoration: none;
   transition:
+    transform 0.2s ease,
     background-color 0.2s ease,
     color 0.2s ease,
-    transform 0.2s ease,
     box-shadow 0.2s ease;
 }
 
 .reference-button:hover,
 .reference-button:focus {
   transform: translateY(-2px);
-  background: white;
-  color: black;
-  box-shadow:
-    0 0 12px rgba(255, 255, 255, 0.7);
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
   outline: none;
 }
 
-/* Important note under each course */
 .reference-note {
-  margin-top: 20px;
+  max-width: 900px;
+  margin: 20px auto 0;
   padding: 18px;
-  border-left: 4px solid white;
+  box-sizing: border-box;
+  border-left: 4px solid #ffffff;
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.1);
   line-height: 1.7;
 }
 
-/* Link back to course */
 .course-reference-link {
   display: inline-block;
   margin-top: 22px;
@@ -1570,16 +1400,63 @@ button:hover {
 }
 
 .course-reference-link:hover {
-  color: white;
+  color: #ffffff;
 }
 
-/* Mobile layout */
+/* Legacy simple reference lists, if used on another page */
+.references-list {
+  margin-bottom: 0;
+  padding-left: 25px;
+}
+
+.references-list li {
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+.references-list a {
+  color: #8fd3ff;
+  text-decoration: underline;
+}
+
+.references-list a:hover {
+  color: #ffffff;
+}
+
+.source-note {
+  margin-top: 18px;
+  padding: 12px 15px;
+  border-radius: 7px;
+  background: rgba(0, 0, 0, 0.18);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Tablet and phone layout */
+@media screen and (max-width: 800px) {
+  .references-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .references-heading {
+    font-size: 1.65rem;
+  }
+
+  .reference-card {
+    padding: 20px;
+  }
+}
+
 @media screen and (max-width: 700px) {
+  .references-page .lesson-content {
+    width: calc(100% - 24px);
+    padding: 20px;
+  }
 
   .reference-tab-buttons {
     flex-direction: column;
     align-items: stretch;
-    padding: 0 10px;
+    width: calc(100% - 24px);
   }
 
   .reference-tab-button {
@@ -1587,12 +1464,8 @@ button:hover {
     min-width: 0;
   }
 
-  .references-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .reference-card {
-    padding: 20px;
+  .references-section {
+    padding: 20px 16px;
   }
 
   .references-intro {
@@ -1606,28 +1479,38 @@ button:hover {
   }
 }
 
-/* Fix alignment between white border and reference cards */
-.references-section {
-  width: 100%;
-  margin-top: 50px;
-  padding: 25px 0 0;
-  background: rgba(255, 255, 255, 0.08);
-  border-left: 5px solid #ffffff;
-  border-top: 2px solid rgba(255, 255, 255, 0.25);
+.quiz-feedback {
+  margin-top: 20px;
+  padding: 16px 18px;
   border-radius: 10px;
-  box-sizing: border-box;
+  line-height: 1.6;
 }
 
-.references-heading,
-.references-intro,
-.reference-note,
-.course-reference-link {
-  margin-left: 25px;
-  margin-right: 25px;
+.quiz-feedback h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.25rem;
 }
 
-.references-grid {
-  width: 100%;
-  margin: 25px 0 30px;
-  box-sizing: border-box;
+.quiz-feedback p {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.correct-feedback {
+  background: rgba(46, 204, 113, 0.18);
+  border: 2px solid #2ecc71;
+}
+
+.correct-feedback h4 {
+  color: #7dffad;
+}
+
+.incorrect-feedback {
+  background: rgba(231, 76, 60, 0.18);
+  border: 2px solid #e74c3c;
+}
+
+.incorrect-feedback h4 {
+  color: #ff8f84;
 }
