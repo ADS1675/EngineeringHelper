@@ -98,16 +98,2137 @@
   <div class="course-page">
     <h1>Units, Conversions & Engineering Math Basics</h1>
 
-    <p class="coming-text">
-      More content coming soon. This course is currently being built.
+    <!-- COURSE DESCRIPTION -->
+<div class="course-description">
+  <h2>What is Units, Conversions & Engineering Math Basics?</h2>
+
+  <p>
+    Units, conversions, and engineering math provide the basic mathematical
+    skills needed to solve engineering problems. Mechanical engineers work
+    with different measurement systems, convert between units, use scientific
+    notation, and apply algebra and trigonometry to calculations. These skills
+    help engineers keep calculations accurate and consistent when working with
+    measurements such as length, force, mass, pressure, energy, and temperature.
+  </p>
+</div>
+
+    <!-- TAB BUTTONS -->
+    <div class="tabs">
+      <button onclick="showSection('lessons', this)">Lessons</button>
+<button onclick="showSection('problems', this)">Problems</button>
+<button onclick="showSection('qui', this)">Quiz</button>
+<button onclick="showSection('rea', this)">Real World Applications</button>
+<button onclick="showSection('vide', this)">Video</button>
+    </div>
+
+    <!-- LESSONS -->
+<div id="lessons" class="tab-content" style="display:none;">
+
+  <div class="lesson-content">
+
+    <h2>Units, Conversions & Engineering Math Basics</h2>
+
+    <p>
+      Engineering problems often involve measurements, formulas, and calculations.
+      To solve these problems correctly, engineers must understand units, convert
+      between measurement systems, use scientific notation, rearrange equations,
+      and apply basic algebra and trigonometry.
     </p>
 
+    <h3>1. Understanding Units</h3>
+
+    <p>
+      A <strong>unit</strong> tells us what a number represents.
+      Without a unit, a measurement may be incomplete or unclear.
+    </p>
+
+    <p>Some common engineering quantities and SI units include:</p>
+
+    <ul>
+      <li><strong>Length</strong> – meter (m)</li>
+      <li><strong>Mass</strong> – kilogram (kg)</li>
+      <li><strong>Time</strong> – second (s)</li>
+      <li><strong>Force</strong> – newton (N)</li>
+      <li><strong>Pressure</strong> – pascal (Pa)</li>
+      <li><strong>Energy</strong> – joule (J)</li>
+      <li><strong>Power</strong> – watt (W)</li>
+      <li><strong>Temperature</strong> – kelvin (K) or degrees Celsius (°C)</li>
+    </ul>
+
+    <p>
+      Keeping track of units helps engineers make sure their calculations are
+      physically meaningful and helps prevent errors.
+    </p>
+
+    <h3>2. SI Prefixes</h3>
+
+    <p>
+      Very large or very small measurements are often written using
+      <strong>SI prefixes</strong>. These prefixes represent powers of ten.
+    </p>
+
+    <ul>
+      <li><strong>kilo (k)</strong> = 10<sup>3</sup> = 1,000</li>
+      <li><strong>mega (M)</strong> = 10<sup>6</sup> = 1,000,000</li>
+      <li><strong>giga (G)</strong> = 10<sup>9</sup> = 1,000,000,000</li>
+      <li><strong>milli (m)</strong> = 10<sup>-3</sup> = 0.001</li>
+      <li><strong>micro (µ)</strong> = 10<sup>-6</sup> = 0.000001</li>
+      <li><strong>nano (n)</strong> = 10<sup>-9</sup> = 0.000000001</li>
+    </ul>
+
+    <p>
+      For example, 5 kN is equal to 5,000 N, while 5 mm is equal to 0.005 m.
+    </p>
+
+    <h3>3. Unit Conversions</h3>
+
+    <p>
+      Engineers often need to convert one unit into another.
+      A common method is <strong>dimensional analysis</strong>, where conversion
+      factors are arranged so unwanted units cancel.
+    </p>
+
+    <p><strong>Example:</strong> Convert 2.5 km to meters.</p>
+
+    <p>
+      2.5 km × 1000 m / 1 km = 2500 m
+    </p>
+
+    <p>
+      The kilometer units cancel, leaving meters as the final unit.
+    </p>
+
+    <p>Common conversions include:</p>
+
+    <ul>
+      <li>1 km = 1000 m</li>
+      <li>1 m = 100 cm</li>
+      <li>1 m = 1000 mm</li>
+      <li>1 kg = 1000 g</li>
+      <li>1 hour = 3600 seconds</li>
+      <li>1 kN = 1000 N</li>
+      <li>1 MPa = 1,000,000 Pa</li>
+    </ul>
+
+    <h3>4. Scientific Notation</h3>
+
+    <p>
+      <strong>Scientific notation</strong> is used to write very large or very
+      small numbers more easily.
+    </p>
+
+    <p>
+      A number in scientific notation is written in the form:
+    </p>
+
+    <p>
+      <strong>a × 10<sup>n</sup></strong>
+    </p>
+
+    <p>
+      where <strong>a</strong> is usually between 1 and 10 and
+      <strong>n</strong> tells how many places the decimal has moved.
+    </p>
+
+    <ul>
+      <li>4,500,000 = 4.5 × 10<sup>6</sup></li>
+      <li>0.00032 = 3.2 × 10<sup>-4</sup></li>
+      <li>200,000,000 Pa = 2 × 10<sup>8</sup> Pa</li>
+    </ul>
+
+    <p>
+      Scientific notation is especially useful in engineering because quantities
+      can range from extremely small dimensions to extremely large forces or pressures.
+    </p>
+
+    <h3>5. Rearranging Engineering Equations</h3>
+
+    <p>
+      Engineers often know several variables in an equation and need to solve for
+      a different unknown. This requires basic algebra.
+    </p>
+
+    <p><strong>Example:</strong></p>
+
+    <p>
+      F = ma
+    </p>
+
+    <p>
+      If force and mass are known but acceleration is unknown, divide both sides by mass:
+    </p>
+
+    <p>
+      <strong>a = F / m</strong>
+    </p>
+
+    <p>Another example is the velocity equation:</p>
+
+    <p>
+      v = d / t
+    </p>
+
+    <p>It can be rearranged as:</p>
+
+    <ul>
+      <li><strong>d = vt</strong></li>
+      <li><strong>t = d / v</strong></li>
+    </ul>
+
+    <p>
+      Correctly rearranging equations is an essential skill in nearly every
+      engineering course.
+    </p>
+
+    <h3>6. Basic Trigonometry</h3>
+
+    <p>
+      Trigonometry is frequently used in engineering when forces, distances,
+      or motion occur at angles.
+    </p>
+
+    <p>
+      For a right triangle, the basic trigonometric relationships are:
+    </p>
+
+    <ul>
+      <li><strong>sin(θ) = opposite / hypotenuse</strong></li>
+      <li><strong>cos(θ) = adjacent / hypotenuse</strong></li>
+      <li><strong>tan(θ) = opposite / adjacent</strong></li>
+    </ul>
+
+    <p>
+      These relationships allow engineers to find unknown sides, angles,
+      and vector components.
+    </p>
+
+    <p>
+      For example, a force acting at an angle can be separated into horizontal
+      and vertical components:
+    </p>
+
+    <ul>
+      <li><strong>F<sub>x</sub> = F cos(θ)</strong></li>
+      <li><strong>F<sub>y</sub> = F sin(θ)</strong></li>
+    </ul>
+
+    <h3>7. Order of Operations</h3>
+
+    <p>
+      Engineering equations may contain several operations, so following the
+      correct order of operations is important.
+    </p>
+
+    <p>
+      A common way to remember the order is:
+    </p>
+
+    <ul>
+      <li>Parentheses</li>
+      <li>Exponents</li>
+      <li>Multiplication and Division</li>
+      <li>Addition and Subtraction</li>
+    </ul>
+
+    <p>
+      Performing calculations in the wrong order can produce an incorrect answer
+      even when the correct formula is being used.
+    </p>
+
+    <h3>8. Checking Units in Equations</h3>
+
+    <p>
+      Units can also be used to check whether an equation or calculation makes sense.
+      This process is called <strong>dimensional analysis</strong>.
+    </p>
+
+    <p>
+      For example, Newton's Second Law is:
+    </p>
+
+    <p>
+      F = ma
+    </p>
+
+    <p>
+      The units on the right side are:
+    </p>
+
+    <p>
+      kg × m/s²
+    </p>
+
+    <p>
+      This is equal to a newton:
+    </p>
+
+    <p>
+      <strong>1 N = 1 kg·m/s²</strong>
+    </p>
+
+    <p>
+      If the units of a calculation do not match the expected answer, it can be
+      a sign that something was entered or converted incorrectly.
+    </p>
+
+    <h3>9. Significant Figures and Engineering Accuracy</h3>
+
+    <p>
+      Measurements are not always exact, so engineers must consider the precision
+      of the values they use.
+    </p>
+
+    <p>
+      <strong>Significant figures</strong> indicate how precisely a value is known.
+      For example:
+    </p>
+
+    <ul>
+      <li>5.2 has two significant figures</li>
+      <li>5.20 has three significant figures</li>
+      <li>0.00520 has three significant figures</li>
+    </ul>
+
+    <p>
+      Engineers should avoid reporting an answer with more precision than the
+      original measurements reasonably support.
+    </p>
+
+    <h3>10. Why This Matters</h3>
+
+    <p>
+      Units, conversions, and engineering mathematics are used throughout
+      mechanical engineering. Engineers need these skills to:
+    </p>
+
+    <ul>
+      <li>Convert measurements between different unit systems</li>
+      <li>Use engineering formulas correctly</li>
+      <li>Check whether calculated answers make physical sense</li>
+      <li>Work with very large and very small quantities</li>
+      <li>Analyze forces and motion at different angles</li>
+      <li>Communicate measurements clearly and consistently</li>
+    </ul>
+
+    <p>
+      These basic skills support nearly every other engineering subject,
+      including statics, dynamics, strength of materials, thermodynamics,
+      and more advanced mechanical engineering courses.
+    </p>
+
+    <section class="references-section" aria-labelledby="units-math-references-heading">
+
+      <h2 id="units-math-references-heading" class="references-heading">
+        References and Further Reading
+      </h2>
+
+      <p class="references-intro">
+        These sources provide additional information about SI units,
+        unit conversions, scientific notation, algebra, trigonometry,
+        and mathematics used in engineering.
+      </p>
+
+      <div class="references-grid">
+
+        <!-- NIST SI UNITS -->
+        <article class="reference-card">
+          <span class="reference-type">Government Reference</span>
+
+          <h3>The International System of Units</h3>
+
+          <p class="reference-author">
+            <strong>Organization:</strong> National Institute of Standards and Technology
+          </p>
+
+          <p class="reference-publisher">
+            <strong>Abbreviation:</strong> NIST
+          </p>
+
+          <div class="reference-topics">
+            <strong>Related topics:</strong>
+            <ul>
+              <li>SI base units</li>
+              <li>Derived units</li>
+              <li>Metric prefixes</li>
+              <li>Unit symbols</li>
+              <li>Measurement conventions</li>
+            </ul>
+          </div>
+
+          <a
+            class="reference-button"
+            href="https://www.nist.gov/pml/owm/metric-si/si-units"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open the NIST SI Units page"
+          >
+            Visit Official Source
+          </a>
+        </article>
+
+        <!-- OPENSTAX COLLEGE ALGEBRA -->
+        <article class="reference-card">
+          <span class="reference-type">Free Online Textbook</span>
+
+          <h3>College Algebra</h3>
+
+          <p class="reference-author">
+            <strong>Organization:</strong> OpenStax
+          </p>
+
+          <p class="reference-publisher">
+            <strong>Access:</strong> Free online
+          </p>
+
+          <div class="reference-topics">
+            <strong>Related topics:</strong>
+            <ul>
+              <li>Algebra</li>
+              <li>Equations</li>
+              <li>Exponents</li>
+              <li>Scientific notation</li>
+              <li>Problem solving</li>
+            </ul>
+          </div>
+
+          <a
+            class="reference-button"
+            href="https://openstax.org/details/books/college-algebra-2e"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open the OpenStax College Algebra textbook"
+          >
+            Read Free Source
+          </a>
+        </article>
+
+        <!-- OPENSTAX PRECALCULUS -->
+        <article class="reference-card">
+          <span class="reference-type">Free Online Textbook</span>
+
+          <h3>Precalculus</h3>
+
+          <p class="reference-author">
+            <strong>Organization:</strong> OpenStax
+          </p>
+
+          <p class="reference-publisher">
+            <strong>Access:</strong> Free online
+          </p>
+
+          <div class="reference-topics">
+            <strong>Related topics:</strong>
+            <ul>
+              <li>Trigonometry</li>
+              <li>Right triangles</li>
+              <li>Functions</li>
+              <li>Angles</li>
+              <li>Algebraic relationships</li>
+            </ul>
+          </div>
+
+          <a
+            class="reference-button"
+            href="https://openstax.org/details/books/precalculus-2e"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open the OpenStax Precalculus textbook"
+          >
+            Read Free Source
+          </a>
+        </article>
+
+        <!-- NIST METRIC PREFIXES -->
+        <article class="reference-card">
+          <span class="reference-type">Government Reference</span>
+
+          <h3>Metric (SI) Prefixes</h3>
+
+          <p class="reference-author">
+            <strong>Organization:</strong> National Institute of Standards and Technology
+          </p>
+
+          <p class="reference-publisher">
+            <strong>Focus:</strong> SI prefixes and powers of ten
+          </p>
+
+          <div class="reference-topics">
+            <strong>Related topics:</strong>
+            <ul>
+              <li>Metric prefixes</li>
+              <li>Powers of ten</li>
+              <li>Prefix symbols</li>
+              <li>Unit notation</li>
+              <li>Metric quantities</li>
+            </ul>
+          </div>
+
+          <a
+            class="reference-button"
+            href="https://www.nist.gov/pml/owm/metric-si-prefixes"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open the NIST Metric SI Prefixes page"
+          >
+            Visit Official Source
+          </a>
+        </article>
+
+      </div>
+
+      <p class="reference-note">
+        <strong>Source note:</strong> This lesson introduces foundational
+        mathematics and measurement concepts commonly used throughout engineering.
+        NIST provides official information about SI measurement standards and
+        metric prefixes, while OpenStax provides free educational resources for
+        algebra and trigonometry.
+      </p>
+
+    </section>
+
+  </div>
+</div>
+
+
+    <div id="problems" class="tab-content" style="display:none;">
+
+  <div class="problems-layout">
+
+    <!-- LEFT SIDE: PROBLEMS -->
+    <div class="problems-content">
+
+      <div class="lesson-content">
+
+        <h2>Example Problems</h2>
+
+        <h3>Problem 1: Unit Conversion</h3>
+
+        <p>
+          A mechanical component is 3.5 meters long. Convert this length to millimeters.
+        </p>
+
+        <p><strong>Step 1: Identify the conversion</strong></p>
+        <p>1 m = 1000 mm</p>
+
+        <p><strong>Step 2: Set up the conversion</strong></p>
+        <p>3.5 m × (1000 mm / 1 m)</p>
+
+        <p><strong>Step 3: Cancel units and calculate</strong></p>
+        <p>3.5 × 1000 = 3500 mm</p>
+
+        <p><strong>Answer:</strong> 3500 mm</p>
+
+        <hr>
+
+        <h3>Problem 2: Scientific Notation</h3>
+
+        <p>
+          A pressure is measured as 45,000,000 Pa.
+          Write this value in scientific notation.
+        </p>
+
+        <p><strong>Step 1: Move the decimal</strong></p>
+        <p>
+          Move the decimal until the number is between 1 and 10.
+        </p>
+
+        <p>45,000,000 → 4.5</p>
+
+        <p><strong>Step 2: Count the decimal places</strong></p>
+        <p>The decimal moved 7 places to the left.</p>
+
+        <p><strong>Step 3: Write using a power of ten</strong></p>
+        <p>4.5 × 10<sup>7</sup> Pa</p>
+
+        <p><strong>Answer:</strong> 4.5 × 10<sup>7</sup> Pa</p>
+
+        <hr>
+
+        <h3>Problem 3: Rearranging an Engineering Equation</h3>
+
+        <p>
+          A force of 60 N acts on a mass of 12 kg.
+          Using F = ma, find the acceleration.
+        </p>
+
+        <p><strong>Step 1: Start with the equation</strong></p>
+        <p>F = ma</p>
+
+        <p><strong>Step 2: Rearrange for acceleration</strong></p>
+        <p>a = F / m</p>
+
+        <p><strong>Step 3: Substitute the known values</strong></p>
+        <p>a = 60 / 12</p>
+
+        <p><strong>Step 4: Calculate</strong></p>
+        <p>a = 5 m/s²</p>
+
+        <p><strong>Answer:</strong> 5 m/s²</p>
+
+        <hr>
+
+        <h3>Problem 4: Force Components Using Trigonometry</h3>
+
+        <p>
+          A 100 N force acts at a 30° angle.
+          Find the horizontal and vertical components of the force.
+        </p>
+
+        <p><strong>Step 1: Use the component equations</strong></p>
+        <p>F<sub>x</sub> = F cos(θ)</p>
+        <p>F<sub>y</sub> = F sin(θ)</p>
+
+        <p><strong>Step 2: Substitute the known values</strong></p>
+        <p>F<sub>x</sub> = 100 cos(30°)</p>
+        <p>F<sub>y</sub> = 100 sin(30°)</p>
+
+        <p><strong>Step 3: Calculate</strong></p>
+        <p>F<sub>x</sub> ≈ 86.6 N</p>
+        <p>F<sub>y</sub> = 50 N</p>
+
+        <p>
+          <strong>Answer:</strong>
+          F<sub>x</sub> ≈ 86.6 N,
+          F<sub>y</sub> = 50 N
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE: FORMULA SHEET -->
+    <div class="formula-sheet">
+
+      <h3>Formula Sheet</h3>
+
+      <p>
+        <strong>Common Unit Conversions:</strong><br>
+        1 km = 1000 m<br>
+        1 m = 100 cm<br>
+        1 m = 1000 mm<br>
+        1 kg = 1000 g<br>
+        1 hour = 3600 seconds<br>
+        1 kN = 1000 N<br>
+        1 MPa = 1,000,000 Pa
+      </p>
+
+      <p>
+        <strong>SI Prefixes:</strong><br>
+        kilo (k) = 10<sup>3</sup><br>
+        mega (M) = 10<sup>6</sup><br>
+        giga (G) = 10<sup>9</sup><br>
+        milli (m) = 10<sup>-3</sup><br>
+        micro (µ) = 10<sup>-6</sup><br>
+        nano (n) = 10<sup>-9</sup>
+      </p>
+
+      <p>
+        <strong>Scientific Notation:</strong><br>
+        a × 10<sup>n</sup><br>
+        a = Number usually between 1 and 10<br>
+        n = Number of decimal places moved
+      </p>
+
+      <p>
+        <strong>Force Equation:</strong><br>
+        F = ma<br>
+        a = F / m<br>
+        F = Force (N)<br>
+        m = Mass (kg)<br>
+        a = Acceleration (m/s²)
+      </p>
+
+      <p>
+        <strong>Velocity Equation:</strong><br>
+        v = d / t<br>
+        d = vt<br>
+        t = d / v<br>
+        v = Velocity<br>
+        d = Distance<br>
+        t = Time
+      </p>
+
+      <p>
+        <strong>Basic Trigonometry:</strong><br>
+        sin(θ) = opposite / hypotenuse<br>
+        cos(θ) = adjacent / hypotenuse<br>
+        tan(θ) = opposite / adjacent
+      </p>
+
+      <p>
+        <strong>Force Components:</strong><br>
+        F<sub>x</sub> = F cos(θ)<br>
+        F<sub>y</sub> = F sin(θ)<br>
+        F = Total Force (N)<br>
+        θ = Angle
+      </p>
+
+      <p>
+        <strong>Force Units:</strong><br>
+        1 N = 1 kg·m/s²
+      </p>
+
+      <p>
+        <strong>Order of Operations:</strong><br>
+        1. Parentheses<br>
+        2. Exponents<br>
+        3. Multiplication and Division<br>
+        4. Addition and Subtraction
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+   <div id="quiz" class="tab-content" style="display:none;">
+  <h2>Statics Quiz</h2>
+
+  <button type="button" onclick="openRandomQuizSet()" class="quiz-btn">
+  Random Quiz
+</button>
+
+<p class="quiz-warning">
+  Warning: Once you select an answer, click the "Check Answer" button to lock in your response. 
+  Answers that are not checked before submitting the quiz will NOT count, and unanswered questions 
+  will be marked wrong.
+</p>
+
+  <div id="quiz-panel" class="quiz-panel">
+    <h3 id="quiz-set-title"></h3>
+    <div id="quiz-container"></div>
+  </div>
+</div>
+
+    <div id="real" class="tab-content" style="display:none;">
+  <div class="lesson-content">
+
+    <h2>Real World Applications of Statics</h2>
+
+    <p>
+      Statics is used whenever engineers need to make sure an object or structure stays stable.
+      The main idea is that forces must balance so the object does not accelerate or fail.
+    </p>
+
+    <hr>
+
+    <h3>1. Bridges</h3>
+    <p>
+      Bridges use statics because they must support their own weight, the weight of cars,
+      and forces from wind or movement. Engineers analyze the forces acting downward and
+      make sure the supports provide enough upward force to keep the bridge in equilibrium.
+    </p>
+
+    <p><strong>Statics concepts used:</strong></p>
+    <ul>
+      <li><strong>Weight:</strong> the bridge and vehicles create downward forces.</li>
+      <li><strong>Normal force/support force:</strong> bridge supports push upward.</li>
+      <li><strong>Equilibrium:</strong> ΣFy = 0 must be satisfied so the bridge stays stable.</li>
+    </ul>
+
+    <hr>
+
+    <h3>2. Cranes</h3>
+
+<p>
+  Cranes use statics when lifting and holding heavy objects motionless in the air.
+  The load creates a downward weight force, while the cables provide upward tension forces.
+  Engineers must make sure the forces balance so the object remains at rest and does not accelerate.
+</p>
+
+<p><strong>Statics concepts used:</strong></p>
+<ul>
+  <li><strong>Tension:</strong> cables pull upward on the load.</li>
+  <li><strong>Weight:</strong> the lifted object pulls downward due to gravity.</li>
+  <li><strong>Equilibrium:</strong> ΣFy = 0 when the load is held motionless.</li>
+</ul>
+
+    <hr>
+
+    <h3>3. Shelves Mounted to a Wall</h3>
+    <p>
+      A wall-mounted shelf must support the weight of books, tools, or other objects placed on it.
+      The shelf pushes down on the brackets, while the brackets and wall provide supporting forces.
+      Engineers and designers use statics to make sure the shelf will not fall or bend too much.
+    </p>
+
+    <p><strong>Statics concepts used:</strong></p>
+    <ul>
+      <li><strong>Weight:</strong> objects on the shelf pull downward.</li>
+      <li><strong>Normal/support force:</strong> brackets push back against the load.</li>
+      <li><strong>Balanced forces:</strong> upward and downward forces must cancel.</li>
+    </ul>
+
+    <hr>
+
+    <h3>4. Cars Parked on an Incline</h3>
+    <p>
+      When a car is parked on a hill, gravity pulls the car downward, but the road and friction
+      help keep it from sliding. Because the surface is angled, the car’s weight can be thought of
+      as having components in different directions.
+    </p>
+
+    <p><strong>Statics concepts used:</strong></p>
+    <ul>
+      <li><strong>Force components:</strong> weight can be split into parts along and into the hill.</li>
+      <li><strong>Friction:</strong> resists sliding down the incline.</li>
+      <li><strong>Normal force:</strong> the road pushes perpendicular to the tires.</li>
+    </ul>
+
+    <hr>
+
+    <h3>5. Hanging Signs</h3>
+    <p>
+      A hanging sign is a simple example of statics. The sign’s weight pulls downward, while
+      cables or chains pull upward through tension. If the sign is not moving, the upward tension
+      forces balance the downward weight.
+    </p>
+
+    <p><strong>Statics concepts used:</strong></p>
+    <ul>
+      <li><strong>Weight:</strong> the sign pulls downward.</li>
+      <li><strong>Tension:</strong> cables pull upward.</li>
+      <li><strong>ΣFy = 0:</strong> vertical forces balance when the sign is motionless.</li>
+    </ul>
+
+    <hr>
+
+    <h3>6. Ladders Leaning Against a Wall</h3>
+    <p>
+      A ladder leaning against a wall relies on friction and support forces to remain at rest.
+      The floor provides an upward normal force, the wall pushes on the ladder, and friction
+      helps prevent sliding.
+    </p>
+
+    <p><strong>Statics concepts used:</strong></p>
+    <ul>
+      <li><strong>Normal force:</strong> surfaces push back on the ladder.</li>
+      <li><strong>Friction:</strong> helps keep the ladder from slipping.</li>
+      <li><strong>Balanced forces:</strong> forces must cancel for the ladder to stay still.</li>
+    </ul>
+
+    <hr>
+
+    <h3>7. Mechanical Supports and Brackets</h3>
+    <p>
+      Brackets are used to hold machines, shelves, pipes, and other parts in place.
+      Engineers use statics to determine whether the bracket can safely support the forces
+      acting on it without moving or failing.
+    </p>
+
+    <p><strong>Statics concepts used:</strong></p>
+    <ul>
+      <li><strong>Force direction:</strong> loads may act downward, sideways, or at angles.</li>
+      <li><strong>Vector components:</strong> angled forces can be split into x and y components.</li>
+      <li><strong>Equilibrium:</strong> all forces must balance for the support to remain stable.</li>
+    </ul>
+
+    <hr>
+
+    <h3>8. Your Future Experiment Demonstrations</h3>
+    <p>
+      This section can later include your own recorded demonstrations, such as a hanging mass,
+      a supported beam, a friction test, or a force balance setup. These experiments would show
+      how the same statics ideas from the lesson appear in real physical systems.
+    </p>
+
+    <p><strong>Statics concepts used:</strong></p>
+    <ul>
+      <li><strong>ΣFx = 0:</strong> horizontal forces balance.</li>
+      <li><strong>ΣFy = 0:</strong> vertical forces balance.</li>
+      <li><strong>Weight, normal force, tension, and friction:</strong> the core forces from the lesson.</li>
+    </ul>
+
+  </div>
+</div>
+
+    <div id="video" class="tab-content" style="display:none;">
+
+  <div class="lesson-content">
+
+    <h2>Statics Experiment Video</h2>
+
+    <p>
+      This experiment demonstrates force equilibrium using pulleys,
+      masses, and a force balance setup.
+    </p>
+
+    <div class="video-container">
+
+      <iframe
+    width="800"
+    height="450"
+    src="https://www.youtube.com/embed/Jk91G4Bj7ss"
+    title="Statics Experiment"
+    frameborder="0"
+    allowfullscreen>
+     </iframe>
+
+    </div>
+
+    <h3>Objective</h3>
+    <p>
+      Demonstrate how forces balance when an object is in equilibrium.
+    </p>
+
+    <h3>Concepts Demonstrated</h3>
+    <ul>
+      <li>ΣFx = 0</li>
+      <li>ΣFy = 0</li>
+      <li>Tension</li>
+      <li>Weight</li>
+      <li>Force Equilibrium</li>
+    </ul>
+
+  </div>
+
+</div>
+
+    <!-- BACK BUTTON -->
     <a href="courses.html">
       <button class="back-button">Back to Courses</button>
     </a>
   </div>
 
+  <!-- JAVASCRIPT -->
   <script>
+function showSection(id, button) {
+  const section = document.getElementById(id);
+  const isOpen = section.style.display === "block";
+
+  // Hide all tab sections
+  document.querySelectorAll(".tab-content").forEach(s => {
+    s.style.display = "none";
+  });
+
+  // Remove active class from tab buttons
+  document.querySelectorAll(".tabs button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  // Reset quiz when changing tabs
+  const quizPanel = document.getElementById("quiz-panel");
+  const quizContainer = document.getElementById("quiz-container");
+  const randomBtn = document.querySelector("#quiz .quiz-btn");
+
+  if (quizPanel) {
+    quizPanel.classList.remove("open");
+  }
+
+  if (quizContainer) {
+    quizContainer.innerHTML = "";
+  }
+
+  if (randomBtn) {
+    randomBtn.style.display = "inline-block";
+  }
+
+  // Open clicked tab if it was closed
+  if (!isOpen) {
+    section.style.display = "block";
+    button.classList.add("active");
+  }
+}
+</script>
+
+<script>
+let currentQuestionIndex = 0;
+let allQuestions = [];
+let answeredQuestions = {};
+
+const quizQuestions = [
+  {
+    q: "What is statics mainly about?",
+    choices: [
+      "Objects accelerating",
+      "Objects at rest or moving at constant velocity",
+      "Objects melting",
+      "Objects changing shape"
+    ],
+    answer: 1,
+    explanation:
+      "Statics studies objects that are at rest or moving at constant velocity. In both cases, the acceleration is zero."
+  },
+
+  {
+    q: "According to the lesson, if there is no acceleration, what must the net force be?",
+    choices: [
+      "Zero",
+      "Equal to mass",
+      "Equal to weight",
+      "Greater than friction"
+    ],
+    answer: 0,
+    explanation:
+      "Newton's Second Law is F = ma. When acceleration is zero, the net force must also equal zero."
+  },
+
+  {
+    q: "Why is force considered a vector?",
+    choices: [
+      "It has only size",
+      "It has magnitude and direction",
+      "It has only direction",
+      "It has no units"
+    ],
+    answer: 1,
+    explanation:
+      "A vector has both magnitude and direction. A force must describe how strong it is and the direction in which it acts."
+  },
+
+  {
+    q: "What unit is force measured in?",
+    choices: [
+      "Kilograms",
+      "Meters",
+      "Newtons",
+      "Seconds"
+    ],
+    answer: 2,
+    explanation:
+      "Force is measured in newtons, abbreviated N. One newton is equivalent to one kilogram-meter per second squared."
+  },
+
+  {
+    q: "Which force always acts downward?",
+    choices: [
+      "Normal force",
+      "Weight",
+      "Tension",
+      "Friction"
+    ],
+    answer: 1,
+    explanation:
+      "Weight is the gravitational force acting on an object, so it acts downward toward Earth."
+  },
+
+  {
+    q: "What is the formula for weight?",
+    choices: [
+      "W = mg",
+      "F = μN",
+      "Fx = Fcosθ",
+      "Fy = Fsinθ"
+    ],
+    answer: 0,
+    explanation:
+      "Weight is calculated by multiplying mass by gravitational acceleration, so W = mg."
+  },
+
+  {
+    q: "A 10 kg box rests on a table. What is its weight?",
+    choices: [
+      "10 N",
+      "98 N",
+      "1000 N",
+      "9.8 N"
+    ],
+    answer: 1,
+    explanation:
+      "Use W = mg. The calculation is W = 10 × 9.8 = 98 N."
+  },
+
+  {
+    q: "A box rests on a flat table. What force balances its weight?",
+    choices: [
+      "Tension",
+      "Friction",
+      "Normal force",
+      "Applied force"
+    ],
+    answer: 2,
+    explanation:
+      "The table pushes upward on the box with a normal force. When the box is at rest, this upward force balances its downward weight."
+  },
+
+  {
+    q: "The normal force acts in what direction compared to a surface?",
+    choices: [
+      "Parallel",
+      "Perpendicular",
+      "Always downward",
+      "Always sideways"
+    ],
+    answer: 1,
+    explanation:
+      "The normal force always acts perpendicular, or at a 90-degree angle, to the surface."
+  },
+
+  {
+    q: "A 20 kg object rests on a horizontal floor. What is the normal force?",
+    choices: [
+      "20 N",
+      "98 N",
+      "196 N",
+      "392 N"
+    ],
+    answer: 2,
+    explanation:
+      "First calculate the weight: W = 20 × 9.8 = 196 N. Because the object is at rest on a horizontal floor, the normal force is also 196 N."
+  },
+
+  {
+    q: "What force is transmitted through a rope or cable?",
+    choices: [
+      "Weight",
+      "Tension",
+      "Normal force",
+      "Friction"
+    ],
+    answer: 1,
+    explanation:
+      "Tension is the pulling force carried through a rope, cable, chain, or similar object."
+  },
+
+  {
+    q: "What force resists motion between surfaces?",
+    choices: [
+      "Friction",
+      "Tension",
+      "Weight",
+      "Normal force"
+    ],
+    answer: 0,
+    explanation:
+      "Friction acts between surfaces and opposes sliding or attempted sliding."
+  },
+
+  {
+    q: "What is the friction formula from the lesson?",
+    choices: [
+      "W = mg",
+      "F = μN",
+      "Fx = Fcosθ",
+      "ΣFx = 0"
+    ],
+    answer: 1,
+    explanation:
+      "The friction force is found by multiplying the coefficient of friction by the normal force, written as F = μN."
+  },
+
+  {
+    q: "If μ = 0.25 and N = 400 N, what is friction?",
+    choices: [
+      "25 N",
+      "100 N",
+      "160 N",
+      "400 N"
+    ],
+    answer: 1,
+    explanation:
+      "Use F = μN. The calculation is F = 0.25 × 400 = 100 N."
+  },
+
+  {
+    q: "What does ΣFx = 0 mean?",
+    choices: [
+      "Vertical forces are balanced",
+      "Horizontal forces are balanced",
+      "The object has no mass",
+      "Friction is zero"
+    ],
+    answer: 1,
+    explanation:
+      "ΣFx = 0 means the sum of all forces in the horizontal direction equals zero, so the horizontal forces are balanced."
+  },
+
+  {
+    q: "What does ΣFy = 0 mean?",
+    choices: [
+      "Horizontal forces are balanced",
+      "Vertical forces are balanced",
+      "The object rotates",
+      "Weight disappears"
+    ],
+    answer: 1,
+    explanation:
+      "ΣFy = 0 means the sum of all vertical forces equals zero, so upward and downward forces are balanced."
+  },
+
+  {
+    q: "If ΣFx is not zero, what happens?",
+    choices: [
+      "The object accelerates horizontally",
+      "The object must stay still",
+      "Mass becomes zero",
+      "Gravity stops"
+    ],
+    answer: 0,
+    explanation:
+      "A nonzero horizontal net force means the forces are unbalanced, so the object can accelerate horizontally."
+  },
+
+  {
+    q: "If ΣFy is not zero, what happens?",
+    choices: [
+      "The object accelerates vertically",
+      "The object remains still",
+      "Friction becomes zero",
+      "Weight disappears"
+    ],
+    answer: 0,
+    explanation:
+      "A nonzero vertical net force means the vertical forces are unbalanced, so the object can accelerate upward or downward."
+  },
+
+  {
+    q: "Balanced forces do what to each other?",
+    choices: [
+      "Cancel out",
+      "Double",
+      "Create mass",
+      "Remove gravity"
+    ],
+    answer: 0,
+    explanation:
+      "Balanced forces are equal in size and opposite in direction, so their effects cancel and the net force is zero."
+  },
+
+  {
+    q: "A 50 N force pushes right and 50 N pushes left. What is ΣFx?",
+    choices: [
+      "100 N",
+      "50 N",
+      "0 N",
+      "25 N"
+    ],
+    answer: 2,
+    explanation:
+      "Take right as positive and left as negative. The sum is 50 - 50 = 0 N."
+  },
+
+
+  {
+  q: "A 5 kg object hangs motionless from one rope. What is the tension?",
+  choices: ["5 N", "49 N", "98 N", "0 N"],
+  answer: 1,
+  explanation:
+    "Because the object is motionless, the upward tension must balance the downward weight. T = mg = 5 × 9.8 = 49 N."
+},
+
+{
+  q: "A 15 kg box rests on a table. What is its weight?",
+  choices: ["15 N", "147 N", "1500 N", "9.8 N"],
+  answer: 1,
+  explanation:
+    "Use W = mg. The weight is W = 15 × 9.8 = 147 N."
+},
+
+{
+  q: "A 15 kg box rests on a table. What is the normal force?",
+  choices: ["15 N", "147 N", "1500 N", "0 N"],
+  answer: 1,
+  explanation:
+    "The box is at rest on a horizontal table, so the upward normal force balances its weight. Since W = 15 × 9.8 = 147 N, the normal force is 147 N."
+},
+
+{
+  q: "A 30 kg object rests on a horizontal floor. What is its weight?",
+  choices: ["30 N", "294 N", "3000 N", "9.8 N"],
+  answer: 1,
+  explanation:
+    "Use W = mg. The calculation is W = 30 × 9.8 = 294 N."
+},
+
+{
+  q: "A 30 kg object rests on a horizontal floor. What is the normal force?",
+  choices: ["30 N", "294 N", "3000 N", "0 N"],
+  answer: 1,
+  explanation:
+    "Since the object is resting on a level floor, the normal force balances the weight. The weight is 30 × 9.8 = 294 N, so the normal force is 294 N."
+},
+
+{
+  q: "A 40 kg hanging object is motionless. What is the rope tension?",
+  choices: ["40 N", "392 N", "4000 N", "9.8 N"],
+  answer: 1,
+  explanation:
+    "For a motionless hanging object, tension equals weight. T = mg = 40 × 9.8 = 392 N."
+},
+
+{
+  q: "A 60 kg object rests on level ground. What is its normal force?",
+  choices: ["60 N", "588 N", "6000 N", "294 N"],
+  answer: 1,
+  explanation:
+    "The normal force balances the object's weight. N = mg = 60 × 9.8 = 588 N."
+},
+
+{
+  q: "A 100 kg object rests on the floor. What is its weight?",
+  choices: ["100 N", "980 N", "1000 N", "490 N"],
+  answer: 1,
+  explanation:
+    "Use W = mg. The calculation is W = 100 × 9.8 = 980 N."
+},
+
+{
+  q: "If a table pushes upward with 980 N on a 100 kg object, what force is being balanced?",
+  choices: ["Friction", "Weight", "Tension", "Horizontal force"],
+  answer: 1,
+  explanation:
+    "A 100 kg object has a weight of 980 N downward. The table's 980 N upward normal force balances that weight."
+},
+
+{
+  q: "If upward force is 500 N and downward force is 500 N, what is ΣFy?",
+  choices: ["1000 N", "500 N", "0 N", "250 N"],
+  answer: 2,
+  explanation:
+    "The vertical forces are equal and opposite. Taking upward as positive gives ΣFy = 500 - 500 = 0 N."
+},
+
+{
+  q: "Why do engineers break angled forces into components?",
+  choices: [
+    "To separate horizontal and vertical effects",
+    "To remove gravity",
+    "To make mass zero",
+    "To avoid using units"
+  ],
+  answer: 0,
+  explanation:
+    "An angled force affects both the horizontal and vertical directions. Breaking it into components allows engineers to analyze each direction separately."
+},
+
+{
+  q: "Which formula finds the horizontal component of an angled force?",
+  choices: ["Fx = Fcosθ", "Fy = Fsinθ", "W = mg", "F = μN"],
+  answer: 0,
+  explanation:
+    "When the angle is measured from the horizontal, the horizontal component is found using Fx = Fcosθ."
+},
+
+{
+  q: "Which formula finds the vertical component of an angled force?",
+  choices: ["Fx = Fsinθ", "Fy = Fsinθ", "W = mg", "ΣFx = 0"],
+  answer: 1,
+  explanation:
+    "When the angle is measured from the horizontal, the vertical component is found using Fy = Fsinθ."
+},
+
+{
+  q: "A 100 N force acts at 30°. What is Fx approximately?",
+  choices: ["50 N", "86.6 N", "100 N", "30 N"],
+  answer: 1,
+  explanation:
+    "Use Fx = Fcosθ. Fx = 100cos30° ≈ 100 × 0.866 = 86.6 N."
+},
+
+{
+  q: "A 100 N force acts at 30°. What is Fy?",
+  choices: ["50 N", "86.6 N", "100 N", "30 N"],
+  answer: 0,
+  explanation:
+    "Use Fy = Fsinθ. Fy = 100sin30° = 100 × 0.5 = 50 N."
+},
+
+{
+  q: "A 100 N force acts at 60°. What is Fx?",
+  choices: ["50 N", "86.6 N", "100 N", "160 N"],
+  answer: 0,
+  explanation:
+    "Use Fx = Fcosθ. Fx = 100cos60° = 100 × 0.5 = 50 N."
+},
+
+{
+  q: "A 100 N force acts at 60°. What is Fy approximately?",
+  choices: ["50 N", "86.6 N", "100 N", "160 N"],
+  answer: 1,
+  explanation:
+    "Use Fy = Fsinθ. Fy = 100sin60° ≈ 100 × 0.866 = 86.6 N."
+},
+
+{
+  q: "A 150 N force acts at 30°. What is Fx approximately?",
+  choices: ["75 N", "129.9 N", "150 N", "30 N"],
+  answer: 1,
+  explanation:
+    "Use Fx = Fcosθ. Fx = 150cos30° ≈ 150 × 0.866 = 129.9 N."
+},
+
+{
+  q: "A 150 N force acts at 30°. What is Fy?",
+  choices: ["75 N", "129.9 N", "150 N", "30 N"],
+  answer: 0,
+  explanation:
+    "Use Fy = Fsinθ. Fy = 150sin30° = 150 × 0.5 = 75 N."
+},
+
+{
+  q: "A 200 N force acts at 60°. What is Fx?",
+  choices: ["100 N", "173.2 N", "200 N", "60 N"],
+  answer: 0,
+  explanation:
+    "Use Fx = Fcosθ. Fx = 200cos60° = 200 × 0.5 = 100 N."
+},
+
+  {
+  q: "A 200 N force acts at 60°. What is Fy approximately?",
+  choices: ["100 N", "173.2 N", "200 N", "60 N"],
+  answer: 1,
+  explanation:
+    "Use Fy = Fsinθ. Fy = 200sin60° ≈ 200 × 0.866 = 173.2 N."
+},
+
+{
+  q: "A 250 N force acts at 45°. What is Fx approximately?",
+  choices: ["125 N", "176.8 N", "250 N", "353.6 N"],
+  answer: 1,
+  explanation:
+    "Use Fx = Fcosθ. Fx = 250cos45° ≈ 250 × 0.707 = 176.8 N."
+},
+
+{
+  q: "A 250 N force acts at 45°. What is Fy approximately?",
+  choices: ["125 N", "176.8 N", "250 N", "353.6 N"],
+  answer: 1,
+  explanation:
+    "Use Fy = Fsinθ. Fy = 250sin45° ≈ 250 × 0.707 = 176.8 N."
+},
+
+{
+  q: "A 300 N force acts at 60°. What is Fx?",
+  choices: ["150 N", "259.8 N", "300 N", "60 N"],
+  answer: 0,
+  explanation:
+    "Use Fx = Fcosθ. Fx = 300cos60° = 300 × 0.5 = 150 N."
+},
+
+{
+  q: "A 300 N force acts at 60°. What is Fy approximately?",
+  choices: ["150 N", "259.8 N", "300 N", "60 N"],
+  answer: 1,
+  explanation:
+    "Use Fy = Fsinθ. Fy = 300sin60° ≈ 300 × 0.866 = 259.8 N."
+},
+
+{
+  q: "A crate has 120 N right and 90 N left. What is the net horizontal force?",
+  choices: ["210 N right", "30 N right", "30 N left", "0 N"],
+  answer: 1,
+  explanation:
+    "Subtract the opposing forces. 120 N right − 90 N left = 30 N to the right."
+},
+
+{
+  q: "A crate has 80 N right and 80 N left. What is ΣFx?",
+  choices: ["160 N", "80 N", "0 N", "40 N"],
+  answer: 2,
+  explanation:
+    "Equal and opposite horizontal forces cancel, so ΣFx = 0 N."
+},
+
+{
+  q: "A box has 100 N right, 40 N right, and 140 N left. What is ΣFx?",
+  choices: ["280 N", "140 N right", "0 N", "40 N left"],
+  answer: 2,
+  explanation:
+    "The total force to the right is 100 + 40 = 140 N, which is balanced by 140 N to the left. Therefore ΣFx = 0 N."
+},
+
+{
+  q: "A box has 220 N right and friction balances it. What must friction be?",
+  choices: ["220 N left", "220 N right", "110 N left", "0 N"],
+  answer: 0,
+  explanation:
+    "To create equilibrium, friction must be equal in magnitude and opposite in direction to the applied force."
+},
+
+{
+  q: "A box has 90 N right and 70 N left. What extra force is needed for equilibrium?",
+  choices: ["20 N left", "20 N right", "160 N left", "0 N"],
+  answer: 0,
+  explanation:
+    "The current net force is 20 N to the right, so an additional 20 N to the left is needed to make ΣFx = 0."
+},
+
+{
+  q: "If N = 300 N and μ = 0.4, what is friction?",
+  choices: ["75 N", "120 N", "300 N", "700 N"],
+  answer: 1,
+  explanation:
+    "Use F = μN. F = 0.4 × 300 = 120 N."
+},
+
+{
+  q: "If N = 500 N and μ = 0.3, what is friction?",
+  choices: ["150 N", "500 N", "0.3 N", "1667 N"],
+  answer: 0,
+  explanation:
+    "Use F = μN. F = 0.3 × 500 = 150 N."
+},
+
+{
+  q: "If N = 250 N and μ = 0.2, what is friction?",
+  choices: ["25 N", "50 N", "125 N", "250 N"],
+  answer: 1,
+  explanation:
+    "Use F = μN. F = 0.2 × 250 = 50 N."
+},
+
+{
+  q: "If N = 600 N and μ = 0.15, what is friction?",
+  choices: ["90 N", "600 N", "4000 N", "15 N"],
+  answer: 0,
+  explanation:
+    "Use F = μN. F = 0.15 × 600 = 90 N."
+},
+
+{
+  q: "If N = 800 N and μ = 0.45, what is friction?",
+  choices: ["360 N", "800 N", "1778 N", "45 N"],
+  answer: 0,
+  explanation:
+    "Use F = μN. F = 0.45 × 800 = 360 N."
+},
+
+{
+  q: "If friction is 147 N left and the pull is 147 N right, what is ΣFx?",
+  choices: ["294 N", "147 N", "0 N", "73.5 N"],
+  answer: 2,
+  explanation:
+    "The horizontal forces are equal and opposite, so they cancel. Therefore ΣFx = 0 N."
+},
+
+{
+  q: "If a 125 N pull right is balanced by 125 N friction left, is the object horizontally balanced?",
+  choices: ["Yes", "No", "Only vertically", "Only if mass is zero"],
+  answer: 0,
+  explanation:
+    "Yes. Equal forces acting in opposite directions produce zero net horizontal force."
+},
+
+{
+  q: "A crate has μ = 0.25 and N = 500 N. What friction force resists motion?",
+  choices: ["125 N", "250 N", "500 N", "2000 N"],
+  answer: 0,
+  explanation:
+    "Use F = μN. F = 0.25 × 500 = 125 N."
+},
+
+{
+  q: "If friction is 90 N left, what pull right is needed for horizontal equilibrium?",
+  choices: ["45 N", "90 N", "180 N", "0 N"],
+  answer: 1,
+  explanation:
+    "For equilibrium, the applied pull must exactly match the friction force in the opposite direction. Therefore the pull must be 90 N to the right."
+},
+
+{
+  q: "Which force usually balances a horizontal push in simple statics problems?",
+  choices: ["Friction", "Weight", "Normal force", "Gravity"],
+  answer: 0,
+  explanation:
+    "In simple statics problems, friction is the force that commonly opposes and balances a horizontal applied force."
+},
+
+  {
+  q: "What is translational equilibrium?",
+  choices: ["No movement in any direction", "No rotation only", "Only upward motion", "Only friction"],
+  answer: 0,
+  explanation: "Translational equilibrium occurs when the net force on an object is zero, so it has no linear acceleration. The object remains at rest or moves with constant velocity."
+},
+
+{
+  q: "According to the lesson, what two equations are used for translational equilibrium?",
+  choices: ["ΣFx = 0 and ΣFy = 0", "W = mg and F = ma", "Fx = Fy and W = 0", "μ = FN and m = Wg"],
+  answer: 0,
+  explanation: "For an object to be in translational equilibrium, the sum of the horizontal forces and the sum of the vertical forces must each equal zero."
+},
+
+{
+  q: "A box has balanced horizontal forces but unbalanced vertical forces. Is it in full translational equilibrium?",
+  choices: ["Yes", "No", "Only if friction exists", "Only if it is heavy"],
+  answer: 1,
+  explanation: "No. Both ΣFx and ΣFy must equal zero. If the vertical forces are unbalanced, the object can accelerate vertically."
+},
+
+{
+  q: "A box has balanced vertical forces but ΣFx = 20 N right. Is it in full translational equilibrium?",
+  choices: ["Yes", "No", "Only vertically", "Only if mass is zero"],
+  answer: 1,
+  explanation: "No. A net horizontal force of 20 N means the object is not in translational equilibrium because ΣFx is not zero."
+},
+
+{
+  q: "A box has 200 N up, 200 N down, 80 N right, and 80 N left. Is it in translational equilibrium?",
+  choices: ["Yes", "No", "Only horizontally", "Only vertically"],
+  answer: 0,
+  explanation: "Yes. The vertical forces cancel and the horizontal forces cancel, so both ΣFx and ΣFy equal zero."
+},
+
+{
+  q: "A box has N = 500 N and W = 490 N. What is ΣFy?",
+  choices: ["990 N up", "10 N up", "10 N down", "0 N"],
+  answer: 1,
+  explanation: "Taking upward as positive, ΣFy = 500 N − 490 N = 10 N upward."
+},
+
+{
+  q: "Based on the previous situation, is the box vertically balanced?",
+  choices: ["Yes", "No", "Only if friction is zero", "Only if tension exists"],
+  answer: 1,
+  explanation: "No. Since ΣFy = 10 N upward, the vertical forces are not balanced."
+},
+
+{
+  q: "If an object remains at rest, what can usually be concluded about net force?",
+  choices: ["Net force is zero", "Net force is increasing", "Only weight acts", "No forces act"],
+  answer: 0,
+  explanation: "If an object remains at rest in statics, the forces acting on it are balanced, giving a net force of zero."
+},
+
+{
+  q: "If an object moves at constant velocity, what does the lesson say about net force?",
+  choices: ["Net force is zero", "Net force is large", "It has no mass", "Gravity is off"],
+  answer: 0,
+  explanation: "Constant velocity means there is no acceleration, so Newton's Second Law tells us the net force must be zero."
+},
+
+{
+  q: "If both ΣFx and ΣFy equal zero, what happens to acceleration?",
+  choices: ["It is zero", "It increases", "It becomes gravity", "It becomes friction"],
+  answer: 0,
+  explanation: "When the net force is zero in every direction, the object's acceleration is zero."
+},
+
+{
+  q: "A 400 N object is supported by two equal vertical ropes. What is tension in each rope?",
+  choices: ["100 N", "200 N", "400 N", "800 N"],
+  answer: 1,
+  explanation: "The load is shared equally between the two ropes, so each carries 400 ÷ 2 = 200 N."
+},
+
+{
+  q: "A 900 N sign hangs from two equal vertical cables. What is tension in each cable?",
+  choices: ["900 N", "450 N", "1800 N", "90 N"],
+  answer: 1,
+  explanation: "Since both cables support the load equally, each cable has a tension of 900 ÷ 2 = 450 N."
+},
+
+{
+  q: "A 750 N load is supported equally by three vertical cables. What is tension in each?",
+  choices: ["750 N", "375 N", "250 N", "1500 N"],
+  answer: 2,
+  explanation: "Divide the total weight equally among the three cables: 750 ÷ 3 = 250 N."
+},
+
+{
+  q: "A 300 N object is supported equally by two vertical cables. What is tension in each?",
+  choices: ["600 N", "300 N", "150 N", "75 N"],
+  answer: 2,
+  explanation: "Each cable supports half the load, so T = 300 ÷ 2 = 150 N."
+},
+
+{
+  q: "A hanging object has W = 250 N. If it is motionless, what is T?",
+  choices: ["0 N", "125 N", "250 N", "500 N"],
+  answer: 2,
+  explanation: "A motionless hanging object has zero net force, so the rope tension must equal the object's weight."
+},
+
+{
+  q: "A rope pulls upward with 400 N while weight pulls downward with 400 N. What is ΣFy?",
+  choices: ["800 N", "400 N", "0 N", "200 N"],
+  answer: 2,
+  explanation: "The upward and downward forces are equal, so they cancel each other and ΣFy = 0."
+},
+
+{
+  q: "If weight is 600 N downward, what upward normal force is needed for vertical equilibrium?",
+  choices: ["300 N", "600 N", "1200 N", "0 N"],
+  answer: 1,
+  explanation: "For vertical equilibrium, the upward normal force must exactly equal the downward weight, so N = 600 N."
+},
+
+{
+  q: "A table pushes upward on a box. What force is this?",
+  choices: ["Weight", "Normal force", "Tension", "Friction"],
+  answer: 1,
+  explanation: "The supporting force exerted by a surface on an object is called the normal force."
+},
+
+{
+  q: "A rope pulls upward on a hanging mass. What force is this?",
+  choices: ["Tension", "Normal force", "Friction", "Weight"],
+  answer: 0,
+  explanation: "A rope, cable, or chain transmits a pulling force known as tension."
+},
+
+{
+  q: "A force that resists sliding is called what?",
+  choices: ["Weight", "Normal force", "Friction", "Tension"],
+  answer: 2,
+  explanation: "Friction is the force that opposes motion or attempted motion between two contacting surfaces."
+},
+
+  {
+  q: "A force at an angle must be separated into what?",
+  choices: ["Components", "Masses", "Volumes", "Densities"],
+  answer: 0,
+  explanation: "An angled force is separated into horizontal (Fx) and vertical (Fy) components so each direction can be analyzed independently."
+},
+
+{
+  q: "Which component affects horizontal equilibrium?",
+  choices: ["Fx", "Fy", "Mass only", "Friction only"],
+  answer: 0,
+  explanation: "Horizontal equilibrium depends only on the horizontal component of force, represented by Fx."
+},
+
+{
+  q: "Which component affects vertical equilibrium?",
+  choices: ["Fx", "Fy", "Mass only", "Horizontal push only"],
+  answer: 1,
+  explanation: "Vertical equilibrium depends on the vertical component of force, represented by Fy."
+},
+
+{
+  q: "A 180 N force at 60° has Fx = 90 N and Fy = 155.9 N. Which component helps balance weight?",
+  choices: ["Fx", "Fy", "Neither", "Mass"],
+  answer: 1,
+  explanation: "Weight acts vertically, so the vertical component (Fy) is the one that helps balance the weight."
+},
+
+{
+  q: "A 250 N angled force has Fx = 216.5 N and Fy = 125 N. Which component affects ΣFx?",
+  choices: ["Fx", "Fy", "Weight", "Normal force"],
+  answer: 0,
+  explanation: "The sum of horizontal forces (ΣFx) only includes horizontal components such as Fx."
+},
+
+{
+  q: "If vertical forces are 155.9 N up and 155.9 N down, what is ΣFy?",
+  choices: ["311.8 N", "155.9 N", "0 N", "90 N"],
+  answer: 2,
+  explanation: "Equal upward and downward forces cancel each other, giving ΣFy = 0 N."
+},
+
+{
+  q: "If horizontal forces are 90 N right and 70 N left, is horizontal equilibrium satisfied?",
+  choices: ["Yes", "No", "Only if vertical forces balance", "Only if weight is zero"],
+  answer: 1,
+  explanation: "The net horizontal force is 20 N to the right, so ΣFx is not zero and horizontal equilibrium is not satisfied."
+},
+
+{
+  q: "A free object has 100 N right, 60 N left, and 40 N left. What is ΣFx?",
+  choices: ["200 N", "0 N", "40 N right", "40 N left"],
+  answer: 1,
+  explanation: "The leftward forces total 100 N, which exactly balances the 100 N rightward force, so ΣFx = 0 N."
+},
+
+{
+  q: "If upward forces equal downward forces and rightward forces equal leftward forces, what condition is met?",
+  choices: ["Translational equilibrium", "Acceleration", "Unbalanced force", "Free fall"],
+  answer: 0,
+  explanation: "When both ΣFx = 0 and ΣFy = 0, the object is in translational equilibrium."
+},
+
+{
+  q: "Which final condition proves translational equilibrium?",
+  choices: ["ΣFx = 0 and ΣFy = 0", "Only ΣFx = 0", "Only weight exists", "Friction is greater than normal"],
+  answer: 0,
+  explanation: "Translational equilibrium requires that the sum of the forces in both the horizontal and vertical directions equals zero."
+},
+
+{
+  q: "If a box has 300 N upward and 300 N downward, what is ΣFy?",
+  choices: ["600 N", "300 N", "0 N", "150 N"],
+  answer: 2,
+  explanation: "The upward and downward forces are equal and opposite, so ΣFy = 0 N."
+},
+
+{
+  q: "If ΣFx = 0, what can you conclude?",
+  choices: ["Horizontal forces are balanced", "Vertical forces are balanced", "The object has no weight", "The object must rotate"],
+  answer: 0,
+  explanation: "A zero sum of horizontal forces means the horizontal forces are balanced."
+},
+
+{
+  q: "What is the main goal of statics?",
+  choices: ["Analyze forces in equilibrium", "Increase speed", "Remove friction", "Make objects accelerate"],
+  answer: 0,
+  explanation: "Statics is the study of forces acting on objects that are in equilibrium, meaning they have no acceleration."
+},
+
+{
+  q: "If forces are not balanced, what happens?",
+  choices: ["Acceleration can occur", "Equilibrium always occurs", "Mass disappears", "Gravity stops"],
+  answer: 0,
+  explanation: "Unbalanced forces create a nonzero net force, which causes acceleration according to Newton's Second Law."
+},
+
+{
+  q: "Which force acts perpendicular to a surface?",
+  choices: ["Friction", "Normal force", "Weight", "Tension"],
+  answer: 1,
+  explanation: "The normal force always acts perpendicular to the surface supporting an object."
+},
+
+{
+  q: "A 25 kg object rests on a table. What is its weight?",
+  choices: ["25 N", "245 N", "250 N", "98 N"],
+  answer: 1,
+  explanation: "Use W = mg. The calculation is W = 25 × 9.8 = 245 N."
+},
+
+{
+  q: "A 25 kg object rests on a table. What is the normal force?",
+  choices: ["25 N", "245 N", "250 N", "0 N"],
+  answer: 1,
+  explanation: "Since the object is resting on the table, the normal force balances its weight. Therefore N = 245 N."
+},
+
+{
+  q: "If a force has both x and y components, what type of quantity is it?",
+  choices: ["Scalar", "Vector", "Constant", "Unit"],
+  answer: 1,
+  explanation: "Only vectors have both magnitude and direction, allowing them to be resolved into x and y components."
+},
+
+{
+  q: "If ΣFy is positive upward, what kind of acceleration could occur?",
+  choices: ["Upward acceleration", "Downward acceleration", "No acceleration", "Sideways only"],
+  answer: 0,
+  explanation: "A positive net vertical force means the object could accelerate upward."
+},
+
+{
+  q: "If ΣFx is negative, what direction is the unbalanced force?",
+  choices: ["Left", "Right", "Up", "Down"],
+  answer: 0,
+  explanation: "Using the common sign convention where right is positive, a negative ΣFx indicates the net force acts to the left."
+}
+];
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+
+    [array[i], array[randomIndex]] =
+      [array[randomIndex], array[i]];
+  }
+
+  return array;
+}
+
+function shuffleQuestions() {
+  allQuestions = quizQuestions.map(question => {
+
+    // Connect each choice to whether it is the correct answer.
+    const shuffledChoices = question.choices.map((choice, index) => {
+      return {
+        text: choice,
+        isCorrect: index === question.answer
+      };
+    });
+
+    // Randomize the four answer choices.
+    shuffleArray(shuffledChoices);
+
+    // Create a new copy of the question with randomized choices.
+    return {
+      ...question,
+
+      choices: shuffledChoices.map(choice => choice.text),
+
+      // Find the correct answer's new position after shuffling.
+      answer: shuffledChoices.findIndex(
+        choice => choice.isCorrect
+      )
+    };
+  });
+
+  // Randomize the order of the questions too.
+  shuffleArray(allQuestions);
+}
+
+function openRandomQuizSet() {
+  const panel = document.getElementById("quiz-panel");
+  const randomBtn = document.querySelector(".quiz-btn");
+
+  panel.classList.add("open");
+  randomBtn.style.display = "none";
+
+  shuffleQuestions();
+  currentQuestionIndex = 0;
+  answeredQuestions = {};
+  loadQuestion();
+}
+
+function loadQuestion() {
+  const container = document.getElementById("quiz-container");
+  const question = allQuestions[currentQuestionIndex];
+  const saved = answeredQuestions[currentQuestionIndex];
+
+  let choicesHTML = "";
+
+  question.choices.forEach((choice, index) => {
+    const checked =
+      saved && saved.selectedIndex === index
+        ? "checked"
+        : "";
+
+    const disabled =
+      saved
+        ? "disabled"
+        : "";
+
+    let extraClass = "";
+
+    if (saved) {
+      if (index === saved.correctIndex) {
+        extraClass = "correct-answer";
+      }
+
+      if (
+        index === saved.selectedIndex &&
+        index !== saved.correctIndex
+      ) {
+        extraClass = "wrong-answer";
+      }
+    }
+
+    choicesHTML += `
+      <label
+        class="answer-choice ${extraClass}"
+        data-index="${index}"
+      >
+        <input
+          type="radio"
+          name="question"
+          ${checked}
+          ${disabled}
+        >
+
+        ${choice}
+      </label>
+    `;
+  });
+
+  let feedbackHTML = "";
+
+  if (saved) {
+    const wasCorrect =
+      saved.selectedIndex === saved.correctIndex;
+
+    const correctAnswer =
+      question.choices[saved.correctIndex];
+
+    const explanation =
+      question.explanation ||
+      "Review the lesson section connected to this question.";
+
+    if (wasCorrect) {
+      feedbackHTML = `
+        <div class="quiz-feedback correct-feedback">
+          <h4>Correct!</h4>
+
+          <p>
+            ${explanation}
+          </p>
+        </div>
+      `;
+    } else {
+      feedbackHTML = `
+        <div class="quiz-feedback incorrect-feedback">
+          <h4>Incorrect</h4>
+
+          <p>
+            <strong>Correct answer:</strong>
+            ${correctAnswer}
+          </p>
+
+          <p>
+            ${explanation}
+          </p>
+        </div>
+      `;
+    }
+  }
+
+  const isLastQuestion =
+    currentQuestionIndex === allQuestions.length - 1;
+
+  container.innerHTML = `
+    <div class="quiz-question">
+
+      <p>
+        <strong>
+          Q${currentQuestionIndex + 1}
+          of
+          ${allQuestions.length}:
+        </strong>
+
+        ${question.q}
+      </p>
+
+      ${choicesHTML}
+
+      <button
+        id="check-answer-btn"
+        onclick="checkAnswer()"
+        ${saved ? "disabled" : ""}
+      >
+        Check Answer
+      </button>
+
+      ${feedbackHTML}
+
+      <div class="quiz-nav-buttons">
+
+        ${
+          currentQuestionIndex > 0
+            ? `
+              <button
+                onclick="prevQuestion()"
+                id="back-btn"
+              >
+                Back
+              </button>
+            `
+            : ""
+        }
+
+        ${
+          isLastQuestion
+            ? `
+              <button
+                onclick="submitQuiz()"
+                id="submit-btn"
+              >
+                Submit
+              </button>
+            `
+            : `
+              <button
+                onclick="nextQuestion()"
+                id="next-btn"
+              >
+                Next
+              </button>
+            `
+        }
+
+      </div>
+
+    </div>
+  `;
+}
+
+function showCheckButton() {
+  document.getElementById("check-answer-btn").style.display = "block";
+}
+
+function checkAnswer() {
+  const selected = document.querySelector('input[name="question"]:checked');
+  if (!selected) return;
+
+  const selectedIndex = Number(selected.parentElement.dataset.index);
+  const correctIndex = allQuestions[currentQuestionIndex].answer;
+
+  answeredQuestions[currentQuestionIndex] = {
+    selectedIndex: selectedIndex,
+    correctIndex: correctIndex
+  };
+
+  loadQuestion();
+}
+
+function nextQuestion() {
+  currentQuestionIndex++;
+
+  if (currentQuestionIndex >= allQuestions.length) {
+    currentQuestionIndex = allQuestions.length - 1;
+    loadQuestion();
+    return;
+  }
+
+  loadQuestion();
+}
+
+function prevQuestion() {
+  if (currentQuestionIndex > 0) {
+    currentQuestionIndex--;
+    loadQuestion();
+  }
+}
+
+function submitQuiz() {
+  let correct = 0;
+  let wrong = 0;
+
+  allQuestions.forEach((question, index) => {
+    const saved = answeredQuestions[index];
+
+    if (saved && saved.selectedIndex === question.answer) {
+      correct++;
+    } else {
+      wrong++;
+    }
+  });
+
+  const percent = Math.round((correct / allQuestions.length) * 100);
+
+  launchConfetti();
+
+  document.getElementById("quiz-container").innerHTML = `
+  <div class="quiz-question">
+    <h3>Quiz Results</h3>
+
+    <p><strong>Correct:</strong> ${correct}</p>
+    <p><strong>Wrong:</strong> ${wrong}</p>
+    <p><strong>Score:</strong> ${percent}%</p>
+
+    <button onclick="openRandomQuizSet()" class="quiz-btn">
+      Restart Quiz
+    </button>
+  </div>
+`;
+}
+
+function launchConfetti() {
+
+  const colors = [
+    "#ff4d4d",
+    "#4dff88",
+    "#4da6ff",
+    "#ffff66",
+    "#ff66ff",
+    "#ffffff"
+  ];
+
+  for (let i = 0; i < 120; i++) {
+
+    const confetti = document.createElement("div");
+    confetti.classList.add("confetti");
+
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.backgroundColor =
+      colors[Math.floor(Math.random() * colors.length)];
+
+    confetti.style.width = Math.random() * 8 + 6 + "px";
+    confetti.style.height = confetti.style.width;
+
+    confetti.style.animationDuration =
+  (Math.random() * 3 + 7) + "s";
+
+  confetti.style.animationDelay =
+  (Math.random() * 2) + "s";
+
+    document.body.appendChild(confetti);
+
+    confetti.addEventListener("animationend", () => {
+  confetti.remove();
+   });
+  }
+}
+
+console.log("Quiz loaded. Total questions:", quizQuestions.length);
 
 function toggleMenu(){
 
