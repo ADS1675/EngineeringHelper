@@ -116,8 +116,8 @@
     <div class="tabs">
       <button onclick="showSection('lessons', this)">Lessons</button>
 <button onclick="showSection('problems', this)">Problems</button>
-<button onclick="showSection('qui', this)">Quiz</button>
-<button onclick="showSection('rea', this)">Real World Applications</button>
+<button onclick="showSection('quiz', this)">Quiz</button>
+<button onclick="showSection('real', this)">Real World Applications</button>
 <button onclick="showSection('vide', this)">Video</button>
     </div>
 
@@ -783,7 +783,7 @@
 </div>
 
    <div id="quiz" class="tab-content" style="display:none;">
-  <h2>Statics Quiz</h2>
+  <h2>Units, Conversions & Engineering Math Basics Quiz</h2>
 
   <button type="button" onclick="openRandomQuizSet()" class="quiz-btn">
   Random Quiz
@@ -804,140 +804,147 @@
     <div id="real" class="tab-content" style="display:none;">
   <div class="lesson-content">
 
-    <h2>Real World Applications of Statics</h2>
+    <h2>Real World Applications of Units, Conversions & Engineering Math Basics</h2>
 
     <p>
-      Statics is used whenever engineers need to make sure an object or structure stays stable.
-      The main idea is that forces must balance so the object does not accelerate or fail.
+      Units, conversions, and engineering math are used throughout mechanical engineering.
+      Engineers must work with measurements, convert between units, rearrange equations,
+      use scientific notation, and apply algebra and trigonometry to solve real problems.
+      These skills help make calculations accurate, consistent, and easier to check.
     </p>
 
     <hr>
 
-    <h3>1. Bridges</h3>
+    <h3>1. Manufacturing and Part Measurements</h3>
     <p>
-      Bridges use statics because they must support their own weight, the weight of cars,
-      and forces from wind or movement. Engineers analyze the forces acting downward and
-      make sure the supports provide enough upward force to keep the bridge in equilibrium.
+      Mechanical parts are designed and manufactured using specific measurements.
+      Engineers may need to convert between meters, centimeters, and millimeters when
+      working with drawings, machines, and measurements. Correct unit conversions help
+      make sure a part is produced at the intended size.
     </p>
 
-    <p><strong>Statics concepts used:</strong></p>
+    <p><strong>Engineering math concepts used:</strong></p>
     <ul>
-      <li><strong>Weight:</strong> the bridge and vehicles create downward forces.</li>
-      <li><strong>Normal force/support force:</strong> bridge supports push upward.</li>
-      <li><strong>Equilibrium:</strong> ΣFy = 0 must be satisfied so the bridge stays stable.</li>
+      <li><strong>Units:</strong> measurements describe the size of a part.</li>
+      <li><strong>Unit conversions:</strong> dimensions may be converted between meters, centimeters, and millimeters.</li>
+      <li><strong>Significant figures:</strong> measurements should not show more precision than the original measurement supports.</li>
     </ul>
 
     <hr>
 
-    <h3>2. Cranes</h3>
-
-<p>
-  Cranes use statics when lifting and holding heavy objects motionless in the air.
-  The load creates a downward weight force, while the cables provide upward tension forces.
-  Engineers must make sure the forces balance so the object remains at rest and does not accelerate.
-</p>
-
-<p><strong>Statics concepts used:</strong></p>
-<ul>
-  <li><strong>Tension:</strong> cables pull upward on the load.</li>
-  <li><strong>Weight:</strong> the lifted object pulls downward due to gravity.</li>
-  <li><strong>Equilibrium:</strong> ΣFy = 0 when the load is held motionless.</li>
-</ul>
-
-    <hr>
-
-    <h3>3. Shelves Mounted to a Wall</h3>
+    <h3>2. Force Calculations</h3>
     <p>
-      A wall-mounted shelf must support the weight of books, tools, or other objects placed on it.
-      The shelf pushes down on the brackets, while the brackets and wall provide supporting forces.
-      Engineers and designers use statics to make sure the shelf will not fall or bend too much.
+      Engineers often calculate how forces affect mechanical objects and systems.
+      If the force and mass of an object are known, an engineer can rearrange
+      F = ma to determine the object's acceleration. Keeping the correct units
+      also helps confirm that the calculation makes sense.
     </p>
 
-    <p><strong>Statics concepts used:</strong></p>
+    <p><strong>Engineering math concepts used:</strong></p>
     <ul>
-      <li><strong>Weight:</strong> objects on the shelf pull downward.</li>
-      <li><strong>Normal/support force:</strong> brackets push back against the load.</li>
-      <li><strong>Balanced forces:</strong> upward and downward forces must cancel.</li>
+      <li><strong>Equation rearrangement:</strong> F = ma can be rearranged to a = F / m.</li>
+      <li><strong>Units:</strong> force is measured in newtons and mass in kilograms.</li>
+      <li><strong>Checking units:</strong> kg·m/s² is equivalent to a newton.</li>
     </ul>
 
     <hr>
 
-    <h3>4. Cars Parked on an Incline</h3>
+    <h3>3. Motion and Travel Calculations</h3>
     <p>
-      When a car is parked on a hill, gravity pulls the car downward, but the road and friction
-      help keep it from sliding. Because the surface is angled, the car’s weight can be thought of
-      as having components in different directions.
+      Engineers may need to calculate the distance an object travels, its velocity,
+      or the amount of time it moves. The equation v = d / t can be rearranged
+      depending on which value needs to be found.
     </p>
 
-    <p><strong>Statics concepts used:</strong></p>
+    <p><strong>Engineering math concepts used:</strong></p>
     <ul>
-      <li><strong>Force components:</strong> weight can be split into parts along and into the hill.</li>
-      <li><strong>Friction:</strong> resists sliding down the incline.</li>
-      <li><strong>Normal force:</strong> the road pushes perpendicular to the tires.</li>
+      <li><strong>Velocity:</strong> v = d / t can be used when distance and time are known.</li>
+      <li><strong>Distance:</strong> the equation can be rearranged to d = vt.</li>
+      <li><strong>Time:</strong> the equation can be rearranged to t = d / v.</li>
     </ul>
 
     <hr>
 
-    <h3>5. Hanging Signs</h3>
+    <h3>4. Forces Acting at Angles</h3>
     <p>
-      A hanging sign is a simple example of statics. The sign’s weight pulls downward, while
-      cables or chains pull upward through tension. If the sign is not moving, the upward tension
-      forces balance the downward weight.
+      Forces in mechanical systems do not always act perfectly horizontally or vertically.
+      When a force acts at an angle, engineers can use trigonometry to separate it into
+      horizontal and vertical components. This makes the force easier to analyze.
     </p>
 
-    <p><strong>Statics concepts used:</strong></p>
+    <p><strong>Engineering math concepts used:</strong></p>
     <ul>
-      <li><strong>Weight:</strong> the sign pulls downward.</li>
-      <li><strong>Tension:</strong> cables pull upward.</li>
-      <li><strong>ΣFy = 0:</strong> vertical forces balance when the sign is motionless.</li>
+      <li><strong>Trigonometry:</strong> sine and cosine are used with angles.</li>
+      <li><strong>Horizontal component:</strong> Fx = F cos(θ).</li>
+      <li><strong>Vertical component:</strong> Fy = F sin(θ).</li>
     </ul>
 
     <hr>
 
-    <h3>6. Ladders Leaning Against a Wall</h3>
+    <h3>5. Working With Large and Small Measurements</h3>
     <p>
-      A ladder leaning against a wall relies on friction and support forces to remain at rest.
-      The floor provides an upward normal force, the wall pushes on the ladder, and friction
-      helps prevent sliding.
+      Engineering calculations can involve numbers that are extremely large or extremely small.
+      Scientific notation makes these values easier to write, read, and use in calculations.
+      Engineers can also use SI prefixes such as kilo, mega, milli, micro, and nano to
+      represent different sizes of measurements.
     </p>
 
-    <p><strong>Statics concepts used:</strong></p>
+    <p><strong>Engineering math concepts used:</strong></p>
     <ul>
-      <li><strong>Normal force:</strong> surfaces push back on the ladder.</li>
-      <li><strong>Friction:</strong> helps keep the ladder from slipping.</li>
-      <li><strong>Balanced forces:</strong> forces must cancel for the ladder to stay still.</li>
+      <li><strong>Scientific notation:</strong> large and small values can be written using powers of ten.</li>
+      <li><strong>SI prefixes:</strong> prefixes represent different powers of ten.</li>
+      <li><strong>Conversions:</strong> values can be converted between prefixed and base units.</li>
     </ul>
 
     <hr>
 
-    <h3>7. Mechanical Supports and Brackets</h3>
+    <h3>6. Pressure Measurements</h3>
     <p>
-      Brackets are used to hold machines, shelves, pipes, and other parts in place.
-      Engineers use statics to determine whether the bracket can safely support the forces
-      acting on it without moving or failing.
+      Engineers may work with pressure values written in pascals or megapascals.
+      Converting between these units makes it easier to compare measurements and
+      use values correctly in engineering calculations.
     </p>
 
-    <p><strong>Statics concepts used:</strong></p>
+    <p><strong>Engineering math concepts used:</strong></p>
     <ul>
-      <li><strong>Force direction:</strong> loads may act downward, sideways, or at angles.</li>
-      <li><strong>Vector components:</strong> angled forces can be split into x and y components.</li>
-      <li><strong>Equilibrium:</strong> all forces must balance for the support to remain stable.</li>
+      <li><strong>Pressure units:</strong> pressure can be measured in pascals (Pa).</li>
+      <li><strong>SI prefixes:</strong> mega represents 10<sup>6</sup>.</li>
+      <li><strong>Unit conversions:</strong> 1 MPa = 1,000,000 Pa.</li>
     </ul>
 
     <hr>
 
-    <h3>8. Your Future Experiment Demonstrations</h3>
+    <h3>7. Checking Engineering Calculations</h3>
     <p>
-      This section can later include your own recorded demonstrations, such as a hanging mass,
-      a supported beam, a friction test, or a force balance setup. These experiments would show
-      how the same statics ideas from the lesson appear in real physical systems.
+      Engineers can use units as another way to check whether a calculation was
+      set up correctly. If the units produced by an equation do not match the
+      expected units of the answer, it can indicate that something in the
+      calculation needs to be checked.
     </p>
 
-    <p><strong>Statics concepts used:</strong></p>
+    <p><strong>Engineering math concepts used:</strong></p>
     <ul>
-      <li><strong>ΣFx = 0:</strong> horizontal forces balance.</li>
-      <li><strong>ΣFy = 0:</strong> vertical forces balance.</li>
-      <li><strong>Weight, normal force, tension, and friction:</strong> the core forces from the lesson.</li>
+      <li><strong>Dimensional analysis:</strong> units can be followed through a calculation.</li>
+      <li><strong>Unit cancellation:</strong> unwanted units cancel during properly arranged conversions.</li>
+      <li><strong>Unit checking:</strong> the resulting units should be consistent with the quantity being calculated.</li>
+    </ul>
+
+    <hr>
+
+    <h3>8. Mechanical Engineering Calculations</h3>
+    <p>
+      The math skills in this course appear throughout mechanical engineering.
+      Courses such as statics, dynamics, strength of materials, and thermodynamics
+      use measurements, equations, unit conversions, and mathematical relationships.
+      Learning these basics makes it easier to understand and solve more advanced
+      engineering problems.
+    </p>
+
+    <p><strong>Engineering math concepts used:</strong></p>
+    <ul>
+      <li><strong>Algebra:</strong> equations can be rearranged to solve for unknown values.</li>
+      <li><strong>Trigonometry:</strong> angles and force components can be analyzed.</li>
+      <li><strong>Units and conversions:</strong> measurements must remain consistent throughout calculations.</li>
     </ul>
 
   </div>
@@ -1039,870 +1046,1074 @@ let answeredQuestions = {};
 
 const quizQuestions = [
   {
-    q: "What is statics mainly about?",
-    choices: [
-      "Objects accelerating",
-      "Objects at rest or moving at constant velocity",
-      "Objects melting",
-      "Objects changing shape"
-    ],
-    answer: 1,
-    explanation:
-      "Statics studies objects that are at rest or moving at constant velocity. In both cases, the acceleration is zero."
-  },
-
-  {
-    q: "According to the lesson, if there is no acceleration, what must the net force be?",
-    choices: [
-      "Zero",
-      "Equal to mass",
-      "Equal to weight",
-      "Greater than friction"
-    ],
-    answer: 0,
-    explanation:
-      "Newton's Second Law is F = ma. When acceleration is zero, the net force must also equal zero."
-  },
-
-  {
-    q: "Why is force considered a vector?",
-    choices: [
-      "It has only size",
-      "It has magnitude and direction",
-      "It has only direction",
-      "It has no units"
-    ],
-    answer: 1,
-    explanation:
-      "A vector has both magnitude and direction. A force must describe how strong it is and the direction in which it acts."
-  },
-
-  {
-    q: "What unit is force measured in?",
-    choices: [
-      "Kilograms",
-      "Meters",
-      "Newtons",
-      "Seconds"
-    ],
-    answer: 2,
-    explanation:
-      "Force is measured in newtons, abbreviated N. One newton is equivalent to one kilogram-meter per second squared."
-  },
-
-  {
-    q: "Which force always acts downward?",
-    choices: [
-      "Normal force",
-      "Weight",
-      "Tension",
-      "Friction"
-    ],
-    answer: 1,
-    explanation:
-      "Weight is the gravitational force acting on an object, so it acts downward toward Earth."
-  },
-
-  {
-    q: "What is the formula for weight?",
-    choices: [
-      "W = mg",
-      "F = μN",
-      "Fx = Fcosθ",
-      "Fy = Fsinθ"
-    ],
-    answer: 0,
-    explanation:
-      "Weight is calculated by multiplying mass by gravitational acceleration, so W = mg."
-  },
-
-  {
-    q: "A 10 kg box rests on a table. What is its weight?",
-    choices: [
-      "10 N",
-      "98 N",
-      "1000 N",
-      "9.8 N"
-    ],
-    answer: 1,
-    explanation:
-      "Use W = mg. The calculation is W = 10 × 9.8 = 98 N."
-  },
-
-  {
-    q: "A box rests on a flat table. What force balances its weight?",
-    choices: [
-      "Tension",
-      "Friction",
-      "Normal force",
-      "Applied force"
-    ],
-    answer: 2,
-    explanation:
-      "The table pushes upward on the box with a normal force. When the box is at rest, this upward force balances its downward weight."
-  },
-
-  {
-    q: "The normal force acts in what direction compared to a surface?",
-    choices: [
-      "Parallel",
-      "Perpendicular",
-      "Always downward",
-      "Always sideways"
-    ],
-    answer: 1,
-    explanation:
-      "The normal force always acts perpendicular, or at a 90-degree angle, to the surface."
-  },
-
-  {
-    q: "A 20 kg object rests on a horizontal floor. What is the normal force?",
-    choices: [
-      "20 N",
-      "98 N",
-      "196 N",
-      "392 N"
-    ],
-    answer: 2,
-    explanation:
-      "First calculate the weight: W = 20 × 9.8 = 196 N. Because the object is at rest on a horizontal floor, the normal force is also 196 N."
-  },
-
-  {
-    q: "What force is transmitted through a rope or cable?",
-    choices: [
-      "Weight",
-      "Tension",
-      "Normal force",
-      "Friction"
-    ],
-    answer: 1,
-    explanation:
-      "Tension is the pulling force carried through a rope, cable, chain, or similar object."
-  },
-
-  {
-    q: "What force resists motion between surfaces?",
-    choices: [
-      "Friction",
-      "Tension",
-      "Weight",
-      "Normal force"
-    ],
-    answer: 0,
-    explanation:
-      "Friction acts between surfaces and opposes sliding or attempted sliding."
-  },
-
-  {
-    q: "What is the friction formula from the lesson?",
-    choices: [
-      "W = mg",
-      "F = μN",
-      "Fx = Fcosθ",
-      "ΣFx = 0"
-    ],
-    answer: 1,
-    explanation:
-      "The friction force is found by multiplying the coefficient of friction by the normal force, written as F = μN."
-  },
-
-  {
-    q: "If μ = 0.25 and N = 400 N, what is friction?",
-    choices: [
-      "25 N",
-      "100 N",
-      "160 N",
-      "400 N"
-    ],
-    answer: 1,
-    explanation:
-      "Use F = μN. The calculation is F = 0.25 × 400 = 100 N."
-  },
-
-  {
-    q: "What does ΣFx = 0 mean?",
-    choices: [
-      "Vertical forces are balanced",
-      "Horizontal forces are balanced",
-      "The object has no mass",
-      "Friction is zero"
-    ],
-    answer: 1,
-    explanation:
-      "ΣFx = 0 means the sum of all forces in the horizontal direction equals zero, so the horizontal forces are balanced."
-  },
-
-  {
-    q: "What does ΣFy = 0 mean?",
-    choices: [
-      "Horizontal forces are balanced",
-      "Vertical forces are balanced",
-      "The object rotates",
-      "Weight disappears"
-    ],
-    answer: 1,
-    explanation:
-      "ΣFy = 0 means the sum of all vertical forces equals zero, so upward and downward forces are balanced."
-  },
-
-  {
-    q: "If ΣFx is not zero, what happens?",
-    choices: [
-      "The object accelerates horizontally",
-      "The object must stay still",
-      "Mass becomes zero",
-      "Gravity stops"
-    ],
-    answer: 0,
-    explanation:
-      "A nonzero horizontal net force means the forces are unbalanced, so the object can accelerate horizontally."
-  },
-
-  {
-    q: "If ΣFy is not zero, what happens?",
-    choices: [
-      "The object accelerates vertically",
-      "The object remains still",
-      "Friction becomes zero",
-      "Weight disappears"
-    ],
-    answer: 0,
-    explanation:
-      "A nonzero vertical net force means the vertical forces are unbalanced, so the object can accelerate upward or downward."
-  },
-
-  {
-    q: "Balanced forces do what to each other?",
-    choices: [
-      "Cancel out",
-      "Double",
-      "Create mass",
-      "Remove gravity"
-    ],
-    answer: 0,
-    explanation:
-      "Balanced forces are equal in size and opposite in direction, so their effects cancel and the net force is zero."
-  },
-
-  {
-    q: "A 50 N force pushes right and 50 N pushes left. What is ΣFx?",
-    choices: [
-      "100 N",
-      "50 N",
-      "0 N",
-      "25 N"
-    ],
-    answer: 2,
-    explanation:
-      "Take right as positive and left as negative. The sum is 50 - 50 = 0 N."
-  },
-
-
-  {
-  q: "A 5 kg object hangs motionless from one rope. What is the tension?",
-  choices: ["5 N", "49 N", "98 N", "0 N"],
-  answer: 1,
-  explanation:
-    "Because the object is motionless, the upward tension must balance the downward weight. T = mg = 5 × 9.8 = 49 N."
-},
-
-{
-  q: "A 15 kg box rests on a table. What is its weight?",
-  choices: ["15 N", "147 N", "1500 N", "9.8 N"],
-  answer: 1,
-  explanation:
-    "Use W = mg. The weight is W = 15 × 9.8 = 147 N."
-},
-
-{
-  q: "A 15 kg box rests on a table. What is the normal force?",
-  choices: ["15 N", "147 N", "1500 N", "0 N"],
-  answer: 1,
-  explanation:
-    "The box is at rest on a horizontal table, so the upward normal force balances its weight. Since W = 15 × 9.8 = 147 N, the normal force is 147 N."
-},
-
-{
-  q: "A 30 kg object rests on a horizontal floor. What is its weight?",
-  choices: ["30 N", "294 N", "3000 N", "9.8 N"],
-  answer: 1,
-  explanation:
-    "Use W = mg. The calculation is W = 30 × 9.8 = 294 N."
-},
-
-{
-  q: "A 30 kg object rests on a horizontal floor. What is the normal force?",
-  choices: ["30 N", "294 N", "3000 N", "0 N"],
-  answer: 1,
-  explanation:
-    "Since the object is resting on a level floor, the normal force balances the weight. The weight is 30 × 9.8 = 294 N, so the normal force is 294 N."
-},
-
-{
-  q: "A 40 kg hanging object is motionless. What is the rope tension?",
-  choices: ["40 N", "392 N", "4000 N", "9.8 N"],
-  answer: 1,
-  explanation:
-    "For a motionless hanging object, tension equals weight. T = mg = 40 × 9.8 = 392 N."
-},
-
-{
-  q: "A 60 kg object rests on level ground. What is its normal force?",
-  choices: ["60 N", "588 N", "6000 N", "294 N"],
-  answer: 1,
-  explanation:
-    "The normal force balances the object's weight. N = mg = 60 × 9.8 = 588 N."
-},
-
-{
-  q: "A 100 kg object rests on the floor. What is its weight?",
-  choices: ["100 N", "980 N", "1000 N", "490 N"],
-  answer: 1,
-  explanation:
-    "Use W = mg. The calculation is W = 100 × 9.8 = 980 N."
-},
-
-{
-  q: "If a table pushes upward with 980 N on a 100 kg object, what force is being balanced?",
-  choices: ["Friction", "Weight", "Tension", "Horizontal force"],
-  answer: 1,
-  explanation:
-    "A 100 kg object has a weight of 980 N downward. The table's 980 N upward normal force balances that weight."
-},
-
-{
-  q: "If upward force is 500 N and downward force is 500 N, what is ΣFy?",
-  choices: ["1000 N", "500 N", "0 N", "250 N"],
-  answer: 2,
-  explanation:
-    "The vertical forces are equal and opposite. Taking upward as positive gives ΣFy = 500 - 500 = 0 N."
-},
-
-{
-  q: "Why do engineers break angled forces into components?",
+  q: "What does a unit tell us about a number?",
   choices: [
-    "To separate horizontal and vertical effects",
-    "To remove gravity",
-    "To make mass zero",
-    "To avoid using units"
+    "How large the number is",
+    "What the number represents",
+    "Whether the number is positive",
+    "How the number was calculated"
+  ],
+  answer: 1,
+  explanation:
+    "A unit tells us what a number represents. Without a unit, a measurement may be incomplete or unclear."
+},
+
+{
+  q: "What is the SI unit for length listed in the lesson?",
+  choices: [
+    "Meter",
+    "Kilogram",
+    "Second",
+    "Newton"
   ],
   answer: 0,
   explanation:
-    "An angled force affects both the horizontal and vertical directions. Breaking it into components allows engineers to analyze each direction separately."
+    "The meter, abbreviated m, is the SI unit for length listed in the lesson."
 },
 
 {
-  q: "Which formula finds the horizontal component of an angled force?",
-  choices: ["Fx = Fcosθ", "Fy = Fsinθ", "W = mg", "F = μN"],
-  answer: 0,
+  q: "What is the SI unit for mass listed in the lesson?",
+  choices: [
+    "Newton",
+    "Meter",
+    "Kilogram",
+    "Pascal"
+  ],
+  answer: 2,
   explanation:
-    "When the angle is measured from the horizontal, the horizontal component is found using Fx = Fcosθ."
+    "The kilogram, abbreviated kg, is the SI unit for mass listed in the lesson."
 },
 
 {
-  q: "Which formula finds the vertical component of an angled force?",
-  choices: ["Fx = Fsinθ", "Fy = Fsinθ", "W = mg", "ΣFx = 0"],
+  q: "What is the SI unit for force?",
+  choices: [
+    "Joule",
+    "Newton",
+    "Watt",
+    "Pascal"
+  ],
   answer: 1,
   explanation:
-    "When the angle is measured from the horizontal, the vertical component is found using Fy = Fsinθ."
+    "Force is measured in newtons, abbreviated N."
 },
 
 {
-  q: "A 100 N force acts at 30°. What is Fx approximately?",
-  choices: ["50 N", "86.6 N", "100 N", "30 N"],
-  answer: 1,
-  explanation:
-    "Use Fx = Fcosθ. Fx = 100cos30° ≈ 100 × 0.866 = 86.6 N."
-},
-
-{
-  q: "A 100 N force acts at 30°. What is Fy?",
-  choices: ["50 N", "86.6 N", "100 N", "30 N"],
+  q: "What is the SI unit for pressure?",
+  choices: [
+    "Pascal",
+    "Newton",
+    "Joule",
+    "Kelvin"
+  ],
   answer: 0,
   explanation:
-    "Use Fy = Fsinθ. Fy = 100sin30° = 100 × 0.5 = 50 N."
+    "Pressure is measured in pascals, abbreviated Pa."
 },
 
 {
-  q: "A 100 N force acts at 60°. What is Fx?",
-  choices: ["50 N", "86.6 N", "100 N", "160 N"],
-  answer: 0,
+  q: "What is the SI unit for energy?",
+  choices: [
+    "Watt",
+    "Pascal",
+    "Joule",
+    "Second"
+  ],
+  answer: 2,
   explanation:
-    "Use Fx = Fcosθ. Fx = 100cos60° = 100 × 0.5 = 50 N."
+    "Energy is measured in joules, abbreviated J."
 },
 
 {
-  q: "A 100 N force acts at 60°. What is Fy approximately?",
-  choices: ["50 N", "86.6 N", "100 N", "160 N"],
+  q: "What is the SI unit for power?",
+  choices: [
+    "Newton",
+    "Watt",
+    "Joule",
+    "Kilogram"
+  ],
   answer: 1,
   explanation:
-    "Use Fy = Fsinθ. Fy = 100sin60° ≈ 100 × 0.866 = 86.6 N."
+    "Power is measured in watts, abbreviated W."
 },
 
 {
-  q: "A 150 N force acts at 30°. What is Fx approximately?",
-  choices: ["75 N", "129.9 N", "150 N", "30 N"],
-  answer: 1,
+  q: "Why is keeping track of units important in engineering calculations?",
+  choices: [
+    "It makes every number larger",
+    "It removes the need for formulas",
+    "It helps make calculations physically meaningful and can help prevent errors",
+    "It guarantees every measurement is exact"
+  ],
+  answer: 2,
   explanation:
-    "Use Fx = Fcosθ. Fx = 150cos30° ≈ 150 × 0.866 = 129.9 N."
+    "Keeping track of units helps engineers make sure calculations are physically meaningful and helps prevent errors."
 },
 
 {
-  q: "A 150 N force acts at 30°. What is Fy?",
-  choices: ["75 N", "129.9 N", "150 N", "30 N"],
+  q: "What does the SI prefix kilo (k) represent?",
+  choices: [
+    "10^3",
+    "10^6",
+    "10^-3",
+    "10^-6"
+  ],
   answer: 0,
   explanation:
-    "Use Fy = Fsinθ. Fy = 150sin30° = 150 × 0.5 = 75 N."
+    "Kilo represents 10^3, which is equal to 1,000."
 },
 
 {
-  q: "A 200 N force acts at 60°. What is Fx?",
+  q: "What does the SI prefix mega (M) represent?",
+  choices: [
+    "10^3",
+    "10^6",
+    "10^9",
+    "10^-6"
+  ],
+  answer: 1,
+  explanation:
+    "Mega represents 10^6, which is equal to 1,000,000."
+},
+
+{
+  q: "What does the SI prefix giga (G) represent?",
+  choices: [
+    "10^6",
+    "10^-9",
+    "10^9",
+    "10^3"
+  ],
+  answer: 2,
+  explanation:
+    "Giga represents 10^9, which is equal to 1,000,000,000."
+},
+
+{
+  q: "What does the SI prefix milli (m) represent?",
+  choices: [
+    "10^3",
+    "10^-3",
+    "10^-6",
+    "10^6"
+  ],
+  answer: 1,
+  explanation:
+    "Milli represents 10^-3, which is equal to 0.001."
+},
+
+{
+  q: "What does the SI prefix micro (µ) represent?",
+  choices: [
+    "10^-6",
+    "10^-3",
+    "10^6",
+    "10^9"
+  ],
+  answer: 0,
+  explanation:
+    "Micro represents 10^-6, which is equal to 0.000001."
+},
+
+{
+  q: "What does the SI prefix nano (n) represent?",
+  choices: [
+    "10^-3",
+    "10^-6",
+    "10^-9",
+    "10^9"
+  ],
+  answer: 2,
+  explanation:
+    "Nano represents 10^-9, which is equal to 0.000000001."
+},
+
+{
+  q: "How many newtons are equal to 5 kN?",
+  choices: [
+    "50 N",
+    "500 N",
+    "5,000 N",
+    "50,000 N"
+  ],
+  answer: 2,
+  explanation:
+    "Kilo means 1,000, so 5 kN = 5 × 1,000 = 5,000 N."
+},
+
+{
+  q: "How many meters are equal to 5 mm?",
+  choices: [
+    "0.005 m",
+    "0.05 m",
+    "0.5 m",
+    "5,000 m"
+  ],
+  answer: 0,
+  explanation:
+    "Milli means 10^-3, so 5 mm is equal to 5 × 0.001 = 0.005 m."
+},
+
+{
+  q: "What method arranges conversion factors so unwanted units cancel?",
+  choices: [
+    "Scientific notation",
+    "Dimensional analysis",
+    "Trigonometry",
+    "Significant figures"
+  ],
+  answer: 1,
+  explanation:
+    "Dimensional analysis uses conversion factors arranged so unwanted units cancel, leaving the desired unit."
+},
+
+{
+  q: "How many meters are equal to 2.5 km?",
+  choices: [
+    "25 m",
+    "250 m",
+    "2,500 m",
+    "25,000 m"
+  ],
+  answer: 2,
+  explanation:
+    "Since 1 km = 1,000 m, multiply 2.5 by 1,000. Therefore, 2.5 km = 2,500 m."
+},
+
+{
+  q: "How many millimeters are equal to 3 meters?",
+  choices: [
+    "30 mm",
+    "300 mm",
+    "3,000 mm",
+    "30,000 mm"
+  ],
+  answer: 2,
+  explanation:
+    "The lesson states that 1 m = 1,000 mm. Therefore, 3 m = 3 × 1,000 = 3,000 mm."
+},
+
+{
+  q: "How many pascals are equal to 2 MPa?",
+  choices: [
+    "2,000 Pa",
+    "20,000 Pa",
+    "200,000 Pa",
+    "2,000,000 Pa"
+  ],
+  answer: 3,
+  explanation:
+    "The lesson states that 1 MPa = 1,000,000 Pa. Therefore, 2 MPa = 2 × 1,000,000 = 2,000,000 Pa."
+},
+
+  {
+  q: "How should 4,500,000 be written in scientific notation?",
+  choices: [
+    "4.5 × 10^6",
+    "45 × 10^5",
+    "4.5 × 10^-6",
+    "0.45 × 10^6"
+  ],
+  answer: 0,
+  explanation:
+    "Move the decimal six places to the left so the number becomes 4.5. Therefore, 4,500,000 = 4.5 × 10^6."
+},
+
+{
+  q: "How should 0.00032 be written in scientific notation?",
+  choices: [
+    "3.2 × 10^4",
+    "3.2 × 10^-4",
+    "32 × 10^-3",
+    "0.32 × 10^-4"
+  ],
+  answer: 1,
+  explanation:
+    "Move the decimal four places to the right to get 3.2. Because the original number is smaller than 1, the exponent is negative, giving 3.2 × 10^-4."
+},
+
+{
+  q: "How should 200,000,000 Pa be written in scientific notation?",
+  choices: [
+    "2 × 10^6 Pa",
+    "2 × 10^7 Pa",
+    "2 × 10^8 Pa",
+    "2 × 10^-8 Pa"
+  ],
+  answer: 2,
+  explanation:
+    "The decimal moves eight places to the left, so 200,000,000 Pa = 2 × 10^8 Pa."
+},
+
+{
+  q: "In scientific notation a × 10^n, what does n represent?",
+  choices: [
+    "The unit being measured",
+    "The number of decimal places moved",
+    "The number of significant figures",
+    "The conversion factor"
+  ],
+  answer: 1,
+  explanation:
+    "The exponent n tells how many decimal places were moved when writing the number in scientific notation."
+},
+
+{
+  q: "Using F = ma, which equation correctly solves for acceleration?",
+  choices: [
+    "a = F / m",
+    "a = F × m",
+    "a = m / F",
+    "a = F + m"
+  ],
+  answer: 0,
+  explanation:
+    "Starting with F = ma, divide both sides by mass. This gives a = F / m."
+},
+
+{
+  q: "A force of 60 N acts on a 12 kg mass. What is the acceleration?",
+  choices: [
+    "720 m/s²",
+    "72 m/s²",
+    "5 m/s²",
+    "0.2 m/s²"
+  ],
+  answer: 2,
+  explanation:
+    "Use a = F / m. The calculation is a = 60 / 12 = 5 m/s²."
+},
+
+{
+  q: "Using v = d / t, which equation correctly solves for distance?",
+  choices: [
+    "d = v / t",
+    "d = vt",
+    "d = t / v",
+    "d = v + t"
+  ],
+  answer: 1,
+  explanation:
+    "Starting with v = d / t, multiply both sides by time. This gives d = vt."
+},
+
+{
+  q: "Using v = d / t, which equation correctly solves for time?",
+  choices: [
+    "t = d / v",
+    "t = dv",
+    "t = v / d",
+    "t = d + v"
+  ],
+  answer: 0,
+  explanation:
+    "Rearranging v = d / t to solve for time gives t = d / v."
+},
+
+{
+  q: "Which trigonometric ratio equals opposite divided by hypotenuse?",
+  choices: [
+    "Cosine",
+    "Tangent",
+    "Sine",
+    "None of these"
+  ],
+  answer: 2,
+  explanation:
+    "The sine ratio is sin(θ) = opposite / hypotenuse."
+},
+
+{
+  q: "Which trigonometric ratio equals adjacent divided by hypotenuse?",
+  choices: [
+    "Sine",
+    "Cosine",
+    "Tangent",
+    "Scientific notation"
+  ],
+  answer: 1,
+  explanation:
+    "The cosine ratio is cos(θ) = adjacent / hypotenuse."
+},
+
+{
+  q: "Which trigonometric ratio equals opposite divided by adjacent?",
+  choices: [
+    "Tangent",
+    "Cosine",
+    "Sine",
+    "Exponent"
+  ],
+  answer: 0,
+  explanation:
+    "The tangent ratio is tan(θ) = opposite / adjacent."
+},
+
+{
+  q: "Which equation finds the horizontal component of a force?",
+  choices: [
+    "Fx = F sin(θ)",
+    "Fx = F cos(θ)",
+    "Fy = F cos(θ)",
+    "F = ma"
+  ],
+  answer: 1,
+  explanation:
+    "The horizontal force component is calculated using Fx = F cos(θ)."
+},
+
+{
+  q: "Which equation finds the vertical component of a force?",
+  choices: [
+    "Fy = F sin(θ)",
+    "Fy = F cos(θ)",
+    "Fx = F sin(θ)",
+    "F = ma"
+  ],
+  answer: 0,
+  explanation:
+    "The vertical force component is calculated using Fy = F sin(θ)."
+},
+
+{
+  q: "A 100 N force acts at a 30° angle. What is the horizontal component approximately?",
+  choices: [
+    "50 N",
+    "100 N",
+    "86.6 N",
+    "30 N"
+  ],
+  answer: 2,
+  explanation:
+    "Use Fx = F cos(θ). Fx = 100 cos(30°) ≈ 86.6 N."
+},
+
+{
+  q: "A 100 N force acts at a 30° angle. What is the vertical component?",
+  choices: [
+    "86.6 N",
+    "50 N",
+    "100 N",
+    "30 N"
+  ],
+  answer: 1,
+  explanation:
+    "Use Fy = F sin(θ). Fy = 100 sin(30°) = 50 N."
+},
+
+{
+  q: "According to the lesson, what should be performed first in the order of operations?",
+  choices: [
+    "Addition",
+    "Multiplication",
+    "Parentheses",
+    "Division"
+  ],
+  answer: 2,
+  explanation:
+    "The lesson lists parentheses first in the order of operations, followed by exponents, multiplication and division, then addition and subtraction."
+},
+
+{
+  q: "According to the lesson, what comes immediately after parentheses in the order of operations?",
+  choices: [
+    "Addition",
+    "Exponents",
+    "Division only",
+    "Subtraction"
+  ],
+  answer: 1,
+  explanation:
+    "The lesson gives the order as parentheses, exponents, multiplication and division, then addition and subtraction."
+},
+
+{
+  q: "What units result from multiplying kilograms by meters per second squared?",
+  choices: [
+    "Joules",
+    "Pascals",
+    "Newtons",
+    "Watts"
+  ],
+  answer: 2,
+  explanation:
+    "The lesson shows that kg × m/s² is equivalent to a newton. Therefore, 1 N = 1 kg·m/s²."
+},
+
+{
+  q: "How many significant figures are in 5.20?",
+  choices: [
+    "One",
+    "Two",
+    "Three",
+    "Four"
+  ],
+  answer: 2,
+  explanation:
+    "The number 5.20 has three significant figures. The zero after the decimal counts because it shows measured precision."
+},
+
+{
+  q: "How many significant figures are in 0.00520?",
+  choices: [
+    "Two",
+    "Three",
+    "Four",
+    "Five"
+  ],
+  answer: 1,
+  explanation:
+    "The number 0.00520 has three significant figures. The leading zeros do not count, while the final zero after the decimal does."
+},
+
+  {
+  q: "How many grams are equal to 4 kilograms?",
+  choices: ["40 g", "400 g", "4,000 g", "40,000 g"],
+  answer: 2,
+  explanation:
+    "The lesson states that 1 kg = 1,000 g. Therefore, 4 kg = 4 × 1,000 = 4,000 g."
+},
+
+{
+  q: "How many seconds are equal to 2 hours?",
+  choices: ["120 seconds", "3,600 seconds", "7,200 seconds", "72,000 seconds"],
+  answer: 2,
+  explanation:
+    "The lesson states that 1 hour = 3,600 seconds. Therefore, 2 hours = 2 × 3,600 = 7,200 seconds."
+},
+
+{
+  q: "How many newtons are equal to 8 kN?",
+  choices: ["800 N", "8,000 N", "80,000 N", "0.008 N"],
+  answer: 1,
+  explanation:
+    "The lesson states that 1 kN = 1,000 N. Therefore, 8 kN = 8 × 1,000 = 8,000 N."
+},
+
+{
+  q: "How many centimeters are equal to 6 meters?",
+  choices: ["60 cm", "600 cm", "6,000 cm", "0.06 cm"],
+  answer: 1,
+  explanation:
+    "The lesson states that 1 m = 100 cm. Therefore, 6 m = 6 × 100 = 600 cm."
+},
+
+{
+  q: "Which scientific notation correctly represents 6,000,000?",
+  choices: ["6 × 10^6", "6 × 10^-6", "6 × 10^3", "60 × 10^6"],
+  answer: 0,
+  explanation:
+    "Moving the decimal six places to the left gives 6, so 6,000,000 = 6 × 10^6."
+},
+
+{
+  q: "Which scientific notation correctly represents 0.000005?",
+  choices: ["5 × 10^5", "5 × 10^-5", "5 × 10^-6", "5 × 10^6"],
+  answer: 2,
+  explanation:
+    "The decimal must move six places to the right to produce 5. Therefore, 0.000005 = 5 × 10^-6."
+},
+
+{
+  q: "What does a negative exponent usually indicate in scientific notation for the small-number examples in the lesson?",
+  choices: [
+    "The original number is less than 1",
+    "The original number has no units",
+    "The number is always negative",
+    "The measurement is incorrect"
+  ],
+  answer: 0,
+  explanation:
+    "For numbers smaller than 1, such as 0.00032, moving the decimal to the right produces a negative exponent."
+},
+
+{
+  q: "If F = 100 N and m = 20 kg, what is the acceleration?",
+  choices: ["2 m/s²", "5 m/s²", "20 m/s²", "2,000 m/s²"],
+  answer: 1,
+  explanation:
+    "Use a = F / m. Therefore, a = 100 / 20 = 5 m/s²."
+},
+
+{
+  q: "If an object travels at 10 m/s for 5 seconds, what distance does it travel?",
+  choices: ["2 m", "15 m", "50 m", "500 m"],
+  answer: 2,
+  explanation:
+    "Use d = vt. Therefore, d = 10 × 5 = 50 m."
+},
+
+{
+  q: "An object travels 100 meters at 20 m/s. How much time does the trip take?",
+  choices: ["2 seconds", "5 seconds", "20 seconds", "2,000 seconds"],
+  answer: 1,
+  explanation:
+    "Use t = d / v. Therefore, t = 100 / 20 = 5 seconds."
+},
+
+{
+  q: "An object travels 150 meters in 10 seconds. What is its velocity?",
+  choices: ["10 m/s", "15 m/s", "150 m/s", "1,500 m/s"],
+  answer: 1,
+  explanation:
+    "Use v = d / t. Therefore, v = 150 / 10 = 15 m/s."
+},
+
+{
+  q: "A 200 N force acts at a 60° angle. What is the horizontal component?",
   choices: ["100 N", "173.2 N", "200 N", "60 N"],
   answer: 0,
   explanation:
-    "Use Fx = Fcosθ. Fx = 200cos60° = 200 × 0.5 = 100 N."
+    "Use Fx = F cos(θ). Fx = 200 cos(60°) = 200 × 0.5 = 100 N."
 },
 
-  {
-  q: "A 200 N force acts at 60°. What is Fy approximately?",
+{
+  q: "A 200 N force acts at a 60° angle. What is the vertical component approximately?",
   choices: ["100 N", "173.2 N", "200 N", "60 N"],
   answer: 1,
   explanation:
-    "Use Fy = Fsinθ. Fy = 200sin60° ≈ 200 × 0.866 = 173.2 N."
+    "Use Fy = F sin(θ). Fy = 200 sin(60°) ≈ 200 × 0.866 = 173.2 N."
 },
 
 {
-  q: "A 250 N force acts at 45°. What is Fx approximately?",
-  choices: ["125 N", "176.8 N", "250 N", "353.6 N"],
-  answer: 1,
-  explanation:
-    "Use Fx = Fcosθ. Fx = 250cos45° ≈ 250 × 0.707 = 176.8 N."
-},
-
-{
-  q: "A 250 N force acts at 45°. What is Fy approximately?",
-  choices: ["125 N", "176.8 N", "250 N", "353.6 N"],
-  answer: 1,
-  explanation:
-    "Use Fy = Fsinθ. Fy = 250sin45° ≈ 250 × 0.707 = 176.8 N."
-},
-
-{
-  q: "A 300 N force acts at 60°. What is Fx?",
-  choices: ["150 N", "259.8 N", "300 N", "60 N"],
+  q: "A 50 N force acts at a 30° angle. What is the vertical component?",
+  choices: ["25 N", "43.3 N", "50 N", "15 N"],
   answer: 0,
   explanation:
-    "Use Fx = Fcosθ. Fx = 300cos60° = 300 × 0.5 = 150 N."
+    "Use Fy = F sin(θ). Fy = 50 sin(30°) = 50 × 0.5 = 25 N."
 },
 
 {
-  q: "A 300 N force acts at 60°. What is Fy approximately?",
-  choices: ["150 N", "259.8 N", "300 N", "60 N"],
-  answer: 1,
-  explanation:
-    "Use Fy = Fsinθ. Fy = 300sin60° ≈ 300 × 0.866 = 259.8 N."
-},
-
-{
-  q: "A crate has 120 N right and 90 N left. What is the net horizontal force?",
-  choices: ["210 N right", "30 N right", "30 N left", "0 N"],
-  answer: 1,
-  explanation:
-    "Subtract the opposing forces. 120 N right − 90 N left = 30 N to the right."
-},
-
-{
-  q: "A crate has 80 N right and 80 N left. What is ΣFx?",
-  choices: ["160 N", "80 N", "0 N", "40 N"],
+  q: "A 50 N force acts at a 30° angle. What is the horizontal component approximately?",
+  choices: ["25 N", "30 N", "43.3 N", "50 N"],
   answer: 2,
   explanation:
-    "Equal and opposite horizontal forces cancel, so ΣFx = 0 N."
+    "Use Fx = F cos(θ). Fx = 50 cos(30°) ≈ 50 × 0.866 = 43.3 N."
 },
 
 {
-  q: "A box has 100 N right, 40 N right, and 140 N left. What is ΣFx?",
-  choices: ["280 N", "140 N right", "0 N", "40 N left"],
-  answer: 2,
-  explanation:
-    "The total force to the right is 100 + 40 = 140 N, which is balanced by 140 N to the left. Therefore ΣFx = 0 N."
-},
-
-{
-  q: "A box has 220 N right and friction balances it. What must friction be?",
-  choices: ["220 N left", "220 N right", "110 N left", "0 N"],
+  q: "Why can units be used to check an engineering equation?",
+  choices: [
+    "The units on both sides should be consistent",
+    "Units make every answer positive",
+    "Units replace the numbers in an equation",
+    "Every engineering equation uses newtons"
+  ],
   answer: 0,
   explanation:
-    "To create equilibrium, friction must be equal in magnitude and opposite in direction to the applied force."
+    "The lesson explains that checking units helps determine whether an equation is dimensionally consistent."
 },
 
 {
-  q: "A box has 90 N right and 70 N left. What extra force is needed for equilibrium?",
-  choices: ["20 N left", "20 N right", "160 N left", "0 N"],
+  q: "Which relationship between units is correct?",
+  choices: [
+    "1 N = 1 kg·m/s²",
+    "1 N = 1 kg/s",
+    "1 N = 1 m/s",
+    "1 N = 1 kg·s²"
+  ],
   answer: 0,
   explanation:
-    "The current net force is 20 N to the right, so an additional 20 N to the left is needed to make ΣFx = 0."
+    "The lesson shows that force units come from mass times acceleration, so 1 N = 1 kg·m/s²."
 },
 
 {
-  q: "If N = 300 N and μ = 0.4, what is friction?",
-  choices: ["75 N", "120 N", "300 N", "700 N"],
+  q: "How many significant figures are in 5.2?",
+  choices: ["One", "Two", "Three", "Four"],
   answer: 1,
   explanation:
-    "Use F = μN. F = 0.4 × 300 = 120 N."
+    "The lesson gives 5.2 as an example of a number containing two significant figures."
 },
 
 {
-  q: "If N = 500 N and μ = 0.3, what is friction?",
-  choices: ["150 N", "500 N", "0.3 N", "1667 N"],
-  answer: 0,
-  explanation:
-    "Use F = μN. F = 0.3 × 500 = 150 N."
-},
-
-{
-  q: "If N = 250 N and μ = 0.2, what is friction?",
-  choices: ["25 N", "50 N", "125 N", "250 N"],
+  q: "Which number has three significant figures according to the lesson?",
+  choices: ["5.2", "5.20", "0.005", "0.05"],
   answer: 1,
   explanation:
-    "Use F = μN. F = 0.2 × 250 = 50 N."
+    "The lesson specifically identifies 5.20 as having three significant figures."
 },
 
 {
-  q: "If N = 600 N and μ = 0.15, what is friction?",
-  choices: ["90 N", "600 N", "4000 N", "15 N"],
+  q: "Why should engineers avoid reporting more precision than their original measurements support?",
+  choices: [
+    "It can imply a level of measurement precision that was not actually available",
+    "It makes all measurements smaller",
+    "It changes every unit to SI units",
+    "It prevents equations from being rearranged"
+  ],
   answer: 0,
   explanation:
-    "Use F = μN. F = 0.15 × 600 = 90 N."
-},
-
-{
-  q: "If N = 800 N and μ = 0.45, what is friction?",
-  choices: ["360 N", "800 N", "1778 N", "45 N"],
-  answer: 0,
-  explanation:
-    "Use F = μN. F = 0.45 × 800 = 360 N."
-},
-
-{
-  q: "If friction is 147 N left and the pull is 147 N right, what is ΣFx?",
-  choices: ["294 N", "147 N", "0 N", "73.5 N"],
-  answer: 2,
-  explanation:
-    "The horizontal forces are equal and opposite, so they cancel. Therefore ΣFx = 0 N."
-},
-
-{
-  q: "If a 125 N pull right is balanced by 125 N friction left, is the object horizontally balanced?",
-  choices: ["Yes", "No", "Only vertically", "Only if mass is zero"],
-  answer: 0,
-  explanation:
-    "Yes. Equal forces acting in opposite directions produce zero net horizontal force."
-},
-
-{
-  q: "A crate has μ = 0.25 and N = 500 N. What friction force resists motion?",
-  choices: ["125 N", "250 N", "500 N", "2000 N"],
-  answer: 0,
-  explanation:
-    "Use F = μN. F = 0.25 × 500 = 125 N."
-},
-
-{
-  q: "If friction is 90 N left, what pull right is needed for horizontal equilibrium?",
-  choices: ["45 N", "90 N", "180 N", "0 N"],
-  answer: 1,
-  explanation:
-    "For equilibrium, the applied pull must exactly match the friction force in the opposite direction. Therefore the pull must be 90 N to the right."
-},
-
-{
-  q: "Which force usually balances a horizontal push in simple statics problems?",
-  choices: ["Friction", "Weight", "Normal force", "Gravity"],
-  answer: 0,
-  explanation:
-    "In simple statics problems, friction is the force that commonly opposes and balances a horizontal applied force."
+    "Significant figures help engineers avoid reporting more precision than the original measurements support."
 },
 
   {
-  q: "What is translational equilibrium?",
-  choices: ["No movement in any direction", "No rotation only", "Only upward motion", "Only friction"],
-  answer: 0,
-  explanation: "Translational equilibrium occurs when the net force on an object is zero, so it has no linear acceleration. The object remains at rest or moves with constant velocity."
-},
-
-{
-  q: "According to the lesson, what two equations are used for translational equilibrium?",
-  choices: ["ΣFx = 0 and ΣFy = 0", "W = mg and F = ma", "Fx = Fy and W = 0", "μ = FN and m = Wg"],
-  answer: 0,
-  explanation: "For an object to be in translational equilibrium, the sum of the horizontal forces and the sum of the vertical forces must each equal zero."
-},
-
-{
-  q: "A box has balanced horizontal forces but unbalanced vertical forces. Is it in full translational equilibrium?",
-  choices: ["Yes", "No", "Only if friction exists", "Only if it is heavy"],
-  answer: 1,
-  explanation: "No. Both ΣFx and ΣFy must equal zero. If the vertical forces are unbalanced, the object can accelerate vertically."
-},
-
-{
-  q: "A box has balanced vertical forces but ΣFx = 20 N right. Is it in full translational equilibrium?",
-  choices: ["Yes", "No", "Only vertically", "Only if mass is zero"],
-  answer: 1,
-  explanation: "No. A net horizontal force of 20 N means the object is not in translational equilibrium because ΣFx is not zero."
-},
-
-{
-  q: "A box has 200 N up, 200 N down, 80 N right, and 80 N left. Is it in translational equilibrium?",
-  choices: ["Yes", "No", "Only horizontally", "Only vertically"],
-  answer: 0,
-  explanation: "Yes. The vertical forces cancel and the horizontal forces cancel, so both ΣFx and ΣFy equal zero."
-},
-
-{
-  q: "A box has N = 500 N and W = 490 N. What is ΣFy?",
-  choices: ["990 N up", "10 N up", "10 N down", "0 N"],
-  answer: 1,
-  explanation: "Taking upward as positive, ΣFy = 500 N − 490 N = 10 N upward."
-},
-
-{
-  q: "Based on the previous situation, is the box vertically balanced?",
-  choices: ["Yes", "No", "Only if friction is zero", "Only if tension exists"],
-  answer: 1,
-  explanation: "No. Since ΣFy = 10 N upward, the vertical forces are not balanced."
-},
-
-{
-  q: "If an object remains at rest, what can usually be concluded about net force?",
-  choices: ["Net force is zero", "Net force is increasing", "Only weight acts", "No forces act"],
-  answer: 0,
-  explanation: "If an object remains at rest in statics, the forces acting on it are balanced, giving a net force of zero."
-},
-
-{
-  q: "If an object moves at constant velocity, what does the lesson say about net force?",
-  choices: ["Net force is zero", "Net force is large", "It has no mass", "Gravity is off"],
-  answer: 0,
-  explanation: "Constant velocity means there is no acceleration, so Newton's Second Law tells us the net force must be zero."
-},
-
-{
-  q: "If both ΣFx and ΣFy equal zero, what happens to acceleration?",
-  choices: ["It is zero", "It increases", "It becomes gravity", "It becomes friction"],
-  answer: 0,
-  explanation: "When the net force is zero in every direction, the object's acceleration is zero."
-},
-
-{
-  q: "A 400 N object is supported by two equal vertical ropes. What is tension in each rope?",
-  choices: ["100 N", "200 N", "400 N", "800 N"],
-  answer: 1,
-  explanation: "The load is shared equally between the two ropes, so each carries 400 ÷ 2 = 200 N."
-},
-
-{
-  q: "A 900 N sign hangs from two equal vertical cables. What is tension in each cable?",
-  choices: ["900 N", "450 N", "1800 N", "90 N"],
-  answer: 1,
-  explanation: "Since both cables support the load equally, each cable has a tension of 900 ÷ 2 = 450 N."
-},
-
-{
-  q: "A 750 N load is supported equally by three vertical cables. What is tension in each?",
-  choices: ["750 N", "375 N", "250 N", "1500 N"],
+  q: "How many millimeters are equal to 7 meters?",
+  choices: ["70 mm", "700 mm", "7,000 mm", "70,000 mm"],
   answer: 2,
-  explanation: "Divide the total weight equally among the three cables: 750 ÷ 3 = 250 N."
+  explanation:
+    "The lesson states that 1 m = 1,000 mm. Therefore, 7 m = 7 × 1,000 = 7,000 mm."
 },
 
 {
-  q: "A 300 N object is supported equally by two vertical cables. What is tension in each?",
-  choices: ["600 N", "300 N", "150 N", "75 N"],
+  q: "How many meters are equal to 4 kilometers?",
+  choices: ["40 m", "400 m", "4,000 m", "40,000 m"],
   answer: 2,
-  explanation: "Each cable supports half the load, so T = 300 ÷ 2 = 150 N."
+  explanation:
+    "The lesson states that 1 km = 1,000 m. Therefore, 4 km = 4 × 1,000 = 4,000 m."
 },
 
 {
-  q: "A hanging object has W = 250 N. If it is motionless, what is T?",
-  choices: ["0 N", "125 N", "250 N", "500 N"],
+  q: "How many pascals are equal to 3 MPa?",
+  choices: ["3,000 Pa", "30,000 Pa", "300,000 Pa", "3,000,000 Pa"],
+  answer: 3,
+  explanation:
+    "The lesson states that 1 MPa = 1,000,000 Pa. Therefore, 3 MPa = 3 × 1,000,000 = 3,000,000 Pa."
+},
+
+{
+  q: "Which SI prefix represents one thousandth?",
+  choices: ["Kilo", "Mega", "Milli", "Micro"],
   answer: 2,
-  explanation: "A motionless hanging object has zero net force, so the rope tension must equal the object's weight."
+  explanation:
+    "Milli represents 10^-3, which is equal to one thousandth or 0.001."
 },
 
 {
-  q: "A rope pulls upward with 400 N while weight pulls downward with 400 N. What is ΣFy?",
-  choices: ["800 N", "400 N", "0 N", "200 N"],
-  answer: 2,
-  explanation: "The upward and downward forces are equal, so they cancel each other and ΣFy = 0."
-},
-
-{
-  q: "If weight is 600 N downward, what upward normal force is needed for vertical equilibrium?",
-  choices: ["300 N", "600 N", "1200 N", "0 N"],
+  q: "Which SI prefix represents 10^-9?",
+  choices: ["Micro", "Nano", "Milli", "Kilo"],
   answer: 1,
-  explanation: "For vertical equilibrium, the upward normal force must exactly equal the downward weight, so N = 600 N."
+  explanation:
+    "Nano, abbreviated n, represents 10^-9."
 },
 
 {
-  q: "A table pushes upward on a box. What force is this?",
-  choices: ["Weight", "Normal force", "Tension", "Friction"],
-  answer: 1,
-  explanation: "The supporting force exerted by a surface on an object is called the normal force."
-},
-
-{
-  q: "A rope pulls upward on a hanging mass. What force is this?",
-  choices: ["Tension", "Normal force", "Friction", "Weight"],
+  q: "Which SI prefix represents 1,000,000?",
+  choices: ["Mega", "Kilo", "Milli", "Giga"],
   answer: 0,
-  explanation: "A rope, cable, or chain transmits a pulling force known as tension."
+  explanation:
+    "Mega represents 10^6, which is equal to 1,000,000."
 },
 
 {
-  q: "A force that resists sliding is called what?",
-  choices: ["Weight", "Normal force", "Friction", "Tension"],
+  q: "What should happen to unwanted units when dimensional analysis is set up correctly?",
+  choices: [
+    "They should become larger",
+    "They should cancel",
+    "They should be added together",
+    "They should become negative"
+  ],
+  answer: 1,
+  explanation:
+    "Dimensional analysis arranges conversion factors so unwanted units cancel, leaving the desired unit."
+},
+
+{
+  q: "Which conversion factor could be used to convert kilometers to meters?",
+  choices: [
+    "1 km / 1,000 m",
+    "1,000 m / 1 km",
+    "1 m / 1,000 km",
+    "1,000 km / 1 m"
+  ],
+  answer: 1,
+  explanation:
+    "Since 1 km = 1,000 m, using 1,000 m / 1 km allows kilometers to cancel and leaves meters."
+},
+
+{
+  q: "How should 8,000,000 be written in scientific notation?",
+  choices: ["8 × 10^6", "8 × 10^-6", "8 × 10^3", "80 × 10^6"],
+  answer: 0,
+  explanation:
+    "The decimal moves six places to the left to produce 8, so 8,000,000 = 8 × 10^6."
+},
+
+{
+  q: "How should 0.000007 be written in scientific notation?",
+  choices: ["7 × 10^6", "7 × 10^-6", "7 × 10^-7", "7 × 10^7"],
+  answer: 1,
+  explanation:
+    "The decimal moves six places to the right to produce 7, so 0.000007 = 7 × 10^-6."
+},
+
+{
+  q: "In scientific notation, what range does the lesson say the value a is usually in?",
+  choices: [
+    "Between 0 and 1",
+    "Between 1 and 10",
+    "Between 10 and 100",
+    "Between 100 and 1,000"
+  ],
+  answer: 1,
+  explanation:
+    "The lesson gives scientific notation as a × 10^n and states that a is usually a number between 1 and 10."
+},
+
+{
+  q: "If F = 80 N and m = 10 kg, what is the acceleration?",
+  choices: ["8 m/s²", "10 m/s²", "80 m/s²", "800 m/s²"],
+  answer: 0,
+  explanation:
+    "Use a = F / m. Therefore, a = 80 / 10 = 8 m/s²."
+},
+
+{
+  q: "An object travels at 12 m/s for 5 seconds. What distance does it travel?",
+  choices: ["2.4 m", "17 m", "60 m", "120 m"],
   answer: 2,
-  explanation: "Friction is the force that opposes motion or attempted motion between two contacting surfaces."
+  explanation:
+    "Use d = vt. Therefore, d = 12 × 5 = 60 m."
+},
+
+{
+  q: "An object travels 120 meters at 10 m/s. How long does the trip take?",
+  choices: ["10 seconds", "12 seconds", "120 seconds", "1,200 seconds"],
+  answer: 1,
+  explanation:
+    "Use t = d / v. Therefore, t = 120 / 10 = 12 seconds."
+},
+
+{
+  q: "A 300 N force acts at a 60° angle. What is its horizontal component?",
+  choices: ["150 N", "259.8 N", "300 N", "60 N"],
+  answer: 0,
+  explanation:
+    "Use Fx = F cos(θ). Fx = 300 cos(60°) = 300 × 0.5 = 150 N."
+},
+
+{
+  q: "A 300 N force acts at a 60° angle. What is its vertical component approximately?",
+  choices: ["150 N", "259.8 N", "300 N", "519.6 N"],
+  answer: 1,
+  explanation:
+    "Use Fy = F sin(θ). Fy = 300 sin(60°) ≈ 300 × 0.866 = 259.8 N."
+},
+
+{
+  q: "If you need the horizontal part of an angled force, which trigonometric function does the lesson use?",
+  choices: ["Sine", "Cosine", "Tangent", "None"],
+  answer: 1,
+  explanation:
+    "The lesson gives the horizontal force component as Fx = F cos(θ), so cosine is used."
+},
+
+{
+  q: "Which step comes after exponents in the order of operations taught in the lesson?",
+  choices: [
+    "Addition and subtraction",
+    "Parentheses",
+    "Multiplication and division",
+    "Scientific notation"
+  ],
+  answer: 2,
+  explanation:
+    "The lesson gives the order as parentheses, exponents, multiplication and division, then addition and subtraction."
+},
+
+{
+  q: "What does checking the units in F = ma show?",
+  choices: [
+    "kg × m/s² produces N",
+    "kg × m/s² produces Pa",
+    "kg × m/s² produces W",
+    "kg × m/s² produces K"
+  ],
+  answer: 0,
+  explanation:
+    "The lesson checks F = ma using units and shows that kg × m/s² equals a newton."
+},
+
+{
+  q: "Which statement about significant figures matches the lesson?",
+  choices: [
+    "More digits should always be added to an answer",
+    "Significant figures help avoid reporting more precision than measurements support",
+    "Zeros can never be significant",
+    "Every measurement must have exactly three significant figures"
+  ],
+  answer: 1,
+  explanation:
+    "The lesson explains that significant figures help prevent engineers from reporting more precision than the original measurements support."
 },
 
   {
-  q: "A force at an angle must be separated into what?",
-  choices: ["Components", "Masses", "Volumes", "Densities"],
-  answer: 0,
-  explanation: "An angled force is separated into horizontal (Fx) and vertical (Fy) components so each direction can be analyzed independently."
-},
-
-{
-  q: "Which component affects horizontal equilibrium?",
-  choices: ["Fx", "Fy", "Mass only", "Friction only"],
-  answer: 0,
-  explanation: "Horizontal equilibrium depends only on the horizontal component of force, represented by Fx."
-},
-
-{
-  q: "Which component affects vertical equilibrium?",
-  choices: ["Fx", "Fy", "Mass only", "Horizontal push only"],
+  q: "How many centimeters are equal to 9 meters?",
+  choices: ["90 cm", "900 cm", "9,000 cm", "0.09 cm"],
   answer: 1,
-  explanation: "Vertical equilibrium depends on the vertical component of force, represented by Fy."
+  explanation:
+    "The lesson states that 1 m = 100 cm. Therefore, 9 m = 9 × 100 = 900 cm."
 },
 
 {
-  q: "A 180 N force at 60° has Fx = 90 N and Fy = 155.9 N. Which component helps balance weight?",
-  choices: ["Fx", "Fy", "Neither", "Mass"],
+  q: "How many grams are equal to 2.5 kilograms?",
+  choices: ["250 g", "2,500 g", "25,000 g", "0.0025 g"],
   answer: 1,
-  explanation: "Weight acts vertically, so the vertical component (Fy) is the one that helps balance the weight."
+  explanation:
+    "The lesson states that 1 kg = 1,000 g. Therefore, 2.5 kg = 2.5 × 1,000 = 2,500 g."
 },
 
 {
-  q: "A 250 N angled force has Fx = 216.5 N and Fy = 125 N. Which component affects ΣFx?",
-  choices: ["Fx", "Fy", "Weight", "Normal force"],
-  answer: 0,
-  explanation: "The sum of horizontal forces (ΣFx) only includes horizontal components such as Fx."
-},
-
-{
-  q: "If vertical forces are 155.9 N up and 155.9 N down, what is ΣFy?",
-  choices: ["311.8 N", "155.9 N", "0 N", "90 N"],
+  q: "How many newtons are equal to 12 kN?",
+  choices: ["120 N", "1,200 N", "12,000 N", "120,000 N"],
   answer: 2,
-  explanation: "Equal upward and downward forces cancel each other, giving ΣFy = 0 N."
+  explanation:
+    "The lesson states that 1 kN = 1,000 N. Therefore, 12 kN = 12 × 1,000 = 12,000 N."
 },
 
 {
-  q: "If horizontal forces are 90 N right and 70 N left, is horizontal equilibrium satisfied?",
-  choices: ["Yes", "No", "Only if vertical forces balance", "Only if weight is zero"],
-  answer: 1,
-  explanation: "The net horizontal force is 20 N to the right, so ΣFx is not zero and horizontal equilibrium is not satisfied."
-},
-
-{
-  q: "A free object has 100 N right, 60 N left, and 40 N left. What is ΣFx?",
-  choices: ["200 N", "0 N", "40 N right", "40 N left"],
-  answer: 1,
-  explanation: "The leftward forces total 100 N, which exactly balances the 100 N rightward force, so ΣFx = 0 N."
-},
-
-{
-  q: "If upward forces equal downward forces and rightward forces equal leftward forces, what condition is met?",
-  choices: ["Translational equilibrium", "Acceleration", "Unbalanced force", "Free fall"],
-  answer: 0,
-  explanation: "When both ΣFx = 0 and ΣFy = 0, the object is in translational equilibrium."
-},
-
-{
-  q: "Which final condition proves translational equilibrium?",
-  choices: ["ΣFx = 0 and ΣFy = 0", "Only ΣFx = 0", "Only weight exists", "Friction is greater than normal"],
-  answer: 0,
-  explanation: "Translational equilibrium requires that the sum of the forces in both the horizontal and vertical directions equals zero."
-},
-
-{
-  q: "If a box has 300 N upward and 300 N downward, what is ΣFy?",
-  choices: ["600 N", "300 N", "0 N", "150 N"],
+  q: "How many seconds are equal to 3 hours?",
+  choices: ["1,080 seconds", "3,600 seconds", "10,800 seconds", "108,000 seconds"],
   answer: 2,
-  explanation: "The upward and downward forces are equal and opposite, so ΣFy = 0 N."
+  explanation:
+    "The lesson states that 1 hour = 3,600 seconds. Therefore, 3 hours = 3 × 3,600 = 10,800 seconds."
 },
 
 {
-  q: "If ΣFx = 0, what can you conclude?",
-  choices: ["Horizontal forces are balanced", "Vertical forces are balanced", "The object has no weight", "The object must rotate"],
-  answer: 0,
-  explanation: "A zero sum of horizontal forces means the horizontal forces are balanced."
+  q: "Which SI prefix represents 10^3?",
+  choices: ["Milli", "Mega", "Kilo", "Micro"],
+  answer: 2,
+  explanation:
+    "Kilo, abbreviated k, represents 10^3, which is equal to 1,000."
 },
 
 {
-  q: "What is the main goal of statics?",
-  choices: ["Analyze forces in equilibrium", "Increase speed", "Remove friction", "Make objects accelerate"],
-  answer: 0,
-  explanation: "Statics is the study of forces acting on objects that are in equilibrium, meaning they have no acceleration."
-},
-
-{
-  q: "If forces are not balanced, what happens?",
-  choices: ["Acceleration can occur", "Equilibrium always occurs", "Mass disappears", "Gravity stops"],
-  answer: 0,
-  explanation: "Unbalanced forces create a nonzero net force, which causes acceleration according to Newton's Second Law."
-},
-
-{
-  q: "Which force acts perpendicular to a surface?",
-  choices: ["Friction", "Normal force", "Weight", "Tension"],
+  q: "Which SI prefix represents 10^-6?",
+  choices: ["Nano", "Micro", "Milli", "Mega"],
   answer: 1,
-  explanation: "The normal force always acts perpendicular to the surface supporting an object."
+  explanation:
+    "Micro, represented by µ, means 10^-6."
 },
 
 {
-  q: "A 25 kg object rests on a table. What is its weight?",
-  choices: ["25 N", "245 N", "250 N", "98 N"],
+  q: "How should 9,000,000,000 be written in scientific notation?",
+  choices: ["9 × 10^6", "9 × 10^9", "9 × 10^-9", "90 × 10^9"],
   answer: 1,
-  explanation: "Use W = mg. The calculation is W = 25 × 9.8 = 245 N."
+  explanation:
+    "The decimal moves nine places to the left to produce 9. Therefore, 9,000,000,000 = 9 × 10^9."
 },
 
 {
-  q: "A 25 kg object rests on a table. What is the normal force?",
-  choices: ["25 N", "245 N", "250 N", "0 N"],
-  answer: 1,
-  explanation: "Since the object is resting on the table, the normal force balances its weight. Therefore N = 245 N."
-},
-
-{
-  q: "If a force has both x and y components, what type of quantity is it?",
-  choices: ["Scalar", "Vector", "Constant", "Unit"],
-  answer: 1,
-  explanation: "Only vectors have both magnitude and direction, allowing them to be resolved into x and y components."
-},
-
-{
-  q: "If ΣFy is positive upward, what kind of acceleration could occur?",
-  choices: ["Upward acceleration", "Downward acceleration", "No acceleration", "Sideways only"],
+  q: "How should 0.000000004 be written in scientific notation?",
+  choices: ["4 × 10^-9", "4 × 10^-6", "4 × 10^9", "4 × 10^-8"],
   answer: 0,
-  explanation: "A positive net vertical force means the object could accelerate upward."
+  explanation:
+    "The decimal moves nine places to the right to produce 4. Therefore, 0.000000004 = 4 × 10^-9."
 },
 
 {
-  q: "If ΣFx is negative, what direction is the unbalanced force?",
-  choices: ["Left", "Right", "Up", "Down"],
+  q: "If F = 150 N and m = 30 kg, what is the acceleration?",
+  choices: ["5 m/s²", "30 m/s²", "120 m/s²", "4,500 m/s²"],
   answer: 0,
-  explanation: "Using the common sign convention where right is positive, a negative ΣFx indicates the net force acts to the left."
-}
+  explanation:
+    "Use a = F / m. Therefore, a = 150 / 30 = 5 m/s²."
+},
+
+{
+  q: "An object travels 200 meters in 20 seconds. What is its velocity?",
+  choices: ["5 m/s", "10 m/s", "20 m/s", "4,000 m/s"],
+  answer: 1,
+  explanation:
+    "Use v = d / t. Therefore, v = 200 / 20 = 10 m/s."
+},
+
+{
+  q: "An object travels at 15 m/s for 4 seconds. How far does it travel?",
+  choices: ["3.75 m", "19 m", "60 m", "600 m"],
+  answer: 2,
+  explanation:
+    "Use d = vt. Therefore, d = 15 × 4 = 60 m."
+},
+
+{
+  q: "An object travels 240 meters at 20 m/s. How much time does it take?",
+  choices: ["12 seconds", "20 seconds", "120 seconds", "4,800 seconds"],
+  answer: 0,
+  explanation:
+    "Use t = d / v. Therefore, t = 240 / 20 = 12 seconds."
+},
+
+{
+  q: "A 150 N force acts at a 30° angle. What is its vertical component?",
+  choices: ["75 N", "129.9 N", "150 N", "300 N"],
+  answer: 0,
+  explanation:
+    "Use Fy = F sin(θ). Fy = 150 sin(30°) = 150 × 0.5 = 75 N."
+},
+
+{
+  q: "A 150 N force acts at a 30° angle. What is its horizontal component approximately?",
+  choices: ["75 N", "129.9 N", "150 N", "259.8 N"],
+  answer: 1,
+  explanation:
+    "Use Fx = F cos(θ). Fx = 150 cos(30°) ≈ 150 × 0.866 = 129.9 N."
+},
+
+{
+  q: "If you need the vertical part of an angled force, which trigonometric function does the lesson use?",
+  choices: ["Cosine", "Sine", "Tangent", "None"],
+  answer: 1,
+  explanation:
+    "The lesson gives the vertical component equation as Fy = F sin(θ), so sine is used."
+},
+
+{
+  q: "Which is the correct order of operations from the lesson?",
+  choices: [
+    "Parentheses, Exponents, Multiplication and Division, Addition and Subtraction",
+    "Exponents, Parentheses, Addition, Multiplication",
+    "Multiplication, Addition, Parentheses, Exponents",
+    "Addition, Subtraction, Multiplication, Parentheses"
+  ],
+  answer: 0,
+  explanation:
+    "The lesson gives the order as parentheses, exponents, multiplication and division, then addition and subtraction."
+},
+
+{
+  q: "If the units on both sides of an engineering equation are not consistent, what can this indicate?",
+  choices: [
+    "The calculation or equation setup may contain an error",
+    "The answer must be zero",
+    "The units should be ignored",
+    "The answer must be written in scientific notation"
+  ],
+  answer: 0,
+  explanation:
+    "Checking units helps engineers identify possible errors. If the units are not consistent, the calculation or equation setup should be checked."
+},
+
+{
+  q: "Which equation correctly shows the unit definition of a newton?",
+  choices: [
+    "1 N = 1 kg·m/s²",
+    "1 N = 1 kg·m/s",
+    "1 N = 1 kg/m²",
+    "1 N = 1 m/s²"
+  ],
+  answer: 0,
+  explanation:
+    "The lesson shows that 1 newton is equal to 1 kilogram-meter per second squared, written as 1 N = 1 kg·m/s²."
+},
+
+{
+  q: "How many significant figures are in 0.00520?",
+  choices: ["One", "Two", "Three", "Five"],
+  answer: 2,
+  explanation:
+    "The lesson specifically gives 0.00520 as an example with three significant figures. The leading zeros do not count."
+},
+
+{
+  q: "Why are units, conversions, and engineering math important for later mechanical engineering courses?",
+  choices: [
+    "They provide mathematical skills used in subjects such as statics, dynamics, strength of materials, and thermodynamics",
+    "They eliminate the need to use equations",
+    "They are only useful for converting meters to millimeters",
+    "They prevent engineers from using trigonometry"
+  ],
+  answer: 0,
+  explanation:
+    "The lesson explains that these skills support subjects such as statics, dynamics, strength of materials, thermodynamics, and more advanced engineering courses."
+},
 ];
 
 function shuffleArray(array) {
