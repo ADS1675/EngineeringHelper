@@ -785,15 +785,31 @@
    <div id="quiz" class="tab-content" style="display:none;">
   <h2>Units, Conversions & Engineering Math Basics Quiz</h2>
 
-  <button type="button" onclick="openRandomQuizSet()" class="quiz-btn">
-  Random Quiz
-</button>
+  <div class="quiz-button-row">
 
-<p class="quiz-warning">
-  Warning: Once you select an answer, click the "Check Answer" button to lock in your response. 
-  Answers that are not checked before submitting the quiz will NOT count, and unanswered questions 
-  will be marked wrong.
-</p>
+    <button
+      type="button"
+      onclick="openFullQuiz()"
+      class="quiz-btn quiz-start-btn"
+    >
+      Randomized 100-Question Quiz
+    </button>
+
+    <button
+      type="button"
+      onclick="openShortQuiz()"
+      class="quiz-btn quiz-start-btn"
+    >
+      Randomized 10-Question Quiz
+    </button>
+
+  </div>
+
+  <p class="quiz-warning">
+    Warning: Once you select an answer, click the "Check Answer" button to lock in your response.
+    Answers that are not checked before submitting the quiz will NOT count, and unanswered questions
+    will be marked wrong. Also if you leave the tab or page it will also reset!
+  </p>
 
   <div id="quiz-panel" class="quiz-panel">
     <h3 id="quiz-set-title"></h3>
@@ -1017,7 +1033,8 @@ function showSection(id, button) {
   // Reset quiz when changing tabs
   const quizPanel = document.getElementById("quiz-panel");
   const quizContainer = document.getElementById("quiz-container");
-  const randomBtn = document.querySelector("#quiz .quiz-btn");
+  const quizStartButtons =
+  document.querySelectorAll("#quiz .quiz-start-btn");
 
   if (quizPanel) {
     quizPanel.classList.remove("open");
@@ -1027,9 +1044,9 @@ function showSection(id, button) {
     quizContainer.innerHTML = "";
   }
 
-  if (randomBtn) {
-    randomBtn.style.display = "inline-block";
-  }
+  quizStartButtons.forEach(btn => {
+  btn.style.display = "inline-block";
+});
 
   // Open clicked tab if it was closed
   if (!isOpen) {
@@ -1043,6 +1060,7 @@ function showSection(id, button) {
 let currentQuestionIndex = 0;
 let allQuestions = [];
 let answeredQuestions = {};
+let currentQuizMode = "";
 
 const quizQuestions = [
   {
@@ -2116,6 +2134,1340 @@ const quizQuestions = [
 },
 ];
 
+const shortQuizGroups = [
+
+  // GROUP 1 — Units and SI Units
+[
+  {
+    q: "An engineer records a measurement as simply 12. Why is this information incomplete for an engineering calculation?",
+    choices: [
+      "The measurement does not include a unit explaining what the number represents",
+      "Engineering measurements must always be greater than 12",
+      "The measurement must be written in scientific notation",
+      "Every engineering measurement must be a force"
+    ],
+    answer: 0,
+    explanation:
+      "A unit tells what a number represents. Writing only 12 does not tell whether the measurement represents meters, kilograms, seconds, newtons, or another quantity, so the measurement may be incomplete or unclear."
+  },
+
+  {
+    q: "A mechanical engineer measures the length of a component using SI units. Which measurement uses the correct unit for length from the lesson?",
+    choices: [
+      "2.4 kg",
+      "2.4 m",
+      "2.4 N",
+      "2.4 Pa"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson identifies the meter (m) as the SI unit for length. Kilograms measure mass, newtons measure force, and pascals measure pressure."
+  },
+
+  {
+    q: "An engineer needs to record the mass of a mechanical component. Which unit from the lesson should be associated with this measurement?",
+    choices: [
+      "Kilogram (kg)",
+      "Newton (N)",
+      "Watt (W)",
+      "Meter (m)"
+    ],
+    answer: 0,
+    explanation:
+      "Mass is measured in kilograms (kg). A newton measures force, a watt measures power, and a meter measures length."
+  },
+
+  {
+    q: "A test records how long a mechanical system operates before stopping. Which SI unit from the lesson is appropriate for measuring this time?",
+    choices: [
+      "Joule (J)",
+      "Second (s)",
+      "Pascal (Pa)",
+      "Kilogram (kg)"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson identifies the second (s) as the SI unit for time. The other choices represent energy, pressure, and mass."
+  },
+
+  {
+    q: "An engineer's calculation produces a force. Which final unit would be appropriate for the answer?",
+    choices: [
+      "Pa",
+      "N",
+      "W",
+      "kg"
+    ],
+    answer: 1,
+    explanation:
+      "Force is measured in newtons (N). Pascal is used for pressure, watt for power, and kilogram for mass."
+  },
+
+  {
+    q: "A mechanical engineering calculation is supposed to determine pressure. Which result has the appropriate unit?",
+    choices: [
+      "350 J",
+      "350 Pa",
+      "350 W",
+      "350 N"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson identifies the pascal (Pa) as the unit for pressure. Joules represent energy, watts represent power, and newtons represent force."
+  },
+
+  {
+    q: "Two engineering calculations produce results of 500 J and 500 W. Even though the numerical values are identical, why do the results represent different quantities?",
+    choices: [
+      "Joules represent energy while watts represent power",
+      "Joules represent mass while watts represent length",
+      "Joules represent pressure while watts represent force",
+      "The quantities are actually identical because both numbers are 500"
+    ],
+    answer: 0,
+    explanation:
+      "Units identify what a numerical value represents. The lesson identifies the joule (J) as the unit for energy and the watt (W) as the unit for power, so 500 J and 500 W describe different quantities."
+  },
+
+  {
+    q: "An engineer is organizing measurements for length, mass, force, and pressure. Which set correctly matches every quantity with the unit taught in the lesson?",
+    choices: [
+      "Length—m, Mass—kg, Force—N, Pressure—Pa",
+      "Length—kg, Mass—m, Force—Pa, Pressure—N",
+      "Length—N, Mass—Pa, Force—kg, Pressure—m",
+      "Length—m, Mass—N, Force—kg, Pressure—Pa"
+    ],
+    answer: 0,
+    explanation:
+      "The correct matches are length in meters (m), mass in kilograms (kg), force in newtons (N), and pressure in pascals (Pa)."
+  },
+
+  {
+    q: "A temperature measurement is being recorded during an engineering test. According to the lesson, which pair contains the temperature units that may be used?",
+    choices: [
+      "Kelvin (K) or degrees Celsius (°C)",
+      "Newton (N) or pascal (Pa)",
+      "Joule (J) or watt (W)",
+      "Meter (m) or kilogram (kg)"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson lists kelvin (K) and degrees Celsius (°C) for temperature. The other choices are units for force, pressure, energy, power, length, or mass."
+  },
+
+  {
+    q: "Why should an engineer keep units attached to values while working through calculations instead of focusing only on the numbers?",
+    choices: [
+      "Units make every calculation use smaller numbers",
+      "Units help show what quantities represent and can help identify calculations that do not make physical sense",
+      "Units eliminate the need to use equations",
+      "Units guarantee that every measured value is exact"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson explains that keeping track of units helps engineers make sure calculations are physically meaningful and helps prevent errors. Units also communicate what each measured value represents."
+  }
+],
+
+  // GROUP 2 — SI Prefixes
+[
+  {
+    q: "An engineer sees a force written as 7 kN. What does the prefix kilo (k) tell the engineer about this value?",
+    choices: [
+      "The force is multiplied by 10^3",
+      "The force is multiplied by 10^6",
+      "The force is multiplied by 10^-3",
+      "The force is multiplied by 10^-6"
+    ],
+    answer: 0,
+    explanation:
+      "The prefix kilo (k) represents 10^3, or 1,000. Therefore, a value written in kilonewtons represents thousands of newtons."
+  },
+
+  {
+    q: "A pressure value uses the prefix mega (M). Which statement correctly describes this prefix?",
+    choices: [
+      "Mega represents 10^3, or 1,000",
+      "Mega represents 10^6, or 1,000,000",
+      "Mega represents 10^-6, or 0.000001",
+      "Mega represents 10^9, or 1,000,000,000"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson defines mega (M) as 10^6, which is equal to 1,000,000."
+  },
+
+  {
+    q: "An engineering measurement uses the prefix giga (G). Which value is represented by this prefix?",
+    choices: [
+      "10^3",
+      "10^6",
+      "10^9",
+      "10^-9"
+    ],
+    answer: 2,
+    explanation:
+      "Giga (G) represents 10^9, which is equal to 1,000,000,000."
+  },
+
+  {
+    q: "A mechanical component has a dimension written in millimeters. What does the prefix milli (m) represent?",
+    choices: [
+      "10^-3, or 0.001",
+      "10^3, or 1,000",
+      "10^-6, or 0.000001",
+      "10^6, or 1,000,000"
+    ],
+    answer: 0,
+    explanation:
+      "Milli (m) represents 10^-3, which is equal to 0.001 of the base unit."
+  },
+
+  {
+    q: "An extremely small measurement uses the prefix micro (µ). Which power of ten corresponds to micro?",
+    choices: [
+      "10^-3",
+      "10^-6",
+      "10^-9",
+      "10^6"
+    ],
+    answer: 1,
+    explanation:
+      "The prefix micro (µ) represents 10^-6, which is equal to 0.000001."
+  },
+
+  {
+    q: "An engineer needs a prefix representing 0.000000001 of a base unit. Which SI prefix from the lesson should be used?",
+    choices: [
+      "Milli (m)",
+      "Micro (µ)",
+      "Nano (n)",
+      "Kilo (k)"
+    ],
+    answer: 2,
+    explanation:
+      "Nano (n) represents 10^-9, which is equal to 0.000000001 of the base unit."
+  },
+
+  {
+    q: "Which list correctly orders the three large SI prefixes from the smallest power of ten to the largest?",
+    choices: [
+      "Giga, mega, kilo",
+      "Kilo, mega, giga",
+      "Mega, kilo, giga",
+      "Kilo, giga, mega"
+    ],
+    answer: 1,
+    explanation:
+      "Kilo = 10^3, mega = 10^6, and giga = 10^9. Therefore, the correct order from smallest to largest is kilo, mega, giga."
+  },
+
+  {
+    q: "Which list correctly orders the three small SI prefixes from the largest value to the smallest value?",
+    choices: [
+      "Nano, micro, milli",
+      "Micro, milli, nano",
+      "Milli, micro, nano",
+      "Milli, nano, micro"
+    ],
+    answer: 2,
+    explanation:
+      "Milli = 10^-3, micro = 10^-6, and nano = 10^-9. Therefore, from largest value to smallest value, the order is milli, micro, nano."
+  },
+
+  {
+    q: "A force is written as 9 kN. Using the meaning of the kilo prefix, how many newtons does this represent?",
+    choices: [
+      "90 N",
+      "900 N",
+      "9,000 N",
+      "9,000,000 N"
+    ],
+    answer: 2,
+    explanation:
+      "Kilo represents 1,000. Therefore, 9 kN = 9 × 1,000 N = 9,000 N."
+  },
+
+  {
+    q: "A component is 8 mm long. Using the meaning of the milli prefix, what is this length in meters?",
+    choices: [
+      "0.008 m",
+      "0.08 m",
+      "0.000008 m",
+      "8,000 m"
+    ],
+    answer: 0,
+    explanation:
+      "Milli represents 10^-3, or 0.001. Therefore, 8 mm = 8 × 0.001 m = 0.008 m."
+  }
+],
+
+  // GROUP 3 — Unit Conversions and Dimensional Analysis
+[
+  {
+    q: "An engineer needs to convert 4.2 km to meters. Which setup correctly uses dimensional analysis so the kilometer units cancel?",
+    choices: [
+      "4.2 km × (1 km / 1000 m)",
+      "4.2 km × (1000 m / 1 km)",
+      "4.2 km × (1000 km / 1 m)",
+      "4.2 km × (1 m / 1000 km)"
+    ],
+    answer: 1,
+    explanation:
+      "The conversion factor must place kilometers in the denominator so the km units cancel. Using 4.2 km × (1000 m / 1 km) leaves meters as the final unit."
+  },
+
+  {
+    q: "A mechanical component is 2.75 meters long. A drawing requires the length in millimeters. What value should be entered?",
+    choices: [
+      "27.5 mm",
+      "275 mm",
+      "2,750 mm",
+      "27,500 mm"
+    ],
+    answer: 2,
+    explanation:
+      "The lesson states that 1 m = 1,000 mm. Therefore, 2.75 m × (1,000 mm / 1 m) = 2,750 mm."
+  },
+
+  {
+    q: "A part is measured as 650 centimeters. Using 1 m = 100 cm, what is its length in meters?",
+    choices: [
+      "0.65 m",
+      "6.5 m",
+      "65 m",
+      "6,500 m"
+    ],
+    answer: 1,
+    explanation:
+      "Use 650 cm × (1 m / 100 cm). The centimeter units cancel, and 650 ÷ 100 = 6.5 m."
+  },
+
+  {
+    q: "A component has a mass of 3.6 kg. If the measurement must be written in grams, what is the correct value?",
+    choices: [
+      "36 g",
+      "360 g",
+      "3,600 g",
+      "36,000 g"
+    ],
+    answer: 2,
+    explanation:
+      "The lesson states that 1 kg = 1,000 g. Therefore, 3.6 kg × (1,000 g / 1 kg) = 3,600 g."
+  },
+
+  {
+    q: "A machine operates continuously for 2.5 hours. How many seconds does it operate?",
+    choices: [
+      "1,500 seconds",
+      "3,600 seconds",
+      "7,200 seconds",
+      "9,000 seconds"
+    ],
+    answer: 3,
+    explanation:
+      "The lesson states that 1 hour = 3,600 seconds. Therefore, 2.5 hours × (3,600 seconds / 1 hour) = 9,000 seconds."
+  },
+
+  {
+    q: "A force is listed as 6.4 kN. An engineering calculation requires the force in newtons. What value should be used?",
+    choices: [
+      "640 N",
+      "6,400 N",
+      "64,000 N",
+      "6,400,000 N"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson states that 1 kN = 1,000 N. Therefore, 6.4 kN × (1,000 N / 1 kN) = 6,400 N."
+  },
+
+  {
+    q: "A pressure measurement is 2.8 MPa. What is the equivalent pressure in pascals?",
+    choices: [
+      "2,800 Pa",
+      "28,000 Pa",
+      "280,000 Pa",
+      "2,800,000 Pa"
+    ],
+    answer: 3,
+    explanation:
+      "The lesson states that 1 MPa = 1,000,000 Pa. Therefore, 2.8 MPa × 1,000,000 = 2,800,000 Pa."
+  },
+
+  {
+    q: "During dimensional analysis, why are conversion factors arranged with specific units in the numerator and denominator?",
+    choices: [
+      "So unwanted units cancel and the desired unit remains",
+      "So every number becomes larger",
+      "So units can be removed from the final answer",
+      "So every conversion uses multiplication by 1,000"
+    ],
+    answer: 0,
+    explanation:
+      "Dimensional analysis arranges conversion factors so unwanted units cancel. The unit that remains should be the unit wanted for the final answer."
+  },
+
+  {
+    q: "An engineer converts 5 km to meters using 5 km × (1000 m / 1 km). After canceling the units, which unit should remain?",
+    choices: [
+      "Kilometers",
+      "Meters",
+      "Kilometers per meter",
+      "No unit"
+    ],
+    answer: 1,
+    explanation:
+      "The km in the original measurement cancels with the km in the denominator of the conversion factor. This leaves meters as the final unit."
+  },
+
+  {
+    q: "An engineer converts 7 meters to centimeters and obtains 700 cm. Which statement best explains why the result is correct?",
+    choices: [
+      "Because 1 m = 100 cm, so 7 m × (100 cm / 1 m) = 700 cm",
+      "Because 1 m = 1,000 cm, so 7 m × 1,000 = 700 cm",
+      "Because centimeters and meters have the same numerical value",
+      "Because converting to centimeters requires dividing 7 by 100"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that 1 m = 100 cm. Using 7 m × (100 cm / 1 m) cancels meters and gives 7 × 100 = 700 cm."
+  }
+],
+
+  // GROUP 4 — Scientific Notation
+[
+  {
+    q: "An engineer records a pressure of 72,000,000 Pa. Which value correctly expresses this pressure in scientific notation?",
+    choices: [
+      "7.2 × 10^7 Pa",
+      "7.2 × 10^6 Pa",
+      "72 × 10^7 Pa",
+      "7.2 × 10^-7 Pa"
+    ],
+    answer: 0,
+    explanation:
+      "Move the decimal seven places to the left to change 72,000,000 into 7.2. Therefore, the pressure is 7.2 × 10^7 Pa."
+  },
+
+  {
+    q: "A very small engineering measurement is written as 0.0000084. Which value correctly expresses this number in scientific notation?",
+    choices: [
+      "8.4 × 10^-5",
+      "8.4 × 10^-6",
+      "8.4 × 10^6",
+      "84 × 10^-6"
+    ],
+    answer: 1,
+    explanation:
+      "Move the decimal six places to the right to produce 8.4. Therefore, 0.0000084 = 8.4 × 10^-6."
+  },
+
+  {
+    q: "An engineer rewrites 5,600,000 as 5.6 × 10^6. What does the exponent 6 indicate?",
+    choices: [
+      "The original number contains six significant figures",
+      "The decimal was moved six places",
+      "The number must be multiplied by 6",
+      "The measurement has six different units"
+    ],
+    answer: 1,
+    explanation:
+      "In the scientific notation form a × 10^n, the exponent n tells how many places the decimal has moved. Here, the decimal moved six places."
+  },
+
+  {
+    q: "Which value is written in the scientific notation form described in the lesson, where the value before the power of ten is usually between 1 and 10?",
+    choices: [
+      "45 × 10^6",
+      "0.45 × 10^8",
+      "4.5 × 10^7",
+      "450 × 10^5"
+    ],
+    answer: 2,
+    explanation:
+      "The lesson states that in a × 10^n, the value a is usually between 1 and 10. Only 4.5 × 10^7 follows that form."
+  },
+
+  {
+    q: "A pressure is written as 3.2 × 10^8 Pa. What is this value when written as an ordinary number?",
+    choices: [
+      "32,000,000 Pa",
+      "320,000,000 Pa",
+      "3,200,000,000 Pa",
+      "0.000000032 Pa"
+    ],
+    answer: 1,
+    explanation:
+      "The exponent 8 means the decimal moves eight places to the right when expanding 3.2 × 10^8. This gives 320,000,000 Pa."
+  },
+
+  {
+    q: "A small measurement is written as 6.5 × 10^-4. Which ordinary decimal represents the same value?",
+    choices: [
+      "0.00065",
+      "0.0065",
+      "0.065",
+      "65,000"
+    ],
+    answer: 0,
+    explanation:
+      "A negative exponent moves the decimal to produce a small value. Moving the decimal four places to the left gives 0.00065."
+  },
+
+  {
+    q: "An engineer needs to rewrite 900,000,000 using scientific notation. Which answer correctly represents the same value?",
+    choices: [
+      "9 × 10^7",
+      "9 × 10^8",
+      "9 × 10^9",
+      "9 × 10^-8"
+    ],
+    answer: 1,
+    explanation:
+      "Move the decimal eight places to the left to produce 9. Therefore, 900,000,000 = 9 × 10^8."
+  },
+
+  {
+    q: "An engineering measurement of 0.00027 is being rewritten in scientific notation. Which answer is correct?",
+    choices: [
+      "2.7 × 10^-4",
+      "2.7 × 10^4",
+      "27 × 10^-4",
+      "2.7 × 10^-5"
+    ],
+    answer: 0,
+    explanation:
+      "Move the decimal four places to the right to produce 2.7. Therefore, 0.00027 = 2.7 × 10^-4."
+  },
+
+  {
+    q: "Why is scientific notation especially useful for engineering measurements?",
+    choices: [
+      "It allows engineers to remove units from calculations",
+      "It makes every engineering value greater than 1",
+      "It makes extremely large and extremely small quantities easier to write and work with",
+      "It eliminates the need for unit conversions"
+    ],
+    answer: 2,
+    explanation:
+      "The lesson explains that engineering quantities can range from extremely small dimensions to extremely large forces or pressures. Scientific notation makes these values easier to write and work with."
+  },
+
+  {
+    q: "An engineer changes 4,500,000 into 4.5 × 10^6. Which description correctly explains the conversion?",
+    choices: [
+      "The decimal moves six places to the left to produce 4.5, giving an exponent of 6",
+      "The decimal moves six places to the right to produce 4.5, giving an exponent of -6",
+      "The decimal moves four places to the left because the first digit is 4",
+      "The number is divided by 10 only once because 4.5 is between 1 and 10"
+    ],
+    answer: 0,
+    explanation:
+      "To rewrite 4,500,000 as a number between 1 and 10, the decimal moves six places to the left. This gives 4.5 × 10^6."
+  }
+],
+
+  // GROUP 5 — Rearranging Engineering Equations
+[
+  {
+    q: "An engineer knows the force F and mass m of an object but needs to determine its acceleration a. Starting with F = ma, which rearranged equation should be used?",
+    choices: [
+      "a = F / m",
+      "a = F × m",
+      "a = m / F",
+      "a = F + m"
+    ],
+    answer: 0,
+    explanation:
+      "Starting with F = ma, divide both sides by m to isolate acceleration. This gives a = F / m."
+  },
+
+  {
+    q: "A 96 N force acts on a 12 kg component. After rearranging F = ma to solve for acceleration, what is the acceleration?",
+    choices: [
+      "8 m/s²",
+      "12 m/s²",
+      "84 m/s²",
+      "1,152 m/s²"
+    ],
+    answer: 0,
+    explanation:
+      "First rearrange F = ma to a = F / m. Then substitute the values: a = 96 / 12 = 8 m/s²."
+  },
+
+  {
+    q: "A force of 150 N acts on a 30 kg object. Which setup correctly finds the object's acceleration?",
+    choices: [
+      "a = 150 × 30",
+      "a = 30 / 150",
+      "a = 150 / 30",
+      "a = 150 + 30"
+    ],
+    answer: 2,
+    explanation:
+      "Rearranging F = ma for acceleration gives a = F / m. Substituting the values gives a = 150 / 30 = 5 m/s²."
+  },
+
+  {
+    q: "An engineer starts with v = d / t and needs to find distance d. Which rearranged equation should be used?",
+    choices: [
+      "d = v / t",
+      "d = vt",
+      "d = t / v",
+      "d = v + t"
+    ],
+    answer: 1,
+    explanation:
+      "Starting with v = d / t, multiply both sides by t to isolate distance. This gives d = vt."
+  },
+
+  {
+    q: "A moving component travels at 14 m/s for 6 seconds. After rearranging the velocity equation to solve for distance, how far does it travel?",
+    choices: [
+      "2.3 m",
+      "20 m",
+      "84 m",
+      "140 m"
+    ],
+    answer: 2,
+    explanation:
+      "Use the rearranged equation d = vt. Substituting the values gives d = 14 × 6 = 84 m."
+  },
+
+  {
+    q: "An engineer starts with v = d / t but needs to determine time t. Which rearranged equation correctly isolates time?",
+    choices: [
+      "t = d / v",
+      "t = dv",
+      "t = v / d",
+      "t = d - v"
+    ],
+    answer: 0,
+    explanation:
+      "The velocity equation can be rearranged to solve for time as t = d / v."
+  },
+
+  {
+    q: "A machine component travels 180 meters at a velocity of 15 m/s. Using the correctly rearranged velocity equation, how long does the motion take?",
+    choices: [
+      "12 seconds",
+      "15 seconds",
+      "165 seconds",
+      "2,700 seconds"
+    ],
+    answer: 0,
+    explanation:
+      "Use t = d / v. Substituting the values gives t = 180 / 15 = 12 seconds."
+  },
+
+  {
+    q: "A student needs to solve v = d / t for distance. Which operation correctly isolates d?",
+    choices: [
+      "Multiply both sides of the equation by t",
+      "Divide both sides of the equation by t",
+      "Multiply both sides of the equation by d",
+      "Add t to both sides of the equation"
+    ],
+    answer: 0,
+    explanation:
+      "Starting with v = d / t, multiplying both sides by t cancels the division by t on the right side and produces d = vt."
+  },
+
+  {
+    q: "An engineer needs to calculate acceleration from F = ma. Why is a = F / m the correct rearrangement?",
+    choices: [
+      "Dividing both sides by m isolates a",
+      "Multiplying both sides by m isolates a",
+      "Adding m to both sides isolates a",
+      "Replacing F with m isolates a"
+    ],
+    answer: 0,
+    explanation:
+      "In F = ma, acceleration is multiplied by mass. Dividing both sides by m leaves a by itself, producing a = F / m."
+  },
+
+  {
+    q: "An engineer knows an object's distance and travel time. Which statement correctly describes how the velocity equation should be used?",
+    choices: [
+      "Use v = d / t because velocity is already isolated",
+      "Rearrange it to d = vt because distance is unknown",
+      "Rearrange it to t = d / v because time is unknown",
+      "Use F = ma because velocity is a force"
+    ],
+    answer: 0,
+    explanation:
+      "If distance and time are known and velocity is the unknown, no rearrangement is needed. The lesson gives the equation directly as v = d / t."
+  }
+],
+
+  // GROUP 6 — Velocity, Distance, and Time
+[
+  {
+    q: "An engineer observes a moving component travel 240 meters in 20 seconds. What is its velocity?",
+    choices: [
+      "12 m/s",
+      "20 m/s",
+      "220 m/s",
+      "4,800 m/s"
+    ],
+    answer: 0,
+    explanation:
+      "Use v = d / t because distance and time are known. Substituting the values gives v = 240 / 20 = 12 m/s."
+  },
+
+  {
+    q: "A test vehicle moves at 18 m/s for 5 seconds. How far does it travel during the test?",
+    choices: [
+      "3.6 m",
+      "23 m",
+      "90 m",
+      "180 m"
+    ],
+    answer: 2,
+    explanation:
+      "Use d = vt because velocity and time are known. Substituting the values gives d = 18 × 5 = 90 m."
+  },
+
+  {
+    q: "A mechanical system moves a component 360 meters at a velocity of 30 m/s. How long does the motion take?",
+    choices: [
+      "12 seconds",
+      "30 seconds",
+      "330 seconds",
+      "10,800 seconds"
+    ],
+    answer: 0,
+    explanation:
+      "Use t = d / v because distance and velocity are known. Substituting the values gives t = 360 / 30 = 12 seconds."
+  },
+
+  {
+    q: "An engineer knows that an object traveled 175 meters in 7 seconds. Which equation should be used to determine its velocity?",
+    choices: [
+      "v = d / t",
+      "d = vt",
+      "t = d / v",
+      "F = ma"
+    ],
+    answer: 0,
+    explanation:
+      "Distance and time are known while velocity is unknown, so use v = d / t."
+  },
+
+  {
+    q: "A moving part has a velocity of 16 m/s and travels for 8 seconds. Which setup correctly determines the distance traveled?",
+    choices: [
+      "d = 16 / 8",
+      "d = 8 / 16",
+      "d = 16 × 8",
+      "d = 16 + 8"
+    ],
+    answer: 2,
+    explanation:
+      "The lesson gives d = vt. Substituting the known velocity and time gives d = 16 × 8 = 128 m."
+  },
+
+  {
+    q: "A component must travel 450 meters while moving at 25 m/s. Which setup correctly determines the travel time?",
+    choices: [
+      "t = 450 × 25",
+      "t = 450 / 25",
+      "t = 25 / 450",
+      "t = 450 + 25"
+    ],
+    answer: 1,
+    explanation:
+      "Use t = d / v. Substituting the values gives t = 450 / 25 = 18 seconds."
+  },
+
+  {
+    q: "During a test, a component travels 96 meters in 8 seconds. An engineer calculates its velocity as 12 m/s. Which statement correctly explains the calculation?",
+    choices: [
+      "The engineer multiplied distance by time",
+      "The engineer divided distance by time",
+      "The engineer divided time by distance",
+      "The engineer added distance and time"
+    ],
+    answer: 1,
+    explanation:
+      "Velocity is calculated using v = d / t. Therefore, 96 m / 8 s = 12 m/s."
+  },
+
+  {
+    q: "An engineer knows the velocity and travel time of a moving object but does not know the distance. Which form of the velocity equation should be selected?",
+    choices: [
+      "v = d / t",
+      "t = d / v",
+      "d = vt",
+      "a = F / m"
+    ],
+    answer: 2,
+    explanation:
+      "When velocity and time are known and distance is unknown, use the rearranged equation d = vt."
+  },
+
+  {
+    q: "A machine moves a part 300 meters in 15 seconds. Another calculation requires the velocity. What value should the engineer use?",
+    choices: [
+      "5 m/s",
+      "20 m/s",
+      "45 m/s",
+      "4,500 m/s"
+    ],
+    answer: 1,
+    explanation:
+      "Use v = d / t. Therefore, v = 300 / 15 = 20 m/s."
+  },
+
+  {
+    q: "An engineer is given a distance of 600 meters and a velocity of 40 m/s. Which combination of equation and answer is correct?",
+    choices: [
+      "t = d / v, so t = 15 seconds",
+      "d = vt, so d = 15 meters",
+      "v = d / t, so v = 24,000 m/s",
+      "t = dv, so t = 24,000 seconds"
+    ],
+    answer: 0,
+    explanation:
+      "Distance and velocity are known, so time is found using t = d / v. Therefore, t = 600 / 40 = 15 seconds."
+  }
+],
+
+  // GROUP 7 — Basic Trigonometry
+[
+  {
+    q: "In a right triangle, an engineer knows the opposite side and the hypotenuse relative to an angle θ. Which trigonometric function uses these two sides?",
+    choices: [
+      "Sine",
+      "Cosine",
+      "Tangent",
+      "None of these"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson gives sin(θ) = opposite / hypotenuse. Therefore, sine uses the opposite side and the hypotenuse."
+  },
+
+  {
+    q: "An engineer knows the adjacent side and the hypotenuse of a right triangle relative to angle θ. Which trigonometric relationship should be used?",
+    choices: [
+      "sin(θ) = opposite / hypotenuse",
+      "cos(θ) = adjacent / hypotenuse",
+      "tan(θ) = opposite / adjacent",
+      "cos(θ) = hypotenuse / adjacent"
+    ],
+    answer: 1,
+    explanation:
+      "Cosine compares the adjacent side to the hypotenuse, so cos(θ) = adjacent / hypotenuse."
+  },
+
+  {
+    q: "An engineer needs a ratio comparing the opposite side of a right triangle to the adjacent side. Which trigonometric function should be selected?",
+    choices: [
+      "Sine",
+      "Cosine",
+      "Tangent",
+      "Force"
+    ],
+    answer: 2,
+    explanation:
+      "The lesson defines tangent as tan(θ) = opposite / adjacent."
+  },
+
+  {
+    q: "Relative to an angle θ, the opposite side of a right triangle is 6 units and the hypotenuse is 10 units. What is sin(θ)?",
+    choices: [
+      "0.4",
+      "0.6",
+      "1.67",
+      "16"
+    ],
+    answer: 1,
+    explanation:
+      "Use sin(θ) = opposite / hypotenuse. Therefore, sin(θ) = 6 / 10 = 0.6."
+  },
+
+  {
+    q: "Relative to an angle θ, the adjacent side of a right triangle is 8 units and the hypotenuse is 10 units. What is cos(θ)?",
+    choices: [
+      "0.2",
+      "0.8",
+      "1.25",
+      "18"
+    ],
+    answer: 1,
+    explanation:
+      "Use cos(θ) = adjacent / hypotenuse. Therefore, cos(θ) = 8 / 10 = 0.8."
+  },
+
+  {
+    q: "Relative to an angle θ, the opposite side of a right triangle is 6 units and the adjacent side is 8 units. What is tan(θ)?",
+    choices: [
+      "0.75",
+      "1.33",
+      "0.6",
+      "1.67"
+    ],
+    answer: 0,
+    explanation:
+      "Use tan(θ) = opposite / adjacent. Therefore, tan(θ) = 6 / 8 = 0.75."
+  },
+
+  {
+    q: "A student calculates cos(θ) by dividing the opposite side by the hypotenuse. What mistake did the student make?",
+    choices: [
+      "They used the sine relationship instead of the cosine relationship",
+      "They used the tangent relationship instead of the cosine relationship",
+      "They should have multiplied the two sides",
+      "There is no mistake because sine and cosine use the same sides"
+    ],
+    answer: 0,
+    explanation:
+      "Opposite divided by hypotenuse is the sine relationship. Cosine requires adjacent divided by hypotenuse."
+  },
+
+  {
+    q: "An engineer is deciding which trig function to use. The hypotenuse is not needed, and the engineer only needs to compare the opposite and adjacent sides. Which function should be used?",
+    choices: [
+      "Sine",
+      "Cosine",
+      "Tangent",
+      "Velocity"
+    ],
+    answer: 2,
+    explanation:
+      "Tangent uses only the opposite and adjacent sides: tan(θ) = opposite / adjacent."
+  },
+
+  {
+    q: "Which set correctly matches all three trigonometric functions with the side ratios taught in the lesson?",
+    choices: [
+      "sin = opposite/hypotenuse, cos = adjacent/hypotenuse, tan = opposite/adjacent",
+      "sin = adjacent/hypotenuse, cos = opposite/hypotenuse, tan = adjacent/opposite",
+      "sin = opposite/adjacent, cos = adjacent/opposite, tan = hypotenuse/adjacent",
+      "sin = hypotenuse/opposite, cos = hypotenuse/adjacent, tan = adjacent/opposite"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines sine as opposite/hypotenuse, cosine as adjacent/hypotenuse, and tangent as opposite/adjacent."
+  },
+
+  {
+    q: "Why is basic trigonometry useful when working with angled forces in engineering?",
+    choices: [
+      "It provides relationships that can be used when quantities act at angles",
+      "It converts every force directly into pressure",
+      "It eliminates the need to know the direction of a force",
+      "It changes all angled forces into vertical forces automatically"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson introduces trigonometry because engineering problems often involve quantities acting at angles. These trig relationships help engineers work with those angled quantities."
+  }
+],
+
+  // GROUP 8 — Force Components
+[
+  {
+    q: "A force F acts at an angle θ. Which equation from the lesson is used to calculate the horizontal force component Fx?",
+    choices: [
+      "Fx = F cos(θ)",
+      "Fx = F sin(θ)",
+      "Fx = F tan(θ)",
+      "Fx = F / cos(θ)"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson gives the horizontal force component equation as Fx = F cos(θ)."
+  },
+
+  {
+    q: "A force F acts at an angle θ. Which equation from the lesson is used to calculate the vertical force component Fy?",
+    choices: [
+      "Fy = F cos(θ)",
+      "Fy = F sin(θ)",
+      "Fy = F tan(θ)",
+      "Fy = F / sin(θ)"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson gives the vertical force component equation as Fy = F sin(θ)."
+  },
+
+  {
+    q: "An engineer is resolving a 100 N force acting at 30° into horizontal and vertical components. Which setup correctly calculates the horizontal component?",
+    choices: [
+      "Fx = 100 cos(30°)",
+      "Fx = 100 sin(30°)",
+      "Fx = 100 tan(30°)",
+      "Fx = 100 / sin(30°)"
+    ],
+    answer: 0,
+    explanation:
+      "The horizontal component is calculated using Fx = F cos(θ). Therefore, the correct setup is Fx = 100 cos(30°)."
+  },
+
+  {
+    q: "A 100 N force acts at 30°. Using the example from the lesson, what is its horizontal force component?",
+    choices: [
+      "50 N",
+      "86.6 N",
+      "100 N",
+      "30 N"
+    ],
+    answer: 1,
+    explanation:
+      "Use Fx = F cos(θ). The lesson's example shows that Fx = 100 cos(30°) ≈ 86.6 N."
+  },
+
+  {
+    q: "A 100 N force acts at 30°. Using the example from the lesson, what is its vertical force component?",
+    choices: [
+      "30 N",
+      "50 N",
+      "86.6 N",
+      "100 N"
+    ],
+    answer: 1,
+    explanation:
+      "Use Fy = F sin(θ). The lesson's example shows that Fy = 100 sin(30°) = 50 N."
+  },
+
+  {
+    q: "An engineer calculates Fx = 100 sin(30°) for the horizontal component of a 100 N force at 30°. What mistake was made?",
+    choices: [
+      "Sine was used instead of cosine for the horizontal component",
+      "Cosine was used instead of sine for the horizontal component",
+      "The force should have been divided by the angle",
+      "There is no mistake"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines the horizontal component as Fx = F cos(θ). Using F sin(θ) calculates the vertical component instead."
+  },
+
+  {
+    q: "An engineer calculates Fy = 100 cos(30°) for the vertical component of a 100 N force at 30°. Which equation should have been used instead?",
+    choices: [
+      "Fy = 100 sin(30°)",
+      "Fy = 100 tan(30°)",
+      "Fy = 100 / cos(30°)",
+      "Fy = 30 sin(100°)"
+    ],
+    answer: 0,
+    explanation:
+      "The vertical force component uses Fy = F sin(θ). Therefore, the correct setup is Fy = 100 sin(30°)."
+  },
+
+  {
+    q: "For the lesson's 100 N force at 30° example, which pair correctly gives the horizontal and vertical components?",
+    choices: [
+      "Fx ≈ 86.6 N and Fy = 50 N",
+      "Fx = 50 N and Fy ≈ 86.6 N",
+      "Fx = 100 N and Fy = 30 N",
+      "Fx = 30 N and Fy = 100 N"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson's example gives Fx = 100 cos(30°) ≈ 86.6 N and Fy = 100 sin(30°) = 50 N."
+  },
+
+  {
+    q: "An angled force needs to be separated into horizontal and vertical parts. Which statement correctly matches each component with its equation?",
+    choices: [
+      "Horizontal: Fx = F cos(θ); Vertical: Fy = F sin(θ)",
+      "Horizontal: Fx = F sin(θ); Vertical: Fy = F cos(θ)",
+      "Horizontal: Fx = F tan(θ); Vertical: Fy = F cos(θ)",
+      "Horizontal: Fx = F / cos(θ); Vertical: Fy = F / sin(θ)"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines the horizontal component using cosine and the vertical component using sine: Fx = F cos(θ) and Fy = F sin(θ)."
+  },
+
+  {
+    q: "Why would an engineer resolve a force acting at an angle into Fx and Fy?",
+    choices: [
+      "To represent the angled force using horizontal and vertical components",
+      "To change the force into a mass",
+      "To remove the force's units",
+      "To convert the force from newtons into meters"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson shows that a force acting at an angle can be separated into horizontal and vertical components using Fx = F cos(θ) and Fy = F sin(θ)."
+  }
+],
+
+  // GROUP 9 — Order of Operations and Checking Units
+[
+  {
+    q: "An engineer is evaluating an equation containing parentheses, exponents, multiplication, and addition. According to the lesson, which operation should be handled first?",
+    choices: [
+      "Addition",
+      "Multiplication",
+      "Parentheses",
+      "Exponents"
+    ],
+    answer: 2,
+    explanation:
+      "The lesson gives the order of operations as parentheses, exponents, multiplication and division, then addition and subtraction. Therefore, parentheses are handled first."
+  },
+
+  {
+    q: "After completing any operations inside parentheses, which type of operation should be handled next according to the lesson?",
+    choices: [
+      "Addition",
+      "Exponents",
+      "Subtraction",
+      "Multiplication only"
+    ],
+    answer: 1,
+    explanation:
+      "After parentheses, the lesson says to evaluate exponents before multiplication, division, addition, or subtraction."
+  },
+
+  {
+    q: "An engineer needs to evaluate 6 + 4 × 3. Using the correct order of operations, what is the result?",
+    choices: [
+      "30",
+      "18",
+      "24",
+      "42"
+    ],
+    answer: 1,
+    explanation:
+      "Multiplication is completed before addition. First calculate 4 × 3 = 12, then calculate 6 + 12 = 18."
+  },
+
+  {
+    q: "An engineer evaluates (5 + 3) × 4. What is the correct result using the order of operations?",
+    choices: [
+      "17",
+      "23",
+      "32",
+      "60"
+    ],
+    answer: 2,
+    explanation:
+      "Complete the parentheses first: 5 + 3 = 8. Then multiply 8 × 4 = 32."
+  },
+
+  {
+    q: "Which sequence correctly lists the order of operations taught in the lesson?",
+    choices: [
+      "Addition/Subtraction, Multiplication/Division, Exponents, Parentheses",
+      "Parentheses, Exponents, Multiplication/Division, Addition/Subtraction",
+      "Exponents, Parentheses, Addition/Subtraction, Multiplication/Division",
+      "Multiplication/Division, Parentheses, Exponents, Addition/Subtraction"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson gives the order as parentheses, exponents, multiplication and division, then addition and subtraction."
+  },
+
+  {
+    q: "An engineer checks the units of F = ma. If mass is measured in kilograms and acceleration is measured in meters per second squared, which units result from multiplying them?",
+    choices: [
+      "kg·m/s²",
+      "kg/s",
+      "m/s",
+      "kg·m"
+    ],
+    answer: 0,
+    explanation:
+      "Mass has units of kg and acceleration has units of m/s². Multiplying them gives kg·m/s²."
+  },
+
+  {
+    q: "The units from a force calculation simplify to kg·m/s². According to the lesson, which engineering unit is equivalent to this?",
+    choices: [
+      "1 Pa",
+      "1 J",
+      "1 N",
+      "1 W"
+    ],
+    answer: 2,
+    explanation:
+      "The lesson shows that 1 newton is equal to 1 kg·m/s². Therefore, kg·m/s² is the correct unit for force."
+  },
+
+  {
+    q: "An engineer uses F = ma and obtains an answer with units of kg·m/s². Why does this unit check support the calculation?",
+    choices: [
+      "kg·m/s² is equivalent to a newton, which is the expected unit of force",
+      "kg·m/s² is equivalent to a meter, which is the expected unit of force",
+      "Every engineering equation must produce kg·m/s²",
+      "The units can always be ignored after completing a calculation"
+    ],
+    answer: 0,
+    explanation:
+      "The expected result of F = ma is force, which is measured in newtons. Since 1 N = 1 kg·m/s², the units are consistent with the quantity being calculated."
+  },
+
+  {
+    q: "An engineer completes a calculation but the final units do not match the type of quantity the equation is supposed to produce. What should this suggest?",
+    choices: [
+      "The calculation may contain an error and should be checked",
+      "The units should simply be removed",
+      "The numerical answer must still be correct",
+      "All engineering quantities can use different units interchangeably"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that mismatched units can signal an error. Checking units helps determine whether a calculation is physically meaningful."
+  },
+
+  {
+    q: "Why is checking units useful after completing an engineering calculation?",
+    choices: [
+      "It can help confirm that the result is physically meaningful and identify possible errors",
+      "It guarantees that every measured value is perfectly accurate",
+      "It replaces the need to perform the numerical calculation",
+      "It changes every final answer into newtons"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that dimensional analysis can be used to check equations and that mismatched units can signal an error. This helps engineers determine whether a result makes physical sense."
+  }
+],
+
+  // GROUP 10 — Significant Figures and Engineering Applications
+[
+  {
+    q: "An engineering measurement is recorded as 5.2. According to the lesson, how many significant figures does this value contain?",
+    choices: [
+      "1 significant figure",
+      "2 significant figures",
+      "3 significant figures",
+      "4 significant figures"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson specifically gives 5.2 as an example of a value with two significant figures."
+  },
+
+  {
+    q: "Two measurements are written as 5.2 and 5.20. According to the lesson, what is the difference in the number of significant figures?",
+    choices: [
+      "5.2 has two significant figures while 5.20 has three",
+      "5.2 has three significant figures while 5.20 has two",
+      "Both values have two significant figures",
+      "Both values have three significant figures"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that 5.2 has two significant figures while 5.20 has three. The way a measurement is recorded can communicate its precision."
+  },
+
+  {
+    q: "A small engineering measurement is recorded as 0.00520. How many significant figures does the lesson identify in this value?",
+    choices: [
+      "2 significant figures",
+      "3 significant figures",
+      "4 significant figures",
+      "5 significant figures"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson specifically identifies 0.00520 as having three significant figures."
+  },
+
+  {
+    q: "What do significant figures help communicate about an engineering measurement?",
+    choices: [
+      "The precision of the measurement",
+      "The type of SI unit being used",
+      "The equation required for every calculation",
+      "Whether the measurement represents force"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that significant figures indicate the precision of a measurement."
+  },
+
+  {
+    q: "Why should an engineer avoid reporting a calculated result with more precision than the original measurements support?",
+    choices: [
+      "It could make the result appear more precise than the measurements actually justify",
+      "Every engineering answer must contain exactly two significant figures",
+      "Additional digits automatically change the units",
+      "More precise-looking answers are always numerically smaller"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that engineers should avoid reporting more precision than the original measurements support. Extra digits can suggest a level of precision that was not actually measured."
+  },
+
+  {
+    q: "A student says that 5.2 and 5.20 must communicate exactly the same precision because they have the same numerical value. Based on the lesson, what is the best response?",
+    choices: [
+      "The student is correct because zeros never matter",
+      "The student is incorrect because 5.2 has two significant figures while 5.20 has three",
+      "The student is incorrect because 5.2 has more significant figures than 5.20",
+      "The student is correct because engineering measurements do not use significant figures"
+    ],
+    answer: 1,
+    explanation:
+      "Although 5.2 and 5.20 have the same numerical value, the lesson identifies 5.2 as having two significant figures and 5.20 as having three, so they can communicate different precision."
+  },
+
+  {
+    q: "An engineer checks the units throughout a calculation instead of working with numbers alone. According to the lesson, why is this useful?",
+    choices: [
+      "It helps determine whether calculations are physically meaningful and can help identify errors",
+      "It guarantees that every measurement has unlimited precision",
+      "It removes the need to use formulas",
+      "It automatically converts every quantity into newtons"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that keeping track of units helps engineers make sure calculations are physically meaningful and can help prevent or identify errors."
+  },
+
+  {
+    q: "An engineering problem contains an extremely large pressure value that is difficult to write repeatedly. Which skill from the lesson is especially useful for representing the value more conveniently?",
+    choices: [
+      "Scientific notation",
+      "Removing the units",
+      "Changing the pressure into a force",
+      "Ignoring the numerical value"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that scientific notation is useful because engineering quantities can be extremely large or extremely small."
+  },
+
+  {
+    q: "An engineer is working with a force that acts at an angle. Which mathematical skill from the lesson helps work with the horizontal and vertical parts of that force?",
+    choices: [
+      "Basic trigonometry",
+      "Significant figures only",
+      "Scientific notation only",
+      "Unit prefixes only"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains basic trigonometry and then applies sine and cosine to horizontal and vertical force components."
+  },
+
+  {
+    q: "Why are the unit, conversion, equation, and math skills in this course important before studying topics such as statics, dynamics, strength of materials, and thermodynamics?",
+    choices: [
+      "They provide foundational skills used when solving and communicating engineering problems in those subjects",
+      "They eliminate the need to learn any additional engineering concepts",
+      "They are used only for converting meters into centimeters",
+      "They make every engineering problem use the same equation"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that these skills support later engineering subjects including statics, dynamics, strength of materials, and thermodynamics."
+  }
+]
+
+];
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const randomIndex = Math.floor(Math.random() * (i + 1));
@@ -2127,8 +3479,24 @@ function shuffleArray(array) {
   return array;
 }
 
-function shuffleQuestions() {
-  allQuestions = quizQuestions.map(question => {
+function buildShortQuiz() {
+  const selectedQuestions = [];
+
+  shortQuizGroups.forEach(group => {
+
+    const randomIndex =
+      Math.floor(Math.random() * group.length);
+
+    selectedQuestions.push(group[randomIndex]);
+
+  });
+
+  return selectedQuestions;
+}
+
+function shuffleQuestions(questionBank) {
+
+  allQuestions = questionBank.map(question => {
 
     // Connect each choice to whether it is the correct answer.
     const shuffledChoices = question.choices.map((choice, index) => {
@@ -2152,23 +3520,70 @@ function shuffleQuestions() {
         choice => choice.isCorrect
       )
     };
+
   });
 
   // Randomize the order of the questions too.
   shuffleArray(allQuestions);
 }
 
-function openRandomQuizSet() {
+function hideQuizStartButtons() {
+
+  document
+    .querySelectorAll("#quiz .quiz-start-btn")
+    .forEach(btn => {
+      btn.style.display = "none";
+    });
+
+}
+
+
+function openFullQuiz() {
+
   const panel = document.getElementById("quiz-panel");
-  const randomBtn = document.querySelector(".quiz-btn");
 
   panel.classList.add("open");
-  randomBtn.style.display = "none";
 
-  shuffleQuestions();
+  hideQuizStartButtons();
+
+  currentQuizMode = "full";
+
+  shuffleQuestions(quizQuestions);
+
   currentQuestionIndex = 0;
   answeredQuestions = {};
+
   loadQuestion();
+}
+
+function openShortQuiz() {
+
+  const panel = document.getElementById("quiz-panel");
+
+  panel.classList.add("open");
+
+  hideQuizStartButtons();
+
+  currentQuizMode = "short";
+
+  const shortQuizQuestions = buildShortQuiz();
+
+  shuffleQuestions(shortQuizQuestions);
+
+  currentQuestionIndex = 0;
+  answeredQuestions = {};
+
+  loadQuestion();
+}
+
+function restartCurrentQuiz() {
+
+  if (currentQuizMode === "short") {
+    openShortQuiz();
+  } else {
+    openFullQuiz();
+  }
+
 }
 
 function loadQuestion() {
@@ -2395,9 +3810,9 @@ function submitQuiz() {
     <p><strong>Wrong:</strong> ${wrong}</p>
     <p><strong>Score:</strong> ${percent}%</p>
 
-    <button onclick="openRandomQuizSet()" class="quiz-btn">
-      Restart Quiz
-    </button>
+    <button onclick="restartCurrentQuiz()" class="quiz-btn">
+  Restart Quiz
+</button>
   </div>
 `;
 }
