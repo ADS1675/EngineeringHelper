@@ -974,9 +974,21 @@ accelerate, stop, and respond to forces.
    <div id="quiz" class="tab-content" style="display:none;">
   <h2>dynamics Quiz</h2>
 
-  <button type="button" onclick="openRandomQuizSet()" class="quiz-btn">
-    Random Quiz
-  </button>
+  <button
+      type="button"
+      onclick="openFullQuiz()"
+      class="quiz-btn quiz-start-btn"
+    >
+      Randomized 100-Question Quiz
+    </button>
+
+    <button
+      type="button"
+      onclick="openShortQuiz()"
+      class="quiz-btn quiz-start-btn"
+    >
+      Randomized 10-Question Quiz
+    </button>
 
   <p class="quiz-warning">
     Warning: Once you select an answer, click the "Check Answer" button to lock in your response.
@@ -1200,18 +1212,40 @@ accelerate, stop, and respond to forces.
   <!-- JAVASCRIPT -->
   <script>
 function showSection(id, button) {
-  document.querySelectorAll(".tab-content").forEach(section => {
-    section.style.display = "none";
+  const section = document.getElementById(id);
+  const isOpen = section.style.display === "block";
+
+  // Hide all tab sections
+  document.querySelectorAll(".tab-content").forEach(s => {
+    s.style.display = "none";
   });
 
+  // Remove active class from tab buttons
   document.querySelectorAll(".tabs button").forEach(btn => {
     btn.classList.remove("active");
   });
 
-  const selectedSection = document.getElementById(id);
+  // Reset quiz when changing tabs
+  const quizPanel = document.getElementById("quiz-panel");
+  const quizContainer = document.getElementById("quiz-container");
+  const quizStartButtons =
+  document.querySelectorAll("#quiz .quiz-start-btn");
 
-  if (selectedSection) {
-    selectedSection.style.display = "block";
+  if (quizPanel) {
+    quizPanel.classList.remove("open");
+  }
+
+  if (quizContainer) {
+    quizContainer.innerHTML = "";
+  }
+
+  quizStartButtons.forEach(btn => {
+  btn.style.display = "inline-block";
+});
+
+  // Open clicked tab if it was closed
+  if (!isOpen) {
+    section.style.display = "block";
     button.classList.add("active");
   }
 }
@@ -1221,6 +1255,7 @@ function showSection(id, button) {
 let currentQuestionIndex = 0;
 let allQuestions = [];
 let answeredQuestions = {};
+let currentQuizMode = "";
 
 const quizQuestions = [
   {
@@ -1924,6 +1959,1340 @@ const quizQuestions = [
 },
 ];
 
+const shortQuizGroups = [
+
+  // GROUP 1 — Dynamics Fundamentals, Newton's First Law & Inertia
+[
+  {
+    q: "Which statement best describes what dynamics studies according to the lesson?",
+    choices: [
+      "How forces affect motion",
+      "Only objects whose forces are perfectly balanced",
+      "Only the geometry of stationary structures",
+      "How temperature changes inside mechanical systems"
+    ],
+    answer: 0,
+    explanation:
+      "Dynamics is the branch of mechanics that studies how forces affect motion. It focuses on situations involving motion and acceleration."
+  },
+
+  {
+    q: "A mechanical system has unbalanced forces acting on it and begins to accelerate. Why would this situation be studied using dynamics rather than statics?",
+    choices: [
+      "Dynamics focuses on situations where unbalanced forces cause acceleration",
+      "Statics only studies objects moving at constant acceleration",
+      "Dynamics is used only when no forces are present",
+      "Statics and dynamics study exactly the same conditions"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that statics deals with balanced forces and zero acceleration, while dynamics focuses on situations where forces are unbalanced and cause acceleration."
+  },
+
+  {
+    q: "How does the lesson describe the relationship between statics, kinematics, and dynamics?",
+    choices: [
+      "Dynamics combines ideas about forces from statics with ideas about motion from kinematics",
+      "Dynamics replaces both statics and kinematics because forces and motion are unrelated",
+      "Statics explains motion while kinematics explains forces",
+      "Kinematics and statics are used only when an object has no mass"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that statics teaches about forces, kinematics teaches about motion, and dynamics combines these ideas to explain how forces create motion."
+  },
+
+  {
+    q: "A hockey puck is moving across a surface. According to Newton's First Law, what would happen if no unbalanced force acted on the puck?",
+    choices: [
+      "It would continue moving at a constant velocity",
+      "It would immediately stop moving",
+      "It would continuously increase its speed",
+      "It would automatically reverse direction"
+    ],
+    answer: 0,
+    explanation:
+      "Newton's First Law states that an object remains at rest or continues moving at a constant velocity unless an unbalanced force acts on it."
+  },
+
+  {
+    q: "A book is resting on a table. Based on Newton's First Law, what must happen for its motion to change?",
+    choices: [
+      "An unbalanced force must act on it",
+      "Its mass must become zero",
+      "Its inertia must disappear",
+      "It must already be accelerating"
+    ],
+    answer: 0,
+    explanation:
+      "Newton's First Law states that an object at rest remains at rest unless acted upon by an unbalanced force."
+  },
+
+  {
+    q: "A car is traveling at a constant velocity when the driver applies the brakes. Which idea from Newton's First Law best explains why a force is required to change the car's motion?",
+    choices: [
+      "The car tends to continue its existing motion unless an unbalanced force acts on it",
+      "Every moving object naturally increases its velocity",
+      "An object can change its motion only if its mass increases",
+      "Constant velocity means the car has no inertia"
+    ],
+    answer: 0,
+    explanation:
+      "Newton's First Law states that an object continues moving at a constant velocity unless an unbalanced force acts on it. The braking force changes the car's motion."
+  },
+
+  {
+    q: "A loaded truck and an empty cart are both initially at rest. Which one has greater inertia, and why?",
+    choices: [
+      "The loaded truck, because greater mass means greater inertia",
+      "The empty cart, because lower mass means greater inertia",
+      "They have equal inertia because both are at rest",
+      "Neither has inertia until it begins moving"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that the greater the mass of an object, the greater its inertia. Therefore, the loaded truck has greater inertia even while it is at rest."
+  },
+
+  {
+    q: "Two objects are moving, but Object A has considerably more mass than Object B. Based only on the lesson's explanation of inertia, which object generally requires more force to start, stop, or change direction?",
+    choices: [
+      "Object A",
+      "Object B",
+      "Both always require exactly the same force",
+      "Neither, because inertia applies only to stationary objects"
+    ],
+    answer: 0,
+    explanation:
+      "Greater mass means greater inertia. The lesson explains that heavier objects require more force to start moving, stop moving, or change direction."
+  },
+
+  {
+    q: "A passenger moves forward when a car suddenly brakes. Which concept from the lesson best explains the passenger's tendency to continue moving forward?",
+    choices: [
+      "Inertia",
+      "Friction coefficient",
+      "Centripetal acceleration",
+      "Work"
+    ],
+    answer: 0,
+    explanation:
+      "Inertia is an object's tendency to resist changes in motion. The lesson specifically gives a passenger lurching forward when a car suddenly brakes as an example of inertia."
+  },
+
+  {
+    q: "An engineer is comparing two machine components that must repeatedly start and stop. Component A has substantially more mass than Component B. Based on the lesson, which conclusion about their inertia is correct?",
+    choices: [
+      "Component A has greater inertia and therefore resists changes in motion more strongly",
+      "Component B has greater inertia because lighter objects resist motion changes more strongly",
+      "Both have the same inertia because inertia does not depend on mass",
+      "Neither component has inertia while it is moving"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that inertia is an object's tendency to resist changes in motion and that greater mass produces greater inertia. Component A therefore has greater inertia."
+  }
+],
+
+  // GROUP 2 — Newton's Second Law
+[
+  {
+    q: "A 10 kg object experiences a net force of 50 N. Using Newton's Second Law, what acceleration does the object experience?",
+    choices: [
+      "0.2 m/s²",
+      "5 m/s²",
+      "50 m/s²",
+      "500 m/s²"
+    ],
+    answer: 1,
+    explanation:
+      "Use F = ma and rearrange to a = F / m. Therefore, a = 50 N / 10 kg = 5 m/s²."
+  },
+
+  {
+    q: "An engineer needs a 6 kg component to accelerate at 4 m/s². What net force must act on the component?",
+    choices: [
+      "1.5 N",
+      "10 N",
+      "24 N",
+      "40 N"
+    ],
+    answer: 2,
+    explanation:
+      "Use F = ma. Therefore, F = 6 kg × 4 m/s² = 24 N."
+  },
+
+  {
+    q: "A machine applies a net force of 120 N to an object and produces an acceleration of 6 m/s². What is the object's mass?",
+    choices: [
+      "20 kg",
+      "114 kg",
+      "126 kg",
+      "720 kg"
+    ],
+    answer: 0,
+    explanation:
+      "Rearrange F = ma to m = F / a. Therefore, m = 120 N / 6 m/s² = 20 kg."
+  },
+
+  {
+    q: "Two objects have the same mass. Object A experiences a net force of 40 N while Object B experiences a net force of 80 N. According to Newton's Second Law, how does Object B's acceleration compare with Object A's?",
+    choices: [
+      "Object B has twice the acceleration",
+      "Object B has half the acceleration",
+      "Both have the same acceleration",
+      "Object B has four times the acceleration"
+    ],
+    answer: 0,
+    explanation:
+      "For the same mass, a = F / m. Doubling the net force from 40 N to 80 N therefore doubles the acceleration."
+  },
+
+  {
+    q: "Two objects experience the same net force. Object A has a mass of 5 kg while Object B has a mass of 10 kg. How does Object B's acceleration compare with Object A's?",
+    choices: [
+      "Object B has twice the acceleration",
+      "Object B has half the acceleration",
+      "Both have the same acceleration",
+      "Object B has four times the acceleration"
+    ],
+    answer: 1,
+    explanation:
+      "Acceleration is a = F / m. With the same net force, doubling the mass from 5 kg to 10 kg reduces the acceleration by half."
+  },
+
+  {
+    q: "An empty cart and a fully loaded cart experience the same net force. Which cart should accelerate more according to Newton's Second Law?",
+    choices: [
+      "The empty cart, because its smaller mass produces greater acceleration for the same force",
+      "The loaded cart, because greater mass always produces greater acceleration",
+      "Both carts, because acceleration does not depend on mass",
+      "Neither cart, because a net force cannot cause acceleration"
+    ],
+    answer: 0,
+    explanation:
+      "Newton's Second Law shows that a = F / m. For the same force, the object with less mass has greater acceleration. This agrees with the shopping-cart and loaded-truck comparison in the lesson."
+  },
+
+  {
+    q: "A 15 kg component accelerates at 3 m/s². The engineer wants to double its acceleration without changing its mass. What net force should be applied?",
+    choices: [
+      "22.5 N",
+      "45 N",
+      "90 N",
+      "180 N"
+    ],
+    answer: 2,
+    explanation:
+      "Doubling the acceleration from 3 m/s² to 6 m/s² while keeping the mass at 15 kg gives F = ma = 15 × 6 = 90 N."
+  },
+
+  {
+    q: "A 200 N net force accelerates a 40 kg object. If the mass increases to 80 kg while the net force remains 200 N, what happens to the acceleration?",
+    choices: [
+      "It decreases from 5 m/s² to 2.5 m/s²",
+      "It increases from 5 m/s² to 10 m/s²",
+      "It remains at 5 m/s²",
+      "It decreases from 5 m/s² to 0 m/s²"
+    ],
+    answer: 0,
+    explanation:
+      "Initially, a = 200 / 40 = 5 m/s². After the mass increases, a = 200 / 80 = 2.5 m/s². Doubling the mass while keeping force constant cuts the acceleration in half."
+  },
+
+  {
+    q: "An engineer calculates that a 25 kg machine component must accelerate at 8 m/s². Which setup correctly determines the required net force?",
+    choices: [
+      "F = 25 × 8",
+      "F = 25 / 8",
+      "F = 8 / 25",
+      "F = 25 + 8"
+    ],
+    answer: 0,
+    explanation:
+      "Newton's Second Law is F = ma. Therefore, the correct setup is F = 25 kg × 8 m/s², which would produce a net force of 200 N."
+  },
+
+  {
+    q: "A motor can provide the same net force to two different machine components. Component A has less mass than Component B. Which prediction best follows Newton's Second Law?",
+    choices: [
+      "Component A will have greater acceleration because the same force acts on less mass",
+      "Component B will have greater acceleration because greater mass increases acceleration",
+      "Both components will have the same acceleration because the force is equal",
+      "Neither component can accelerate unless their masses are equal"
+    ],
+    answer: 0,
+    explanation:
+      "From F = ma, acceleration can be written as a = F / m. If the applied net force is the same, the component with less mass experiences greater acceleration."
+  }
+],
+
+  // GROUP 3 — Newton's Third Law & Action-Reaction Forces
+[
+  {
+    q: "Which statement correctly describes Newton's Third Law as taught in the lesson?",
+    choices: [
+      "For every action, there is an equal and opposite reaction",
+      "An object remains at rest unless its mass changes",
+      "Acceleration always increases when mass increases",
+      "All forces acting on an object must be equal"
+    ],
+    answer: 0,
+    explanation:
+      "Newton's Third Law states that for every action, there is an equal and opposite reaction."
+  },
+
+  {
+    q: "Object A exerts a force on Object B. According to Newton's Third Law, what must Object B do?",
+    choices: [
+      "Exert an equal force back on Object A",
+      "Exert no force because Object A acted first",
+      "Exert a smaller force in the same direction",
+      "Accelerate without exerting any force"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that whenever one object exerts a force on another object, the second object exerts an equal force back."
+  },
+
+  {
+    q: "A swimmer pushes water backward while swimming. According to Newton's Third Law, which reaction helps the swimmer move forward?",
+    choices: [
+      "The water exerts a force on the swimmer in the opposite direction",
+      "The water stops exerting forces once the swimmer begins moving",
+      "The swimmer's mass creates a force with no reaction",
+      "The water exerts a force backward in the same direction as the swimmer's push"
+    ],
+    answer: 0,
+    explanation:
+      "The swimmer pushes the water backward, and the water exerts an equal force back in the opposite direction. The lesson uses this as an example of Newton's Third Law."
+  },
+
+  {
+    q: "A rocket engine pushes exhaust downward. Based on Newton's Third Law, what reaction occurs?",
+    choices: [
+      "The exhaust exerts an equal force that helps push the rocket upward",
+      "The rocket must also move downward because both forces have the same direction",
+      "The exhaust produces no reaction force after leaving the rocket",
+      "The rocket remains motionless because equal forces always cancel"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson gives a rocket as an example of Newton's Third Law. The engine pushes exhaust downward while the reaction force acts in the opposite direction on the rocket."
+  },
+
+  {
+    q: "A person walks forward by pushing backward against the ground. Which explanation best matches Newton's Third Law?",
+    choices: [
+      "The person pushes backward on the ground, and the ground exerts an equal force back",
+      "The person moves forward because the ground stops exerting forces",
+      "The person's forward force is always greater than the force involving the ground",
+      "Walking does not involve an action-reaction force pair"
+    ],
+    answer: 0,
+    explanation:
+      "Walking is one of the examples in the lesson. The person pushes backward on the ground, and the ground exerts an equal force back."
+  },
+
+  {
+    q: "An engineer observes that Object A pushes Object B with a force of 200 N. Based on Newton's Third Law, what can be concluded about the force Object B exerts back on Object A?",
+    choices: [
+      "It has an equal magnitude of 200 N and acts oppositely",
+      "It must have a magnitude greater than 200 N",
+      "It must have a magnitude less than 200 N",
+      "Object B cannot exert a force because Object A produced the original force"
+    ],
+    answer: 0,
+    explanation:
+      "Newton's Third Law requires the reaction force to be equal and opposite. If Object A exerts 200 N on Object B, Object B exerts an equal 200 N force back in the opposite direction."
+  },
+
+  {
+    q: "A student says that an action force must be stronger than its reaction force because the action happens first. What is wrong with this reasoning?",
+    choices: [
+      "Newton's Third Law states that the forces are equal and opposite",
+      "Reaction forces are always twice as large as action forces",
+      "Only the reaction force has a direction",
+      "Action-reaction forces occur only when objects are motionless"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that for every action there is an equal and opposite reaction. The reaction is not described as weaker than the action."
+  },
+
+  {
+    q: "A machine component pushes against another component during operation. Which observation would be consistent with Newton's Third Law?",
+    choices: [
+      "The second component exerts an equal force back on the first component",
+      "Only the first component can exert a force because it initiated the interaction",
+      "The second component exerts a reaction only if both components have equal mass",
+      "The reaction force must act in the same direction as the original force"
+    ],
+    answer: 0,
+    explanation:
+      "Whenever one object exerts a force on another, the second object exerts an equal force back. This applies to interacting machine components as well."
+  },
+
+  {
+    q: "Two interacting objects exert equal and opposite forces on each other. Why does this not automatically mean that neither object can move?",
+    choices: [
+      "The two forces act on different objects",
+      "One of the two forces is not actually a force",
+      "Equal forces can only exist when both objects are stationary",
+      "Newton's Third Law applies only when acceleration is zero"
+    ],
+    answer: 0,
+    explanation:
+      "The action and reaction describe the forces the two objects exert on each other. Each force acts on a different object, so the pair should not be treated as two forces canceling on one object."
+  },
+
+  {
+    q: "An engineer identifies a force that one component exerts on a second component. Which question would best help identify the corresponding Newton's Third Law reaction?",
+    choices: [
+      "What force does the second component exert back on the first?",
+      "What is the total mass of both components?",
+      "What is the temperature of the first component?",
+      "How far has the first component traveled?"
+    ],
+    answer: 0,
+    explanation:
+      "Newton's Third Law concerns the forces two interacting objects exert on each other. If the first component exerts a force on the second, the reaction is the force the second component exerts back on the first."
+  }
+],
+
+  // GROUP 4 — Net Force & Equilibrium
+[
+  {
+    q: "A machine component experiences a 70 N force to the right and a 25 N force to the left. What is the net force acting on the component?",
+    choices: [
+      "45 N to the right",
+      "45 N to the left",
+      "95 N to the right",
+      "0 N"
+    ],
+    answer: 0,
+    explanation:
+      "The forces act in opposite directions, so subtract their magnitudes. The net force is 70 N − 25 N = 45 N to the right."
+  },
+
+  {
+    q: "An object experiences a 120 N force to the right and a 120 N force to the left. What is the net force?",
+    choices: [
+      "0 N",
+      "120 N to the right",
+      "120 N to the left",
+      "240 N"
+    ],
+    answer: 0,
+    explanation:
+      "The two forces have equal magnitudes and opposite directions, so they cancel. The net force is 120 N − 120 N = 0 N."
+  },
+
+  {
+    q: "An engineer determines that the net force acting on a mechanical component is zero. What does the lesson say about the component's acceleration?",
+    choices: [
+      "Its acceleration is zero",
+      "Its acceleration must increase",
+      "Its acceleration must decrease",
+      "Its acceleration must equal its mass"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that when the net force equals zero, no acceleration occurs and the object remains in equilibrium."
+  },
+
+  {
+    q: "A moving object has a net force of zero. Which statement is most consistent with the lesson and Newton's First Law?",
+    choices: [
+      "It can continue moving at a constant velocity",
+      "It must immediately stop",
+      "It must continuously speed up",
+      "It must change direction"
+    ],
+    answer: 0,
+    explanation:
+      "A zero net force means there is no acceleration. Newton's First Law states that an object can continue moving at a constant velocity unless acted upon by an unbalanced force."
+  },
+
+  {
+    q: "Three horizontal forces act on a component: 90 N to the right, 30 N to the left, and 20 N to the left. What is the resulting net force?",
+    choices: [
+      "40 N to the right",
+      "40 N to the left",
+      "100 N to the right",
+      "140 N to the right"
+    ],
+    answer: 0,
+    explanation:
+      "The total leftward force is 30 N + 20 N = 50 N. The net force is therefore 90 N − 50 N = 40 N to the right."
+  },
+
+  {
+    q: "An engineer calculates a nonzero net force acting on an object. Based on the lesson, what should the engineer expect?",
+    choices: [
+      "The object accelerates",
+      "The object must remain in equilibrium",
+      "The object's acceleration must be zero",
+      "All forces acting on the object disappear"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that if the net force does not equal zero, the object accelerates."
+  },
+
+  {
+    q: "A component experiences 200 N to the right. What leftward force would be required to produce a net force of zero?",
+    choices: [
+      "100 N",
+      "200 N",
+      "300 N",
+      "400 N"
+    ],
+    answer: 1,
+    explanation:
+      "To produce zero net force, the opposing forces must balance. A 200 N force to the left balances the 200 N force to the right, giving a net force of 0 N."
+  },
+
+  {
+    q: "A machine experiences 150 N to the right and 90 N to the left. An additional force is then applied to the left until the machine reaches equilibrium. How large must this additional force be?",
+    choices: [
+      "60 N",
+      "90 N",
+      "150 N",
+      "240 N"
+    ],
+    answer: 0,
+    explanation:
+      "Before the additional force is applied, the net force is 150 N − 90 N = 60 N to the right. An additional 60 N force to the left makes the forces balance and produces a net force of zero."
+  },
+
+  {
+    q: "Two objects are being analyzed. Object A has a net force of 0 N, while Object B has a net force of 35 N. Which comparison best follows the lesson?",
+    choices: [
+      "Object A has no acceleration, while Object B accelerates",
+      "Both objects must have zero acceleration",
+      "Object A accelerates, while Object B remains in equilibrium",
+      "Both objects must be in equilibrium"
+    ],
+    answer: 0,
+    explanation:
+      "A zero net force produces no acceleration and corresponds to equilibrium. A nonzero net force causes acceleration, so Object B accelerates."
+  },
+
+  {
+    q: "An engineer finds that several forces act on a component, but their combined net force is zero. Which conclusion is correct?",
+    choices: [
+      "The component is in equilibrium even though individual forces are acting on it",
+      "No forces can be acting on the component because its net force is zero",
+      "The component must be accelerating because several forces are present",
+      "Every individual force acting on the component must have a magnitude of zero"
+    ],
+    answer: 0,
+    explanation:
+      "Net force is the sum of all forces acting on an object. Multiple forces can act at the same time and balance one another, producing a net force of zero and equilibrium."
+  }
+],
+
+  // GROUP 5 — Forces as Vectors & Free Body Diagrams
+[
+  {
+    q: "Why is force classified as a vector quantity in the Dynamics lesson?",
+    choices: [
+      "Because force has both magnitude and direction",
+      "Because force has magnitude but never direction",
+      "Because every force must act horizontally",
+      "Because force is measured only by its direction"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that forces are vector quantities because they have both magnitude and direction."
+  },
+
+  {
+    q: "Two forces each have a magnitude of 80 N, but one acts horizontally and the other acts vertically. Why should an engineer not treat these forces as identical?",
+    choices: [
+      "Their directions are different, and direction is part of a force vector",
+      "Vertical forces are always larger than horizontal forces",
+      "Only horizontal forces have magnitude",
+      "Forces with the same magnitude must always act in the same direction"
+    ],
+    answer: 0,
+    explanation:
+      "Force is a vector quantity, so both magnitude and direction matter. Two forces can have the same magnitude while acting in different directions."
+  },
+
+  {
+    q: "A force acts at an angle on a mechanical component. According to the lesson, how might an engineer make the force easier to analyze?",
+    choices: [
+      "Break it into horizontal and vertical components",
+      "Ignore its direction and use only its magnitude",
+      "Replace the force with the object's mass",
+      "Assume the entire force acts horizontally"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that engineers often break forces into horizontal and vertical components because direction matters."
+  },
+
+  {
+    q: "An angled force is separated into Fx and Fy. What do these two quantities represent?",
+    choices: [
+      "Fx is the horizontal component and Fy is the vertical component",
+      "Fx is the mass and Fy is the acceleration",
+      "Fx is the vertical component and Fy is the horizontal component",
+      "Fx is friction and Fy is always weight"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson identifies Fx as a horizontal force component and Fy as a vertical force component."
+  },
+
+  {
+    q: "Why is separating an angled force into horizontal and vertical components useful in dynamics?",
+    choices: [
+      "It helps determine how each part of the force contributes to motion",
+      "It removes the direction from the force",
+      "It guarantees that the net force becomes zero",
+      "It changes the force from a vector into mass"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that analyzing components allows engineers to determine how each part of a force contributes to motion."
+  },
+
+  {
+    q: "Before solving a force problem, an engineer draws an isolated object and represents every force acting on it. What type of diagram is being created?",
+    choices: [
+      "A Free Body Diagram",
+      "A motion graph",
+      "An energy diagram",
+      "A temperature diagram"
+    ],
+    answer: 0,
+    explanation:
+      "A Free Body Diagram, or FBD, shows all forces acting on an object and helps engineers visualize the forces involved in a problem."
+  },
+
+  {
+    q: "Which set contains only forces that the lesson lists as common forces shown on Free Body Diagrams?",
+    choices: [
+      "Weight, normal force, tension, friction, and applied force",
+      "Mass, velocity, acceleration, temperature, and pressure",
+      "Momentum, distance, time, energy, and mass",
+      "Velocity, displacement, inertia, temperature, and work"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson lists weight, normal force, tension, friction, and applied force as common forces that may appear on a Free Body Diagram."
+  },
+
+  {
+    q: "An engineer creates a Free Body Diagram but accidentally leaves out one of the forces acting on the object. Why could this make the dynamics analysis incorrect?",
+    choices: [
+      "The diagram would not represent all forces acting on the object",
+      "Every Free Body Diagram must contain exactly five forces",
+      "Leaving out a force automatically makes the object's mass zero",
+      "Free Body Diagrams are used only to determine an object's velocity"
+    ],
+    answer: 0,
+    explanation:
+      "A Free Body Diagram is intended to show all forces acting on an object. The lesson explains that FBDs help engineers identify forces and even notice missing forces."
+  },
+
+  {
+    q: "An engineer is unsure about the direction of several forces and the possible direction an object may accelerate. How can a Free Body Diagram help?",
+    choices: [
+      "It can organize the forces and show their directions, helping identify possible acceleration directions",
+      "It directly calculates acceleration without requiring any force analysis",
+      "It removes forces that act in different directions",
+      "It guarantees that all forces on the object are balanced"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that Free Body Diagrams help identify all forces, force directions, missing forces, and possible acceleration directions."
+  },
+
+  {
+    q: "A mechanical component has several forces acting on it in different directions. Which approach best follows the force-analysis process taught in the lesson?",
+    choices: [
+      "Create a Free Body Diagram showing the forces and their directions, then analyze how the forces contribute to the object's motion",
+      "Ignore the directions and add only the numerical magnitudes of every force",
+      "Use only the object's mass because force direction does not affect dynamics",
+      "Assume the forces are balanced whenever more than one force acts on the object"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson emphasizes using Free Body Diagrams to identify forces and their directions. Because forces are vectors, direction matters when determining how the forces contribute to motion."
+  }
+],
+
+  // GROUP 6 — Friction & Static vs. Kinetic Friction
+[
+  {
+    q: "A 500 N normal force acts between two surfaces with a coefficient of friction of 0.30. Using F = μN, what friction force is calculated?",
+    choices: [
+      "150 N",
+      "166.7 N",
+      "500 N",
+      "1,500 N"
+    ],
+    answer: 0,
+    explanation:
+      "Use F = μN. Therefore, F = 0.30 × 500 N = 150 N."
+  },
+
+  {
+    q: "A friction force of 120 N acts between two surfaces with a normal force of 400 N. Using F = μN, what is the coefficient of friction?",
+    choices: [
+      "0.30",
+      "3.33",
+      "280",
+      "520"
+    ],
+    answer: 0,
+    explanation:
+      "Rearrange F = μN to μ = F / N. Therefore, μ = 120 N / 400 N = 0.30."
+  },
+
+  {
+    q: "A friction force of 180 N is produced with a coefficient of friction of 0.45. What normal force is acting between the surfaces?",
+    choices: [
+      "81 N",
+      "180 N",
+      "400 N",
+      "810 N"
+    ],
+    answer: 2,
+    explanation:
+      "Rearrange F = μN to N = F / μ. Therefore, N = 180 N / 0.45 = 400 N."
+  },
+
+  {
+    q: "A box is being pushed but has not yet started sliding across the floor. Which type of friction is acting between the box and the floor?",
+    choices: [
+      "Static friction",
+      "Kinetic friction",
+      "Centripetal friction",
+      "Momentum friction"
+    ],
+    answer: 0,
+    explanation:
+      "Static friction acts when objects are not moving relative to one another and helps prevent motion from starting."
+  },
+
+  {
+    q: "A box is already sliding across a surface. Which type of friction acts between the sliding surfaces?",
+    choices: [
+      "Static friction",
+      "Kinetic friction",
+      "Inertial friction",
+      "Equilibrium friction"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson states that kinetic friction acts when surfaces are already sliding against one another."
+  },
+
+  {
+    q: "An engineer increases the normal force between two surfaces while the coefficient of friction remains the same. According to F = μN, what happens to the calculated friction force?",
+    choices: [
+      "The friction force increases",
+      "The friction force decreases",
+      "The friction force remains the same",
+      "The friction force must become zero"
+    ],
+    answer: 0,
+    explanation:
+      "In F = μN, friction force increases when normal force increases if the coefficient of friction remains constant."
+  },
+
+  {
+    q: "Two systems have the same normal force. System A has a coefficient of friction of 0.20, while System B has a coefficient of friction of 0.50. Using F = μN, which system has the greater calculated friction force?",
+    choices: [
+      "System A",
+      "System B",
+      "Both have the same friction force",
+      "Neither system can have friction"
+    ],
+    answer: 1,
+    explanation:
+      "With the same normal force, the system with the larger coefficient of friction produces the larger friction force according to F = μN."
+  },
+
+  {
+    q: "A heavy box requires more force to begin sliding than it requires to keep sliding. Which explanation best matches the lesson?",
+    choices: [
+      "Kinetic friction is usually smaller in magnitude than static friction",
+      "Kinetic friction is always greater than static friction",
+      "Friction disappears completely after motion begins",
+      "Static friction acts only after the box begins sliding"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that kinetic friction usually has a smaller magnitude than static friction. This helps explain why a heavy box may require more force to start moving than to keep sliding."
+  },
+
+  {
+    q: "A moving machine component slides against another surface. What effect can friction have on the component according to the lesson?",
+    choices: [
+      "It can oppose the motion and slow the component down",
+      "It must increase the component's speed",
+      "It removes the component's inertia",
+      "It guarantees that the component moves at constant velocity"
+    ],
+    answer: 0,
+    explanation:
+      "Friction opposes motion between surfaces. The lesson specifically states that friction can slow objects down."
+  },
+
+  {
+    q: "An engineer is analyzing friction between two surfaces. Which statement correctly combines the ideas taught in the lesson?",
+    choices: [
+      "Friction opposes motion, depends on the coefficient of friction and normal force in F = μN, and can act as static or kinetic friction",
+      "Friction always acts in the direction of motion and depends only on mass",
+      "Friction occurs only after surfaces begin sliding and is unrelated to normal force",
+      "Friction can prevent slipping only when the net force is zero"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson teaches that friction opposes motion, uses F = μN, and can be classified as static friction when surfaces are not moving relative to each other or kinetic friction when they are sliding."
+  }
+],
+
+  // GROUP 7 — Static vs. Kinetic Friction & Friction Applications
+[
+  {
+    q: "An engineer gradually increases the force applied to a heavy box, but the box has not yet started sliding. Which type of friction is opposing the start of motion?",
+    choices: [
+      "Static friction",
+      "Kinetic friction",
+      "Centripetal friction",
+      "Applied friction"
+    ],
+    answer: 0,
+    explanation:
+      "Static friction acts when surfaces are not moving relative to one another. It helps prevent the box from beginning to slide."
+  },
+
+  {
+    q: "The same box begins sliding across the floor. Which type of friction now acts between the box and the floor?",
+    choices: [
+      "Static friction",
+      "Kinetic friction",
+      "Equilibrium friction",
+      "Inertial friction"
+    ],
+    answer: 1,
+    explanation:
+      "Once the surfaces are sliding relative to one another, the lesson identifies the friction between them as kinetic friction."
+  },
+
+  {
+    q: "A worker notices that a heavy box requires more force to start moving than it does to keep the box sliding. Which statement from the lesson best explains this observation?",
+    choices: [
+      "Kinetic friction usually has a smaller magnitude than static friction",
+      "Kinetic friction usually has a larger magnitude than static friction",
+      "Static friction disappears whenever an object is at rest",
+      "Friction increases continuously as an object moves"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that kinetic friction usually has a smaller magnitude than static friction. This helps explain why starting the box can require more force than keeping it sliding."
+  },
+
+  {
+    q: "Two surfaces are touching but are not moving relative to one another. Which statement best describes the friction that may act between them?",
+    choices: [
+      "Static friction may act to prevent relative motion from starting",
+      "Only kinetic friction can act because the surfaces are touching",
+      "Friction cannot exist until the surfaces begin sliding",
+      "The surfaces must have zero normal force"
+    ],
+    answer: 0,
+    explanation:
+      "Static friction acts when objects are not moving relative to one another and can prevent motion from starting."
+  },
+
+  {
+    q: "A sliding machine component begins slowing down because of the interaction between its surface and another surface. Which effect of friction from the lesson is being demonstrated?",
+    choices: [
+      "Friction can slow objects down",
+      "Friction always increases an object's speed",
+      "Friction eliminates an object's mass",
+      "Friction prevents every possible change in motion"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that friction opposes motion between surfaces and can cause moving objects to slow down."
+  },
+
+  {
+    q: "A mechanical design relies on friction between two surfaces to keep one component from sliding unexpectedly. Which useful effect of friction is the engineer using?",
+    choices: [
+      "Preventing slipping",
+      "Increasing mass",
+      "Removing normal force",
+      "Eliminating inertia"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson identifies preventing slipping as one of the effects and useful functions of friction."
+  },
+
+  {
+    q: "Two mechanical surfaces repeatedly slide against each other during operation and become warmer. Which effect of friction taught in the lesson does this demonstrate?",
+    choices: [
+      "Friction can create heat",
+      "Friction eliminates thermal energy",
+      "Static friction always cools surfaces",
+      "Kinetic friction prevents surfaces from touching"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that friction can create heat. Sliding surfaces can therefore become warmer as friction acts between them."
+  },
+
+  {
+    q: "A box is initially stationary and then begins sliding after enough force is applied. Which sequence correctly identifies the friction involved before and after sliding begins?",
+    choices: [
+      "Static friction first, then kinetic friction",
+      "Kinetic friction first, then static friction",
+      "Kinetic friction during both stages",
+      "Static friction during both stages"
+    ],
+    answer: 0,
+    explanation:
+      "Static friction acts while the box is not moving relative to the surface. Once the box begins sliding, kinetic friction acts."
+  },
+
+  {
+    q: "A student says, 'If an object is not moving, friction cannot be acting on it.' Which response best matches the lesson?",
+    choices: [
+      "The statement is incorrect because static friction can act while surfaces are not moving relative to one another",
+      "The statement is correct because all friction requires sliding",
+      "The statement is correct because only moving objects experience forces",
+      "The statement is incorrect because kinetic friction acts only when objects are stationary"
+    ],
+    answer: 0,
+    explanation:
+      "Static friction acts when objects are not moving relative to one another. It can prevent motion from starting even though the surfaces are not sliding."
+  },
+
+  {
+    q: "An engineer analyzes a component that begins at rest, resists the start of sliding, and then requires less friction-related force once it is moving. Which explanation best describes the entire process?",
+    choices: [
+      "Static friction initially resists the start of motion, then kinetic friction acts after sliding begins and is usually smaller",
+      "Kinetic friction initially prevents motion, then static friction acts after sliding begins",
+      "Static friction and kinetic friction are always identical in magnitude",
+      "Friction acts only after the component has stopped moving"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that static friction prevents motion from starting, while kinetic friction acts after surfaces begin sliding. It also states that kinetic friction usually has a smaller magnitude than static friction."
+  }
+],
+
+  // GROUP 8 — Acceleration & Circular Motion
+[
+  {
+    q: "Which situation represents acceleration according to the Dynamics lesson?",
+    choices: [
+      "An object speeding up",
+      "An object remaining at rest",
+      "An object moving at constant velocity without changing direction",
+      "An object with no change in its motion"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that acceleration can occur when an object speeds up, slows down, or changes direction."
+  },
+
+  {
+    q: "A car slows from a higher speed to a lower speed while traveling in a straight line. Is the car accelerating according to the lesson?",
+    choices: [
+      "Yes, because slowing down is a type of acceleration",
+      "No, because acceleration only occurs when speed increases",
+      "No, because acceleration requires the car to change direction",
+      "Yes, but only if the car's mass also changes"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that acceleration includes slowing down. Acceleration occurs whenever velocity changes."
+  },
+
+  {
+    q: "A vehicle travels around a curve while maintaining a constant speed. Why is the vehicle still accelerating?",
+    choices: [
+      "Its direction is changing",
+      "Its mass is increasing",
+      "Its speed must actually be increasing",
+      "Its net force must equal zero"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that any change in velocity creates acceleration. Because velocity includes direction, a vehicle moving around a curve is accelerating even if its speed remains constant."
+  },
+
+  {
+    q: "Which statement best explains why acceleration does not always mean that an object is speeding up?",
+    choices: [
+      "Acceleration occurs whenever velocity changes, including changes in speed or direction",
+      "Acceleration depends only on the mass of an object",
+      "Acceleration occurs only when an object moves in a circle",
+      "Acceleration and velocity always mean exactly the same thing"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that acceleration can involve speeding up, slowing down, or changing direction. Any change in velocity creates acceleration."
+  },
+
+  {
+    q: "A machine component moves in a circular path at constant speed. Which statement correctly describes its motion?",
+    choices: [
+      "It is accelerating because its direction continuously changes",
+      "It has zero acceleration because its speed is constant",
+      "It is not accelerating unless its mass changes",
+      "It can accelerate only if it stops moving in a circle"
+    ],
+    answer: 0,
+    explanation:
+      "Objects moving in circles continuously change direction. The lesson explains that this change in direction means acceleration exists even when speed remains constant."
+  },
+
+  {
+    q: "What does the lesson call the acceleration associated with an object continuously changing direction while moving in a circle?",
+    choices: [
+      "Centripetal acceleration",
+      "Static acceleration",
+      "Kinetic acceleration",
+      "Equilibrium acceleration"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson identifies the acceleration associated with circular motion as centripetal acceleration."
+  },
+
+  {
+    q: "A car drives around a circular curve without changing the reading on its speedometer. A student claims its acceleration must be zero. What is wrong with the student's reasoning?",
+    choices: [
+      "The car's direction is changing, so its velocity changes and acceleration exists",
+      "The car must be increasing its mass while turning",
+      "Constant speed always produces increasing acceleration",
+      "The car cannot move around a curve at constant speed"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson specifically explains that a car moving around a curve at constant speed is still accelerating because its direction changes continuously."
+  },
+
+  {
+    q: "Which set contains only examples of circular motion given in the Dynamics lesson?",
+    choices: [
+      "Cars driving around curves, roller coasters, and satellites orbiting Earth",
+      "Books on tables, stationary machines, and parked cars",
+      "Sliding boxes, elevators, and straight roads",
+      "Pistons, springs, and stationary bridges"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson gives cars driving around curves, roller coasters, and satellites orbiting Earth as examples associated with circular motion."
+  },
+
+  {
+    q: "Object A moves in a straight line at constant speed and does not change direction. Object B moves around a curve at constant speed. Which object is accelerating based on the lesson?",
+    choices: [
+      "Object B, because its direction changes",
+      "Object A, because moving at constant speed creates acceleration",
+      "Both objects, because all moving objects accelerate",
+      "Neither object, because both maintain constant speed"
+    ],
+    answer: 0,
+    explanation:
+      "Object A has no change in its velocity because both its speed and direction remain constant. Object B changes direction, so its velocity changes and it accelerates."
+  },
+
+  {
+    q: "An engineer observes three machines: Machine A is speeding up in a straight line, Machine B is slowing down in a straight line, and Machine C is moving around a curve at constant speed. Which machines are accelerating?",
+    choices: [
+      "Machines A, B, and C",
+      "Only Machine A",
+      "Only Machines A and B",
+      "Only Machine C"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson identifies speeding up, slowing down, and changing direction as forms of acceleration. Machine A speeds up, Machine B slows down, and Machine C changes direction, so all three are accelerating."
+  }
+],
+
+  // GROUP 9 — Momentum
+[
+  {
+    q: "A 12 kg object moves with a velocity of 5 m/s. Using p = mv, what is the object's momentum?",
+    choices: [
+      "2.4 kg·m/s",
+      "17 kg·m/s",
+      "60 kg·m/s",
+      "120 kg·m/s"
+    ],
+    answer: 2,
+    explanation:
+      "Use p = mv. Therefore, p = 12 kg × 5 m/s = 60 kg·m/s."
+  },
+
+  {
+    q: "A moving component has a momentum of 240 kg·m/s and a mass of 30 kg. What is its velocity?",
+    choices: [
+      "8 m/s",
+      "30 m/s",
+      "210 m/s",
+      "7,200 m/s"
+    ],
+    answer: 0,
+    explanation:
+      "Rearrange p = mv to v = p / m. Therefore, v = 240 kg·m/s / 30 kg = 8 m/s."
+  },
+
+  {
+    q: "An object moving at 6 m/s has a momentum of 150 kg·m/s. What is the object's mass?",
+    choices: [
+      "25 kg",
+      "144 kg",
+      "156 kg",
+      "900 kg"
+    ],
+    answer: 0,
+    explanation:
+      "Rearrange p = mv to m = p / v. Therefore, m = 150 kg·m/s / 6 m/s = 25 kg."
+  },
+
+  {
+    q: "Two objects move at the same velocity. Object A has a mass of 20 kg while Object B has a mass of 60 kg. How does Object B's momentum compare with Object A's?",
+    choices: [
+      "Object B has three times the momentum",
+      "Object B has one-third the momentum",
+      "Both objects have the same momentum",
+      "Object B has nine times the momentum"
+    ],
+    answer: 0,
+    explanation:
+      "Momentum is p = mv. If velocity remains the same, tripling the mass from 20 kg to 60 kg produces three times the momentum."
+  },
+
+  {
+    q: "Two identical objects are moving. Object A travels at 4 m/s while Object B travels at 12 m/s. How does Object B's momentum compare with Object A's?",
+    choices: [
+      "Object B has three times the momentum",
+      "Object B has one-third the momentum",
+      "Both have the same momentum because their masses are equal",
+      "Object B has nine times the momentum"
+    ],
+    answer: 0,
+    explanation:
+      "Because the objects have the same mass, momentum changes directly with velocity in p = mv. Object B moves three times as fast, so it has three times the momentum."
+  },
+
+  {
+    q: "A 1,000 kg vehicle travels at 20 m/s. If its velocity increases to 30 m/s while its mass remains constant, how does its momentum change?",
+    choices: [
+      "It increases from 20,000 kg·m/s to 30,000 kg·m/s",
+      "It decreases from 20,000 kg·m/s to 10,000 kg·m/s",
+      "It remains at 20,000 kg·m/s",
+      "It increases from 1,000 kg·m/s to 1,500 kg·m/s"
+    ],
+    answer: 0,
+    explanation:
+      "Initially, p = 1,000 × 20 = 20,000 kg·m/s. At 30 m/s, p = 1,000 × 30 = 30,000 kg·m/s. Increasing velocity while mass remains constant increases momentum."
+  },
+
+  {
+    q: "A bicycle and a truck are traveling at the same velocity, but the truck has much greater mass. Which object has greater momentum according to p = mv?",
+    choices: [
+      "The truck, because its greater mass produces greater momentum at the same velocity",
+      "The bicycle, because lower mass always produces greater momentum",
+      "Both have equal momentum because their velocities are equal",
+      "Neither has momentum unless it is accelerating"
+    ],
+    answer: 0,
+    explanation:
+      "Momentum depends on both mass and velocity. At the same velocity, the object with greater mass has greater momentum. The lesson uses a truck and bicycle comparison to illustrate this idea."
+  },
+
+  {
+    q: "An engineer doubles the mass of a moving component while also doubling its velocity. Based on p = mv, how does its new momentum compare with its original momentum?",
+    choices: [
+      "It becomes four times as large",
+      "It becomes twice as large",
+      "It remains the same",
+      "It becomes half as large"
+    ],
+    answer: 0,
+    explanation:
+      "Momentum is the product of mass and velocity. Doubling both gives p = (2m)(2v) = 4mv, so the momentum becomes four times as large."
+  },
+
+  {
+    q: "Why is momentum important when engineers study the safety of moving vehicles?",
+    choices: [
+      "Changing momentum requires force, making momentum important when designing systems that respond to vehicle motion",
+      "Momentum determines the temperature of a moving vehicle",
+      "Momentum eliminates the forces acting during vehicle motion",
+      "Momentum is important only when a vehicle is completely stationary"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that changing momentum requires force. This makes momentum important when engineers design vehicle safety systems and equipment."
+  },
+
+  {
+    q: "Which group contains only engineering applications that the Dynamics lesson connects with momentum?",
+    choices: [
+      "Airbags, seatbelts, crash structures, and protective equipment",
+      "Boilers, refrigerators, heat pumps, and turbines",
+      "Pressure gauges, thermometers, rulers, and scales",
+      "Pipes, electrical wires, batteries, and solar panels"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson connects momentum with vehicle safety systems, airbags, seatbelts, crash structures, and protective equipment because understanding momentum helps engineers improve safety."
+  }
+],
+
+  // GROUP 10 — Work, Energy & Engineering Applications
+[
+  {
+    q: "A constant force of 40 N acts in the direction of motion and moves a component 5 m. Using the basic work equation from the lesson, how much work is done?",
+    choices: [
+      "8 J",
+      "45 J",
+      "200 J",
+      "400 J"
+    ],
+    answer: 2,
+    explanation:
+      "Use Work = Force × Distance. Therefore, Work = 40 N × 5 m = 200 J."
+  },
+
+  {
+    q: "A machine performs 600 J of work while applying a constant force of 150 N in the direction of motion. Using the basic relationship from the lesson, how far does the component move?",
+    choices: [
+      "4 m",
+      "150 m",
+      "450 m",
+      "90,000 m"
+    ],
+    answer: 0,
+    explanation:
+      "Rearrange Work = Force × Distance to Distance = Work / Force. Therefore, Distance = 600 J / 150 N = 4 m."
+  },
+
+  {
+    q: "A machine performs 900 J of work while moving a component 6 m in the direction of the applied force. What force is applied?",
+    choices: [
+      "15 N",
+      "150 N",
+      "894 N",
+      "5,400 N"
+    ],
+    answer: 1,
+    explanation:
+      "Rearrange Work = Force × Distance to Force = Work / Distance. Therefore, Force = 900 J / 6 m = 150 N."
+  },
+
+  {
+    q: "A machine applies a force to a component, but the component does not move. Based on the lesson's definition of work, what can be concluded?",
+    choices: [
+      "No mechanical work occurs because there is no displacement",
+      "Work occurs whenever a force exists, even without movement",
+      "The machine must be producing maximum work",
+      "The force automatically becomes kinetic energy"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that work occurs whenever a force causes displacement. If the component does not move, there is no displacement and therefore no mechanical work from that force."
+  },
+
+  {
+    q: "Machine A applies a 50 N force through 4 m, while Machine B applies a 100 N force through the same 4 m. Assuming the forces act in the direction of motion, how does the work performed by Machine B compare with Machine A?",
+    choices: [
+      "Machine B performs twice as much work",
+      "Machine B performs half as much work",
+      "Both perform the same work",
+      "Machine B performs four times as much work"
+    ],
+    answer: 0,
+    explanation:
+      "Machine A performs 50 × 4 = 200 J of work. Machine B performs 100 × 4 = 400 J. With distance unchanged, doubling the force doubles the work."
+  },
+
+  {
+    q: "Two machines apply the same force. Machine A moves a component 3 m, while Machine B moves an identical component 9 m in the direction of the force. How does Machine B's work compare with Machine A's?",
+    choices: [
+      "Machine B performs three times as much work",
+      "Machine B performs one-third as much work",
+      "Both perform the same work",
+      "Machine B performs nine times as much work"
+    ],
+    answer: 0,
+    explanation:
+      "Work = Force × Distance. With the same force, increasing the distance from 3 m to 9 m multiplies the work by three."
+  },
+
+  {
+    q: "Which statement best describes energy according to the Dynamics lesson?",
+    choices: [
+      "Energy is the ability to do work",
+      "Energy is the sum of all forces acting on an object",
+      "Energy is an object's resistance to changes in motion",
+      "Energy is another term for acceleration"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines energy as the ability to do work and explains that dynamics often connects to energy concepts."
+  },
+
+  {
+    q: "An electric motor turns a shaft during operation. Why is this an appropriate example of the work-and-energy ideas introduced in the lesson?",
+    choices: [
+      "Machines can convert energy into motion",
+      "Machines create energy whenever a shaft rotates",
+      "A rotating shaft cannot involve mechanical work",
+      "Energy applies only to objects that remain stationary"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that machines constantly convert energy into motion and specifically gives electric motors turning shafts as an example."
+  },
+
+  {
+    q: "A roller coaster moves downward and gains motion. Which energy conversion does the lesson specifically use as an example?",
+    choices: [
+      "Potential energy into kinetic energy",
+      "Kinetic energy into mass",
+      "Force into inertia",
+      "Acceleration into pressure"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson gives roller coasters converting potential energy into kinetic energy as an example of how dynamics connects motion and energy."
+  },
+
+  {
+    q: "Why is understanding dynamics important for mechanical engineers designing systems such as cars, aircraft, robots, and industrial machines?",
+    choices: [
+      "It helps engineers predict how systems move, accelerate, stop, and respond to forces",
+      "It allows engineers to assume that machines always remain motionless",
+      "It eliminates the need to consider forces when analyzing motion",
+      "It is useful only for determining the mass of stationary objects"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that dynamics is important because machines rarely remain motionless. Understanding dynamics helps engineers predict how systems move, accelerate, stop, and respond to forces."
+  }
+]
+
+];
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const randomIndex = Math.floor(Math.random() * (i + 1));
@@ -1935,8 +3304,24 @@ function shuffleArray(array) {
   return array;
 }
 
-function shuffleQuestions() {
-  allQuestions = quizQuestions.map(question => {
+function buildShortQuiz() {
+  const selectedQuestions = [];
+
+  shortQuizGroups.forEach(group => {
+
+    const randomIndex =
+      Math.floor(Math.random() * group.length);
+
+    selectedQuestions.push(group[randomIndex]);
+
+  });
+
+  return selectedQuestions;
+}
+
+function shuffleQuestions(questionBank) {
+
+  allQuestions = questionBank.map(question => {
 
     // Connect each choice to whether it is the correct answer.
     const shuffledChoices = question.choices.map((choice, index) => {
@@ -1960,46 +3345,70 @@ function shuffleQuestions() {
         choice => choice.isCorrect
       )
     };
+
   });
 
   // Randomize the order of the questions too.
   shuffleArray(allQuestions);
 }
 
-function openRandomQuizSet() {
+function hideQuizStartButtons() {
+
+  document
+    .querySelectorAll("#quiz .quiz-start-btn")
+    .forEach(btn => {
+      btn.style.display = "none";
+    });
+
+}
+
+
+function openFullQuiz() {
+
   const panel = document.getElementById("quiz-panel");
-  const randomBtn = document.querySelector("#quiz .quiz-btn");
 
   panel.classList.add("open");
-  randomBtn.style.display = "none";
 
-  shuffleQuestions();
+  hideQuizStartButtons();
+
+  currentQuizMode = "full";
+
+  shuffleQuestions(quizQuestions);
+
   currentQuestionIndex = 0;
   answeredQuestions = {};
+
   loadQuestion();
 }
 
-function shuffleChoices(question) {
+function openShortQuiz() {
 
-  const choices = question.choices.map((choice, index) => ({
-    text: choice,
-    originalIndex: index
-  }));
+  const panel = document.getElementById("quiz-panel");
 
-  for (let i = choices.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [choices[i], choices[j]] = [choices[j], choices[i]];
+  panel.classList.add("open");
+
+  hideQuizStartButtons();
+
+  currentQuizMode = "short";
+
+  const shortQuizQuestions = buildShortQuiz();
+
+  shuffleQuestions(shortQuizQuestions);
+
+  currentQuestionIndex = 0;
+  answeredQuestions = {};
+
+  loadQuestion();
+}
+
+function restartCurrentQuiz() {
+
+  if (currentQuizMode === "short") {
+    openShortQuiz();
+  } else {
+    openFullQuiz();
   }
 
-  const newCorrectIndex = choices.findIndex(
-    choice => choice.originalIndex === question.answer
-  );
-
-  return {
-    question: question.q,
-    choices: choices,
-    correctIndex: newCorrectIndex
-  };
 }
 
 function loadQuestion() {
@@ -2162,6 +3571,10 @@ function loadQuestion() {
   `;
 }
 
+function showCheckButton() {
+  document.getElementById("check-answer-btn").style.display = "block";
+}
+
 function checkAnswer() {
   const selected = document.querySelector('input[name="question"]:checked');
   if (!selected) return;
@@ -2182,6 +3595,8 @@ function nextQuestion() {
 
   if (currentQuestionIndex >= allQuestions.length) {
     currentQuestionIndex = allQuestions.length - 1;
+    loadQuestion();
+    return;
   }
 
   loadQuestion();
@@ -2201,7 +3616,7 @@ function submitQuiz() {
   allQuestions.forEach((question, index) => {
     const saved = answeredQuestions[index];
 
-    if (saved && saved.selectedIndex === saved.correctIndex) {
+    if (saved && saved.selectedIndex === question.answer) {
       correct++;
     } else {
       wrong++;
@@ -2213,21 +3628,22 @@ function submitQuiz() {
   launchConfetti();
 
   document.getElementById("quiz-container").innerHTML = `
-    <div class="quiz-question">
-      <h3>Quiz Results</h3>
+  <div class="quiz-question">
+    <h3>Quiz Results</h3>
 
-      <p><strong>Correct:</strong> ${correct}</p>
-      <p><strong>Wrong:</strong> ${wrong}</p>
-      <p><strong>Score:</strong> ${percent}%</p>
+    <p><strong>Correct:</strong> ${correct}</p>
+    <p><strong>Wrong:</strong> ${wrong}</p>
+    <p><strong>Score:</strong> ${percent}%</p>
 
-      <button onclick="openRandomQuizSet()" class="quiz-btn">
-        Restart Quiz
-      </button>
-    </div>
-  `;
+    <button onclick="restartCurrentQuiz()" class="quiz-btn">
+  Restart Quiz
+</button>
+  </div>
+`;
 }
 
 function launchConfetti() {
+
   const colors = [
     "#ff4d4d",
     "#4dff88",
@@ -2238,6 +3654,7 @@ function launchConfetti() {
   ];
 
   for (let i = 0; i < 120; i++) {
+
     const confetti = document.createElement("div");
     confetti.classList.add("confetti");
 
@@ -2248,18 +3665,21 @@ function launchConfetti() {
     confetti.style.width = Math.random() * 8 + 6 + "px";
     confetti.style.height = confetti.style.width;
 
-    confetti.style.animationDuration = (Math.random() * 3 + 7) + "s";
-    confetti.style.animationDelay = (Math.random() * 2) + "s";
+    confetti.style.animationDuration =
+  (Math.random() * 3 + 7) + "s";
+
+  confetti.style.animationDelay =
+  (Math.random() * 2) + "s";
 
     document.body.appendChild(confetti);
 
     confetti.addEventListener("animationend", () => {
-      confetti.remove();
-    });
+  confetti.remove();
+   });
   }
 }
 
-console.log("dynamics quiz loaded. Total questions:", quizQuestions.length);
+console.log("Quiz loaded. Total questions:", quizQuestions.length);
 
 function toggleMenu(){
 
