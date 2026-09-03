@@ -497,9 +497,21 @@
 <div id="quiz" class="tab-content" style="display:none;">
   <h2>Kinematics Quiz</h2>
 
-  <button type="button" onclick="openRandomQuizSet()" class="quiz-btn">
-    Random Quiz
-  </button>
+  <button
+      type="button"
+      onclick="openFullQuiz()"
+      class="quiz-btn quiz-start-btn"
+    >
+      Randomized 100-Question Quiz
+    </button>
+
+    <button
+      type="button"
+      onclick="openShortQuiz()"
+      class="quiz-btn quiz-start-btn"
+    >
+      Randomized 10-Question Quiz
+    </button>
 
   <p class="quiz-warning">
     Warning: Once you select an answer, click the "Check Answer" button to lock in your response.
@@ -739,7 +751,8 @@ function showSection(id, button) {
   // Reset quiz when changing tabs
   const quizPanel = document.getElementById("quiz-panel");
   const quizContainer = document.getElementById("quiz-container");
-  const randomBtn = document.querySelector("#quiz .quiz-btn");
+  const quizStartButtons =
+  document.querySelectorAll("#quiz .quiz-start-btn");
 
   if (quizPanel) {
     quizPanel.classList.remove("open");
@@ -749,9 +762,9 @@ function showSection(id, button) {
     quizContainer.innerHTML = "";
   }
 
-  if (randomBtn) {
-    randomBtn.style.display = "inline-block";
-  }
+  quizStartButtons.forEach(btn => {
+  btn.style.display = "inline-block";
+});
 
   // Open clicked tab if it was closed
   if (!isOpen) {
@@ -765,6 +778,7 @@ function showSection(id, button) {
 let currentQuestionIndex = 0;
 let allQuestions = [];
 let answeredQuestions = {};
+let currentQuizMode = "";
 
 const quizQuestions = [
   {
@@ -1468,6 +1482,1340 @@ const quizQuestions = [
 },
 ];
 
+const shortQuizGroups = [
+
+  // GROUP 1 — Motion Fundamentals
+[
+  {
+    q: "Which statement best describes what kinematics studies?",
+    choices: [
+      "How objects move without focusing on the forces causing the motion",
+      "Why forces cause objects to accelerate",
+      "How materials deform when forces are applied",
+      "How heat moves through mechanical systems"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines kinematics as the study of motion without focusing on the forces that cause that motion. It describes how an object moves rather than why it moves."
+  },
+
+  {
+    q: "A machine part changes its location as time passes. According to the lesson, what has occurred?",
+    choices: [
+      "Motion",
+      "Force",
+      "Stress",
+      "Pressure"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that motion happens when an object changes position over time."
+  },
+
+  {
+    q: "An engineer records where a robotic arm is located at a particular moment. Which motion quantity is being described?",
+    choices: [
+      "Position",
+      "Displacement",
+      "Acceleration",
+      "Time"
+    ],
+    answer: 0,
+    explanation:
+      "Position describes where an object is located."
+  },
+
+  {
+    q: "A robot begins at one location and ends at another. Which quantity describes the change from its starting position to its final position?",
+    choices: [
+      "Displacement",
+      "Distance",
+      "Speed",
+      "Acceleration"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines displacement as the change in position from start to finish."
+  },
+
+  {
+    q: "An engineer wants to describe how quickly the position of a moving component changes. Which quantity should be used?",
+    choices: [
+      "Velocity",
+      "Position",
+      "Time",
+      "Distance only"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines velocity as how quickly position changes."
+  },
+
+  {
+    q: "A car's velocity changes from one value to another during a test. Which quantity describes how quickly that velocity changes?",
+    choices: [
+      "Acceleration",
+      "Displacement",
+      "Position",
+      "Distance"
+    ],
+    answer: 0,
+    explanation:
+      "Acceleration is the rate at which velocity changes over time."
+  },
+
+  {
+    q: "A machine component moves at the same speed but changes direction. According to the lesson, is it accelerating?",
+    choices: [
+      "Yes, because changing direction changes velocity",
+      "No, because acceleration occurs only when speed increases",
+      "No, because acceleration requires the object to stop",
+      "Yes, but only if its position stays constant"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that an object accelerates when it speeds up, slows down, or changes direction. A change in direction means velocity has changed."
+  },
+
+  {
+    q: "Which set contains only the major motion quantities identified in the lesson?",
+    choices: [
+      "Position, displacement, velocity, acceleration, and time",
+      "Force, stress, strain, pressure, and mass",
+      "Energy, power, pressure, temperature, and force",
+      "Mass, force, area, volume, and density"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson identifies position, displacement, velocity, acceleration, and time as the most important motion quantities."
+  },
+
+  {
+    q: "An elevator begins moving upward and increases its velocity. Which statement best describes the situation using the lesson?",
+    choices: [
+      "The elevator is moving and accelerating because its velocity is changing",
+      "The elevator is moving but cannot be accelerating because it travels vertically",
+      "The elevator has acceleration only after it stops",
+      "The elevator has position but no velocity"
+    ],
+    answer: 0,
+    explanation:
+      "Motion occurs because the elevator changes position over time, and acceleration occurs because its velocity is changing."
+  },
+
+  {
+    q: "Why is understanding kinematics important in mechanical engineering according to the lesson?",
+    choices: [
+      "Engineers must understand how objects move before designing systems that control that motion",
+      "Kinematics allows engineers to ignore the motion of machine parts",
+      "Kinematics is used only to calculate forces inside structures",
+      "Understanding motion eliminates the need to analyze mechanical systems"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that engineers must understand how objects move before they can design systems that control that motion. This is important for robots, vehicles, elevators, conveyors, and machine parts."
+  }
+],
+
+  // GROUP 2 — Distance vs. Displacement
+[
+  {
+    q: "Which statement correctly describes the difference between distance and displacement?",
+    choices: [
+      "Distance is the total path traveled, while displacement is the change in position from start to finish",
+      "Distance includes direction, while displacement never includes direction",
+      "Distance measures velocity, while displacement measures acceleration",
+      "Distance and displacement always have exactly the same value"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines distance as the total path traveled by an object and displacement as the change in position from start to finish."
+  },
+
+  {
+    q: "A robot moves 5 meters forward and then 2 meters backward. What total distance does the robot travel?",
+    choices: [
+      "2 meters",
+      "3 meters",
+      "5 meters",
+      "7 meters"
+    ],
+    answer: 3,
+    explanation:
+      "Distance measures the total path traveled. The robot travels 5 meters forward and another 2 meters backward, giving a total distance of 7 meters."
+  },
+
+  {
+    q: "A robot moves 5 meters forward and then 2 meters backward. What is its displacement from its starting position?",
+    choices: [
+      "3 meters forward",
+      "3 meters backward",
+      "7 meters forward",
+      "7 meters backward"
+    ],
+    answer: 0,
+    explanation:
+      "The robot first moves 5 meters forward and then moves 2 meters back toward its starting point. It finishes 3 meters forward from where it started, so its displacement is 3 meters forward."
+  },
+
+  {
+    q: "A machine part moves 12 meters forward and then 4 meters backward. Which pair correctly gives its distance and displacement?",
+    choices: [
+      "Distance = 8 m; displacement = 16 m forward",
+      "Distance = 16 m; displacement = 8 m forward",
+      "Distance = 12 m; displacement = 4 m backward",
+      "Distance = 16 m; displacement = 16 m forward"
+    ],
+    answer: 1,
+    explanation:
+      "The total path is 12 + 4 = 16 meters, so the distance is 16 meters. The final position is 12 - 4 = 8 meters forward from the starting point, so the displacement is 8 meters forward."
+  },
+
+  {
+    q: "A robotic arm moves 9 meters forward and then 9 meters backward, returning to its starting position. Which statement correctly describes the motion?",
+    choices: [
+      "Its distance is 18 meters and its displacement is 0 meters",
+      "Its distance is 0 meters and its displacement is 18 meters",
+      "Its distance and displacement are both 9 meters",
+      "Its distance and displacement are both 18 meters"
+    ],
+    answer: 0,
+    explanation:
+      "The total path traveled is 9 + 9 = 18 meters. Because the robotic arm finishes where it started, its change in position is zero, giving a displacement of 0 meters."
+  },
+
+  {
+    q: "Why can an object have a nonzero distance but a displacement of zero?",
+    choices: [
+      "It can travel along a path and eventually return to its starting position",
+      "Distance includes direction while displacement does not",
+      "Displacement measures how long the motion takes",
+      "Any moving object automatically has zero displacement"
+    ],
+    answer: 0,
+    explanation:
+      "Distance measures the entire path traveled, but displacement depends only on the change from starting position to final position. An object that returns to its starting point therefore has zero displacement."
+  },
+
+  {
+    q: "A moving component travels 14 meters forward and then 6 meters backward. How much greater is its total distance than the magnitude of its displacement?",
+    choices: [
+      "6 meters",
+      "8 meters",
+      "12 meters",
+      "20 meters"
+    ],
+    answer: 2,
+    explanation:
+      "The total distance is 14 + 6 = 20 meters. The displacement is 14 - 6 = 8 meters forward. Therefore, the distance is 20 - 8 = 12 meters greater than the magnitude of the displacement."
+  },
+
+  {
+    q: "An engineer only knows that a machine component traveled a total distance of 20 meters. Why is this information not enough to determine its displacement?",
+    choices: [
+      "Displacement depends on the component's starting and finishing positions and includes direction",
+      "Displacement is always twice the distance traveled",
+      "Distance can only be calculated when acceleration is known",
+      "Displacement does not involve an object's position"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that displacement is the change in position from start to finish and includes direction. Knowing only the total path traveled does not reveal where the component finished relative to where it started."
+  },
+
+  {
+    q: "Two robots each travel a total distance of 10 meters. Robot A finishes 10 meters forward from its starting point, while Robot B returns to its starting point. Which statement is correct?",
+    choices: [
+      "The robots have the same distance but different displacements",
+      "The robots have different distances but the same displacement",
+      "The robots must have the same displacement because their distances are equal",
+      "Robot B has a greater displacement because it returned to its starting point"
+    ],
+    answer: 0,
+    explanation:
+      "Both robots travel a total path of 10 meters, so their distances are equal. Robot A has a displacement of 10 meters forward, while Robot B has zero displacement because it finishes where it started."
+  },
+
+  {
+    q: "Which situation best demonstrates why engineers must distinguish between distance and displacement when describing motion?",
+    choices: [
+      "A moving part follows a path that changes direction, so its total path traveled differs from its change in position",
+      "A stationary part has no mass",
+      "A machine experiences a force but does not move",
+      "A component's temperature changes while its position remains fixed"
+    ],
+    answer: 0,
+    explanation:
+      "When an object changes direction, the total path it travels can differ from its change in position. Distance describes the total path, while displacement describes the change from the starting position to the final position."
+  }
+],
+
+  // GROUP 3 — Speed vs. Velocity
+[
+  {
+    q: "Which statement correctly describes the difference between speed and velocity according to the lesson?",
+    choices: [
+      "Speed tells how fast something moves, while velocity tells how fast it moves and in what direction",
+      "Speed includes direction, while velocity does not",
+      "Speed describes acceleration, while velocity describes time",
+      "Speed and velocity always describe exactly the same information"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that speed tells how fast something is moving, while velocity tells how fast something is moving and in what direction."
+  },
+
+  {
+    q: "Two vehicles are both moving at 20 m/s, but one travels forward while the other travels backward. Why are their velocities different?",
+    choices: [
+      "Velocity includes direction, so the different directions make their velocities different",
+      "Velocity depends only on how fast an object moves",
+      "Objects moving at the same speed must always have the same velocity",
+      "Velocity does not describe moving vehicles"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that velocity includes both how fast an object moves and its direction. Therefore, equal speeds in different directions represent different velocities."
+  },
+
+  {
+    q: "An engineer describes a moving machine part as traveling at 8 m/s forward. Which quantity is being described because both how fast it moves and its direction are given?",
+    choices: [
+      "Velocity",
+      "Speed only",
+      "Time",
+      "Position"
+    ],
+    answer: 0,
+    explanation:
+      "Velocity describes both how fast something moves and its direction. The description gives 8 m/s and specifies forward, so it describes velocity."
+  },
+
+  {
+    q: "A conveyor component is described only as moving at 5 m/s, with no direction provided. Which motion quantity is most directly described by this information?",
+    choices: [
+      "Speed",
+      "Velocity",
+      "Displacement",
+      "Acceleration"
+    ],
+    answer: 0,
+    explanation:
+      "Speed tells how fast something is moving. Velocity requires both how fast it is moving and a direction."
+  },
+
+  {
+    q: "Why does the lesson describe velocity as especially important in engineering?",
+    choices: [
+      "Because direction affects how machines and moving parts behave",
+      "Because velocity measures the forces causing motion",
+      "Because velocity always remains constant in machines",
+      "Because velocity does not depend on motion"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that velocity is especially important in engineering because direction affects how machines and moving parts behave."
+  },
+
+  {
+    q: "A robotic part continues moving at the same speed but reverses its direction. Which statement correctly describes its velocity?",
+    choices: [
+      "Its velocity changes because its direction changes",
+      "Its velocity remains unchanged because its speed is unchanged",
+      "Its velocity becomes zero because it changed direction",
+      "It no longer has velocity because only speed can include direction"
+    ],
+    answer: 0,
+    explanation:
+      "Velocity includes direction. Even if the speed remains the same, reversing direction changes the velocity."
+  },
+
+  {
+    q: "A vehicle travels 120 meters forward in 10 seconds. Using v = d / t, what velocity is described by this motion?",
+    choices: [
+      "12 m/s forward",
+      "12 m/s with no direction",
+      "120 m/s forward",
+      "1,200 m/s forward"
+    ],
+    answer: 0,
+    explanation:
+      "Use v = d / t. Therefore, v = 120 m / 10 s = 12 m/s. Because velocity includes direction, the result is 12 m/s forward."
+  },
+
+  {
+    q: "A robot moves 60 meters forward and then 20 meters backward, finishing 40 meters forward from where it started. If the entire motion takes 10 seconds, what velocity results from using the displacement and time in v = d / t?",
+    choices: [
+      "4 m/s forward",
+      "8 m/s forward",
+      "6 m/s forward",
+      "40 m/s forward"
+    ],
+    answer: 0,
+    explanation:
+      "The robot's displacement is 60 - 20 = 40 meters forward. Using v = d / t gives v = 40 / 10 = 4 m/s forward."
+  },
+
+  {
+    q: "A machine part changes direction while maintaining the same speed. Which statement best connects velocity and acceleration using the lesson?",
+    choices: [
+      "Its velocity changes because direction changes, so the part is accelerating",
+      "Its velocity does not change because its speed remains constant",
+      "It cannot accelerate unless its speed increases",
+      "Changing direction affects displacement but cannot affect velocity"
+    ],
+    answer: 0,
+    explanation:
+      "Velocity includes direction, so changing direction changes velocity. The lesson states that acceleration occurs when velocity changes, including when an object changes direction."
+  },
+
+  {
+    q: "Which situation demonstrates why speed alone may provide less information than velocity when analyzing a moving mechanical system?",
+    choices: [
+      "Two machine parts move equally fast but travel in different directions",
+      "Two stationary components remain at the same position",
+      "A machine part has a known operating time but does not move",
+      "Two components have the same starting position and never move"
+    ],
+    answer: 0,
+    explanation:
+      "Speed only tells how fast something moves. Velocity also includes direction, so two parts moving equally fast in different directions have the same speed but different velocities."
+  }
+],
+
+  // GROUP 4 — Acceleration
+[
+  {
+    q: "Which statement best defines acceleration according to the lesson?",
+    choices: [
+      "The rate at which velocity changes over time",
+      "The total path traveled by an object",
+      "The location of an object at a particular time",
+      "How fast an object moves without considering direction"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines acceleration as the rate at which velocity changes over time."
+  },
+
+  {
+    q: "A car increases its velocity from 10 m/s to 30 m/s over 5 seconds. Using a = Δv / t, what is its acceleration?",
+    choices: [
+      "2 m/s²",
+      "4 m/s²",
+      "6 m/s²",
+      "8 m/s²"
+    ],
+    answer: 1,
+    explanation:
+      "The change in velocity is 30 - 10 = 20 m/s. Using a = Δv / t gives a = 20 / 5 = 4 m/s²."
+  },
+
+  {
+    q: "A moving component's velocity changes by 24 m/s over a period of 6 seconds. What acceleration does it experience?",
+    choices: [
+      "4 m/s²",
+      "6 m/s²",
+      "18 m/s²",
+      "144 m/s²"
+    ],
+    answer: 0,
+    explanation:
+      "Use a = Δv / t. Therefore, a = 24 m/s / 6 s = 4 m/s²."
+  },
+
+  {
+    q: "A vehicle slows from 25 m/s to 10 m/s during a test. Why is this still an example of acceleration?",
+    choices: [
+      "Acceleration occurs whenever velocity changes, including when an object slows down",
+      "Acceleration occurs only when an object's speed increases",
+      "Slowing down changes position but never changes velocity",
+      "Any object moving below 25 m/s automatically accelerates"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that an object accelerates when it speeds up, slows down, or changes direction. Slowing from 25 m/s to 10 m/s changes the vehicle's velocity."
+  },
+
+  {
+    q: "A machine part continues moving at the same speed but changes direction. Which statement correctly describes its motion?",
+    choices: [
+      "It is accelerating because its velocity changes when its direction changes",
+      "It is not accelerating because its speed remains constant",
+      "It has zero velocity because it changed direction",
+      "It is accelerating only if its position does not change"
+    ],
+    answer: 0,
+    explanation:
+      "Velocity includes direction. Therefore, changing direction changes velocity even when speed remains the same. Since acceleration describes a change in velocity, the machine part is accelerating."
+  },
+
+  {
+    q: "A robotic component experiences a change in velocity of 18 m/s over 3 seconds. Which setup correctly calculates its acceleration?",
+    choices: [
+      "a = 18 × 3",
+      "a = 18 / 3",
+      "a = 3 / 18",
+      "a = 18 + 3"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson gives a = Δv / t. Substituting the values gives a = 18 / 3 = 6 m/s²."
+  },
+
+  {
+    q: "A vehicle's velocity changes by 40 m/s while it experiences a constant acceleration of 5 m/s². How much time is required for this change?",
+    choices: [
+      "5 seconds",
+      "8 seconds",
+      "35 seconds",
+      "200 seconds"
+    ],
+    answer: 1,
+    explanation:
+      "Starting with a = Δv / t, rearrange to t = Δv / a. Therefore, t = 40 / 5 = 8 seconds."
+  },
+
+  {
+    q: "Two moving components experience the same change in velocity. Component A makes the change in 4 seconds while Component B makes the change in 8 seconds. Which component has the greater acceleration?",
+    choices: [
+      "Component A",
+      "Component B",
+      "Both have the same acceleration",
+      "Acceleration cannot be compared using change in velocity and time"
+    ],
+    answer: 0,
+    explanation:
+      "From a = Δv / t, the same change in velocity occurring over less time produces a greater acceleration. Therefore, Component A has the greater acceleration."
+  },
+
+  {
+    q: "A component's velocity changes by 30 m/s in 5 seconds. Another component's velocity changes by 30 m/s in 10 seconds. How does the first component's acceleration compare with the second component's?",
+    choices: [
+      "The first component has twice the acceleration",
+      "The first component has half the acceleration",
+      "Both components have the same acceleration",
+      "The first component has three times the acceleration"
+    ],
+    answer: 0,
+    explanation:
+      "The first acceleration is 30 / 5 = 6 m/s², while the second is 30 / 10 = 3 m/s². Therefore, the first component has twice the acceleration."
+  },
+
+  {
+    q: "Which situation would NOT involve acceleration according to the lesson?",
+    choices: [
+      "A car increases its velocity",
+      "An elevator slows down",
+      "A machine part changes direction",
+      "A vehicle continues with unchanged velocity"
+    ],
+    answer: 3,
+    explanation:
+      "Acceleration occurs when velocity changes. Speeding up, slowing down, and changing direction all change velocity. If velocity remains unchanged, there is no change in velocity to produce acceleration."
+  }
+],
+
+  // GROUP 5 — Constant Acceleration & Final Velocity
+[
+  {
+    q: "When acceleration is constant, which equation from the lesson relates final velocity, initial velocity, acceleration, and time?",
+    choices: [
+      "vf = vi + at",
+      "v = d / t",
+      "a = Δv / t",
+      "d = vit + ½at²"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson gives vf = vi + at for constant-acceleration motion. It relates final velocity, initial velocity, acceleration, and time."
+  },
+
+  {
+    q: "A vehicle has an initial velocity of 10 m/s and accelerates at 4 m/s² for 5 seconds. What is its final velocity?",
+    choices: [
+      "14 m/s",
+      "20 m/s",
+      "30 m/s",
+      "70 m/s"
+    ],
+    answer: 2,
+    explanation:
+      "Use vf = vi + at. Therefore, vf = 10 + (4 × 5) = 10 + 20 = 30 m/s."
+  },
+
+  {
+    q: "A machine part begins with a velocity of 6 m/s and reaches a final velocity of 30 m/s after accelerating constantly for 4 seconds. What is its acceleration?",
+    choices: [
+      "4 m/s²",
+      "6 m/s²",
+      "9 m/s²",
+      "24 m/s²"
+    ],
+    answer: 1,
+    explanation:
+      "Start with vf = vi + at. The change in velocity is 30 - 6 = 24 m/s. Dividing by 4 seconds gives a = 24 / 4 = 6 m/s²."
+  },
+
+  {
+    q: "A robotic component has an initial velocity of 8 m/s and accelerates at 3 m/s² until it reaches 20 m/s. How long does the acceleration last?",
+    choices: [
+      "3 seconds",
+      "4 seconds",
+      "6 seconds",
+      "12 seconds"
+    ],
+    answer: 1,
+    explanation:
+      "Use vf = vi + at. Substitute the values: 20 = 8 + 3t. Subtracting 8 gives 12 = 3t, so t = 4 seconds."
+  },
+
+  {
+    q: "An engineer knows a component's final velocity, acceleration, and acceleration time but needs its initial velocity. Which rearrangement of vf = vi + at should be used?",
+    choices: [
+      "vi = vf - at",
+      "vi = vf + at",
+      "vi = at - vf",
+      "vi = vf / at"
+    ],
+    answer: 0,
+    explanation:
+      "Starting with vf = vi + at, subtract at from both sides to isolate initial velocity. This gives vi = vf - at."
+  },
+
+  {
+    q: "A vehicle reaches a final velocity of 42 m/s after accelerating at 5 m/s² for 6 seconds. What was its initial velocity?",
+    choices: [
+      "7 m/s",
+      "12 m/s",
+      "30 m/s",
+      "72 m/s"
+    ],
+    answer: 1,
+    explanation:
+      "Use vi = vf - at. Therefore, vi = 42 - (5 × 6) = 42 - 30 = 12 m/s."
+  },
+
+  {
+    q: "Two machine parts begin with the same initial velocity and accelerate for the same amount of time. Part A has an acceleration of 2 m/s² while Part B has an acceleration of 5 m/s². Which part will have the greater final velocity?",
+    choices: [
+      "Part A",
+      "Part B",
+      "Both will have the same final velocity",
+      "Final velocity cannot be compared using the information given"
+    ],
+    answer: 1,
+    explanation:
+      "From vf = vi + at, if initial velocity and time are the same, the part with the greater acceleration gains more velocity. Therefore, Part B has the greater final velocity."
+  },
+
+  {
+    q: "Two vehicles have the same initial velocity and the same constant acceleration. Vehicle A accelerates for 3 seconds while Vehicle B accelerates for 9 seconds. Which statement is correct?",
+    choices: [
+      "Vehicle A has the greater final velocity because it accelerates for less time",
+      "Vehicle B has the greater final velocity because the acceleration acts for more time",
+      "Both must have the same final velocity because their accelerations are equal",
+      "Time does not affect final velocity"
+    ],
+    answer: 1,
+    explanation:
+      "According to vf = vi + at, the change in velocity depends on both acceleration and time. With the same initial velocity and acceleration, the vehicle accelerating for longer reaches the greater final velocity."
+  },
+
+  {
+    q: "A component's velocity changes from 15 m/s to 35 m/s in 5 seconds. Which calculation correctly determines its constant acceleration?",
+    choices: [
+      "a = (35 - 15) / 5 = 4 m/s²",
+      "a = (35 + 15) / 5 = 10 m/s²",
+      "a = 35 / 15 = 2.33 m/s²",
+      "a = (35 - 5) / 15 = 2 m/s²"
+    ],
+    answer: 0,
+    explanation:
+      "The change in velocity is 35 - 15 = 20 m/s. Using a = Δv / t gives a = 20 / 5 = 4 m/s²."
+  },
+
+  {
+    q: "An engineer uses vf = vi + at to analyze a motion where the acceleration changes throughout the time interval. What important condition from the lesson has not been satisfied?",
+    choices: [
+      "The equation requires constant acceleration",
+      "The equation requires displacement to be zero",
+      "The equation can only be used when initial velocity is zero",
+      "The equation requires final velocity to equal initial velocity"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that the kinematics equations, including vf = vi + at, are used when acceleration is constant. The reference note also emphasizes that this equation requires constant acceleration."
+  }
+],
+
+  // GROUP 6 — Displacement with Constant Acceleration
+[
+  {
+    q: "When acceleration is constant, which equation from the lesson can be used to find displacement when initial velocity, acceleration, and time are known?",
+    choices: [
+      "d = vi t + ½at²",
+      "vf = vi + at",
+      "a = Δv / t",
+      "v = d / t"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson gives d = vi t + ½at² for finding displacement using initial velocity, acceleration, and time when acceleration is constant."
+  },
+
+  {
+    q: "A vehicle has an initial velocity of 10 m/s and accelerates at 2 m/s² for 5 seconds. Using d = vi t + ½at², what displacement does it travel?",
+    choices: [
+      "50 m",
+      "60 m",
+      "75 m",
+      "100 m"
+    ],
+    answer: 2,
+    explanation:
+      "Use d = vi t + ½at². Therefore, d = (10 × 5) + ½(2)(5²) = 50 + 25 = 75 m."
+  },
+
+  {
+    q: "A machine part starts with an initial velocity of 4 m/s and accelerates at 3 m/s² for 4 seconds. Which setup correctly calculates its displacement?",
+    choices: [
+      "d = (4 × 4) + ½(3)(4²)",
+      "d = (4 × 3) + ½(4)(3²)",
+      "d = 4 + (3 × 4)",
+      "d = 4 / 4 + ½(3)"
+    ],
+    answer: 0,
+    explanation:
+      "Substitute vi = 4 m/s, a = 3 m/s², and t = 4 s into d = vi t + ½at². This gives d = (4 × 4) + ½(3)(4²)."
+  },
+
+  {
+    q: "A moving component has an initial velocity of 6 m/s and accelerates at 2 m/s² for 3 seconds. What displacement does it travel?",
+    choices: [
+      "18 m",
+      "21 m",
+      "27 m",
+      "36 m"
+    ],
+    answer: 2,
+    explanation:
+      "Use d = vi t + ½at². Therefore, d = (6 × 3) + ½(2)(3²) = 18 + 9 = 27 m."
+  },
+
+  {
+    q: "A test vehicle begins with an initial velocity of 0 m/s and accelerates constantly at 4 m/s² for 5 seconds. What displacement does it travel?",
+    choices: [
+      "20 m",
+      "40 m",
+      "50 m",
+      "100 m"
+    ],
+    answer: 2,
+    explanation:
+      "Use d = vi t + ½at². Since vi = 0, the first term is zero. Therefore, d = ½(4)(5²) = 2 × 25 = 50 m."
+  },
+
+  {
+    q: "A component has an initial velocity of 8 m/s and moves for 4 seconds with zero acceleration. Using d = vi t + ½at², what displacement does it travel?",
+    choices: [
+      "8 m",
+      "16 m",
+      "32 m",
+      "64 m"
+    ],
+    answer: 2,
+    explanation:
+      "With a = 0, the acceleration term becomes zero. Therefore, d = (8 × 4) + ½(0)(4²) = 32 m."
+  },
+
+  {
+    q: "Two components have the same initial velocity and the same constant acceleration. Component A moves for 2 seconds while Component B moves for 4 seconds. Why can Component B's displacement increase by more than simply twice Component A's displacement?",
+    choices: [
+      "Because the acceleration term contains time squared",
+      "Because displacement never depends on initial velocity",
+      "Because acceleration becomes twice as large automatically",
+      "Because time is not included in the displacement equation"
+    ],
+    answer: 0,
+    explanation:
+      "The equation d = vi t + ½at² contains both t and t². Because the acceleration portion depends on time squared, increasing time can cause that portion of the displacement to increase by more than the same factor."
+  },
+
+  {
+    q: "A vehicle has an initial velocity of 5 m/s and accelerates at 4 m/s² for 3 seconds. An engineer calculates only vi t = 15 m and reports this as the total displacement. What part of the equation was omitted?",
+    choices: [
+      "The ½at² term",
+      "The initial velocity term",
+      "The displacement term",
+      "The final velocity term vf"
+    ],
+    answer: 0,
+    explanation:
+      "The complete equation is d = vi t + ½at². Calculating only vi t ignores the additional displacement associated with the constant acceleration."
+  },
+
+  {
+    q: "A robotic component begins at 2 m/s and accelerates constantly at 6 m/s² for 2 seconds. Which combination correctly gives its final velocity and displacement?",
+    choices: [
+      "vf = 8 m/s and d = 16 m",
+      "vf = 14 m/s and d = 16 m",
+      "vf = 14 m/s and d = 28 m",
+      "vf = 16 m/s and d = 14 m"
+    ],
+    answer: 1,
+    explanation:
+      "First use vf = vi + at: vf = 2 + (6 × 2) = 14 m/s. Then use d = vi t + ½at²: d = (2 × 2) + ½(6)(2²) = 4 + 12 = 16 m."
+  },
+
+  {
+    q: "An engineer wants to use d = vi t + ½at² for a motion in which acceleration changes throughout the time interval. What limitation from the lesson should the engineer recognize?",
+    choices: [
+      "The equation requires constant acceleration",
+      "The equation can only be used when initial velocity is zero",
+      "The equation requires displacement to equal velocity",
+      "The equation can only be used when the object is slowing down"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that the kinematics equations are used when acceleration is constant, and the important reference note specifically identifies d = vi t + ½at² as requiring constant acceleration."
+  }
+],
+
+  // GROUP 7 — Combining Constant-Acceleration Equations
+[
+  {
+    q: "An engineer knows a vehicle's initial velocity, acceleration, and time and wants to determine only its final velocity. Which equation from the lesson is the most direct choice?",
+    choices: [
+      "vf = vi + at",
+      "d = vi t + ½at²",
+      "v = d / t",
+      "a = Δv / t"
+    ],
+    answer: 0,
+    explanation:
+      "The equation vf = vi + at directly relates final velocity to initial velocity, constant acceleration, and time."
+  },
+
+  {
+    q: "A vehicle begins at 5 m/s and accelerates constantly at 3 m/s² for 4 seconds. What are its final velocity and displacement?",
+    choices: [
+      "vf = 17 m/s and d = 44 m",
+      "vf = 17 m/s and d = 68 m",
+      "vf = 12 m/s and d = 44 m",
+      "vf = 20 m/s and d = 68 m"
+    ],
+    answer: 0,
+    explanation:
+      "First, vf = vi + at = 5 + (3 × 4) = 17 m/s. Then, d = vi t + ½at² = (5 × 4) + ½(3)(4²) = 20 + 24 = 44 m."
+  },
+
+  {
+    q: "A machine component starts at 4 m/s and reaches 16 m/s after 3 seconds of constant acceleration. What acceleration does it experience?",
+    choices: [
+      "3 m/s²",
+      "4 m/s²",
+      "6 m/s²",
+      "12 m/s²"
+    ],
+    answer: 1,
+    explanation:
+      "The change in velocity is 16 - 4 = 12 m/s. Using a = Δv / t gives a = 12 / 3 = 4 m/s²."
+  },
+
+  {
+    q: "A machine component begins at 4 m/s and accelerates constantly at 4 m/s² for 3 seconds. What displacement does it travel during that time?",
+    choices: [
+      "18 m",
+      "24 m",
+      "30 m",
+      "48 m"
+    ],
+    answer: 2,
+    explanation:
+      "Use d = vi t + ½at². Therefore, d = (4 × 3) + ½(4)(3²) = 12 + 18 = 30 m."
+  },
+
+  {
+    q: "A robotic part begins at 2 m/s and accelerates constantly at 5 m/s² for 6 seconds. Which pair correctly gives its final velocity and displacement?",
+    choices: [
+      "vf = 32 m/s and d = 102 m",
+      "vf = 30 m/s and d = 90 m",
+      "vf = 32 m/s and d = 192 m",
+      "vf = 12 m/s and d = 102 m"
+    ],
+    answer: 0,
+    explanation:
+      "Final velocity is vf = 2 + (5 × 6) = 32 m/s. Displacement is d = (2 × 6) + ½(5)(6²) = 12 + 90 = 102 m."
+  },
+
+  {
+    q: "A vehicle's velocity changes from 8 m/s to 28 m/s over 5 seconds at constant acceleration. What is its acceleration, and what displacement does it travel during those 5 seconds?",
+    choices: [
+      "a = 4 m/s² and d = 90 m",
+      "a = 4 m/s² and d = 140 m",
+      "a = 5.6 m/s² and d = 90 m",
+      "a = 20 m/s² and d = 140 m"
+    ],
+    answer: 0,
+    explanation:
+      "First find acceleration: a = Δv / t = (28 - 8) / 5 = 4 m/s². Then use d = vi t + ½at²: d = (8 × 5) + ½(4)(5²) = 40 + 50 = 90 m."
+  },
+
+  {
+    q: "A component begins at 10 m/s and has a constant acceleration of 2 m/s². How long will it take to reach 24 m/s, and what displacement will it travel during that time?",
+    choices: [
+      "7 s and 119 m",
+      "7 s and 168 m",
+      "12 s and 119 m",
+      "17 s and 168 m"
+    ],
+    answer: 0,
+    explanation:
+      "Use vf = vi + at: 24 = 10 + 2t, so t = 7 s. Then d = vi t + ½at² = (10 × 7) + ½(2)(7²) = 70 + 49 = 119 m."
+  },
+
+  {
+    q: "Two vehicles begin with the same initial velocity and move for the same amount of time. Vehicle A has a greater constant acceleration than Vehicle B. According to the equations in the lesson, which statement is correct?",
+    choices: [
+      "Vehicle A will have both a greater final velocity and a greater displacement",
+      "Vehicle A will have a greater final velocity but the same displacement",
+      "Vehicle B will have a greater final velocity and displacement",
+      "Both vehicles must have the same final velocity and displacement"
+    ],
+    answer: 0,
+    explanation:
+      "From vf = vi + at, greater acceleration produces a greater final velocity when initial velocity and time are the same. From d = vi t + ½at², greater acceleration also produces greater displacement under those same conditions."
+  },
+
+  {
+    q: "An engineer knows that a vehicle's velocity changed by 18 m/s during 6 seconds of constant acceleration. The vehicle's initial velocity was 7 m/s. Which sequence correctly determines acceleration and then final velocity?",
+    choices: [
+      "a = 18 / 6 = 3 m/s², then vf = 7 + (3 × 6) = 25 m/s",
+      "a = 18 × 6 = 108 m/s², then vf = 7 + 108 = 115 m/s",
+      "a = 7 / 6 = 1.17 m/s², then vf = 18 + 7 = 25 m/s",
+      "a = 18 / 7 = 2.57 m/s², then vf = 6 + 2.57 = 8.57 m/s"
+    ],
+    answer: 0,
+    explanation:
+      "First use a = Δv / t to get a = 18 / 6 = 3 m/s². Then use vf = vi + at to get vf = 7 + (3 × 6) = 25 m/s."
+  },
+
+  {
+    q: "Why must an engineer check that acceleration is constant before applying vf = vi + at or d = vi t + ½at² as taught in this lesson?",
+    choices: [
+      "The lesson states that these kinematics equations are used for constant-acceleration motion",
+      "The equations can only be used when displacement is zero",
+      "Constant acceleration guarantees that velocity never changes",
+      "The equations require every object to begin with zero velocity"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that these kinematics equations are used when acceleration is constant. The reference note specifically emphasizes this condition for vf = vi + at and d = vi t + ½at²."
+  }
+],
+
+  // GROUP 8 — Engineering Applications of Kinematics
+[
+  {
+    q: "A robotic arm moves 6 meters forward and then 2 meters backward. What are its total distance traveled and its displacement?",
+    choices: [
+      "Distance = 8 m; displacement = 4 m forward",
+      "Distance = 4 m; displacement = 8 m forward",
+      "Distance = 8 m; displacement = 8 m forward",
+      "Distance = 4 m; displacement = 4 m backward"
+    ],
+    answer: 0,
+    explanation:
+      "Distance is the total path traveled, so the robotic arm travels 6 + 2 = 8 m. Its displacement is the change from start to finish, which is 6 - 2 = 4 m forward."
+  },
+
+  {
+    q: "A conveyor moves a component 150 meters forward in 10 seconds. Using v = d / t, what velocity describes the component's motion?",
+    choices: [
+      "10 m/s forward",
+      "15 m/s forward",
+      "150 m/s forward",
+      "1,500 m/s forward"
+    ],
+    answer: 1,
+    explanation:
+      "Use v = d / t. Therefore, v = 150 / 10 = 15 m/s forward."
+  },
+
+  {
+    q: "An elevator increases its velocity from 2 m/s to 14 m/s over 4 seconds. What is its acceleration?",
+    choices: [
+      "2 m/s²",
+      "3 m/s²",
+      "4 m/s²",
+      "12 m/s²"
+    ],
+    answer: 1,
+    explanation:
+      "The change in velocity is 14 - 2 = 12 m/s. Using a = Δv / t gives a = 12 / 4 = 3 m/s²."
+  },
+
+  {
+    q: "A test vehicle has an initial velocity of 8 m/s and accelerates constantly at 4 m/s² for 5 seconds. What final velocity does it reach?",
+    choices: [
+      "12 m/s",
+      "20 m/s",
+      "28 m/s",
+      "40 m/s"
+    ],
+    answer: 2,
+    explanation:
+      "Use vf = vi + at. Therefore, vf = 8 + (4 × 5) = 8 + 20 = 28 m/s."
+  },
+
+  {
+    q: "A machine part begins with an initial velocity of 5 m/s and accelerates constantly at 2 m/s² for 4 seconds. What displacement does it travel?",
+    choices: [
+      "20 m",
+      "28 m",
+      "36 m",
+      "52 m"
+    ],
+    answer: 2,
+    explanation:
+      "Use d = vi t + ½at². Therefore, d = (5 × 4) + ½(2)(4²) = 20 + 16 = 36 m."
+  },
+
+  {
+    q: "A moving machine part maintains the same speed but changes direction. Why must an engineer still recognize that its motion is changing?",
+    choices: [
+      "Its velocity changes because velocity includes direction, so the part is accelerating",
+      "Its velocity remains unchanged because only speed matters",
+      "Its displacement must become zero whenever direction changes",
+      "Its acceleration must be zero because its speed is constant"
+    ],
+    answer: 0,
+    explanation:
+      "Velocity includes both how fast an object moves and its direction. Changing direction therefore changes velocity, and the lesson states that a change in velocity is acceleration."
+  },
+
+  {
+    q: "A vehicle begins at 6 m/s and reaches 24 m/s after 6 seconds of constant acceleration. What acceleration does it experience, and what displacement does it travel during that time?",
+    choices: [
+      "a = 3 m/s² and d = 90 m",
+      "a = 4 m/s² and d = 90 m",
+      "a = 3 m/s² and d = 144 m",
+      "a = 18 m/s² and d = 108 m"
+    ],
+    answer: 0,
+    explanation:
+      "First, a = Δv / t = (24 - 6) / 6 = 3 m/s². Then, d = vi t + ½at² = (6 × 6) + ½(3)(6²) = 36 + 54 = 90 m."
+  },
+
+  {
+    q: "Two conveyor components begin with the same initial velocity and move for the same amount of time. Component A has a greater constant acceleration than Component B. What should the equations in the lesson predict?",
+    choices: [
+      "Component A will reach a greater final velocity and travel a greater displacement",
+      "Component A will reach a greater final velocity but travel the same displacement",
+      "Component B will reach a greater final velocity and travel a greater displacement",
+      "Both components will have the same final velocity and displacement"
+    ],
+    answer: 0,
+    explanation:
+      "From vf = vi + at, greater acceleration produces greater final velocity when initial velocity and time are equal. From d = vi t + ½at², greater acceleration also produces greater displacement under those same conditions."
+  },
+
+  {
+    q: "An engineer analyzes a vehicle whose acceleration changes repeatedly during a motion and tries to use vf = vi + at for the entire motion as if acceleration were constant. What problem does this create?",
+    choices: [
+      "The equation taught in the lesson requires constant acceleration",
+      "The equation can only be used for robotic arms",
+      "The equation requires the vehicle to have zero displacement",
+      "The equation cannot contain both velocity and time"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that equations such as vf = vi + at are used when acceleration is constant. Treating changing acceleration as constant does not satisfy that condition."
+  },
+
+  {
+    q: "Why is kinematics useful when engineers design systems such as robots, cars, elevators, conveyor belts, and moving machine parts?",
+    choices: [
+      "It allows engineers to describe and predict motion so systems can be designed to control that motion",
+      "It determines only the forces responsible for every motion",
+      "It assumes that all mechanical systems move at constant velocity",
+      "It eliminates the need to consider position, velocity, acceleration, and time"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that engineers use kinematics to describe and predict motion. Understanding motion helps engineers design systems that control movement and can make machines safer, smoother, faster, and more efficient."
+  }
+],
+
+  // GROUP 9 — Kinematics Analysis & Motion Reasoning
+[
+  {
+    q: "An engineer knows a vehicle's displacement and the time required for the motion. Which equation from the lesson most directly determines its velocity?",
+    choices: [
+      "v = d / t",
+      "a = Δv / t",
+      "vf = vi + at",
+      "d = vi t + ½at²"
+    ],
+    answer: 0,
+    explanation:
+      "When displacement and time are known and velocity is needed, the lesson gives v = d / t."
+  },
+
+  {
+    q: "A vehicle travels 90 meters forward and then 30 meters backward in a total of 10 seconds. What displacement should be used in v = d / t, and what velocity results?",
+    choices: [
+      "60 m forward and 6 m/s forward",
+      "120 m forward and 12 m/s forward",
+      "60 m forward and 9 m/s forward",
+      "120 m forward and 6 m/s forward"
+    ],
+    answer: 0,
+    explanation:
+      "The displacement is the change from start to finish: 90 - 30 = 60 m forward. Using v = d / t gives v = 60 / 10 = 6 m/s forward."
+  },
+
+  {
+    q: "A machine part changes velocity from 7 m/s to 31 m/s over 6 seconds. Which equation should be used first, and what acceleration results?",
+    choices: [
+      "a = Δv / t, giving 4 m/s²",
+      "v = d / t, giving 4 m/s²",
+      "vf = vi + at, giving 6 m/s²",
+      "d = vi t + ½at², giving 24 m/s²"
+    ],
+    answer: 0,
+    explanation:
+      "The change in velocity is 31 - 7 = 24 m/s. Using a = Δv / t gives a = 24 / 6 = 4 m/s²."
+  },
+
+  {
+    q: "A robotic component begins at 3 m/s and accelerates constantly at 4 m/s² for 5 seconds. Which pair correctly gives its final velocity and displacement?",
+    choices: [
+      "vf = 23 m/s and d = 65 m",
+      "vf = 20 m/s and d = 50 m",
+      "vf = 23 m/s and d = 115 m",
+      "vf = 7 m/s and d = 65 m"
+    ],
+    answer: 0,
+    explanation:
+      "Use vf = vi + at: vf = 3 + (4 × 5) = 23 m/s. Then use d = vi t + ½at²: d = (3 × 5) + ½(4)(5²) = 15 + 50 = 65 m."
+  },
+
+  {
+    q: "Two moving parts have the same initial velocity and the same constant acceleration. Part A moves for 4 seconds while Part B moves for 8 seconds. Which statement is supported by the equations in the lesson?",
+    choices: [
+      "Part B will have a greater final velocity and a greater displacement",
+      "Part A will have a greater final velocity because it moves for less time",
+      "Both parts will have the same final velocity because their accelerations are equal",
+      "Both parts must travel the same displacement because their initial velocities are equal"
+    ],
+    answer: 0,
+    explanation:
+      "From vf = vi + at, a longer time with the same acceleration produces a greater change in velocity. From d = vi t + ½at², the longer time also produces greater displacement under these conditions."
+  },
+
+  {
+    q: "A car moves at the same speed throughout a turn but changes direction. A student claims that its acceleration must be zero because its speed did not change. What is wrong with this reasoning?",
+    choices: [
+      "Velocity includes direction, so changing direction changes velocity and therefore involves acceleration",
+      "Acceleration depends only on distance and cannot involve velocity",
+      "Speed and velocity are identical, so neither can change",
+      "An object can accelerate only when it stops completely"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that velocity includes direction and that acceleration occurs whenever velocity changes. Therefore, changing direction is a form of acceleration even if speed remains the same."
+  },
+
+  {
+    q: "A vehicle begins at 5 m/s and reaches 29 m/s after 6 seconds of constant acceleration. What acceleration does it experience, and what displacement does it travel?",
+    choices: [
+      "a = 4 m/s² and d = 102 m",
+      "a = 4 m/s² and d = 174 m",
+      "a = 6 m/s² and d = 102 m",
+      "a = 24 m/s² and d = 174 m"
+    ],
+    answer: 0,
+    explanation:
+      "First, a = Δv / t = (29 - 5) / 6 = 4 m/s². Then, d = vi t + ½at² = (5 × 6) + ½(4)(6²) = 30 + 72 = 102 m."
+  },
+
+  {
+    q: "An engineer needs to determine the displacement of a component undergoing constant acceleration. The initial velocity, acceleration, and time are all known. Which equation uses exactly these known quantities?",
+    choices: [
+      "d = vi t + ½at²",
+      "v = d / t",
+      "a = Δv / t",
+      "vf = vi + at"
+    ],
+    answer: 0,
+    explanation:
+      "The equation d = vi t + ½at² directly uses initial velocity, acceleration, and time to determine displacement when acceleration is constant."
+  },
+
+  {
+    q: "A robot travels 40 meters forward and then 40 meters backward, returning to its starting position. Which statement correctly analyzes the complete motion?",
+    choices: [
+      "Its distance is 80 m, but its displacement is 0 m",
+      "Its distance and displacement are both 80 m",
+      "Its distance is 0 m, but its displacement is 80 m",
+      "Its distance and displacement are both 40 m"
+    ],
+    answer: 0,
+    explanation:
+      "Distance measures the total path, so the robot travels 40 + 40 = 80 m. Displacement measures the change from start to finish, which is zero because the robot returns to its starting position."
+  },
+
+  {
+    q: "Before using vf = vi + at and d = vi t + ½at² together to analyze an entire motion, which condition should an engineer verify?",
+    choices: [
+      "Acceleration remains constant during the motion being analyzed",
+      "The object's initial velocity is always zero",
+      "The object's distance and displacement are always equal",
+      "The object's velocity never changes direction"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that these kinematics equations are used when acceleration is constant. The reference note specifically warns that vf = vi + at and d = vi t + ½at² require constant acceleration."
+  }
+],
+
+  // GROUP 10 — Comprehensive Kinematics Applications
+[
+  {
+    q: "A robot moves 12 meters forward and then 5 meters backward. What are its total distance traveled and its displacement?",
+    choices: [
+      "Distance = 17 m; displacement = 7 m forward",
+      "Distance = 7 m; displacement = 17 m forward",
+      "Distance = 17 m; displacement = 5 m backward",
+      "Distance = 12 m; displacement = 7 m forward"
+    ],
+    answer: 0,
+    explanation:
+      "Distance is the total path traveled, so 12 + 5 = 17 m. Displacement is the change from start to finish, so 12 - 5 = 7 m forward."
+  },
+
+  {
+    q: "A moving component has a displacement of 180 meters forward over 12 seconds. Using v = d / t, what velocity does it have?",
+    choices: [
+      "12 m/s forward",
+      "15 m/s forward",
+      "18 m/s forward",
+      "2,160 m/s forward"
+    ],
+    answer: 1,
+    explanation:
+      "Use v = d / t. Therefore, v = 180 / 12 = 15 m/s forward."
+  },
+
+  {
+    q: "A test vehicle changes velocity from 8 m/s to 32 m/s in 6 seconds. What acceleration does it experience?",
+    choices: [
+      "4 m/s²",
+      "6 m/s²",
+      "24 m/s²",
+      "40 m/s²"
+    ],
+    answer: 0,
+    explanation:
+      "The change in velocity is 32 - 8 = 24 m/s. Using a = Δv / t gives a = 24 / 6 = 4 m/s²."
+  },
+
+  {
+    q: "A machine part begins at 6 m/s and accelerates constantly at 3 m/s² for 5 seconds. What final velocity does it reach?",
+    choices: [
+      "15 m/s",
+      "18 m/s",
+      "21 m/s",
+      "30 m/s"
+    ],
+    answer: 2,
+    explanation:
+      "Use vf = vi + at. Therefore, vf = 6 + (3 × 5) = 6 + 15 = 21 m/s."
+  },
+
+  {
+    q: "A vehicle begins with an initial velocity of 4 m/s and accelerates constantly at 2 m/s² for 6 seconds. What displacement does it travel?",
+    choices: [
+      "24 m",
+      "36 m",
+      "48 m",
+      "60 m"
+    ],
+    answer: 3,
+    explanation:
+      "Use d = vi t + ½at². Therefore, d = (4 × 6) + ½(2)(6²) = 24 + 36 = 60 m."
+  },
+
+  {
+    q: "A robotic component begins at 5 m/s and reaches 25 m/s after 4 seconds of constant acceleration. What is its acceleration, and what displacement does it travel?",
+    choices: [
+      "a = 5 m/s² and d = 60 m",
+      "a = 5 m/s² and d = 100 m",
+      "a = 20 m/s² and d = 60 m",
+      "a = 4 m/s² and d = 100 m"
+    ],
+    answer: 0,
+    explanation:
+      "First, a = Δv / t = (25 - 5) / 4 = 5 m/s². Then, d = vi t + ½at² = (5 × 4) + ½(5)(4²) = 20 + 40 = 60 m."
+  },
+
+  {
+    q: "A machine part moves at a constant speed but reverses direction. Which statement best describes what happens?",
+    choices: [
+      "Its velocity changes, so it experiences acceleration",
+      "Its velocity remains unchanged because its speed is constant",
+      "Its acceleration must be zero because it never stops",
+      "Its displacement automatically equals its total distance"
+    ],
+    answer: 0,
+    explanation:
+      "Velocity includes direction. Reversing direction changes velocity even if speed remains constant, and the lesson states that a change in velocity means acceleration occurs."
+  },
+
+  {
+    q: "Two vehicles begin with the same initial velocity and move for the same amount of time. Vehicle A has twice the constant acceleration of Vehicle B. Which statement is supported by the lesson's equations?",
+    choices: [
+      "Vehicle A gains more velocity and travels a greater displacement",
+      "Vehicle A gains more velocity but must travel the same displacement",
+      "Vehicle B gains more velocity because its acceleration is smaller",
+      "Both vehicles must end with the same velocity"
+    ],
+    answer: 0,
+    explanation:
+      "From vf = vi + at, greater acceleration produces a greater increase in velocity. From d = vi t + ½at², greater acceleration also increases displacement when initial velocity and time are the same."
+  },
+
+  {
+    q: "A vehicle begins at 10 m/s and accelerates constantly at 4 m/s² until it reaches 30 m/s. How long does this take, and what displacement occurs during that time?",
+    choices: [
+      "5 s and 100 m",
+      "5 s and 150 m",
+      "10 s and 100 m",
+      "20 s and 150 m"
+    ],
+    answer: 0,
+    explanation:
+      "Use vf = vi + at: 30 = 10 + 4t, so t = 5 s. Then use d = vi t + ½at²: d = (10 × 5) + ½(4)(5²) = 50 + 50 = 100 m."
+  },
+
+  {
+    q: "Which statement best summarizes why kinematics is important in mechanical engineering?",
+    choices: [
+      "It helps engineers describe and predict motion before designing systems that control that motion",
+      "It explains only the forces responsible for motion",
+      "It is used only when objects move at constant speed",
+      "It removes the need to consider position, velocity, acceleration, and time"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that kinematics helps engineers understand how objects move so they can design and analyze systems such as robots, vehicles, elevators, conveyor belts, and moving machine parts."
+  }
+]
+
+];
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const randomIndex = Math.floor(Math.random() * (i + 1));
@@ -1479,8 +2827,24 @@ function shuffleArray(array) {
   return array;
 }
 
-function shuffleQuestions() {
-  allQuestions = quizQuestions.map(question => {
+function buildShortQuiz() {
+  const selectedQuestions = [];
+
+  shortQuizGroups.forEach(group => {
+
+    const randomIndex =
+      Math.floor(Math.random() * group.length);
+
+    selectedQuestions.push(group[randomIndex]);
+
+  });
+
+  return selectedQuestions;
+}
+
+function shuffleQuestions(questionBank) {
+
+  allQuestions = questionBank.map(question => {
 
     // Connect each choice to whether it is the correct answer.
     const shuffledChoices = question.choices.map((choice, index) => {
@@ -1504,23 +2868,70 @@ function shuffleQuestions() {
         choice => choice.isCorrect
       )
     };
+
   });
 
   // Randomize the order of the questions too.
   shuffleArray(allQuestions);
 }
 
-function openRandomQuizSet() {
+function hideQuizStartButtons() {
+
+  document
+    .querySelectorAll("#quiz .quiz-start-btn")
+    .forEach(btn => {
+      btn.style.display = "none";
+    });
+
+}
+
+
+function openFullQuiz() {
+
   const panel = document.getElementById("quiz-panel");
-  const randomBtn = document.querySelector(".quiz-btn");
 
   panel.classList.add("open");
-  randomBtn.style.display = "none";
 
-  shuffleQuestions();
+  hideQuizStartButtons();
+
+  currentQuizMode = "full";
+
+  shuffleQuestions(quizQuestions);
+
   currentQuestionIndex = 0;
   answeredQuestions = {};
+
   loadQuestion();
+}
+
+function openShortQuiz() {
+
+  const panel = document.getElementById("quiz-panel");
+
+  panel.classList.add("open");
+
+  hideQuizStartButtons();
+
+  currentQuizMode = "short";
+
+  const shortQuizQuestions = buildShortQuiz();
+
+  shuffleQuestions(shortQuizQuestions);
+
+  currentQuestionIndex = 0;
+  answeredQuestions = {};
+
+  loadQuestion();
+}
+
+function restartCurrentQuiz() {
+
+  if (currentQuizMode === "short") {
+    openShortQuiz();
+  } else {
+    openFullQuiz();
+  }
+
 }
 
 function loadQuestion() {
@@ -1683,6 +3094,10 @@ function loadQuestion() {
   `;
 }
 
+function showCheckButton() {
+  document.getElementById("check-answer-btn").style.display = "block";
+}
+
 function checkAnswer() {
   const selected = document.querySelector('input[name="question"]:checked');
   if (!selected) return;
@@ -1732,7 +3147,7 @@ function submitQuiz() {
   });
 
   const percent = Math.round((correct / allQuestions.length) * 100);
-  
+
   launchConfetti();
 
   document.getElementById("quiz-container").innerHTML = `
@@ -1743,9 +3158,9 @@ function submitQuiz() {
     <p><strong>Wrong:</strong> ${wrong}</p>
     <p><strong>Score:</strong> ${percent}%</p>
 
-    <button onclick="openRandomQuizSet()" class="quiz-btn">
-      Restart Quiz
-    </button>
+    <button onclick="restartCurrentQuiz()" class="quiz-btn">
+  Restart Quiz
+</button>
   </div>
 `;
 }
@@ -1787,7 +3202,7 @@ function launchConfetti() {
   }
 }
 
-console.log("Kinematics quiz loaded. Total questions:", quizQuestions.length);
+console.log("Quiz loaded. Total questions:", quizQuestions.length);
 
 function toggleMenu(){
 
