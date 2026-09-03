@@ -590,9 +590,21 @@
    <div id="quiz" class="tab-content" style="display:none;">
   <h2>Statics Quiz</h2>
 
-  <button type="button" onclick="openRandomQuizSet()" class="quiz-btn">
-  Random Quiz
-</button>
+  <button
+      type="button"
+      onclick="openFullQuiz()"
+      class="quiz-btn quiz-start-btn"
+    >
+      Randomized 100-Question Quiz
+    </button>
+
+    <button
+      type="button"
+      onclick="openShortQuiz()"
+      class="quiz-btn quiz-start-btn"
+    >
+      Randomized 10-Question Quiz
+    </button>
 
 <p class="quiz-warning">
   Warning: Once you select an answer, click the "Check Answer" button to lock in your response. 
@@ -815,7 +827,8 @@ function showSection(id, button) {
   // Reset quiz when changing tabs
   const quizPanel = document.getElementById("quiz-panel");
   const quizContainer = document.getElementById("quiz-container");
-  const randomBtn = document.querySelector("#quiz .quiz-btn");
+  const quizStartButtons =
+  document.querySelectorAll("#quiz .quiz-start-btn");
 
   if (quizPanel) {
     quizPanel.classList.remove("open");
@@ -825,9 +838,9 @@ function showSection(id, button) {
     quizContainer.innerHTML = "";
   }
 
-  if (randomBtn) {
-    randomBtn.style.display = "inline-block";
-  }
+  quizStartButtons.forEach(btn => {
+  btn.style.display = "inline-block";
+});
 
   // Open clicked tab if it was closed
   if (!isOpen) {
@@ -841,6 +854,7 @@ function showSection(id, button) {
 let currentQuestionIndex = 0;
 let allQuestions = [];
 let answeredQuestions = {};
+let currentQuizMode = "";
 
 const quizQuestions = [
   {
@@ -1710,6 +1724,1340 @@ const quizQuestions = [
 }
 ];
 
+const shortQuizGroups = [
+
+  // GROUP 1 — Forces & Equilibrium Fundamentals
+[
+  {
+    q: "Which statement best describes statics according to the lesson?",
+    choices: [
+      "The study of objects that are at rest or moving at a constant velocity",
+      "The study of objects that must always be completely motionless",
+      "The study of objects that are continuously accelerating",
+      "The study of how temperature changes inside mechanical systems"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines statics as the study of objects that are either at rest or moving at a constant velocity. In both situations, the object has no acceleration."
+  },
+
+  {
+    q: "An object is moving at a constant velocity. Why can it still be analyzed using statics?",
+    choices: [
+      "Constant velocity means the object has no acceleration",
+      "Constant velocity means no forces can act on the object",
+      "Any moving object is automatically in rotational equilibrium",
+      "Velocity has no relationship to acceleration"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that statics includes objects at rest or moving at constant velocity because both situations involve no acceleration."
+  },
+
+  {
+    q: "According to the lesson, if an object has no acceleration, what must be true about the net force acting on it?",
+    choices: [
+      "The net force must equal zero",
+      "The net force must equal the object's weight",
+      "The net force must point upward",
+      "The net force must continuously increase"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that according to Newton's Second Law, no acceleration means the net force acting on the object must be zero."
+  },
+
+  {
+    q: "Which description correctly identifies a force?",
+    choices: [
+      "An interaction that can change the motion of an object",
+      "The location of an object relative to a starting point",
+      "The amount of time an object remains at rest",
+      "A measurement that describes only the mass of an object"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines a force as any interaction that can change the motion of an object."
+  },
+
+  {
+    q: "Why is a force considered a vector quantity?",
+    choices: [
+      "It has both magnitude and direction",
+      "It has mass and acceleration",
+      "It has only a numerical value",
+      "It can only act horizontally or vertically"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that forces are vector quantities because they have both magnitude, which describes how strong the force is, and direction, which describes the way the force is applied."
+  },
+
+  {
+    q: "An engineer describes a force as 80 N downward. Which parts of this description represent the force's magnitude and direction?",
+    choices: [
+      "80 N is the magnitude and downward is the direction",
+      "Downward is the magnitude and 80 N is the direction",
+      "80 is the direction and N is the magnitude",
+      "The force has magnitude but no direction"
+    ],
+    answer: 0,
+    explanation:
+      "Magnitude describes the strength of a force, so 80 N is the magnitude. Downward describes the direction in which the force acts."
+  },
+
+  {
+    q: "Which unit is used to measure force according to the statics lesson?",
+    choices: [
+      "Newton (N)",
+      "Meter (m)",
+      "Kilogram (kg)",
+      "Second (s)"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that forces are measured in newtons, abbreviated N."
+  },
+
+  {
+    q: "An object has several forces acting on it, but all of the forces balance so that the net force is zero. Which statement best describes the object's motion?",
+    choices: [
+      "It can remain at rest or continue moving at a constant velocity",
+      "It must begin accelerating immediately",
+      "It must always remain completely motionless",
+      "It must continuously change direction"
+    ],
+    answer: 0,
+    explanation:
+      "When the net force is zero, there is no acceleration. According to the lesson, the object may therefore remain at rest or continue moving at a constant velocity."
+  },
+
+  {
+    q: "An engineer determines that the forces acting on a mechanical component are not balanced. What does the lesson indicate will happen?",
+    choices: [
+      "The component will accelerate",
+      "The component must remain at rest",
+      "The component will automatically reach equilibrium",
+      "The component's forces will stop having direction"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that if the forces do not balance and the net force is not zero, the object will accelerate."
+  },
+
+  {
+    q: "Why is understanding forces and equilibrium important in mechanical engineering?",
+    choices: [
+      "It helps engineers design stable, safe, and efficient structures and mechanical systems",
+      "It allows engineers to ignore forces when designing structures",
+      "It ensures that every mechanical system remains completely motionless",
+      "It eliminates the need to analyze how forces act on components"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that understanding forces and equilibrium helps engineers keep structures stable, prevent mechanical failure, and design safe and efficient systems."
+  }
+],
+
+  // GROUP 2 — Common Forces
+[
+  {
+    q: "Which common force from the lesson is caused by gravity acting on an object?",
+    choices: [
+      "Weight",
+      "Normal force",
+      "Tension",
+      "Friction"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines weight (W) as the force of gravity acting on an object."
+  },
+
+  {
+    q: "An object is resting on a horizontal table. In which direction does its weight act?",
+    choices: [
+      "Upward",
+      "Downward",
+      "Horizontally",
+      "Perpendicular to gravity"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson states that weight is the force of gravity acting on an object and that it always acts downward."
+  },
+
+  {
+    q: "A box rests on a surface that supports it. Which force represents the support provided by the surface?",
+    choices: [
+      "Weight",
+      "Tension",
+      "Normal force",
+      "Friction"
+    ],
+    answer: 2,
+    explanation:
+      "The normal force is the support force provided by a surface."
+  },
+
+  {
+    q: "How does the normal force act relative to the surface producing it?",
+    choices: [
+      "Parallel to the surface",
+      "Perpendicular to the surface",
+      "Always downward",
+      "Always horizontally"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson defines the normal force as a support force from a surface that acts perpendicular to that surface."
+  },
+
+  {
+    q: "A mechanical component is being supported by a cable that pulls on it. Which common force describes the pulling force transmitted through the cable?",
+    choices: [
+      "Friction",
+      "Normal force",
+      "Weight",
+      "Tension"
+    ],
+    answer: 3,
+    explanation:
+      "The lesson defines tension (T) as the pulling force transmitted through a rope or cable."
+  },
+
+  {
+    q: "Two surfaces are in contact, and a force acts to resist their motion relative to each other. Which force from the lesson is being described?",
+    choices: [
+      "Tension",
+      "Weight",
+      "Friction",
+      "Normal force"
+    ],
+    answer: 2,
+    explanation:
+      "The lesson defines friction (F) as a force that resists motion between surfaces."
+  },
+
+  {
+    q: "An object sits at rest on a horizontal table. Its weight acts downward while the table provides an equal force upward. What is the upward force?",
+    choices: [
+      "Tension",
+      "Normal force",
+      "Friction",
+      "Weight"
+    ],
+    answer: 1,
+    explanation:
+      "The table provides a normal force perpendicular to its surface. In the lesson's example, this upward normal force balances the object's downward weight."
+  },
+
+  {
+    q: "An object on a table has a downward weight of 60 N and an upward normal force of 60 N, with no other vertical forces. What does this indicate about the vertical forces?",
+    choices: [
+      "They are balanced because they are equal and opposite",
+      "They are unbalanced because both forces have a magnitude",
+      "They produce a net force of 120 N downward",
+      "They produce a net force of 60 N upward"
+    ],
+    answer: 0,
+    explanation:
+      "Balanced forces cancel each other. The 60 N downward weight and 60 N upward normal force are equal and opposite, so their net vertical force is zero."
+  },
+
+  {
+    q: "Which set correctly matches each common statics force with its description from the lesson?",
+    choices: [
+      "Weight—gravity; Normal force—surface support; Tension—rope or cable pull; Friction—resists motion between surfaces",
+      "Weight—surface support; Normal force—gravity; Tension—resists motion; Friction—cable pull",
+      "Weight—cable pull; Normal force—resists motion; Tension—gravity; Friction—surface support",
+      "Weight—resists motion; Normal force—cable pull; Tension—surface support; Friction—gravity"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson identifies weight as gravity acting on an object, normal force as support from a surface, tension as a pulling force through a rope or cable, and friction as a force that resists motion between surfaces."
+  },
+
+  {
+    q: "A component is supported by a surface, pulled by a cable, affected by gravity, and experiences resistance between contacting surfaces. Which four forces from the lesson could be present?",
+    choices: [
+      "Weight, normal force, tension, and friction",
+      "Weight, acceleration, velocity, and friction",
+      "Normal force, displacement, tension, and velocity",
+      "Tension, acceleration, mass, and displacement"
+    ],
+    answer: 0,
+    explanation:
+      "The four common forces introduced in the lesson are weight, normal force, tension, and friction. Each corresponds to one of the interactions described in the situation."
+  }
+],
+
+  // GROUP 3 — Forces as Vectors
+[
+  {
+    q: "Why must an engineer consider both magnitude and direction when describing a force?",
+    choices: [
+      "Because force is a vector quantity",
+      "Because every force acts vertically",
+      "Because magnitude determines the unit of force",
+      "Because direction determines whether a force is measured in newtons"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that forces are vector quantities, meaning they have both magnitude and direction. A complete description of a force therefore requires both."
+  },
+
+  {
+    q: "A force is described as 120 N to the right. Which part of this description represents the magnitude of the force?",
+    choices: [
+      "120 N",
+      "To the right",
+      "Right only",
+      "The direction and magnitude cannot be separated"
+    ],
+    answer: 0,
+    explanation:
+      "Magnitude describes how strong the force is, so 120 N is the magnitude. 'To the right' describes its direction."
+  },
+
+  {
+    q: "An engineer knows that a force has a magnitude of 75 N but does not know its direction. Why is the description incomplete?",
+    choices: [
+      "A force is a vector, so its direction is also needed",
+      "A force cannot have a magnitude greater than zero",
+      "The magnitude must be given in two different units",
+      "All forces must be identified as either weight or friction"
+    ],
+    answer: 0,
+    explanation:
+      "Because forces are vectors, both magnitude and direction are important. Knowing only the 75 N magnitude does not completely describe the force."
+  },
+
+  {
+    q: "In a two-dimensional statics problem, which two directions does the lesson say forces are usually split into?",
+    choices: [
+      "Horizontal x-direction and vertical y-direction",
+      "Forward direction and time direction",
+      "Magnitude direction and acceleration direction",
+      "Weight direction and tension direction"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that forces in two-dimensional problems are usually split into horizontal components in the x-direction and vertical components in the y-direction."
+  },
+
+  {
+    q: "A force acts at an angle rather than entirely horizontally or vertically. According to the lesson, how can an engineer simplify the analysis of this force?",
+    choices: [
+      "Separate it into horizontal and vertical parts",
+      "Ignore its direction and use only its magnitude",
+      "Treat the entire force as horizontal",
+      "Remove the force from the equilibrium analysis"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that a force acting at an angle can be separated into a horizontal part and a vertical part."
+  },
+
+  {
+    q: "Why are forces separated into horizontal and vertical components in many statics problems?",
+    choices: [
+      "It allows each direction to be analyzed independently",
+      "It causes the original force to become larger",
+      "It removes the magnitude of the original force",
+      "It guarantees that every force is balanced"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that breaking forces into components allows engineers to analyze each direction independently, simplifying equilibrium problems."
+  },
+
+  {
+    q: "An engineer is analyzing only the horizontal behavior of an object. Which force components should be examined for that part of the analysis?",
+    choices: [
+      "The x-direction components",
+      "The y-direction components",
+      "Only the object's weight",
+      "Only forces with no direction"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson identifies horizontal force components as the x-direction components. These are the components used when analyzing forces horizontally."
+  },
+
+  {
+    q: "An engineer is checking whether the vertical forces on a component are balanced. Which components are relevant to this analysis?",
+    choices: [
+      "The y-direction components",
+      "The x-direction components",
+      "Only friction forces",
+      "Only forces acting through cables"
+    ],
+    answer: 0,
+    explanation:
+      "Vertical components act in the y-direction. These components are analyzed when determining whether forces are balanced vertically."
+  },
+
+  {
+    q: "A force acts entirely horizontally to the right. Which statement best describes how it fits into the two-dimensional analysis taught in the lesson?",
+    choices: [
+      "It acts in the x-direction",
+      "It acts in the y-direction",
+      "It has magnitude but no direction",
+      "It cannot be included in an equilibrium problem"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson identifies the horizontal direction as the x-direction. A force acting entirely to the right therefore acts horizontally in the x-direction."
+  },
+
+  {
+    q: "Why is understanding force vectors important before solving equilibrium problems?",
+    choices: [
+      "Forces have direction, and separating them into components allows each direction to be analyzed independently",
+      "Force vectors guarantee that an object has zero acceleration",
+      "Every force vector automatically cancels another force",
+      "Vectors allow engineers to ignore horizontal and vertical directions"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that forces have direction and are often separated into horizontal and vertical components. This allows each direction to be analyzed independently when solving equilibrium problems."
+  }
+],
+
+  // GROUP 4 — Translational Equilibrium
+[
+  {
+    q: "According to the lesson, when is an object in equilibrium?",
+    choices: [
+      "When all forces acting on it are balanced",
+      "When only its vertical forces are balanced",
+      "When at least one force acts on it",
+      "When it is accelerating at a constant rate"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that an object is in equilibrium when all forces acting on it are balanced. This means there is no acceleration."
+  },
+
+  {
+    q: "An object is in translational equilibrium. Which pair of equations must be satisfied in the two-dimensional problems described in the lesson?",
+    choices: [
+      "ΣFx = 0 and ΣFy = 0",
+      "ΣFx = ΣFy and ΣFy = 1",
+      "ΣFx = 1 and ΣFy = 1",
+      "ΣFx = 0 and ΣFy must be greater than zero"
+    ],
+    answer: 0,
+    explanation:
+      "For translational equilibrium, the lesson gives ΣFx = 0 for the horizontal direction and ΣFy = 0 for the vertical direction."
+  },
+
+  {
+    q: "The horizontal forces on an object are 50 N to the right and 50 N to the left. What is ΣFx?",
+    choices: [
+      "0 N",
+      "50 N to the right",
+      "50 N to the left",
+      "100 N"
+    ],
+    answer: 0,
+    explanation:
+      "The two horizontal forces are equal and opposite, so they cancel. Therefore, ΣFx = 50 - 50 = 0 N."
+  },
+
+  {
+    q: "A component has an upward force of 80 N and a downward force of 80 N. What does this tell an engineer about the vertical direction?",
+    choices: [
+      "ΣFy = 0, so the vertical forces are balanced",
+      "ΣFy = 160 N, so the component must accelerate upward",
+      "ΣFy = 80 N, so the forces are unbalanced",
+      "The vertical forces cannot be analyzed independently"
+    ],
+    answer: 0,
+    explanation:
+      "The upward and downward forces are equal and opposite, so they cancel. Therefore, ΣFy = 80 - 80 = 0 N and the vertical forces are balanced."
+  },
+
+  {
+    q: "An object has 40 N acting to the right and 25 N acting to the left. Why is the object not in horizontal equilibrium?",
+    choices: [
+      "The horizontal forces do not cancel, so ΣFx is not zero",
+      "Any force acting to the left prevents equilibrium",
+      "Horizontal equilibrium requires both forces to point right",
+      "The forces must both have zero magnitude"
+    ],
+    answer: 0,
+    explanation:
+      "For horizontal equilibrium, ΣFx must equal zero. The 40 N and 25 N forces do not cancel, so the horizontal net force is not zero."
+  },
+
+  {
+    q: "A mechanical component has ΣFx = 0 but ΣFy is not equal to zero. Is the component in translational equilibrium?",
+    choices: [
+      "No, because both ΣFx and ΣFy must equal zero",
+      "Yes, because only horizontal forces determine equilibrium",
+      "Yes, because one direction being balanced is enough",
+      "No, because ΣFx must also be greater than zero"
+    ],
+    answer: 0,
+    explanation:
+      "Translational equilibrium requires forces to balance in both directions. The lesson gives both conditions: ΣFx = 0 and ΣFy = 0."
+  },
+
+  {
+    q: "A component has 30 N and 20 N acting to the right and 50 N acting to the left. What is the sum of the horizontal forces?",
+    choices: [
+      "0 N",
+      "20 N to the right",
+      "50 N to the right",
+      "100 N"
+    ],
+    answer: 0,
+    explanation:
+      "The rightward forces total 30 + 20 = 50 N. This is balanced by the 50 N force to the left, so ΣFx = 0 N."
+  },
+
+  {
+    q: "A component has 90 N acting upward. What downward force is required for ΣFy = 0?",
+    choices: [
+      "45 N",
+      "90 N",
+      "180 N",
+      "0 N"
+    ],
+    answer: 1,
+    explanation:
+      "For ΣFy = 0, the upward and downward forces must balance. Therefore, a 90 N downward force is required to balance the 90 N upward force."
+  },
+
+  {
+    q: "An engineer calculates ΣFx = 0 and ΣFy = 0 for an object. What can be concluded about its translational motion according to the lesson?",
+    choices: [
+      "It has no acceleration and can remain at rest or continue at constant velocity",
+      "It must be completely motionless",
+      "It must accelerate vertically but not horizontally",
+      "It must continuously change direction"
+    ],
+    answer: 0,
+    explanation:
+      "When both force sums equal zero, the net force is zero and there is no acceleration. The lesson explains that the object can remain at rest or continue moving at a constant velocity."
+  },
+
+  {
+    q: "An engineer finds that ΣFx is not zero while analyzing a mechanical component. What does the lesson indicate about the component?",
+    choices: [
+      "It will accelerate because the horizontal forces are not balanced",
+      "It is in equilibrium because only ΣFy matters",
+      "It must remain at rest because horizontal forces cannot cause acceleration",
+      "It is automatically in rotational equilibrium"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that if either ΣFx or ΣFy is not zero, the object will accelerate. A nonzero ΣFx means the horizontal forces are not balanced."
+  }
+],
+
+  // GROUP 5 — Balanced Forces
+[
+  {
+    q: "According to the lesson, what does it mean for forces acting on an object to be balanced?",
+    choices: [
+      "The forces cancel each other so the net force is zero",
+      "Every force acts in the same direction",
+      "Only one force acts on the object",
+      "The object must have a nonzero acceleration"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that balanced forces cancel each other out. Equal forces acting in opposite directions produce a net force of zero."
+  },
+
+  {
+    q: "A box resting on a table has a weight of 120 N downward. If the vertical forces are balanced, what normal force must the table provide?",
+    choices: [
+      "60 N upward",
+      "120 N upward",
+      "120 N downward",
+      "240 N upward"
+    ],
+    answer: 1,
+    explanation:
+      "For the vertical forces to balance, the upward normal force must equal the downward weight. Therefore, the table must provide a 120 N normal force upward."
+  },
+
+  {
+    q: "A component has a 70 N force acting to the right and a 70 N force acting to the left. Which statement correctly describes these forces?",
+    choices: [
+      "They are balanced and produce a net horizontal force of zero",
+      "They produce a net force of 140 N to the right",
+      "They produce a net force of 70 N to the left",
+      "They are unbalanced because two forces are acting"
+    ],
+    answer: 0,
+    explanation:
+      "The two forces have equal magnitudes and opposite directions, so they cancel. Therefore, the net horizontal force is zero."
+  },
+
+  {
+    q: "A mechanical component has 45 N acting to the right and 30 N acting to the left. What additional leftward force would be required to balance the horizontal forces?",
+    choices: [
+      "15 N",
+      "30 N",
+      "45 N",
+      "75 N"
+    ],
+    answer: 0,
+    explanation:
+      "The rightward force is 45 N while 30 N already acts leftward. An additional 15 N leftward gives 30 + 15 = 45 N, causing the horizontal forces to balance."
+  },
+
+  {
+    q: "An object has an upward force of 150 N and two downward forces of 90 N and 60 N. What is the net vertical force?",
+    choices: [
+      "0 N",
+      "60 N upward",
+      "90 N downward",
+      "300 N downward"
+    ],
+    answer: 0,
+    explanation:
+      "The downward forces total 90 + 60 = 150 N. This exactly balances the 150 N upward force, so ΣFy = 0 N."
+  },
+
+  {
+    q: "A component has 100 N acting to the right and two forces of 35 N and 65 N acting to the left. Which statement is correct?",
+    choices: [
+      "The horizontal forces are balanced because both sides total 100 N",
+      "The net force is 100 N to the right",
+      "The net force is 35 N to the left",
+      "The forces cannot balance because three forces are present"
+    ],
+    answer: 0,
+    explanation:
+      "The leftward forces total 35 + 65 = 100 N, which equals the 100 N rightward force. Therefore, ΣFx = 0 and the horizontal forces are balanced."
+  },
+
+  {
+    q: "A box on a table has a downward weight of 200 N but an upward normal force of only 170 N. What does this indicate about the vertical forces?",
+    choices: [
+      "They are unbalanced because the upward and downward forces are not equal",
+      "They are balanced because both forces act vertically",
+      "They are balanced because normal force always cancels weight",
+      "They produce a net force of zero because both are measured in newtons"
+    ],
+    answer: 0,
+    explanation:
+      "Balanced forces must cancel. Since 200 N downward is greater than 170 N upward, the vertical forces do not cancel and ΣFy is not zero."
+  },
+
+  {
+    q: "An object has balanced horizontal forces but unbalanced vertical forces. Which statement correctly describes the object?",
+    choices: [
+      "It is not in translational equilibrium because forces must balance in both directions",
+      "It is in translational equilibrium because its horizontal forces are balanced",
+      "It is in equilibrium as long as at least two forces cancel",
+      "It must remain at rest because ΣFx = 0"
+    ],
+    answer: 0,
+    explanation:
+      "Translational equilibrium requires both ΣFx = 0 and ΣFy = 0. Balanced horizontal forces alone are not enough if the vertical forces remain unbalanced."
+  },
+
+  {
+    q: "A component has 80 N acting right, 80 N acting left, 140 N acting upward, and 140 N acting downward. What can an engineer conclude?",
+    choices: [
+      "ΣFx = 0 and ΣFy = 0, so the component is in translational equilibrium",
+      "ΣFx = 160 N and ΣFy = 280 N, so the component is not in equilibrium",
+      "Only the horizontal forces are balanced",
+      "Only the vertical forces are balanced"
+    ],
+    answer: 0,
+    explanation:
+      "The 80 N horizontal forces cancel and the 140 N vertical forces cancel. Therefore, ΣFx = 0 and ΣFy = 0, satisfying the conditions for translational equilibrium."
+  },
+
+  {
+    q: "Why can an object remain at rest even when several forces are acting on it?",
+    choices: [
+      "The forces can balance so their net force is zero",
+      "Forces cannot affect an object that is already at rest",
+      "Only one force can cause acceleration",
+      "An object at rest does not experience weight or normal force"
+    ],
+    answer: 0,
+    explanation:
+      "Several forces can act on an object while still canceling one another. If the forces are balanced and the net force is zero, the lesson explains that the object can remain at rest."
+  }
+],
+
+  // GROUP 6 — Solving Equilibrium Problems
+[
+  {
+    q: "A component is in horizontal equilibrium. A 90 N force acts to the right while an unknown force acts to the left. What must the unknown force be?",
+    choices: [
+      "45 N to the left",
+      "90 N to the left",
+      "90 N to the right",
+      "180 N to the left"
+    ],
+    answer: 1,
+    explanation:
+      "For horizontal equilibrium, ΣFx = 0. Therefore, the unknown leftward force must equal the 90 N rightward force, giving 90 N to the left."
+  },
+
+  {
+    q: "A mechanical component has 40 N and 25 N acting to the right. What single leftward force is required for horizontal equilibrium?",
+    choices: [
+      "15 N",
+      "25 N",
+      "40 N",
+      "65 N"
+    ],
+    answer: 3,
+    explanation:
+      "The rightward forces total 40 + 25 = 65 N. For ΣFx = 0, a 65 N force must act in the opposite direction."
+  },
+
+  {
+    q: "A component has a 120 N force acting to the left and two forces of 50 N and F acting to the right. If the component is in equilibrium, what is F?",
+    choices: [
+      "50 N",
+      "70 N",
+      "120 N",
+      "170 N"
+    ],
+    answer: 1,
+    explanation:
+      "For ΣFx = 0, the rightward forces must total 120 N. Therefore, 50 + F = 120, so F = 70 N."
+  },
+
+  {
+    q: "An object resting on a table has a weight of 180 N downward. Assuming these are the only vertical forces, what normal force is required for vertical equilibrium?",
+    choices: [
+      "90 N upward",
+      "180 N upward",
+      "180 N downward",
+      "360 N upward"
+    ],
+    answer: 1,
+    explanation:
+      "For vertical equilibrium, ΣFy = 0. The upward normal force must therefore equal the 180 N downward weight."
+  },
+
+  {
+    q: "A component has 200 N acting upward and downward forces of 75 N and F. What must F equal for vertical equilibrium?",
+    choices: [
+      "75 N",
+      "125 N",
+      "200 N",
+      "275 N"
+    ],
+    answer: 1,
+    explanation:
+      "For ΣFy = 0, the total downward force must equal the 200 N upward force. Therefore, 75 + F = 200, giving F = 125 N."
+  },
+
+  {
+    q: "A component has 80 N acting right, 30 N acting left, 150 N acting upward, and 150 N acting downward. What additional horizontal force is required for translational equilibrium?",
+    choices: [
+      "50 N to the left",
+      "50 N to the right",
+      "110 N to the left",
+      "150 N to the left"
+    ],
+    answer: 0,
+    explanation:
+      "The vertical forces already balance. Horizontally, there is 80 - 30 = 50 N remaining to the right, so an additional 50 N force to the left is required for ΣFx = 0."
+  },
+
+  {
+    q: "An engineer finds ΣFx = 0 for a component but calculates 25 N more upward force than downward force. What must be done for translational equilibrium?",
+    choices: [
+      "Add 25 N downward",
+      "Add 25 N upward",
+      "Add 25 N to the right",
+      "No additional force is needed"
+    ],
+    answer: 0,
+    explanation:
+      "Horizontal equilibrium is already satisfied, but ΣFy is not zero. Adding 25 N downward balances the extra 25 N upward force so that ΣFy = 0."
+  },
+
+  {
+    q: "A component has 60 N acting right, 60 N acting left, 100 N acting upward, and 85 N acting downward. Which statement correctly describes its equilibrium?",
+    choices: [
+      "It is in complete translational equilibrium",
+      "It is balanced horizontally but not vertically",
+      "It is balanced vertically but not horizontally",
+      "It is unbalanced in both directions"
+    ],
+    answer: 1,
+    explanation:
+      "The horizontal forces cancel, so ΣFx = 0. The vertical forces do not cancel because 100 N upward is greater than 85 N downward, so ΣFy is not zero."
+  },
+
+  {
+    q: "A mechanical component is in translational equilibrium. It has 150 N acting right, 90 N acting left, 220 N acting upward, and an unknown force F acting downward. Which additional forces would make both directions balanced?",
+    choices: [
+      "60 N left and F = 220 N downward",
+      "60 N right and F = 220 N downward",
+      "240 N left and F = 110 N downward",
+      "150 N left and F = 220 N upward"
+    ],
+    answer: 0,
+    explanation:
+      "Horizontally, 150 - 90 = 60 N remains to the right, so 60 N left is needed. Vertically, the 220 N upward force requires 220 N downward. This makes both ΣFx = 0 and ΣFy = 0."
+  },
+
+  {
+    q: "Why can an engineer solve the horizontal and vertical equilibrium equations separately in a two-dimensional statics problem?",
+    choices: [
+      "Force components in each direction can be analyzed independently",
+      "Horizontal forces are always larger than vertical forces",
+      "Only one direction can contain forces at a time",
+      "Vertical forces do not affect whether an object is in equilibrium"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that forces can be separated into horizontal and vertical components, allowing each direction to be analyzed independently using ΣFx = 0 and ΣFy = 0."
+  }
+],
+
+  // GROUP 7 — Equilibrium with Multiple Forces
+[
+  {
+    q: "A component has horizontal forces of 80 N and 30 N acting to the right and 50 N acting to the left. What additional force is required for horizontal equilibrium?",
+    choices: [
+      "60 N to the left",
+      "60 N to the right",
+      "110 N to the left",
+      "160 N to the left"
+    ],
+    answer: 0,
+    explanation:
+      "The rightward forces total 80 + 30 = 110 N. With 50 N already acting leftward, another 60 N must act leftward so both directions total 110 N and ΣFx = 0."
+  },
+
+  {
+    q: "A mechanical component has 140 N acting upward and two forces of 45 N and 65 N acting downward. What additional downward force is required for vertical equilibrium?",
+    choices: [
+      "20 N",
+      "30 N",
+      "45 N",
+      "110 N"
+    ],
+    answer: 1,
+    explanation:
+      "The existing downward forces total 45 + 65 = 110 N. An additional 30 N downward makes the total 140 N, balancing the 140 N upward force so ΣFy = 0."
+  },
+
+  {
+    q: "A component has 100 N acting right, 40 N acting left, 150 N acting upward, and 150 N acting downward. What additional force would place the component in translational equilibrium?",
+    choices: [
+      "60 N to the left",
+      "60 N to the right",
+      "300 N downward",
+      "100 N to the left"
+    ],
+    answer: 0,
+    explanation:
+      "The vertical forces already balance because 150 N upward and 150 N downward cancel. Horizontally, 100 - 40 = 60 N remains to the right, so 60 N to the left is needed."
+  },
+
+  {
+    q: "A component has 90 N acting right, 90 N acting left, 200 N acting upward, and downward forces of 120 N and 80 N. Which statement is correct?",
+    choices: [
+      "Only the horizontal forces are balanced",
+      "Only the vertical forces are balanced",
+      "Both the horizontal and vertical forces are balanced",
+      "Neither direction is balanced"
+    ],
+    answer: 2,
+    explanation:
+      "Horizontally, 90 N right and 90 N left cancel. Vertically, the downward forces total 120 + 80 = 200 N, which balances the 200 N upward force. Therefore, ΣFx = 0 and ΣFy = 0."
+  },
+
+  {
+    q: "An engineer calculates ΣFx = 0 but finds that the upward forces total 250 N while the downward forces total 210 N. What additional force is needed for translational equilibrium?",
+    choices: [
+      "40 N upward",
+      "40 N downward",
+      "210 N downward",
+      "250 N upward"
+    ],
+    answer: 1,
+    explanation:
+      "The horizontal direction is already balanced. Vertically, there is 40 N more upward force than downward force, so an additional 40 N downward is required to make ΣFy = 0."
+  },
+
+  {
+    q: "A component has forces of 50 N and 70 N acting right, 120 N acting left, 180 N acting upward, and 180 N acting downward. What can be concluded?",
+    choices: [
+      "The component satisfies both translational equilibrium equations",
+      "The component is balanced only horizontally",
+      "The component is balanced only vertically",
+      "The component has a net force of 120 N"
+    ],
+    answer: 0,
+    explanation:
+      "The rightward forces total 50 + 70 = 120 N, balancing the 120 N leftward force. The 180 N upward and downward forces also cancel. Therefore, ΣFx = 0 and ΣFy = 0."
+  },
+
+  {
+    q: "A component has 75 N acting right, 25 N acting left, 130 N acting upward, and 100 N acting downward. Which pair of additional forces would produce translational equilibrium?",
+    choices: [
+      "50 N left and 30 N down",
+      "50 N right and 30 N up",
+      "100 N left and 130 N down",
+      "25 N right and 30 N down"
+    ],
+    answer: 0,
+    explanation:
+      "Horizontally, 75 - 25 = 50 N remains to the right, requiring 50 N left. Vertically, 130 - 100 = 30 N remains upward, requiring 30 N downward."
+  },
+
+  {
+    q: "An engineer finds that all horizontal forces on a component cancel, but the vertical forces do not. Why can the component not be considered in translational equilibrium?",
+    choices: [
+      "Both ΣFx = 0 and ΣFy = 0 must be satisfied",
+      "Only ΣFy = 0 is required for equilibrium",
+      "Horizontal and vertical forces must have identical magnitudes",
+      "An object can be in equilibrium only when no forces act on it"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson gives two conditions for translational equilibrium: ΣFx = 0 and ΣFy = 0. Both directions must be balanced."
+  },
+
+  {
+    q: "A component is initially in equilibrium. An additional 25 N force is then applied to the right with no other changes. What does the lesson indicate will happen?",
+    choices: [
+      "ΣFx will no longer equal zero, so the component will accelerate",
+      "The component will remain in equilibrium because it was initially balanced",
+      "ΣFy will automatically increase by 25 N",
+      "The additional force will have no effect because other forces are present"
+    ],
+    answer: 0,
+    explanation:
+      "The additional rightward force makes the horizontal force sum nonzero. The lesson states that if either force sum is not zero, the object will accelerate."
+  },
+
+  {
+    q: "Why should an engineer check ΣFx and ΣFy separately when several forces act on a component?",
+    choices: [
+      "A component can be balanced in one direction but unbalanced in the other",
+      "Only horizontal forces can cause acceleration",
+      "Only vertical forces need to equal zero for equilibrium",
+      "The two equations always produce the same numerical result"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that horizontal and vertical directions can be analyzed independently. An object may satisfy equilibrium in one direction while remaining unbalanced in the other, so both ΣFx and ΣFy must be checked."
+  }
+],
+
+  // GROUP 8 — Applying Forces & Equilibrium
+[
+  {
+    q: "A machine component is supported on a horizontal surface. Its weight acts downward while the surface provides an equal normal force upward. What does this indicate about the vertical forces?",
+    choices: [
+      "They are balanced, so ΣFy = 0",
+      "They combine to produce a downward net force",
+      "They combine to produce an upward net force",
+      "They cannot be compared because they are different types of forces"
+    ],
+    answer: 0,
+    explanation:
+      "Equal forces acting in opposite directions cancel. The downward weight and equal upward normal force therefore produce ΣFy = 0."
+  },
+
+  {
+    q: "A cable pulls a component with a force that acts partly horizontally and partly vertically. According to the lesson, what should an engineer do before analyzing equilibrium?",
+    choices: [
+      "Separate the force into horizontal and vertical components",
+      "Ignore the vertical part of the force",
+      "Treat the entire force as horizontal",
+      "Replace the cable force with the component's weight"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that a force acting at an angle can be separated into horizontal and vertical parts so each direction can be analyzed independently."
+  },
+
+  {
+    q: "A component has 75 N acting to the right, 45 N acting to the left, and an unknown force acting to the left. If ΣFx = 0, what must the unknown force be?",
+    choices: [
+      "30 N to the left",
+      "45 N to the left",
+      "75 N to the left",
+      "120 N to the left"
+    ],
+    answer: 0,
+    explanation:
+      "For ΣFx = 0, the total leftward force must equal 75 N. Since 45 N already acts leftward, the unknown force must be 75 - 45 = 30 N to the left."
+  },
+
+  {
+    q: "An object has 160 N of weight acting downward and an upward normal force of 160 N. A new additional downward force of 20 N is applied. What happens to the vertical equilibrium?",
+    choices: [
+      "The forces become unbalanced because ΣFy is no longer zero",
+      "The object remains balanced because weight still equals normal force",
+      "The additional force causes ΣFx to become nonzero",
+      "The normal force and weight disappear"
+    ],
+    answer: 0,
+    explanation:
+      "Before the additional force, the 160 N upward and downward forces canceled. Adding another 20 N downward makes the vertical force sum nonzero, so the vertical forces are no longer balanced."
+  },
+
+  {
+    q: "A component has balanced vertical forces, but its horizontal forces total 140 N to the right and 100 N to the left. Which statement is correct?",
+    choices: [
+      "The component is not in translational equilibrium because ΣFx is not zero",
+      "The component is in equilibrium because ΣFy equals zero",
+      "The component is in equilibrium because forces act in both directions",
+      "The component must be at rest because its vertical forces are balanced"
+    ],
+    answer: 0,
+    explanation:
+      "Translational equilibrium requires both ΣFx = 0 and ΣFy = 0. The horizontal forces do not balance because there is 40 N more force to the right."
+  },
+
+  {
+    q: "A component has 90 N and 40 N acting right, 70 N and 60 N acting left, 200 N upward, and 200 N downward. What can an engineer conclude?",
+    choices: [
+      "The component satisfies both translational equilibrium equations",
+      "Only the horizontal forces are balanced",
+      "Only the vertical forces are balanced",
+      "Neither direction is balanced"
+    ],
+    answer: 0,
+    explanation:
+      "The rightward forces total 90 + 40 = 130 N, and the leftward forces total 70 + 60 = 130 N, so ΣFx = 0. The 200 N upward and downward forces also cancel, so ΣFy = 0."
+  },
+
+  {
+    q: "An engineer knows that a component is in translational equilibrium and that 250 N acts upward while 175 N acts downward. If one additional vertical force is present, what must it be?",
+    choices: [
+      "75 N downward",
+      "75 N upward",
+      "175 N upward",
+      "250 N downward"
+    ],
+    answer: 0,
+    explanation:
+      "For ΣFy = 0, the downward forces must total 250 N. Since 175 N already acts downward, another 75 N downward is required."
+  },
+
+  {
+    q: "A box remains at rest even though weight, normal force, friction, and another horizontal force act on it. Which explanation is consistent with the lesson?",
+    choices: [
+      "The forces can balance so the net force is zero",
+      "An object at rest cannot experience forces",
+      "Only the weight matters when an object is at rest",
+      "Friction automatically removes every other force"
+    ],
+    answer: 0,
+    explanation:
+      "An object can have several forces acting on it and still remain at rest if those forces balance. In equilibrium, the net force is zero."
+  },
+
+  {
+    q: "An engineer analyzes an object and finds ΣFx = 0 and ΣFy = 0. Another student claims the object must be motionless. Why is that conclusion incomplete?",
+    choices: [
+      "An object with no acceleration may be at rest or moving at a constant velocity",
+      "An object in equilibrium must always accelerate",
+      "ΣFx and ΣFy apply only to moving objects",
+      "A moving object cannot have balanced forces"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines statics as including objects at rest or moving at constant velocity. When the net force is zero, there is no acceleration, but the object does not necessarily have to be motionless."
+  },
+
+  {
+    q: "An engineer is checking whether a structure's component satisfies translational equilibrium. Which procedure best follows the lesson?",
+    choices: [
+      "Identify the forces, account for their directions or components, and verify that ΣFx = 0 and ΣFy = 0",
+      "Add only the magnitudes of every force and ignore their directions",
+      "Check only whether the component has a normal force",
+      "Verify that every force acting on the component has the same magnitude"
+    ],
+    answer: 0,
+    explanation:
+      "Forces are vectors, so their directions matter. The lesson explains that forces can be analyzed using horizontal and vertical components, with translational equilibrium requiring ΣFx = 0 and ΣFy = 0."
+  }
+],
+
+  // GROUP 9 — Statics Analysis & Equilibrium Reasoning
+[
+  {
+    q: "An engineer analyzes a component and finds 130 N acting to the right and 130 N acting to the left. What can be concluded about the horizontal direction?",
+    choices: [
+      "ΣFx = 0, so the horizontal forces are balanced",
+      "ΣFx = 260 N, so the horizontal forces are unbalanced",
+      "ΣFx = 130 N to the right",
+      "The forces cannot balance because both have nonzero magnitudes"
+    ],
+    answer: 0,
+    explanation:
+      "The two horizontal forces are equal and opposite, so they cancel. Therefore, ΣFx = 0 and the component is balanced in the horizontal direction."
+  },
+
+  {
+    q: "A component has 90 N acting right, 50 N acting left, 160 N acting upward, and 160 N acting downward. Which statement correctly describes the component?",
+    choices: [
+      "It is balanced vertically but not horizontally",
+      "It is balanced horizontally but not vertically",
+      "It is balanced in both directions",
+      "It is unbalanced in both directions"
+    ],
+    answer: 0,
+    explanation:
+      "The 160 N upward and downward forces cancel, so ΣFy = 0. Horizontally, 90 N right and 50 N left do not cancel, so ΣFx is not zero."
+  },
+
+  {
+    q: "A component has 60 N and 40 N acting to the right and 75 N acting to the left. What additional force would be required for horizontal equilibrium?",
+    choices: [
+      "25 N to the left",
+      "25 N to the right",
+      "75 N to the right",
+      "100 N to the left"
+    ],
+    answer: 0,
+    explanation:
+      "The rightward forces total 60 + 40 = 100 N. With 75 N acting leftward, an additional 25 N leftward is required so that ΣFx = 0."
+  },
+
+  {
+    q: "An object resting on a table has a downward weight of 240 N and an upward normal force of 240 N. What does this example demonstrate?",
+    choices: [
+      "Equal and opposite forces can balance so the object remains at rest",
+      "Weight and normal force always act in the same direction",
+      "The two forces create a net downward force of 480 N",
+      "An object at rest cannot have forces acting on it"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson uses an object on a table as an example of balanced forces. The downward weight and equal upward normal force cancel, allowing the object to remain at rest."
+  },
+
+  {
+    q: "A cable applies a force to a component at an angle. Why might an engineer separate this force into horizontal and vertical parts before checking equilibrium?",
+    choices: [
+      "So the x- and y-directions can be analyzed independently",
+      "So the force no longer has a direction",
+      "So the force automatically becomes balanced",
+      "So the force can be removed from the equilibrium equations"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that forces can be broken into horizontal and vertical components. This allows each direction to be analyzed independently."
+  },
+
+  {
+    q: "An engineer calculates ΣFx = 0 and ΣFy = 0 for a moving component. Which conclusion is supported by the lesson?",
+    choices: [
+      "The component can continue moving at a constant velocity because it has no acceleration",
+      "The component must immediately stop moving",
+      "The component must begin accelerating because it is already moving",
+      "The component cannot be in equilibrium unless its velocity is zero"
+    ],
+    answer: 0,
+    explanation:
+      "Statics includes objects at rest and objects moving at constant velocity. If ΣFx = 0 and ΣFy = 0, the net force is zero and there is no acceleration."
+  },
+
+  {
+    q: "A component is initially in equilibrium. An additional force is applied upward while all other forces remain unchanged. What should an engineer expect?",
+    choices: [
+      "ΣFy will no longer equal zero, so the component will accelerate",
+      "The component will remain in equilibrium because ΣFx is unchanged",
+      "The additional force will automatically create an equal downward force",
+      "The upward force will affect only the horizontal equilibrium equation"
+    ],
+    answer: 0,
+    explanation:
+      "Adding an upward force without another force to balance it makes the vertical force sum nonzero. The lesson states that if either force sum is not zero, the object will accelerate."
+  },
+
+  {
+    q: "A component has 110 N acting right, 70 N and 40 N acting left, 190 N acting upward, and 150 N and 40 N acting downward. What can be concluded?",
+    choices: [
+      "Both ΣFx and ΣFy equal zero",
+      "Only ΣFx equals zero",
+      "Only ΣFy equals zero",
+      "Neither ΣFx nor ΣFy equals zero"
+    ],
+    answer: 0,
+    explanation:
+      "Horizontally, 70 + 40 = 110 N left, which balances the 110 N rightward force. Vertically, 150 + 40 = 190 N downward, which balances the 190 N upward force. Therefore, both sums equal zero."
+  },
+
+  {
+    q: "An engineer knows that a component must remain in translational equilibrium. The horizontal forces already satisfy ΣFx = 0, but there is 35 N more force downward than upward. What change would restore equilibrium?",
+    choices: [
+      "Add 35 N upward",
+      "Add 35 N downward",
+      "Add 35 N to the right",
+      "Remove all horizontal forces"
+    ],
+    answer: 0,
+    explanation:
+      "There is an unbalanced 35 N downward force. Adding 35 N upward would cancel it and make ΣFy = 0 while leaving the already balanced horizontal direction unchanged."
+  },
+
+  {
+    q: "Which procedure best determines whether a component satisfies the translational equilibrium conditions taught in the lesson?",
+    choices: [
+      "Identify the forces and their directions, separate components when needed, and verify ΣFx = 0 and ΣFy = 0",
+      "Add the magnitudes of every force without considering direction",
+      "Check only whether the component has a normal force and weight",
+      "Verify that at least two forces have equal magnitudes"
+    ],
+    answer: 0,
+    explanation:
+      "Forces are vectors, so their directions matter. The lesson explains that forces can be separated into horizontal and vertical components and that translational equilibrium requires both ΣFx = 0 and ΣFy = 0."
+  }
+],
+
+  // GROUP 10 — Comprehensive Statics Applications
+[
+  {
+    q: "A component has 120 N acting to the right and forces of 45 N and 75 N acting to the left. What does this indicate about the horizontal forces?",
+    choices: [
+      "ΣFx = 0, so the horizontal forces are balanced",
+      "ΣFx = 120 N to the right",
+      "ΣFx = 240 N, so the forces are unbalanced",
+      "ΣFx = 75 N to the left"
+    ],
+    answer: 0,
+    explanation:
+      "The leftward forces total 45 + 75 = 120 N, which balances the 120 N rightward force. Therefore, ΣFx = 0."
+  },
+
+  {
+    q: "An object resting on a horizontal surface has a weight of 300 N downward. If these are the only vertical forces and the object is in equilibrium, what normal force must the surface provide?",
+    choices: [
+      "150 N upward",
+      "300 N upward",
+      "300 N downward",
+      "600 N upward"
+    ],
+    answer: 1,
+    explanation:
+      "For vertical equilibrium, ΣFy = 0. The normal force must therefore provide 300 N upward to balance the 300 N downward weight."
+  },
+
+  {
+    q: "A cable pulls on a mechanical component. Which statement correctly describes the force supplied by the cable?",
+    choices: [
+      "It is tension, a pulling force transmitted through the cable",
+      "It is weight, which always acts upward",
+      "It is normal force, which always acts through cables",
+      "It is friction, which is caused by gravity"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines tension as the pulling force transmitted through a rope or cable."
+  },
+
+  {
+    q: "A force acts at an angle on a component. Why would an engineer separate this force into horizontal and vertical components?",
+    choices: [
+      "To analyze the x- and y-directions independently",
+      "To remove the direction from the force",
+      "To guarantee that the force becomes balanced",
+      "To change the force from newtons into another unit"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that angled forces can be separated into horizontal and vertical parts. This allows engineers to analyze each direction independently."
+  },
+
+  {
+    q: "A component has 90 N acting right, 60 N acting left, 180 N acting upward, and 150 N acting downward. Which pair of additional forces would place it in translational equilibrium?",
+    choices: [
+      "30 N left and 30 N down",
+      "30 N right and 30 N up",
+      "150 N left and 180 N down",
+      "90 N left and 60 N down"
+    ],
+    answer: 0,
+    explanation:
+      "Horizontally, there is 90 - 60 = 30 N remaining to the right, so 30 N left is needed. Vertically, there is 180 - 150 = 30 N remaining upward, so 30 N downward is needed."
+  },
+
+  {
+    q: "An engineer determines that ΣFx = 0 but ΣFy is not equal to zero. Which conclusion is correct?",
+    choices: [
+      "The component is not in translational equilibrium because both force sums must equal zero",
+      "The component is in equilibrium because the horizontal forces are balanced",
+      "The component must remain at rest because ΣFx = 0",
+      "The vertical forces can be ignored when horizontal forces are balanced"
+    ],
+    answer: 0,
+    explanation:
+      "Translational equilibrium requires both ΣFx = 0 and ΣFy = 0. If either condition is not satisfied, the component is not in translational equilibrium."
+  },
+
+  {
+    q: "A component has 140 N acting right, 80 N and 60 N acting left, 250 N acting upward, and 100 N and 150 N acting downward. What can an engineer conclude?",
+    choices: [
+      "Only the horizontal forces are balanced",
+      "Only the vertical forces are balanced",
+      "Both ΣFx and ΣFy equal zero",
+      "Neither direction is balanced"
+    ],
+    answer: 2,
+    explanation:
+      "Horizontally, 80 + 60 = 140 N left, which balances 140 N right. Vertically, 100 + 150 = 250 N downward, which balances 250 N upward. Therefore, both ΣFx and ΣFy equal zero."
+  },
+
+  {
+    q: "A component is moving at a constant velocity while several forces act on it. Which statement is consistent with the definition of statics in the lesson?",
+    choices: [
+      "The forces can be balanced because constant velocity means there is no acceleration",
+      "The component cannot be studied using statics because it is moving",
+      "The component must have an unbalanced net force because its velocity is not zero",
+      "Every force acting on the component must have zero magnitude"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines statics as the study of objects at rest or moving at constant velocity. Constant velocity means there is no acceleration, so the net force can be zero."
+  },
+
+  {
+    q: "A component is initially in translational equilibrium. An additional 40 N force is applied to the right while every other force remains unchanged. What happens?",
+    choices: [
+      "ΣFx becomes nonzero, so the component will accelerate",
+      "The component remains in equilibrium because its original forces were balanced",
+      "ΣFy becomes 40 N even though the new force is horizontal",
+      "The new force automatically creates an equal force to the left"
+    ],
+    answer: 0,
+    explanation:
+      "The component originally had balanced forces. Adding an unopposed 40 N force to the right makes ΣFx nonzero, and the lesson states that a nonzero force sum causes acceleration."
+  },
+
+  {
+    q: "Which statement best summarizes how the concepts in this Statics lesson work together when engineers analyze a component?",
+    choices: [
+      "Engineers identify forces and their directions, separate components when needed, and check that ΣFx = 0 and ΣFy = 0 for translational equilibrium",
+      "Engineers add every force magnitude together without considering direction",
+      "Engineers check only the object's weight because other forces do not affect equilibrium",
+      "Engineers require every component to have no forces acting on it before it can be in equilibrium"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson combines the ideas that forces are vectors, forces may be separated into horizontal and vertical components, and translational equilibrium requires ΣFx = 0 and ΣFy = 0."
+  }
+]
+
+];
+
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const randomIndex = Math.floor(Math.random() * (i + 1));
@@ -1721,8 +3069,24 @@ function shuffleArray(array) {
   return array;
 }
 
-function shuffleQuestions() {
-  allQuestions = quizQuestions.map(question => {
+function buildShortQuiz() {
+  const selectedQuestions = [];
+
+  shortQuizGroups.forEach(group => {
+
+    const randomIndex =
+      Math.floor(Math.random() * group.length);
+
+    selectedQuestions.push(group[randomIndex]);
+
+  });
+
+  return selectedQuestions;
+}
+
+function shuffleQuestions(questionBank) {
+
+  allQuestions = questionBank.map(question => {
 
     // Connect each choice to whether it is the correct answer.
     const shuffledChoices = question.choices.map((choice, index) => {
@@ -1746,23 +3110,70 @@ function shuffleQuestions() {
         choice => choice.isCorrect
       )
     };
+
   });
 
   // Randomize the order of the questions too.
   shuffleArray(allQuestions);
 }
 
-function openRandomQuizSet() {
+function hideQuizStartButtons() {
+
+  document
+    .querySelectorAll("#quiz .quiz-start-btn")
+    .forEach(btn => {
+      btn.style.display = "none";
+    });
+
+}
+
+
+function openFullQuiz() {
+
   const panel = document.getElementById("quiz-panel");
-  const randomBtn = document.querySelector(".quiz-btn");
 
   panel.classList.add("open");
-  randomBtn.style.display = "none";
 
-  shuffleQuestions();
+  hideQuizStartButtons();
+
+  currentQuizMode = "full";
+
+  shuffleQuestions(quizQuestions);
+
   currentQuestionIndex = 0;
   answeredQuestions = {};
+
   loadQuestion();
+}
+
+function openShortQuiz() {
+
+  const panel = document.getElementById("quiz-panel");
+
+  panel.classList.add("open");
+
+  hideQuizStartButtons();
+
+  currentQuizMode = "short";
+
+  const shortQuizQuestions = buildShortQuiz();
+
+  shuffleQuestions(shortQuizQuestions);
+
+  currentQuestionIndex = 0;
+  answeredQuestions = {};
+
+  loadQuestion();
+}
+
+function restartCurrentQuiz() {
+
+  if (currentQuizMode === "short") {
+    openShortQuiz();
+  } else {
+    openFullQuiz();
+  }
+
 }
 
 function loadQuestion() {
@@ -1989,9 +3400,9 @@ function submitQuiz() {
     <p><strong>Wrong:</strong> ${wrong}</p>
     <p><strong>Score:</strong> ${percent}%</p>
 
-    <button onclick="openRandomQuizSet()" class="quiz-btn">
-      Restart Quiz
-    </button>
+    <button onclick="restartCurrentQuiz()" class="quiz-btn">
+  Restart Quiz
+</button>
   </div>
 `;
 }
