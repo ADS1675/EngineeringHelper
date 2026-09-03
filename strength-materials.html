@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Units, Conversions & Engineering Math Basics - Mechanical Engineering Helper</title>
+  <title>Strength of Materials - Mechanical Engineering Helper</title>
   <link rel="stylesheet" href="style.css">
 
   <!-- Google tag (gtag.js) -->
@@ -96,20 +96,24 @@
   <div class="background"></div>
 
   <div class="course-page">
-    <h1>Units, Conversions & Engineering Math Basics</h1>
+    <h1>Strength of Materials</h1>
 
     <!-- COURSE DESCRIPTION -->
 <div class="course-description">
-  <h2>What is Units, Conversions & Engineering Math Basics?</h2>
+
+  <h2>What is Strength of Materials?</h2>
 
   <p>
-    Units, conversions, and engineering math provide the basic mathematical
-    skills needed to solve engineering problems. Mechanical engineers work
-    with different measurement systems, convert between units, use scientific
-    notation, and apply algebra and trigonometry to calculations. These skills
-    help engineers keep calculations accurate and consistent when working with
-    measurements such as length, force, mass, pressure, energy, and temperature.
+    Strength of Materials is the branch of mechanics that 
+    studies how materials respond to forces and loads. 
+    Mechanical engineers use these principles to understand 
+    stress, strain, deformation, and failure so that components 
+    and structures can safely support the loads they experience. 
+    From bridges and buildings to engines and machine parts, 
+    understanding material behavior is essential for designing 
+    safe, reliable, and efficient engineering systems.
   </p>
+
 </div>
 
     <!-- TAB BUTTONS -->
@@ -118,477 +122,331 @@
 <button onclick="showSection('problems', this)">Problems</button>
 <button onclick="showSection('quiz', this)">Quiz</button>
 <button onclick="showSection('real', this)">Real World Applications</button>
-<button onclick="showSection('vide', this)">Video</button>
+<button onclick="showSection('video', this)">Video</button>
     </div>
 
-    <!-- LESSONS -->
-<div id="lessons" class="tab-content" style="display:none;">
+    <div id="lessons" class="tab-content" style="display:none;">
 
   <div class="lesson-content">
 
-    <h2>Units, Conversions & Engineering Math Basics</h2>
+    <h2>Stress & Strain</h2>
 
     <p>
-      Engineering problems often involve measurements, formulas, and calculations.
-      To solve these problems correctly, engineers must understand units, convert
-      between measurement systems, use scientific notation, rearrange equations,
-      and apply basic algebra and trigonometry.
+      Strength of Materials is the study of how materials respond when forces are applied to them.
+      Engineers use this knowledge to ensure that structures and machine components can safely
+      withstand loads without failing.
     </p>
 
-    <h3>1. Understanding Units</h3>
+    <h3>1. What is Stress?</h3>
 
     <p>
-      A <strong>unit</strong> tells us what a number represents.
-      Without a unit, a measurement may be incomplete or unclear.
+      <strong>Stress</strong> is the internal force per unit area inside a material.
+      When an external force is applied to an object, the material develops internal
+      resisting forces to oppose that load.
     </p>
 
-    <p>Some common engineering quantities and SI units include:</p>
+    <p>
+      Stress is measured in units of pressure, typically Pascals (Pa) or MegaPascals (MPa).
+    </p>
+
+    <p><strong>Formula:</strong></p>
+
+    <p><strong>σ = F / A</strong></p>
 
     <ul>
-      <li><strong>Length</strong> – meter (m)</li>
-      <li><strong>Mass</strong> – kilogram (kg)</li>
-      <li><strong>Time</strong> – second (s)</li>
-      <li><strong>Force</strong> – newton (N)</li>
-      <li><strong>Pressure</strong> – pascal (Pa)</li>
-      <li><strong>Energy</strong> – joule (J)</li>
-      <li><strong>Power</strong> – watt (W)</li>
-      <li><strong>Temperature</strong> – kelvin (K) or degrees Celsius (°C)</li>
+      <li><strong>σ</strong> = Stress</li>
+      <li><strong>F</strong> = Applied Force</li>
+      <li><strong>A</strong> = Cross-sectional Area</li>
     </ul>
 
     <p>
-      Keeping track of units helps engineers make sure their calculations are
-      physically meaningful and helps prevent errors.
+      Notice that increasing force increases stress, while increasing area decreases stress.
     </p>
 
-    <h3>2. SI Prefixes</h3>
+    <h3>2. Types of Stress</h3>
 
     <p>
-      Very large or very small measurements are often written using
-      <strong>SI prefixes</strong>. These prefixes represent powers of ten.
+      Engineers commonly encounter several types of stress:
     </p>
 
     <ul>
-      <li><strong>kilo (k)</strong> = 10<sup>3</sup> = 1,000</li>
-      <li><strong>mega (M)</strong> = 10<sup>6</sup> = 1,000,000</li>
-      <li><strong>giga (G)</strong> = 10<sup>9</sup> = 1,000,000,000</li>
-      <li><strong>milli (m)</strong> = 10<sup>-3</sup> = 0.001</li>
-      <li><strong>micro (µ)</strong> = 10<sup>-6</sup> = 0.000001</li>
-      <li><strong>nano (n)</strong> = 10<sup>-9</sup> = 0.000000001</li>
+      <li><strong>Tensile Stress</strong> – Pulling forces that stretch a material.</li>
+      <li><strong>Compressive Stress</strong> – Pushing forces that squeeze a material.</li>
+      <li><strong>Shear Stress</strong> – Forces acting parallel to a surface that cause sliding.</li>
     </ul>
 
     <p>
-      For example, 5 kN is equal to 5,000 N, while 5 mm is equal to 0.005 m.
+      Different materials handle these stresses differently.
     </p>
 
-    <h3>3. Unit Conversions</h3>
+    <h3>3. What is Strain?</h3>
 
     <p>
-      Engineers often need to convert one unit into another.
-      A common method is <strong>dimensional analysis</strong>, where conversion
-      factors are arranged so unwanted units cancel.
-    </p>
-
-    <p><strong>Example:</strong> Convert 2.5 km to meters.</p>
-
-    <p>
-      2.5 km × 1000 m / 1 km = 2500 m
+      While stress describes the applied loading, <strong>strain</strong> describes the resulting deformation.
     </p>
 
     <p>
-      The kilometer units cancel, leaving meters as the final unit.
+      Strain measures how much a material changes length compared to its original length.
     </p>
 
-    <p>Common conversions include:</p>
+    <p><strong>Formula:</strong></p>
+
+    <p><strong>ε = ΔL / L₀</strong></p>
 
     <ul>
-      <li>1 km = 1000 m</li>
-      <li>1 m = 100 cm</li>
-      <li>1 m = 1000 mm</li>
-      <li>1 kg = 1000 g</li>
-      <li>1 hour = 3600 seconds</li>
-      <li>1 kN = 1000 N</li>
-      <li>1 MPa = 1,000,000 Pa</li>
+      <li><strong>ε</strong> = Strain</li>
+      <li><strong>ΔL</strong> = Change in Length</li>
+      <li><strong>L₀</strong> = Original Length</li>
     </ul>
 
-    <h3>4. Scientific Notation</h3>
-
     <p>
-      <strong>Scientific notation</strong> is used to write very large or very
-      small numbers more easily.
+      Since strain is a ratio of two lengths, it has no units.
     </p>
 
-    <p>
-      A number in scientific notation is written in the form:
-    </p>
+    <h3>4. Elastic vs Plastic Deformation</h3>
 
     <p>
-      <strong>a × 10<sup>n</sup></strong>
-    </p>
-
-    <p>
-      where <strong>a</strong> is usually between 1 and 10 and
-      <strong>n</strong> tells how many places the decimal has moved.
+      Not all deformation is permanent.
     </p>
 
     <ul>
-      <li>4,500,000 = 4.5 × 10<sup>6</sup></li>
-      <li>0.00032 = 3.2 × 10<sup>-4</sup></li>
-      <li>200,000,000 Pa = 2 × 10<sup>8</sup> Pa</li>
+      <li>
+        <strong>Elastic Deformation</strong> – Material returns to its original shape
+        after the load is removed.
+      </li>
+
+      <li>
+        <strong>Plastic Deformation</strong> – Material remains permanently deformed
+        after the load is removed.
+      </li>
     </ul>
 
     <p>
-      Scientific notation is especially useful in engineering because quantities
-      can range from extremely small dimensions to extremely large forces or pressures.
+      Engineers often design components to remain within the elastic region during normal operation.
     </p>
 
-    <h3>5. Rearranging Engineering Equations</h3>
+    <h3>5. Stress-Strain Relationship</h3>
 
     <p>
-      Engineers often know several variables in an equation and need to solve for
-      a different unknown. This requires basic algebra.
+      For many materials, stress and strain are proportional while the material remains elastic.
+      This relationship is described by Hooke's Law.
     </p>
 
-    <p><strong>Example:</strong></p>
+    <p><strong>Formula:</strong></p>
 
-    <p>
-      F = ma
-    </p>
-
-    <p>
-      If force and mass are known but acceleration is unknown, divide both sides by mass:
-    </p>
-
-    <p>
-      <strong>a = F / m</strong>
-    </p>
-
-    <p>Another example is the velocity equation:</p>
-
-    <p>
-      v = d / t
-    </p>
-
-    <p>It can be rearranged as:</p>
+    <p><strong>σ = Eε</strong></p>
 
     <ul>
-      <li><strong>d = vt</strong></li>
-      <li><strong>t = d / v</strong></li>
+      <li><strong>σ</strong> = Stress</li>
+      <li><strong>E</strong> = Young's Modulus</li>
+      <li><strong>ε</strong> = Strain</li>
     </ul>
 
     <p>
-      Correctly rearranging equations is an essential skill in nearly every
-      engineering course.
+      Young's Modulus is a measure of stiffness.
+      Materials with a larger Young's Modulus resist deformation more effectively.
     </p>
 
-    <h3>6. Basic Trigonometry</h3>
+    <h3>6. Why Stress & Strain Matter</h3>
 
     <p>
-      Trigonometry is frequently used in engineering when forces, distances,
-      or motion occur at angles.
+      Mechanical engineers use stress and strain analysis to determine whether parts
+      will safely support loads during operation.
     </p>
 
     <p>
-      For a right triangle, the basic trigonometric relationships are:
+      Examples include:
     </p>
 
     <ul>
-      <li><strong>sin(θ) = opposite / hypotenuse</strong></li>
-      <li><strong>cos(θ) = adjacent / hypotenuse</strong></li>
-      <li><strong>tan(θ) = opposite / adjacent</strong></li>
+      <li>Bridges supporting vehicles</li>
+      <li>Aircraft wings carrying aerodynamic loads</li>
+      <li>Bolts holding machine components together</li>
+      <li>Crane cables lifting heavy objects</li>
+      <li>Vehicle frames supporting passengers and cargo</li>
     </ul>
 
-    <p>
-      These relationships allow engineers to find unknown sides, angles,
-      and vector components.
-    </p>
-
-    <p>
-      For example, a force acting at an angle can be separated into horizontal
-      and vertical components:
-    </p>
+    <h3>7. Key Takeaways</h3>
 
     <ul>
-      <li><strong>F<sub>x</sub> = F cos(θ)</strong></li>
-      <li><strong>F<sub>y</sub> = F sin(θ)</strong></li>
-    </ul>
-
-    <h3>7. Order of Operations</h3>
-
-    <p>
-      Engineering equations may contain several operations, so following the
-      correct order of operations is important.
-    </p>
-
-    <p>
-      A common way to remember the order is:
-    </p>
-
-    <ul>
-      <li>Parentheses</li>
-      <li>Exponents</li>
-      <li>Multiplication and Division</li>
-      <li>Addition and Subtraction</li>
+      <li>Stress measures force per unit area.</li>
+      <li>Strain measures deformation.</li>
+      <li>Higher force generally means higher stress.</li>
+      <li>Larger areas reduce stress.</li>
+      <li>Elastic deformation is temporary.</li>
+      <li>Plastic deformation is permanent.</li>
+      <li>Hooke's Law relates stress and strain in the elastic region.</li>
     </ul>
 
     <p>
-      Performing calculations in the wrong order can produce an incorrect answer
-      even when the correct formula is being used.
+      Stress and strain form the foundation of Strength of Materials and are used
+      throughout nearly every field of mechanical engineering.
     </p>
 
-    <h3>8. Checking Units in Equations</h3>
+    <section class="references-section" aria-labelledby="materials-references-heading">
 
-    <p>
-      Units can also be used to check whether an equation or calculation makes sense.
-      This process is called <strong>dimensional analysis</strong>.
-    </p>
+  <h2 id="materials-references-heading" class="references-heading">
+    References and Further Reading
+  </h2>
 
-    <p>
-      For example, Newton's Second Law is:
-    </p>
+  <p class="references-intro">
+    These sources provide additional explanations of stress, strain,
+    material deformation, Hooke's law and Young's modulus.
+  </p>
 
-    <p>
-      F = ma
-    </p>
+  <div class="references-grid">
 
-    <p>
-      The units on the right side are:
-    </p>
+    <article class="reference-card">
+      <span class="reference-type">Engineering Textbook</span>
 
-    <p>
-      kg × m/s²
-    </p>
+      <h3>Mechanics of Materials</h3>
 
-    <p>
-      This is equal to a newton:
-    </p>
-
-    <p>
-      <strong>1 N = 1 kg·m/s²</strong>
-    </p>
-
-    <p>
-      If the units of a calculation do not match the expected answer, it can be
-      a sign that something was entered or converted incorrectly.
-    </p>
-
-    <h3>9. Significant Figures and Engineering Accuracy</h3>
-
-    <p>
-      Measurements are not always exact, so engineers must consider the precision
-      of the values they use.
-    </p>
-
-    <p>
-      <strong>Significant figures</strong> indicate how precisely a value is known.
-      For example:
-    </p>
-
-    <ul>
-      <li>5.2 has two significant figures</li>
-      <li>5.20 has three significant figures</li>
-      <li>0.00520 has three significant figures</li>
-    </ul>
-
-    <p>
-      Engineers should avoid reporting an answer with more precision than the
-      original measurements reasonably support.
-    </p>
-
-    <h3>10. Why This Matters</h3>
-
-    <p>
-      Units, conversions, and engineering mathematics are used throughout
-      mechanical engineering. Engineers need these skills to:
-    </p>
-
-    <ul>
-      <li>Convert measurements between different unit systems</li>
-      <li>Use engineering formulas correctly</li>
-      <li>Check whether calculated answers make physical sense</li>
-      <li>Work with very large and very small quantities</li>
-      <li>Analyze forces and motion at different angles</li>
-      <li>Communicate measurements clearly and consistently</li>
-    </ul>
-
-    <p>
-      These basic skills support nearly every other engineering subject,
-      including statics, dynamics, strength of materials, thermodynamics,
-      and more advanced mechanical engineering courses.
-    </p>
-
-    <section class="references-section" aria-labelledby="units-math-references-heading">
-
-      <h2 id="units-math-references-heading" class="references-heading">
-        References and Further Reading
-      </h2>
-
-      <p class="references-intro">
-        These sources provide additional information about SI units,
-        unit conversions, scientific notation, algebra, trigonometry,
-        and mathematics used in engineering.
+      <p class="reference-author">
+        <strong>Author:</strong> Russell C. Hibbeler
       </p>
 
-      <div class="references-grid">
+      <p class="reference-publisher">
+        <strong>Publisher:</strong> Pearson
+      </p>
 
-        <!-- NIST SI UNITS -->
-        <article class="reference-card">
-          <span class="reference-type">Government Reference</span>
-
-          <h3>The International System of Units</h3>
-
-          <p class="reference-author">
-            <strong>Organization:</strong> National Institute of Standards and Technology
-          </p>
-
-          <p class="reference-publisher">
-            <strong>Abbreviation:</strong> NIST
-          </p>
-
-          <div class="reference-topics">
-            <strong>Related topics:</strong>
-            <ul>
-              <li>SI base units</li>
-              <li>Derived units</li>
-              <li>Metric prefixes</li>
-              <li>Unit symbols</li>
-              <li>Measurement conventions</li>
-            </ul>
-          </div>
-
-          <a
-            class="reference-button"
-            href="https://www.nist.gov/pml/owm/metric-si/si-units"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the NIST SI Units page"
-          >
-            Visit Official Source
-          </a>
-        </article>
-
-        <!-- OPENSTAX COLLEGE ALGEBRA -->
-        <article class="reference-card">
-          <span class="reference-type">Free Online Textbook</span>
-
-          <h3>College Algebra</h3>
-
-          <p class="reference-author">
-            <strong>Organization:</strong> OpenStax
-          </p>
-
-          <p class="reference-publisher">
-            <strong>Access:</strong> Free online
-          </p>
-
-          <div class="reference-topics">
-            <strong>Related topics:</strong>
-            <ul>
-              <li>Algebra</li>
-              <li>Equations</li>
-              <li>Exponents</li>
-              <li>Scientific notation</li>
-              <li>Problem solving</li>
-            </ul>
-          </div>
-
-          <a
-            class="reference-button"
-            href="https://openstax.org/details/books/college-algebra-2e"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the OpenStax College Algebra textbook"
-          >
-            Read Free Source
-          </a>
-        </article>
-
-        <!-- OPENSTAX PRECALCULUS -->
-        <article class="reference-card">
-          <span class="reference-type">Free Online Textbook</span>
-
-          <h3>Precalculus</h3>
-
-          <p class="reference-author">
-            <strong>Organization:</strong> OpenStax
-          </p>
-
-          <p class="reference-publisher">
-            <strong>Access:</strong> Free online
-          </p>
-
-          <div class="reference-topics">
-            <strong>Related topics:</strong>
-            <ul>
-              <li>Trigonometry</li>
-              <li>Right triangles</li>
-              <li>Functions</li>
-              <li>Angles</li>
-              <li>Algebraic relationships</li>
-            </ul>
-          </div>
-
-          <a
-            class="reference-button"
-            href="https://openstax.org/details/books/precalculus-2e"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the OpenStax Precalculus textbook"
-          >
-            Read Free Source
-          </a>
-        </article>
-
-        <!-- NIST METRIC PREFIXES -->
-        <article class="reference-card">
-          <span class="reference-type">Government Reference</span>
-
-          <h3>Metric (SI) Prefixes</h3>
-
-          <p class="reference-author">
-            <strong>Organization:</strong> National Institute of Standards and Technology
-          </p>
-
-          <p class="reference-publisher">
-            <strong>Focus:</strong> SI prefixes and powers of ten
-          </p>
-
-          <div class="reference-topics">
-            <strong>Related topics:</strong>
-            <ul>
-              <li>Metric prefixes</li>
-              <li>Powers of ten</li>
-              <li>Prefix symbols</li>
-              <li>Unit notation</li>
-              <li>Metric quantities</li>
-            </ul>
-          </div>
-
-          <a
-            class="reference-button"
-            href="https://www.nist.gov/pml/owm/metric-si-prefixes"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open the NIST Metric SI Prefixes page"
-          >
-            Visit Official Source
-          </a>
-        </article>
-
+      <div class="reference-topics">
+        <strong>Related topics:</strong>
+        <ul>
+          <li>Normal stress</li>
+          <li>Normal strain</li>
+          <li>Axial loading</li>
+          <li>Elastic deformation</li>
+          <li>Young's modulus</li>
+        </ul>
       </div>
 
-      <p class="reference-note">
-        <strong>Source note:</strong> This lesson introduces foundational
-        mathematics and measurement concepts commonly used throughout engineering.
-        NIST provides official information about SI measurement standards and
-        metric prefixes, while OpenStax provides free educational resources for
-        algebra and trigonometry.
+      <a
+        class="reference-button"
+        href="https://www.pearson.com/en-us/subject-catalog/p/mechanics-of-materials/P200000003409/9780137605385"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open the official Pearson Mechanics of Materials page"
+      >
+        Visit Official Source
+      </a>
+    </article>
+
+    <article class="reference-card">
+      <span class="reference-type">Engineering Textbook</span>
+
+      <h3>Mechanics of Materials</h3>
+
+      <p class="reference-author">
+        <strong>Authors:</strong> Beer, Johnston, DeWolf and Mazurek
       </p>
 
-    </section>
+      <p class="reference-publisher">
+        <strong>Publisher:</strong> McGraw Hill
+      </p>
+
+      <div class="reference-topics">
+        <strong>Related topics:</strong>
+        <ul>
+          <li>Tensile stress</li>
+          <li>Compressive stress</li>
+          <li>Shear stress</li>
+          <li>Stress-strain behavior</li>
+          <li>Material deformation</li>
+        </ul>
+      </div>
+
+      <a
+        class="reference-button"
+        href="https://www.mheducation.com/highered/product/mechanics-of-materials-beer.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open the official McGraw Hill Mechanics of Materials page"
+      >
+        Visit Official Source
+      </a>
+    </article>
+
+    <article class="reference-card">
+      <span class="reference-type">Combined Engineering Textbook</span>
+
+      <h3>Statics and Mechanics of Materials</h3>
+
+      <p class="reference-author">
+        <strong>Authors:</strong> Beer, Johnston, DeWolf and Mazurek
+      </p>
+
+      <p class="reference-publisher">
+        <strong>Publisher:</strong> McGraw Hill
+      </p>
+
+      <div class="reference-topics">
+        <strong>Related topics:</strong>
+        <ul>
+          <li>Applied loading</li>
+          <li>Internal forces</li>
+          <li>Stress and strain</li>
+          <li>Engineering design</li>
+        </ul>
+      </div>
+
+      <a
+        class="reference-button"
+        href="https://www.mheducation.com/highered/product/statics-and-mechanics-of-materials-beer.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open the official McGraw Hill Statics and Mechanics of Materials page"
+      >
+        Visit Official Source
+      </a>
+    </article>
+
+    <article class="reference-card">
+      <span class="reference-type">Government Reference</span>
+
+      <h3>International System of Units</h3>
+
+      <p class="reference-author">
+        <strong>Organization:</strong> National Institute of Standards and Technology
+      </p>
+
+      <p class="reference-publisher">
+        <strong>Abbreviation:</strong> NIST
+      </p>
+
+      <div class="reference-topics">
+        <strong>Related topics:</strong>
+        <ul>
+          <li>Pascal</li>
+          <li>Megapascal</li>
+          <li>Pressure and stress units</li>
+          <li>SI notation</li>
+        </ul>
+      </div>
+
+      <a
+        class="reference-button"
+        href="https://physics.nist.gov/cuu/pdf/sp330.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open the NIST International System of Units publication"
+      >
+        View NIST Publication
+      </a>
+    </article>
 
   </div>
-</div>
 
+  <p class="reference-note">
+    <strong>Important:</strong> The equation σ = Eε describes
+    linear-elastic behavior. It should not be assumed to apply after a
+    material leaves its linear-elastic range.
+  </p>
+
+</section>
+
+  </div>
+
+</div>
 
     <div id="problems" class="tab-content" style="display:none;">
 
@@ -601,96 +459,115 @@
 
         <h2>Example Problems</h2>
 
-        <h3>Problem 1: Unit Conversion</h3>
+        <h3>Problem 1: Calculating Stress</h3>
 
         <p>
-          A mechanical component is 3.5 meters long. Convert this length to millimeters.
+          A metal rod has a cross-sectional area of 0.005 m². A force of 1,000 N is applied to it.
+          Find the stress in the rod.
         </p>
 
-        <p><strong>Step 1: Identify the conversion</strong></p>
-        <p>1 m = 1000 mm</p>
+        <p><strong>Step 1: Use the stress formula</strong></p>
+        <p>σ = F / A</p>
 
-        <p><strong>Step 2: Set up the conversion</strong></p>
-        <p>3.5 m × (1000 mm / 1 m)</p>
-
-        <p><strong>Step 3: Cancel units and calculate</strong></p>
-        <p>3.5 × 1000 = 3500 mm</p>
-
-        <p><strong>Answer:</strong> 3500 mm</p>
-
-        <hr>
-
-        <h3>Problem 2: Scientific Notation</h3>
-
-        <p>
-          A pressure is measured as 45,000,000 Pa.
-          Write this value in scientific notation.
-        </p>
-
-        <p><strong>Step 1: Move the decimal</strong></p>
-        <p>
-          Move the decimal until the number is between 1 and 10.
-        </p>
-
-        <p>45,000,000 → 4.5</p>
-
-        <p><strong>Step 2: Count the decimal places</strong></p>
-        <p>The decimal moved 7 places to the left.</p>
-
-        <p><strong>Step 3: Write using a power of ten</strong></p>
-        <p>4.5 × 10<sup>7</sup> Pa</p>
-
-        <p><strong>Answer:</strong> 4.5 × 10<sup>7</sup> Pa</p>
-
-        <hr>
-
-        <h3>Problem 3: Rearranging an Engineering Equation</h3>
-
-        <p>
-          A force of 60 N acts on a mass of 12 kg.
-          Using F = ma, find the acceleration.
-        </p>
-
-        <p><strong>Step 1: Start with the equation</strong></p>
-        <p>F = ma</p>
-
-        <p><strong>Step 2: Rearrange for acceleration</strong></p>
-        <p>a = F / m</p>
-
-        <p><strong>Step 3: Substitute the known values</strong></p>
-        <p>a = 60 / 12</p>
-
-        <p><strong>Step 4: Calculate</strong></p>
-        <p>a = 5 m/s²</p>
-
-        <p><strong>Answer:</strong> 5 m/s²</p>
-
-        <hr>
-
-        <h3>Problem 4: Force Components Using Trigonometry</h3>
-
-        <p>
-          A 100 N force acts at a 30° angle.
-          Find the horizontal and vertical components of the force.
-        </p>
-
-        <p><strong>Step 1: Use the component equations</strong></p>
-        <p>F<sub>x</sub> = F cos(θ)</p>
-        <p>F<sub>y</sub> = F sin(θ)</p>
-
-        <p><strong>Step 2: Substitute the known values</strong></p>
-        <p>F<sub>x</sub> = 100 cos(30°)</p>
-        <p>F<sub>y</sub> = 100 sin(30°)</p>
+        <p><strong>Step 2: Substitute values</strong></p>
+        <p>σ = 1000 / 0.005</p>
 
         <p><strong>Step 3: Calculate</strong></p>
-        <p>F<sub>x</sub> ≈ 86.6 N</p>
-        <p>F<sub>y</sub> = 50 N</p>
+        <p>σ = 200,000 Pa</p>
+
+        <p><strong>Answer:</strong> The stress is 200,000 Pa, or 200 kPa.</p>
+
+        <hr>
+
+        <h3>Problem 2: Calculating Strain</h3>
 
         <p>
-          <strong>Answer:</strong>
-          F<sub>x</sub> ≈ 86.6 N,
-          F<sub>y</sub> = 50 N
+          A 2 m long rod stretches by 0.004 m when a load is applied.
+          Find the strain.
         </p>
+
+        <p><strong>Step 1: Use the strain formula</strong></p>
+        <p>ε = ΔL / L₀</p>
+
+        <p><strong>Step 2: Substitute values</strong></p>
+        <p>ε = 0.004 / 2</p>
+
+        <p><strong>Step 3: Calculate</strong></p>
+        <p>ε = 0.002</p>
+
+        <p><strong>Answer:</strong> The strain is 0.002. Strain has no units.</p>
+
+        <hr>
+
+        <h3>Problem 3: Finding Force from Stress</h3>
+
+        <p>
+          A part experiences a stress of 500,000 Pa over an area of 0.01 m².
+          Find the applied force.
+        </p>
+
+        <p><strong>Step 1: Start with the stress formula</strong></p>
+        <p>σ = F / A</p>
+
+        <p><strong>Step 2: Rearrange to solve for force</strong></p>
+        <p>F = σA</p>
+
+        <p><strong>Step 3: Substitute values</strong></p>
+        <p>F = 500,000 × 0.01</p>
+
+        <p><strong>Step 4: Calculate</strong></p>
+        <p>F = 5,000 N</p>
+
+        <p><strong>Answer:</strong> The applied force is 5,000 N.</p>
+
+        <hr>
+
+        <h3>Problem 4: Finding Change in Length</h3>
+
+        <p>
+          A rod has an original length of 3 m and a strain of 0.0015.
+          Find the change in length.
+        </p>
+
+        <p><strong>Step 1: Use the strain formula</strong></p>
+        <p>ε = ΔL / L₀</p>
+
+        <p><strong>Step 2: Rearrange to solve for change in length</strong></p>
+        <p>ΔL = εL₀</p>
+
+        <p><strong>Step 3: Substitute values</strong></p>
+        <p>ΔL = 0.0015 × 3</p>
+
+        <p><strong>Step 4: Calculate</strong></p>
+        <p>ΔL = 0.0045 m</p>
+
+        <p><strong>Answer:</strong> The rod stretches by 0.0045 m, or 4.5 mm.</p>
+
+        <hr>
+
+        <h3>Problem 5: Hooke's Law / Young's Modulus</h3>
+
+        <p>
+          A material has a stress of 400 MPa and a strain of 0.002.
+          Find Young's Modulus.
+        </p>
+
+        <p><strong>Step 1: Use Hooke's Law</strong></p>
+        <p>σ = Eε</p>
+
+        <p><strong>Step 2: Rearrange to solve for Young's Modulus</strong></p>
+        <p>E = σ / ε</p>
+
+        <p><strong>Step 3: Convert stress to Pascals</strong></p>
+        <p>400 MPa = 400,000,000 Pa</p>
+
+        <p><strong>Step 4: Substitute values</strong></p>
+        <p>E = 400,000,000 / 0.002</p>
+
+        <p><strong>Step 5: Calculate</strong></p>
+        <p>E = 200,000,000,000 Pa</p>
+
+        <p><strong>Answer:</strong> Young's Modulus is 200 GPa.</p>
 
       </div>
 
@@ -701,80 +578,50 @@
 
       <h3>Formula Sheet</h3>
 
-      <p>
-        <strong>Common Unit Conversions:</strong><br>
-        1 km = 1000 m<br>
-        1 m = 100 cm<br>
-        1 m = 1000 mm<br>
-        1 kg = 1000 g<br>
-        1 hour = 3600 seconds<br>
-        1 kN = 1000 N<br>
-        1 MPa = 1,000,000 Pa
-      </p>
+<p>
+  <strong>Stress:</strong><br>
+  σ = F / A<br>
+  σ = Stress (Pa or N/m²)<br>
+  F = Applied Force (N)<br>
+  A = Cross-sectional Area (m²)<br>
+  <em>Units:</em> N / m² = Pa
+</p>
 
-      <p>
-        <strong>SI Prefixes:</strong><br>
-        kilo (k) = 10<sup>3</sup><br>
-        mega (M) = 10<sup>6</sup><br>
-        giga (G) = 10<sup>9</sup><br>
-        milli (m) = 10<sup>-3</sup><br>
-        micro (µ) = 10<sup>-6</sup><br>
-        nano (n) = 10<sup>-9</sup>
-      </p>
+<p>
+  <strong>Strain:</strong><br>
+  ε = ΔL / L<sub>0</sub><br>
+  ε = Strain (no unit)<br>
+  ΔL = Change in Length (m)<br>
+  L<sub>0</sub> = Original Length (m)<br>
+  <em>Units:</em> m / m = no unit
+</p>
 
-      <p>
-        <strong>Scientific Notation:</strong><br>
-        a × 10<sup>n</sup><br>
-        a = Number usually between 1 and 10<br>
-        n = Number of decimal places moved
-      </p>
+<p>
+  <strong>Young’s Modulus:</strong><br>
+  E = σ / ε<br>
+  E = Young’s Modulus (Pa)<br>
+  σ = Stress (Pa)<br>
+  ε = Strain (no unit)<br>
+  <em>Units:</em> Pa / no unit = Pa
+</p>
 
-      <p>
-        <strong>Force Equation:</strong><br>
-        F = ma<br>
-        a = F / m<br>
-        F = Force (N)<br>
-        m = Mass (kg)<br>
-        a = Acceleration (m/s²)
-      </p>
+<p>
+  <strong>Change in Length:</strong><br>
+  ΔL = εL<sub>0</sub><br>
+  ΔL = Change in Length (m)<br>
+  ε = Strain (no unit)<br>
+  L<sub>0</sub> = Original Length (m)<br>
+  <em>Units:</em> no unit × m = m
+</p>
 
-      <p>
-        <strong>Velocity Equation:</strong><br>
-        v = d / t<br>
-        d = vt<br>
-        t = d / v<br>
-        v = Velocity<br>
-        d = Distance<br>
-        t = Time
-      </p>
-
-      <p>
-        <strong>Basic Trigonometry:</strong><br>
-        sin(θ) = opposite / hypotenuse<br>
-        cos(θ) = adjacent / hypotenuse<br>
-        tan(θ) = opposite / adjacent
-      </p>
-
-      <p>
-        <strong>Force Components:</strong><br>
-        F<sub>x</sub> = F cos(θ)<br>
-        F<sub>y</sub> = F sin(θ)<br>
-        F = Total Force (N)<br>
-        θ = Angle
-      </p>
-
-      <p>
-        <strong>Force Units:</strong><br>
-        1 N = 1 kg·m/s²
-      </p>
-
-      <p>
-        <strong>Order of Operations:</strong><br>
-        1. Parentheses<br>
-        2. Exponents<br>
-        3. Multiplication and Division<br>
-        4. Addition and Subtraction
-      </p>
+<p>
+  <strong>Force from Stress:</strong><br>
+  F = σA<br>
+  F = Force (N)<br>
+  σ = Stress (Pa or N/m²)<br>
+  A = Area (m²)<br>
+  <em>Units:</em> N/m² × m² = N
+</p>
 
     </div>
 
@@ -783,17 +630,29 @@
 </div>
 
    <div id="quiz" class="tab-content" style="display:none;">
-  <h2>Units, Conversions & Engineering Math Basics Quiz</h2>
+  <h2>Strength of Materials Quiz</h2>
 
-  <button type="button" onclick="openRandomQuizSet()" class="quiz-btn">
-  Random Quiz
-</button>
+  <button
+      type="button"
+      onclick="openFullQuiz()"
+      class="quiz-btn quiz-start-btn"
+    >
+      Randomized 100-Question Quiz
+    </button>
 
-<p class="quiz-warning">
-  Warning: Once you select an answer, click the "Check Answer" button to lock in your response. 
-  Answers that are not checked before submitting the quiz will NOT count, and unanswered questions 
-  will be marked wrong.
-</p>
+    <button
+      type="button"
+      onclick="openShortQuiz()"
+      class="quiz-btn quiz-start-btn"
+    >
+      Randomized 10-Question Quiz
+    </button>
+
+  <p class="quiz-warning">
+    Warning: Once you select an answer, click the "Check Answer" button to lock in your response.
+    Answers that are not checked before submitting the quiz will NOT count, and unanswered questions
+    will be marked wrong.
+  </p>
 
   <div id="quiz-panel" class="quiz-panel">
     <h3 id="quiz-set-title"></h3>
@@ -804,147 +663,173 @@
     <div id="real" class="tab-content" style="display:none;">
   <div class="lesson-content">
 
-    <h2>Real World Applications of Units, Conversions & Engineering Math Basics</h2>
+    <h2>Real World Applications of Strength of Materials</h2>
 
     <p>
-      Units, conversions, and engineering math are used throughout mechanical engineering.
-      Engineers must work with measurements, convert between units, rearrange equations,
-      use scientific notation, and apply algebra and trigonometry to solve real problems.
-      These skills help make calculations accurate, consistent, and easier to check.
+      Strength of Materials is used whenever engineers need to understand whether
+      a material or part can safely handle forces without bending too much,
+      stretching too far, or permanently deforming.
     </p>
 
     <hr>
 
-    <h3>1. Manufacturing and Part Measurements</h3>
+    <h3>1. Bridges</h3>
     <p>
-      Mechanical parts are designed and manufactured using specific measurements.
-      Engineers may need to convert between meters, centimeters, and millimeters when
-      working with drawings, machines, and measurements. Correct unit conversions help
-      make sure a part is produced at the intended size.
+      Bridges experience stress and strain from their own weight, vehicles,
+      wind, and movement. Engineers must make sure the bridge materials can
+      support these loads without failing.
     </p>
 
-    <p><strong>Engineering math concepts used:</strong></p>
+    <p><strong>Concepts used:</strong></p>
     <ul>
-      <li><strong>Units:</strong> measurements describe the size of a part.</li>
-      <li><strong>Unit conversions:</strong> dimensions may be converted between meters, centimeters, and millimeters.</li>
-      <li><strong>Significant figures:</strong> measurements should not show more precision than the original measurement supports.</li>
+      <li><strong>Stress:</strong> forces spread through beams and supports.</li>
+      <li><strong>Strain:</strong> small changes in shape happen under loading.</li>
+      <li><strong>Elastic deformation:</strong> bridges should return to normal after loads pass.</li>
     </ul>
 
     <hr>
 
-    <h3>2. Force Calculations</h3>
+    <h3>2. Crane Cables</h3>
     <p>
-      Engineers often calculate how forces affect mechanical objects and systems.
-      If the force and mass of an object are known, an engineer can rearrange
-      F = ma to determine the object's acceleration. Keeping the correct units
-      also helps confirm that the calculation makes sense.
+      Crane cables experience tensile stress when lifting heavy objects.
+      The cable stretches slightly under load, but it must stay within the
+      elastic region so it does not permanently deform or fail.
     </p>
 
-    <p><strong>Engineering math concepts used:</strong></p>
+    <p><strong>Concepts used:</strong></p>
     <ul>
-      <li><strong>Equation rearrangement:</strong> F = ma can be rearranged to a = F / m.</li>
-      <li><strong>Units:</strong> force is measured in newtons and mass in kilograms.</li>
-      <li><strong>Checking units:</strong> kg·m/s² is equivalent to a newton.</li>
+      <li><strong>Tensile stress:</strong> pulling force in the cable.</li>
+      <li><strong>Strain:</strong> small stretching of the cable.</li>
+      <li><strong>Young's Modulus:</strong> stiffness of the cable material.</li>
     </ul>
 
     <hr>
 
-    <h3>3. Motion and Travel Calculations</h3>
+    <h3>3. Bolts and Fasteners</h3>
     <p>
-      Engineers may need to calculate the distance an object travels, its velocity,
-      or the amount of time it moves. The equation v = d / t can be rearranged
-      depending on which value needs to be found.
+      Bolts hold machine parts together and can experience tensile,
+      compressive, or shear stress depending on how the load is applied.
+      Engineers must choose bolts strong enough for the expected forces.
     </p>
 
-    <p><strong>Engineering math concepts used:</strong></p>
+    <p><strong>Concepts used:</strong></p>
     <ul>
-      <li><strong>Velocity:</strong> v = d / t can be used when distance and time are known.</li>
-      <li><strong>Distance:</strong> the equation can be rearranged to d = vt.</li>
-      <li><strong>Time:</strong> the equation can be rearranged to t = d / v.</li>
+      <li><strong>Stress:</strong> force acting over the bolt's cross-sectional area.</li>
+      <li><strong>Shear stress:</strong> sliding forces across the bolt.</li>
+      <li><strong>Plastic deformation:</strong> must be avoided in normal use.</li>
     </ul>
 
     <hr>
 
-    <h3>4. Forces Acting at Angles</h3>
+    <h3>4. Vehicle Frames</h3>
     <p>
-      Forces in mechanical systems do not always act perfectly horizontally or vertically.
-      When a force acts at an angle, engineers can use trigonometry to separate it into
-      horizontal and vertical components. This makes the force easier to analyze.
+      A vehicle frame supports passengers, the engine, cargo, and forces from
+      the road. The frame must be stiff enough to resist excessive deformation
+      while still being light enough to be efficient.
     </p>
 
-    <p><strong>Engineering math concepts used:</strong></p>
+    <p><strong>Concepts used:</strong></p>
     <ul>
-      <li><strong>Trigonometry:</strong> sine and cosine are used with angles.</li>
-      <li><strong>Horizontal component:</strong> Fx = F cos(θ).</li>
-      <li><strong>Vertical component:</strong> Fy = F sin(θ).</li>
+      <li><strong>Stress:</strong> loads from passengers and equipment.</li>
+      <li><strong>Strain:</strong> small bending or stretching in the frame.</li>
+      <li><strong>Young's Modulus:</strong> material stiffness.</li>
     </ul>
 
     <hr>
 
-    <h3>5. Working With Large and Small Measurements</h3>
+    <h3>5. Aircraft Wings</h3>
     <p>
-      Engineering calculations can involve numbers that are extremely large or extremely small.
-      Scientific notation makes these values easier to write, read, and use in calculations.
-      Engineers can also use SI prefixes such as kilo, mega, milli, micro, and nano to
-      represent different sizes of measurements.
+      Aircraft wings bend slightly during flight because aerodynamic forces act
+      on them. Engineers use stress and strain analysis to make sure the wings
+      flex safely without permanent deformation.
     </p>
 
-    <p><strong>Engineering math concepts used:</strong></p>
+    <p><strong>Concepts used:</strong></p>
     <ul>
-      <li><strong>Scientific notation:</strong> large and small values can be written using powers of ten.</li>
-      <li><strong>SI prefixes:</strong> prefixes represent different powers of ten.</li>
-      <li><strong>Conversions:</strong> values can be converted between prefixed and base units.</li>
+      <li><strong>Stress:</strong> internal resistance to aerodynamic loads.</li>
+      <li><strong>Strain:</strong> wing deformation during flight.</li>
+      <li><strong>Elastic deformation:</strong> wings should return to shape after loading.</li>
     </ul>
 
     <hr>
 
-    <h3>6. Pressure Measurements</h3>
+    <h3>6. Shelves and Brackets</h3>
     <p>
-      Engineers may work with pressure values written in pascals or megapascals.
-      Converting between these units makes it easier to compare measurements and
-      use values correctly in engineering calculations.
+      Shelves and brackets support weight from objects placed on them.
+      If the material is too weak or the cross-sectional area is too small,
+      the stress may become too high and the bracket may bend or fail.
     </p>
 
-    <p><strong>Engineering math concepts used:</strong></p>
+    <p><strong>Concepts used:</strong></p>
     <ul>
-      <li><strong>Pressure units:</strong> pressure can be measured in pascals (Pa).</li>
-      <li><strong>SI prefixes:</strong> mega represents 10<sup>6</sup>.</li>
-      <li><strong>Unit conversions:</strong> 1 MPa = 1,000,000 Pa.</li>
+      <li><strong>Stress:</strong> force from the load divided by area.</li>
+      <li><strong>Strain:</strong> bending or stretching under load.</li>
+      <li><strong>Elastic vs plastic deformation:</strong> temporary versus permanent bending.</li>
     </ul>
 
     <hr>
 
-    <h3>7. Checking Engineering Calculations</h3>
+    <h3>7. Springs and Flexible Parts</h3>
     <p>
-      Engineers can use units as another way to check whether a calculation was
-      set up correctly. If the units produced by an equation do not match the
-      expected units of the answer, it can indicate that something in the
-      calculation needs to be checked.
+      Springs and flexible parts are designed to deform and then return to their
+      original shape. This means they are intended to operate mainly in the
+      elastic region.
     </p>
 
-    <p><strong>Engineering math concepts used:</strong></p>
+    <p><strong>Concepts used:</strong></p>
     <ul>
-      <li><strong>Dimensional analysis:</strong> units can be followed through a calculation.</li>
-      <li><strong>Unit cancellation:</strong> unwanted units cancel during properly arranged conversions.</li>
-      <li><strong>Unit checking:</strong> the resulting units should be consistent with the quantity being calculated.</li>
+      <li><strong>Elastic deformation:</strong> returning to original shape.</li>
+      <li><strong>Strain:</strong> deformation caused by loading.</li>
+      <li><strong>Young's Modulus:</strong> stiffness of the material.</li>
     </ul>
 
     <hr>
 
-    <h3>8. Mechanical Engineering Calculations</h3>
+    <h3>8. Metal Rods and Support Columns</h3>
     <p>
-      The math skills in this course appear throughout mechanical engineering.
-      Courses such as statics, dynamics, strength of materials, and thermodynamics
-      use measurements, equations, unit conversions, and mathematical relationships.
-      Learning these basics makes it easier to understand and solve more advanced
-      engineering problems.
+      Rods and columns are used in buildings, machines, and structures.
+      A rod in tension may stretch, while a column in compression may shorten
+      or deform if the load is too high.
     </p>
 
-    <p><strong>Engineering math concepts used:</strong></p>
+    <p><strong>Concepts used:</strong></p>
     <ul>
-      <li><strong>Algebra:</strong> equations can be rearranged to solve for unknown values.</li>
-      <li><strong>Trigonometry:</strong> angles and force components can be analyzed.</li>
-      <li><strong>Units and conversions:</strong> measurements must remain consistent throughout calculations.</li>
+      <li><strong>Tensile stress:</strong> pulling forces in rods.</li>
+      <li><strong>Compressive stress:</strong> squeezing forces in columns.</li>
+      <li><strong>Strain:</strong> change in length compared to original length.</li>
+    </ul>
+
+    <hr>
+
+    <h3>9. Tools and Machine Parts</h3>
+    <p>
+      Wrenches, shafts, brackets, gears, and machine frames all experience
+      forces during use. Strength of Materials helps engineers design these
+      parts so they do not bend, stretch, crack, or permanently deform under
+      normal loading.
+    </p>
+
+    <p><strong>Concepts used:</strong></p>
+    <ul>
+      <li><strong>Stress:</strong> internal force per unit area.</li>
+      <li><strong>Strain:</strong> deformation caused by stress.</li>
+      <li><strong>Plastic deformation:</strong> permanent deformation that designers try to avoid.</li>
+    </ul>
+
+    <hr>
+
+    <h3>10. Future Experiment Demonstrations</h3>
+    <p>
+      This section can later include your own demonstrations, such as stretching
+      a rubber band, loading a small beam, testing a bracket, or comparing how
+      different materials deform under similar loads.
+    </p>
+
+    <p><strong>Concepts used:</strong></p>
+    <ul>
+      <li><strong>Stress:</strong> force applied over an area.</li>
+      <li><strong>Strain:</strong> visible or measured deformation.</li>
+      <li><strong>Elastic and plastic deformation:</strong> whether the material returns to shape.</li>
     </ul>
 
   </div>
@@ -954,38 +839,43 @@
 
   <div class="lesson-content">
 
-    <h2>Statics Experiment Video</h2>
+    <h2>Strength of Materials Experiment Video</h2>
 
     <p>
-      This experiment demonstrates force equilibrium using pulleys,
-      masses, and a force balance setup.
+      This experiment demonstrates how a simple beam responds when a load is applied.
+      A ruler is supported at both ends and weight is added to the center to show
+      deflection and elastic deformation.
     </p>
 
     <div class="video-container">
 
       <iframe
-    width="800"
-    height="450"
-    src="https://www.youtube.com/embed/Jk91G4Bj7ss"
-    title="Statics Experiment"
-    frameborder="0"
-    allowfullscreen>
-     </iframe>
+        width="800"
+        height="450"
+        src="https://www.youtube.com/embed/VxS_vIE6108"
+        title="Strength of Materials Experiment"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
 
     </div>
 
-    <h3>Objective</h3>
+    <h3>What the Experiment Demonstrates</h3>
     <p>
-      Demonstrate how forces balance when an object is in equilibrium.
+      As weight is added to the center of the ruler, the applied force causes it
+      to bend downward. When the weight is removed, the ruler returns to its
+      original shape. This demonstrates elastic deformation. If enough force were
+      applied, the material could eventually experience plastic deformation and
+      remain permanently bent.
     </p>
 
-    <h3>Concepts Demonstrated</h3>
+    <h3>Key Concepts</h3>
     <ul>
-      <li>ΣFx = 0</li>
-      <li>ΣFy = 0</li>
-      <li>Tension</li>
-      <li>Weight</li>
-      <li>Force Equilibrium</li>
+      <li><strong>Load:</strong> The force applied to the ruler by the added weight.</li>
+      <li><strong>Deflection:</strong> The bending of the ruler caused by the load.</li>
+      <li><strong>Elastic Deformation:</strong> Temporary deformation that disappears when the load is removed.</li>
+      <li><strong>Plastic Deformation:</strong> Permanent deformation that can occur if the load becomes too large.</li>
+      <li><strong>Engineering Application:</strong> Engineers use these concepts to design structures and components that can safely support loads without permanently deforming.</li>
     </ul>
 
   </div>
@@ -1017,7 +907,8 @@ function showSection(id, button) {
   // Reset quiz when changing tabs
   const quizPanel = document.getElementById("quiz-panel");
   const quizContainer = document.getElementById("quiz-container");
-  const randomBtn = document.querySelector("#quiz .quiz-btn");
+  const quizStartButtons =
+  document.querySelectorAll("#quiz .quiz-start-btn");
 
   if (quizPanel) {
     quizPanel.classList.remove("open");
@@ -1027,9 +918,9 @@ function showSection(id, button) {
     quizContainer.innerHTML = "";
   }
 
-  if (randomBtn) {
-    randomBtn.style.display = "inline-block";
-  }
+  quizStartButtons.forEach(btn => {
+  btn.style.display = "inline-block";
+});
 
   // Open clicked tab if it was closed
   if (!isOpen) {
@@ -1043,1077 +934,2042 @@ function showSection(id, button) {
 let currentQuestionIndex = 0;
 let allQuestions = [];
 let answeredQuestions = {};
+let currentQuizMode = "";
 
 const quizQuestions = [
   {
-  q: "What does a unit tell us about a number?",
-  choices: [
-    "How large the number is",
-    "What the number represents",
-    "Whether the number is positive",
-    "How the number was calculated"
-  ],
-  answer: 1,
-  explanation:
-    "A unit tells us what a number represents. Without a unit, a measurement may be incomplete or unclear."
-},
-
-{
-  q: "What is the SI unit for length listed in the lesson?",
-  choices: [
-    "Meter",
-    "Kilogram",
-    "Second",
-    "Newton"
-  ],
+  q: "What is Strength of Materials mainly about?",
+  choices: ["How materials respond to forces", "How fluids move", "How circuits work", "How objects orbit"],
   answer: 0,
-  explanation:
-    "The meter, abbreviated m, is the SI unit for length listed in the lesson."
+  explanation: "Strength of Materials studies how solid materials respond to forces, including how they deform, carry loads, and possibly fail."
 },
 
 {
-  q: "What is the SI unit for mass listed in the lesson?",
-  choices: [
-    "Newton",
-    "Meter",
-    "Kilogram",
-    "Pascal"
-  ],
-  answer: 2,
-  explanation:
-    "The kilogram, abbreviated kg, is the SI unit for mass listed in the lesson."
-},
-
-{
-  q: "What is the SI unit for force?",
-  choices: [
-    "Joule",
-    "Newton",
-    "Watt",
-    "Pascal"
-  ],
-  answer: 1,
-  explanation:
-    "Force is measured in newtons, abbreviated N."
-},
-
-{
-  q: "What is the SI unit for pressure?",
-  choices: [
-    "Pascal",
-    "Newton",
-    "Joule",
-    "Kelvin"
-  ],
+  q: "Why do engineers study Strength of Materials?",
+  choices: ["To make parts safely withstand loads", "To remove all forces", "To make materials weightless", "To avoid using equations"],
   answer: 0,
-  explanation:
-    "Pressure is measured in pascals, abbreviated Pa."
+  explanation: "Engineers study Strength of Materials so they can design parts and structures that safely support expected loads without excessive deformation or failure."
 },
 
 {
-  q: "What is the SI unit for energy?",
-  choices: [
-    "Watt",
-    "Pascal",
-    "Joule",
-    "Second"
-  ],
-  answer: 2,
-  explanation:
-    "Energy is measured in joules, abbreviated J."
-},
-
-{
-  q: "What is the SI unit for power?",
-  choices: [
-    "Newton",
-    "Watt",
-    "Joule",
-    "Kilogram"
-  ],
-  answer: 1,
-  explanation:
-    "Power is measured in watts, abbreviated W."
-},
-
-{
-  q: "Why is keeping track of units important in engineering calculations?",
-  choices: [
-    "It makes every number larger",
-    "It removes the need for formulas",
-    "It helps make calculations physically meaningful and can help prevent errors",
-    "It guarantees every measurement is exact"
-  ],
-  answer: 2,
-  explanation:
-    "Keeping track of units helps engineers make sure calculations are physically meaningful and helps prevent errors."
-},
-
-{
-  q: "What does the SI prefix kilo (k) represent?",
-  choices: [
-    "10^3",
-    "10^6",
-    "10^-3",
-    "10^-6"
-  ],
+  q: "What does stress measure?",
+  choices: ["Internal force per unit area", "Change in temperature", "Total distance traveled", "Speed over time"],
   answer: 0,
-  explanation:
-    "Kilo represents 10^3, which is equal to 1,000."
+  explanation: "Stress measures the internal force distributed over a material's cross-sectional area."
 },
 
 {
-  q: "What does the SI prefix mega (M) represent?",
-  choices: [
-    "10^3",
-    "10^6",
-    "10^9",
-    "10^-6"
-  ],
-  answer: 1,
-  explanation:
-    "Mega represents 10^6, which is equal to 1,000,000."
-},
-
-{
-  q: "What does the SI prefix giga (G) represent?",
-  choices: [
-    "10^6",
-    "10^-9",
-    "10^9",
-    "10^3"
-  ],
-  answer: 2,
-  explanation:
-    "Giga represents 10^9, which is equal to 1,000,000,000."
-},
-
-{
-  q: "What does the SI prefix milli (m) represent?",
-  choices: [
-    "10^3",
-    "10^-3",
-    "10^-6",
-    "10^6"
-  ],
-  answer: 1,
-  explanation:
-    "Milli represents 10^-3, which is equal to 0.001."
-},
-
-{
-  q: "What does the SI prefix micro (µ) represent?",
-  choices: [
-    "10^-6",
-    "10^-3",
-    "10^6",
-    "10^9"
-  ],
+  q: "What symbol is commonly used for stress?",
+  choices: ["σ", "ε", "E", "ΔL"],
   answer: 0,
-  explanation:
-    "Micro represents 10^-6, which is equal to 0.000001."
+  explanation: "The Greek letter sigma, σ, is commonly used to represent normal stress."
 },
 
 {
-  q: "What does the SI prefix nano (n) represent?",
-  choices: [
-    "10^-3",
-    "10^-6",
-    "10^-9",
-    "10^9"
-  ],
-  answer: 2,
-  explanation:
-    "Nano represents 10^-9, which is equal to 0.000000001."
-},
-
-{
-  q: "How many newtons are equal to 5 kN?",
-  choices: [
-    "50 N",
-    "500 N",
-    "5,000 N",
-    "50,000 N"
-  ],
-  answer: 2,
-  explanation:
-    "Kilo means 1,000, so 5 kN = 5 × 1,000 = 5,000 N."
-},
-
-{
-  q: "How many meters are equal to 5 mm?",
-  choices: [
-    "0.005 m",
-    "0.05 m",
-    "0.5 m",
-    "5,000 m"
-  ],
+  q: "What is the formula for stress?",
+  choices: ["σ = F / A", "ε = ΔL / L₀", "σ = Eε", "F = ma"],
   answer: 0,
-  explanation:
-    "Milli means 10^-3, so 5 mm is equal to 5 × 0.001 = 0.005 m."
+  explanation: "Normal stress is calculated using σ = F/A, where force is divided by the cross-sectional area."
 },
 
 {
-  q: "What method arranges conversion factors so unwanted units cancel?",
-  choices: [
-    "Scientific notation",
-    "Dimensional analysis",
-    "Trigonometry",
-    "Significant figures"
-  ],
-  answer: 1,
-  explanation:
-    "Dimensional analysis uses conversion factors arranged so unwanted units cancel, leaving the desired unit."
+  q: "In the stress formula, what does F represent?",
+  choices: ["Applied force", "Final length", "Friction", "Frequency"],
+  answer: 0,
+  explanation: "In σ = F/A, F represents the applied force acting on the material."
 },
 
 {
-  q: "How many meters are equal to 2.5 km?",
-  choices: [
-    "25 m",
-    "250 m",
-    "2,500 m",
-    "25,000 m"
-  ],
-  answer: 2,
-  explanation:
-    "Since 1 km = 1,000 m, multiply 2.5 by 1,000. Therefore, 2.5 km = 2,500 m."
+  q: "In the stress formula, what does A represent?",
+  choices: ["Cross-sectional area", "Acceleration", "Angle", "Original length"],
+  answer: 0,
+  explanation: "In the stress equation, A represents the cross-sectional area over which the force acts."
 },
 
 {
-  q: "How many millimeters are equal to 3 meters?",
-  choices: [
-    "30 mm",
-    "300 mm",
-    "3,000 mm",
-    "30,000 mm"
-  ],
-  answer: 2,
-  explanation:
-    "The lesson states that 1 m = 1,000 mm. Therefore, 3 m = 3 × 1,000 = 3,000 mm."
+  q: "What happens to stress if force increases and area stays the same?",
+  choices: ["Stress increases", "Stress decreases", "Stress becomes zero", "Stress stays the same"],
+  answer: 0,
+  explanation: "Because σ = F/A, increasing the force while keeping the area constant causes stress to increase."
 },
 
 {
-  q: "How many pascals are equal to 2 MPa?",
-  choices: [
-    "2,000 Pa",
-    "20,000 Pa",
-    "200,000 Pa",
-    "2,000,000 Pa"
-  ],
-  answer: 3,
-  explanation:
-    "The lesson states that 1 MPa = 1,000,000 Pa. Therefore, 2 MPa = 2 × 1,000,000 = 2,000,000 Pa."
+  q: "What happens to stress if area increases and force stays the same?",
+  choices: ["Stress decreases", "Stress increases", "Stress doubles automatically", "Stress becomes strain"],
+  answer: 0,
+  explanation: "Increasing the area spreads the same force over more material, so the stress decreases."
+},
+
+{
+  q: "Stress is usually measured in what type of unit?",
+  choices: ["Pressure units", "Length units", "Time units", "Mass units"],
+  answer: 0,
+  explanation: "Stress is force divided by area, so it is measured using pressure units such as pascals."
+},
+
+{
+  q: "Which unit is commonly used for stress?",
+  choices: ["Pascals", "Meters", "Kilograms", "Seconds"],
+  answer: 0,
+  explanation: "The pascal is the SI unit of stress and is equal to one newton per square meter."
+},
+
+{
+  q: "What does MPa stand for?",
+  choices: ["Megapascal", "Meter per acceleration", "Mechanical pressure amount", "Mass per area"],
+  answer: 0,
+  explanation: "MPa stands for megapascal. One megapascal equals one million pascals."
+},
+
+{
+  q: "A larger area helps reduce stress because the force is spread over what?",
+  choices: ["More area", "Less area", "More time", "Less mass"],
+  answer: 0,
+  explanation: "A larger cross-sectional area distributes the force over more material, reducing the force acting on each unit of area."
+},
+
+{
+  q: "What type of stress comes from pulling?",
+  choices: ["Tensile stress", "Compressive stress", "Thermal stress", "Electrical stress"],
+  answer: 0,
+  explanation: "Tensile stress occurs when forces pull a material apart and cause it to stretch."
+},
+
+{
+  q: "What type of stress comes from pushing or squeezing?",
+  choices: ["Compressive stress", "Tensile stress", "Magnetic stress", "Velocity stress"],
+  answer: 0,
+  explanation: "Compressive stress occurs when forces push inward on a material and cause it to shorten or compress."
+},
+
+{
+  q: "What type of stress acts parallel to a surface?",
+  choices: ["Shear stress", "Tensile stress", "Compressive stress", "Normal force"],
+  answer: 0,
+  explanation: "Shear stress acts parallel to a surface and tends to make sections of material slide past one another."
+},
+
+{
+  q: "A cable being pulled is mainly experiencing what type of stress?",
+  choices: ["Tensile stress", "Compressive stress", "Shear stress", "No stress"],
+  answer: 0,
+  explanation: "A pulled cable is under tension, so it primarily experiences tensile stress."
+},
+
+{
+  q: "A column being squeezed downward is mainly experiencing what?",
+  choices: ["Compressive stress", "Tensile stress", "Electrical stress", "Velocity"],
+  answer: 0,
+  explanation: "A downward squeezing force shortens the column, producing compressive stress."
+},
+
+{
+  q: "A force causing layers of material to slide is related to what?",
+  choices: ["Shear stress", "Tensile stress", "Compressive stress", "Young's strain"],
+  answer: 0,
+  explanation: "Shear stress causes nearby layers or sections of a material to slide relative to one another."
+},
+
+{
+  q: "What does strain describe?",
+  choices: ["Deformation caused by loading", "Force per unit area", "The weight of an object", "The speed of a part"],
+  answer: 0,
+  explanation: "Strain describes how much a material deforms compared with its original size when a load is applied."
 },
 
   {
-  q: "How should 4,500,000 be written in scientific notation?",
-  choices: [
-    "4.5 × 10^6",
-    "45 × 10^5",
-    "4.5 × 10^-6",
-    "0.45 × 10^6"
-  ],
+  q: "What symbol is commonly used for strain?",
+  choices: ["ε","σ","E","F"],
   answer: 0,
-  explanation:
-    "Move the decimal six places to the left so the number becomes 4.5. Therefore, 4,500,000 = 4.5 × 10^6."
+  explanation: "The Greek letter epsilon (ε) is commonly used to represent strain, which measures how much a material deforms under a load."
 },
 
 {
-  q: "How should 0.00032 be written in scientific notation?",
-  choices: [
-    "3.2 × 10^4",
-    "3.2 × 10^-4",
-    "32 × 10^-3",
-    "0.32 × 10^-4"
-  ],
-  answer: 1,
-  explanation:
-    "Move the decimal four places to the right to get 3.2. Because the original number is smaller than 1, the exponent is negative, giving 3.2 × 10^-4."
-},
-
-{
-  q: "How should 200,000,000 Pa be written in scientific notation?",
-  choices: [
-    "2 × 10^6 Pa",
-    "2 × 10^7 Pa",
-    "2 × 10^8 Pa",
-    "2 × 10^-8 Pa"
-  ],
-  answer: 2,
-  explanation:
-    "The decimal moves eight places to the left, so 200,000,000 Pa = 2 × 10^8 Pa."
-},
-
-{
-  q: "In scientific notation a × 10^n, what does n represent?",
-  choices: [
-    "The unit being measured",
-    "The number of decimal places moved",
-    "The number of significant figures",
-    "The conversion factor"
-  ],
-  answer: 1,
-  explanation:
-    "The exponent n tells how many decimal places were moved when writing the number in scientific notation."
-},
-
-{
-  q: "Using F = ma, which equation correctly solves for acceleration?",
-  choices: [
-    "a = F / m",
-    "a = F × m",
-    "a = m / F",
-    "a = F + m"
-  ],
+  q: "What is the formula for strain?",
+  choices: ["ε = ΔL / L₀","σ = F / A","F = σA","W = mg"],
   answer: 0,
-  explanation:
-    "Starting with F = ma, divide both sides by mass. This gives a = F / m."
+  explanation: "Strain is calculated by dividing the change in length (ΔL) by the original length (L₀)."
 },
 
 {
-  q: "A force of 60 N acts on a 12 kg mass. What is the acceleration?",
-  choices: [
-    "720 m/s²",
-    "72 m/s²",
-    "5 m/s²",
-    "0.2 m/s²"
-  ],
-  answer: 2,
-  explanation:
-    "Use a = F / m. The calculation is a = 60 / 12 = 5 m/s²."
-},
-
-{
-  q: "Using v = d / t, which equation correctly solves for distance?",
-  choices: [
-    "d = v / t",
-    "d = vt",
-    "d = t / v",
-    "d = v + t"
-  ],
-  answer: 1,
-  explanation:
-    "Starting with v = d / t, multiply both sides by time. This gives d = vt."
-},
-
-{
-  q: "Using v = d / t, which equation correctly solves for time?",
-  choices: [
-    "t = d / v",
-    "t = dv",
-    "t = v / d",
-    "t = d + v"
-  ],
+  q: "In the strain formula, what does ΔL mean?",
+  choices: ["Change in length","Original length","Applied force","Area"],
   answer: 0,
-  explanation:
-    "Rearranging v = d / t to solve for time gives t = d / v."
+  explanation: "ΔL represents the change in length caused by the applied load."
 },
 
 {
-  q: "Which trigonometric ratio equals opposite divided by hypotenuse?",
-  choices: [
-    "Cosine",
-    "Tangent",
-    "Sine",
-    "None of these"
-  ],
-  answer: 2,
-  explanation:
-    "The sine ratio is sin(θ) = opposite / hypotenuse."
-},
-
-{
-  q: "Which trigonometric ratio equals adjacent divided by hypotenuse?",
-  choices: [
-    "Sine",
-    "Cosine",
-    "Tangent",
-    "Scientific notation"
-  ],
-  answer: 1,
-  explanation:
-    "The cosine ratio is cos(θ) = adjacent / hypotenuse."
-},
-
-{
-  q: "Which trigonometric ratio equals opposite divided by adjacent?",
-  choices: [
-    "Tangent",
-    "Cosine",
-    "Sine",
-    "Exponent"
-  ],
+  q: "In the strain formula, what does L₀ mean?",
+  choices: ["Original length","Final force","Stress","Area"],
   answer: 0,
-  explanation:
-    "The tangent ratio is tan(θ) = opposite / adjacent."
+  explanation: "L₀ is the original length of the material before any force is applied."
 },
 
 {
-  q: "Which equation finds the horizontal component of a force?",
-  choices: [
-    "Fx = F sin(θ)",
-    "Fx = F cos(θ)",
-    "Fy = F cos(θ)",
-    "F = ma"
-  ],
-  answer: 1,
-  explanation:
-    "The horizontal force component is calculated using Fx = F cos(θ)."
-},
-
-{
-  q: "Which equation finds the vertical component of a force?",
-  choices: [
-    "Fy = F sin(θ)",
-    "Fy = F cos(θ)",
-    "Fx = F sin(θ)",
-    "F = ma"
-  ],
+  q: "Why does strain have no units?",
+  choices: ["It is a ratio of two lengths","It is a force","It is measured in Pascals","It is always zero"],
   answer: 0,
-  explanation:
-    "The vertical force component is calculated using Fy = F sin(θ)."
+  explanation: "Because strain is the ratio of two lengths, the units cancel, making strain dimensionless."
 },
 
 {
-  q: "A 100 N force acts at a 30° angle. What is the horizontal component approximately?",
-  choices: [
-    "50 N",
-    "100 N",
-    "86.6 N",
-    "30 N"
-  ],
-  answer: 2,
-  explanation:
-    "Use Fx = F cos(θ). Fx = 100 cos(30°) ≈ 86.6 N."
+  q: "If an object stretches more, what happens to strain?",
+  choices: ["Strain increases","Strain decreases","Strain becomes stress","Strain disappears"],
+  answer: 0,
+  explanation: "As the change in length increases, the strain also increases."
 },
 
 {
-  q: "A 100 N force acts at a 30° angle. What is the vertical component?",
-  choices: [
-    "86.6 N",
-    "50 N",
-    "100 N",
-    "30 N"
-  ],
-  answer: 1,
-  explanation:
-    "Use Fy = F sin(θ). Fy = 100 sin(30°) = 50 N."
+  q: "If original length is larger but change in length stays the same, strain becomes what?",
+  choices: ["Smaller","Larger","Always zero","Equal to stress"],
+  answer: 0,
+  explanation: "Since strain equals ΔL divided by L₀, increasing the original length while keeping ΔL the same decreases the strain."
 },
 
 {
-  q: "According to the lesson, what should be performed first in the order of operations?",
-  choices: [
-    "Addition",
-    "Multiplication",
-    "Parentheses",
-    "Division"
-  ],
-  answer: 2,
-  explanation:
-    "The lesson lists parentheses first in the order of operations, followed by exponents, multiplication and division, then addition and subtraction."
+  q: "A rod changes length from a force. That change relates most directly to what?",
+  choices: ["Strain","Pressure","Velocity","Temperature"],
+  answer: 0,
+  explanation: "A change in length caused by loading is described by strain."
 },
 
 {
-  q: "According to the lesson, what comes immediately after parentheses in the order of operations?",
-  choices: [
-    "Addition",
-    "Exponents",
-    "Division only",
-    "Subtraction"
-  ],
-  answer: 1,
-  explanation:
-    "The lesson gives the order as parentheses, exponents, multiplication and division, then addition and subtraction."
+  q: "Stress describes the loading, while strain describes what?",
+  choices: ["The resulting deformation","The color change","The weight only","The time taken"],
+  answer: 0,
+  explanation: "Stress measures the applied loading, while strain measures how much the material deforms because of that loading."
 },
 
 {
-  q: "What units result from multiplying kilograms by meters per second squared?",
-  choices: [
-    "Joules",
-    "Pascals",
-    "Newtons",
-    "Watts"
-  ],
-  answer: 2,
-  explanation:
-    "The lesson shows that kg × m/s² is equivalent to a newton. Therefore, 1 N = 1 kg·m/s²."
+  q: "Elastic deformation means the material does what after the load is removed?",
+  choices: ["Returns to its original shape","Stays permanently deformed","Breaks instantly","Turns into liquid"],
+  answer: 0,
+  explanation: "Elastic deformation is temporary, so the material returns to its original shape after the load is removed."
 },
 
 {
-  q: "How many significant figures are in 5.20?",
-  choices: [
-    "One",
-    "Two",
-    "Three",
-    "Four"
-  ],
-  answer: 2,
-  explanation:
-    "The number 5.20 has three significant figures. The zero after the decimal counts because it shows measured precision."
+  q: "Plastic deformation means the material does what after the load is removed?",
+  choices: ["Stays permanently deformed","Returns fully to original shape","Has no stress","Has no strain"],
+  answer: 0,
+  explanation: "Plastic deformation is permanent, so the material does not return to its original shape after unloading."
 },
 
 {
-  q: "How many significant figures are in 0.00520?",
-  choices: [
-    "Two",
-    "Three",
-    "Four",
-    "Five"
-  ],
-  answer: 1,
-  explanation:
-    "The number 0.00520 has three significant figures. The leading zeros do not count, while the final zero after the decimal does."
+  q: "Engineers usually want parts to stay in what region during normal operation?",
+  choices: ["Elastic region","Plastic region","Broken region","Melted region"],
+  answer: 0,
+  explanation: "Most engineering components are designed to remain in the elastic region so they recover their original shape after the load is removed."
+},
+
+{
+  q: "Which deformation is temporary?",
+  choices: ["Elastic deformation","Plastic deformation","Permanent deformation","Fracture"],
+  answer: 0,
+  explanation: "Elastic deformation disappears once the load is removed."
+},
+
+{
+  q: "Which deformation is permanent?",
+  choices: ["Plastic deformation","Elastic deformation","Temporary deformation","No deformation"],
+  answer: 0,
+  explanation: "Plastic deformation permanently changes the shape of the material."
+},
+
+{
+  q: "If a spring-like material returns to its shape, it experienced what?",
+  choices: ["Elastic deformation","Plastic deformation","Failure","No load"],
+  answer: 0,
+  explanation: "A material that completely returns to its original shape has undergone elastic deformation."
+},
+
+{
+  q: "If a bent metal piece stays bent after unloading, it experienced what?",
+  choices: ["Plastic deformation","Elastic deformation","No strain","No stress"],
+  answer: 0,
+  explanation: "Remaining bent after the load is removed indicates permanent, or plastic, deformation."
+},
+
+{
+  q: "Hooke's Law describes the relationship between what?",
+  choices: ["Stress and strain","Mass and speed","Heat and time","Force and color"],
+  answer: 0,
+  explanation: "Hooke's Law states that stress is proportional to strain while the material remains in the elastic region."
+},
+
+{
+  q: "What is the Hooke's Law formula from the lesson?",
+  choices: ["σ = Eε","ε = ΔL / L₀","σ = F / A","F = σA"],
+  answer: 0,
+  explanation: "Hooke's Law is written as σ = Eε, relating stress to strain through Young's Modulus."
+},
+
+{
+  q: "In σ = Eε, what does E represent?",
+  choices: ["Young's Modulus","Elastic strain only","Energy loss","External force"],
+  answer: 0,
+  explanation: "E represents Young's Modulus, which measures a material's stiffness."
+},
+
+{
+  q: "Young's Modulus is a measure of what?",
+  choices: ["Stiffness","Weight","Color","Speed"],
+  answer: 0,
+  explanation: "Young's Modulus measures how resistant a material is to stretching or compressing. Materials with a higher Young's Modulus are stiffer and deform less under the same load."
 },
 
   {
-  q: "How many grams are equal to 4 kilograms?",
-  choices: ["40 g", "400 g", "4,000 g", "40,000 g"],
-  answer: 2,
-  explanation:
-    "The lesson states that 1 kg = 1,000 g. Therefore, 4 kg = 4 × 1,000 = 4,000 g."
+  q:"A material with larger Young's Modulus resists deformation how?",
+  choices:["More effectively","Less effectively","Not at all","Only when hot"],
+  answer:0,
+  explanation:"A larger Young's Modulus means the material is stiffer, so it resists deformation more effectively under the same load."
 },
 
 {
-  q: "How many seconds are equal to 2 hours?",
-  choices: ["120 seconds", "3,600 seconds", "7,200 seconds", "72,000 seconds"],
-  answer: 2,
-  explanation:
-    "The lesson states that 1 hour = 3,600 seconds. Therefore, 2 hours = 2 × 3,600 = 7,200 seconds."
+  q:"Hooke's Law applies while the material remains in what region?",
+  choices:["Elastic region","Plastic region","Broken region","Melted region"],
+  answer:0,
+  explanation:"Hooke's Law is valid only in the elastic region, where stress and strain are proportional and the material returns to its original shape after unloading."
 },
 
 {
-  q: "How many newtons are equal to 8 kN?",
-  choices: ["800 N", "8,000 N", "80,000 N", "0.008 N"],
-  answer: 1,
-  explanation:
-    "The lesson states that 1 kN = 1,000 N. Therefore, 8 kN = 8 × 1,000 = 8,000 N."
+  q:"If stress and strain are proportional, the material is behaving how?",
+  choices:["Elastically","Randomly","Permanently deformed","Without force"],
+  answer:0,
+  explanation:"A proportional relationship between stress and strain means the material is behaving elastically according to Hooke's Law."
 },
 
 {
-  q: "How many centimeters are equal to 6 meters?",
-  choices: ["60 cm", "600 cm", "6,000 cm", "0.06 cm"],
-  answer: 1,
-  explanation:
-    "The lesson states that 1 m = 100 cm. Therefore, 6 m = 6 × 100 = 600 cm."
+  q:"What does a high Young's Modulus usually mean?",
+  choices:["The material is stiffer","The material is weaker automatically","The material has no area","The material has no stress"],
+  answer:0,
+  explanation:"A high Young's Modulus indicates a stiff material that experiences less deformation under the same applied load."
 },
 
 {
-  q: "Which scientific notation correctly represents 6,000,000?",
-  choices: ["6 × 10^6", "6 × 10^-6", "6 × 10^3", "60 × 10^6"],
-  answer: 0,
-  explanation:
-    "Moving the decimal six places to the left gives 6, so 6,000,000 = 6 × 10^6."
+  q:"What formula can be rearranged to find force from stress?",
+  choices:["σ = F / A","ε = ΔL / L₀","σ = Eε","v = d / t"],
+  answer:0,
+  explanation:"The stress equation σ = F/A can be rearranged to solve for the applied force."
 },
 
 {
-  q: "Which scientific notation correctly represents 0.000005?",
-  choices: ["5 × 10^5", "5 × 10^-5", "5 × 10^-6", "5 × 10^6"],
-  answer: 2,
-  explanation:
-    "The decimal must move six places to the right to produce 5. Therefore, 0.000005 = 5 × 10^-6."
+  q:"If σ = F / A, then F equals what?",
+  choices:["σA","σ / A","A / σ","εL₀"],
+  answer:0,
+  explanation:"Multiply both sides of σ = F/A by A to obtain F = σA."
 },
 
 {
-  q: "What does a negative exponent usually indicate in scientific notation for the small-number examples in the lesson?",
-  choices: [
-    "The original number is less than 1",
-    "The original number has no units",
-    "The number is always negative",
-    "The measurement is incorrect"
-  ],
-  answer: 0,
-  explanation:
-    "For numbers smaller than 1, such as 0.00032, moving the decimal to the right produces a negative exponent."
+  q:"If ε = ΔL / L₀, then ΔL equals what?",
+  choices:["εL₀","ε / L₀","L₀ / ε","σA"],
+  answer:0,
+  explanation:"Multiply both sides of ε = ΔL/L₀ by L₀ to find ΔL = εL₀."
 },
 
 {
-  q: "If F = 100 N and m = 20 kg, what is the acceleration?",
-  choices: ["2 m/s²", "5 m/s²", "20 m/s²", "2,000 m/s²"],
-  answer: 1,
-  explanation:
-    "Use a = F / m. Therefore, a = 100 / 20 = 5 m/s²."
+  q:"If σ = Eε, then E equals what?",
+  choices:["σ / ε","σε","ε / σ","F / A"],
+  answer:0,
+  explanation:"Rearranging Hooke's Law gives E = σ/ε."
 },
 
 {
-  q: "If an object travels at 10 m/s for 5 seconds, what distance does it travel?",
-  choices: ["2 m", "15 m", "50 m", "500 m"],
-  answer: 2,
-  explanation:
-    "Use d = vt. Therefore, d = 10 × 5 = 50 m."
+  q:"A bridge supporting vehicles is an example where engineers use what?",
+  choices:["Stress and strain analysis","Only color design","No calculations","Only coding"],
+  answer:0,
+  explanation:"Engineers analyze stress and strain to ensure bridge members safely support vehicle loads."
 },
 
 {
-  q: "An object travels 100 meters at 20 m/s. How much time does the trip take?",
-  choices: ["2 seconds", "5 seconds", "20 seconds", "2,000 seconds"],
-  answer: 1,
-  explanation:
-    "Use t = d / v. Therefore, t = 100 / 20 = 5 seconds."
+  q:"Bolts holding machine components together are affected by what?",
+  choices:["Stress and strain","Only sound","Only light","No forces"],
+  answer:0,
+  explanation:"Bolts experience stress and strain as they resist forces that hold machine parts together."
 },
 
 {
-  q: "An object travels 150 meters in 10 seconds. What is its velocity?",
-  choices: ["10 m/s", "15 m/s", "150 m/s", "1,500 m/s"],
-  answer: 1,
-  explanation:
-    "Use v = d / t. Therefore, v = 150 / 10 = 15 m/s."
+  q:"Crane cables lifting heavy objects mainly deal with what pulling effect?",
+  choices:["Tensile stress","Compressive stress","No stress","Thermal motion"],
+  answer:0,
+  explanation:"Crane cables are pulled while lifting loads, so they primarily experience tensile stress."
 },
 
 {
-  q: "A 200 N force acts at a 60° angle. What is the horizontal component?",
-  choices: ["100 N", "173.2 N", "200 N", "60 N"],
-  answer: 0,
-  explanation:
-    "Use Fx = F cos(θ). Fx = 200 cos(60°) = 200 × 0.5 = 100 N."
+  q:"Vehicle frames supporting passengers must be designed to handle what?",
+  choices:["Loads safely","No forces","Only air","Only color"],
+  answer:0,
+  explanation:"Vehicle frames must safely support passenger, cargo, and road loads without excessive deformation or failure."
 },
 
 {
-  q: "A 200 N force acts at a 60° angle. What is the vertical component approximately?",
-  choices: ["100 N", "173.2 N", "200 N", "60 N"],
-  answer: 1,
-  explanation:
-    "Use Fy = F sin(θ). Fy = 200 sin(60°) ≈ 200 × 0.866 = 173.2 N."
+  q:"Aircraft wings carrying aerodynamic loads require what kind of analysis?",
+  choices:["Stress and strain analysis","Grammar analysis","Music analysis","Only temperature reading"],
+  answer:0,
+  explanation:"Aircraft wings are designed using stress and strain analysis to safely withstand aerodynamic forces during flight."
 },
 
 {
-  q: "A 50 N force acts at a 30° angle. What is the vertical component?",
-  choices: ["25 N", "43.3 N", "50 N", "15 N"],
-  answer: 0,
-  explanation:
-    "Use Fy = F sin(θ). Fy = 50 sin(30°) = 50 × 0.5 = 25 N."
+  q:"Stress is caused when external force creates internal resisting forces inside what?",
+  choices:["A material","Empty space","Only water","Only air"],
+  answer:0,
+  explanation:"Stress develops inside a material as it resists externally applied forces."
 },
 
 {
-  q: "A 50 N force acts at a 30° angle. What is the horizontal component approximately?",
-  choices: ["25 N", "30 N", "43.3 N", "50 N"],
-  answer: 2,
-  explanation:
-    "Use Fx = F cos(θ). Fx = 50 cos(30°) ≈ 50 × 0.866 = 43.3 N."
+  q:"The cross-sectional area in stress calculations is the area resisting what?",
+  choices:["The applied force","The clock time","The color","The website layout"],
+  answer:0,
+  explanation:"The cross-sectional area is the area over which the applied force is distributed."
 },
 
 {
-  q: "Why can units be used to check an engineering equation?",
-  choices: [
-    "The units on both sides should be consistent",
-    "Units make every answer positive",
-    "Units replace the numbers in an equation",
-    "Every engineering equation uses newtons"
-  ],
-  answer: 0,
-  explanation:
-    "The lesson explains that checking units helps determine whether an equation is dimensionally consistent."
+  q:"If force is 1000 N and area is 0.005 m², what is stress?",
+  choices:["200,000 Pa","5 Pa","995 Pa","0.000005 Pa"],
+  answer:0,
+  explanation:"Use σ = F/A. Dividing 1000 N by 0.005 m² gives a stress of 200,000 Pa."
 },
 
 {
-  q: "Which relationship between units is correct?",
-  choices: [
-    "1 N = 1 kg·m/s²",
-    "1 N = 1 kg/s",
-    "1 N = 1 m/s",
-    "1 N = 1 kg·s²"
-  ],
-  answer: 0,
-  explanation:
-    "The lesson shows that force units come from mass times acceleration, so 1 N = 1 kg·m/s²."
+  q:"If force is 500 N and area is 0.01 m², what is stress?",
+  choices:["50,000 Pa","5 Pa","500 Pa","0.02 Pa"],
+  answer:0,
+  explanation:"Use σ = F/A. Dividing 500 N by 0.01 m² gives 50,000 Pa."
 },
 
 {
-  q: "How many significant figures are in 5.2?",
-  choices: ["One", "Two", "Three", "Four"],
-  answer: 1,
-  explanation:
-    "The lesson gives 5.2 as an example of a number containing two significant figures."
+  q:"If force is 2000 N and area is 0.02 m², what is stress?",
+  choices:["100,000 Pa","40 Pa","2000 Pa","0.00001 Pa"],
+  answer:0,
+  explanation:"Use σ = F/A. Dividing 2000 N by 0.02 m² gives a stress of 100,000 Pa."
 },
 
 {
-  q: "Which number has three significant figures according to the lesson?",
-  choices: ["5.2", "5.20", "0.005", "0.05"],
-  answer: 1,
-  explanation:
-    "The lesson specifically identifies 5.20 as having three significant figures."
+  q:"If force is 300 N and area is 0.003 m², what is stress?",
+  choices:["100,000 Pa","900 Pa","0.00001 Pa","303 Pa"],
+  answer:0,
+  explanation:"Using σ = F/A, dividing 300 N by 0.003 m² results in 100,000 Pa."
 },
 
 {
-  q: "Why should engineers avoid reporting more precision than their original measurements support?",
-  choices: [
-    "It can imply a level of measurement precision that was not actually available",
-    "It makes all measurements smaller",
-    "It changes every unit to SI units",
-    "It prevents equations from being rearranged"
-  ],
-  answer: 0,
-  explanation:
-    "Significant figures help engineers avoid reporting more precision than the original measurements support."
+  q:"If force is 800 N and area is 0.004 m², what is stress?",
+  choices:["200,000 Pa","3200 Pa","0.005 Pa","804 Pa"],
+  answer:0,
+  explanation:"Use σ = F/A. Dividing 800 N by 0.004 m² gives a stress of 200,000 Pa."
 },
 
   {
-  q: "How many millimeters are equal to 7 meters?",
-  choices: ["70 mm", "700 mm", "7,000 mm", "70,000 mm"],
-  answer: 2,
-  explanation:
-    "The lesson states that 1 m = 1,000 mm. Therefore, 7 m = 7 × 1,000 = 7,000 mm."
+  q:"If stress is 200,000 Pa and area is 0.005 m², what is force?",
+  choices:["1000 N","40 N","200,005 N","0.000025 N"],
+  answer:0,
+  explanation:"Use the rearranged stress equation F = σA. Multiplying 200,000 Pa by 0.005 m² gives a force of 1000 N."
 },
 
 {
-  q: "How many meters are equal to 4 kilometers?",
-  choices: ["40 m", "400 m", "4,000 m", "40,000 m"],
-  answer: 2,
-  explanation:
-    "The lesson states that 1 km = 1,000 m. Therefore, 4 km = 4 × 1,000 = 4,000 m."
+  q:"If stress is 50,000 Pa and area is 0.01 m², what is force?",
+  choices:["500 N","50,000 N","5 N","0.0002 N"],
+  answer:0,
+  explanation:"Use F = σA. Multiplying 50,000 Pa by 0.01 m² gives 500 N."
 },
 
 {
-  q: "How many pascals are equal to 3 MPa?",
-  choices: ["3,000 Pa", "30,000 Pa", "300,000 Pa", "3,000,000 Pa"],
-  answer: 3,
-  explanation:
-    "The lesson states that 1 MPa = 1,000,000 Pa. Therefore, 3 MPa = 3 × 1,000,000 = 3,000,000 Pa."
+  q:"If stress is 100,000 Pa and area is 0.02 m², what is force?",
+  choices:["2000 N","5000 N","100 N","0.0000002 N"],
+  answer:0,
+  explanation:"Multiply stress by area: F = (100,000 Pa)(0.02 m²) = 2000 N."
 },
 
 {
-  q: "Which SI prefix represents one thousandth?",
-  choices: ["Kilo", "Mega", "Milli", "Micro"],
-  answer: 2,
-  explanation:
-    "Milli represents 10^-3, which is equal to one thousandth or 0.001."
+  q:"If stress is 75,000 Pa and area is 0.004 m², what is force?",
+  choices:["300 N","18,750 N","75,004 N","0.000053 N"],
+  answer:0,
+  explanation:"Using F = σA, multiply 75,000 Pa by 0.004 m² to obtain 300 N."
 },
 
 {
-  q: "Which SI prefix represents 10^-9?",
-  choices: ["Micro", "Nano", "Milli", "Kilo"],
-  answer: 1,
-  explanation:
-    "Nano, abbreviated n, represents 10^-9."
+  q:"If stress is 120,000 Pa and area is 0.01 m², what is force?",
+  choices:["1200 N","12 N","120,000 N","0.000083 N"],
+  answer:0,
+  explanation:"Use F = σA. Multiplying 120,000 Pa by 0.01 m² gives 1200 N."
 },
 
 {
-  q: "Which SI prefix represents 1,000,000?",
-  choices: ["Mega", "Kilo", "Milli", "Giga"],
-  answer: 0,
-  explanation:
-    "Mega represents 10^6, which is equal to 1,000,000."
+  q:"If a 2 m rod stretches by 0.004 m, what is strain?",
+  choices:["0.002","0.008","500","2.004"],
+  answer:0,
+  explanation:"Use ε = ΔL/L₀. Dividing 0.004 m by 2 m gives a strain of 0.002."
 },
 
 {
-  q: "What should happen to unwanted units when dimensional analysis is set up correctly?",
-  choices: [
-    "They should become larger",
-    "They should cancel",
-    "They should be added together",
-    "They should become negative"
-  ],
-  answer: 1,
-  explanation:
-    "Dimensional analysis arranges conversion factors so unwanted units cancel, leaving the desired unit."
+  q:"If a 4 m rod stretches by 0.008 m, what is strain?",
+  choices:["0.002","0.032","500","4.008"],
+  answer:0,
+  explanation:"Using ε = ΔL/L₀, divide 0.008 m by 4 m to get 0.002."
 },
 
 {
-  q: "Which conversion factor could be used to convert kilometers to meters?",
-  choices: [
-    "1 km / 1,000 m",
-    "1,000 m / 1 km",
-    "1 m / 1,000 km",
-    "1,000 km / 1 m"
-  ],
-  answer: 1,
-  explanation:
-    "Since 1 km = 1,000 m, using 1,000 m / 1 km allows kilometers to cancel and leaves meters."
+  q:"If a 5 m rod stretches by 0.01 m, what is strain?",
+  choices:["0.002","0.05","500","5.01"],
+  answer:0,
+  explanation:"Strain equals change in length divided by original length: 0.01 ÷ 5 = 0.002."
 },
 
 {
-  q: "How should 8,000,000 be written in scientific notation?",
-  choices: ["8 × 10^6", "8 × 10^-6", "8 × 10^3", "80 × 10^6"],
-  answer: 0,
-  explanation:
-    "The decimal moves six places to the left to produce 8, so 8,000,000 = 8 × 10^6."
+  q:"If a 10 m rod stretches by 0.02 m, what is strain?",
+  choices:["0.002","0.2","500","10.02"],
+  answer:0,
+  explanation:"Apply ε = ΔL/L₀. Dividing 0.02 m by 10 m gives 0.002."
 },
 
 {
-  q: "How should 0.000007 be written in scientific notation?",
-  choices: ["7 × 10^6", "7 × 10^-6", "7 × 10^-7", "7 × 10^7"],
-  answer: 1,
-  explanation:
-    "The decimal moves six places to the right to produce 7, so 0.000007 = 7 × 10^-6."
+  q:"If a 1 m rod stretches by 0.001 m, what is strain?",
+  choices:["0.001","1000","1.001","0.000001"],
+  answer:0,
+  explanation:"Divide the change in length by the original length: 0.001 ÷ 1 = 0.001."
 },
 
 {
-  q: "In scientific notation, what range does the lesson say the value a is usually in?",
-  choices: [
-    "Between 0 and 1",
-    "Between 1 and 10",
-    "Between 10 and 100",
-    "Between 100 and 1,000"
-  ],
-  answer: 1,
-  explanation:
-    "The lesson gives scientific notation as a × 10^n and states that a is usually a number between 1 and 10."
+  q:"If strain is 0.002 and original length is 2 m, what is change in length?",
+  choices:["0.004 m","0.001 m","4 m","1000 m"],
+  answer:0,
+  explanation:"Rearrange the strain equation to ΔL = εL₀. Multiplying 0.002 by 2 m gives 0.004 m."
 },
 
 {
-  q: "If F = 80 N and m = 10 kg, what is the acceleration?",
-  choices: ["8 m/s²", "10 m/s²", "80 m/s²", "800 m/s²"],
-  answer: 0,
-  explanation:
-    "Use a = F / m. Therefore, a = 80 / 10 = 8 m/s²."
+  q:"If strain is 0.003 and original length is 3 m, what is change in length?",
+  choices:["0.009 m","0.001 m","9 m","1000 m"],
+  answer:0,
+  explanation:"Use ΔL = εL₀. Multiplying 0.003 by 3 m gives 0.009 m."
 },
 
 {
-  q: "An object travels at 12 m/s for 5 seconds. What distance does it travel?",
-  choices: ["2.4 m", "17 m", "60 m", "120 m"],
-  answer: 2,
-  explanation:
-    "Use d = vt. Therefore, d = 12 × 5 = 60 m."
+  q:"If strain is 0.0015 and original length is 3 m, what is change in length?",
+  choices:["0.0045 m","0.5 m","2000 m","3.0015 m"],
+  answer:0,
+  explanation:"Multiply the strain by the original length: 0.0015 × 3 m = 0.0045 m."
 },
 
 {
-  q: "An object travels 120 meters at 10 m/s. How long does the trip take?",
-  choices: ["10 seconds", "12 seconds", "120 seconds", "1,200 seconds"],
-  answer: 1,
-  explanation:
-    "Use t = d / v. Therefore, t = 120 / 10 = 12 seconds."
+  q:"If strain is 0.002 and original length is 5 m, what is change in length?",
+  choices:["0.01 m","0.4 m","2500 m","5.002 m"],
+  answer:0,
+  explanation:"Using ΔL = εL₀, multiply 0.002 by 5 m to get 0.01 m."
 },
 
 {
-  q: "A 300 N force acts at a 60° angle. What is its horizontal component?",
-  choices: ["150 N", "259.8 N", "300 N", "60 N"],
-  answer: 0,
-  explanation:
-    "Use Fx = F cos(θ). Fx = 300 cos(60°) = 300 × 0.5 = 150 N."
+  q:"If strain is 0.004 and original length is 1.5 m, what is change in length?",
+  choices:["0.006 m","0.375 m","1.504 m","375 m"],
+  answer:0,
+  explanation:"Calculate ΔL by multiplying strain by original length: 0.004 × 1.5 m = 0.006 m."
 },
 
 {
-  q: "A 300 N force acts at a 60° angle. What is its vertical component approximately?",
-  choices: ["150 N", "259.8 N", "300 N", "519.6 N"],
-  answer: 1,
-  explanation:
-    "Use Fy = F sin(θ). Fy = 300 sin(60°) ≈ 300 × 0.866 = 259.8 N."
+  q:"If stress is 400,000,000 Pa and strain is 0.002, what is Young's Modulus?",
+  choices:["200,000,000,000 Pa","800,000 Pa","400,000,000 Pa","0.000005 Pa"],
+  answer:0,
+  explanation:"Use Hooke's Law rearranged: E = σ/ε. Dividing 400,000,000 Pa by 0.002 gives 200,000,000,000 Pa."
 },
 
 {
-  q: "If you need the horizontal part of an angled force, which trigonometric function does the lesson use?",
-  choices: ["Sine", "Cosine", "Tangent", "None"],
-  answer: 1,
-  explanation:
-    "The lesson gives the horizontal force component as Fx = F cos(θ), so cosine is used."
+  q:"If stress is 100,000,000 Pa and strain is 0.001, what is Young's Modulus?",
+  choices:["100,000,000,000 Pa","100,000 Pa","100,000,001 Pa","0.00001 Pa"],
+  answer:0,
+  explanation:"Young's Modulus equals stress divided by strain. 100,000,000 ÷ 0.001 = 100,000,000,000 Pa."
 },
 
 {
-  q: "Which step comes after exponents in the order of operations taught in the lesson?",
-  choices: [
-    "Addition and subtraction",
-    "Parentheses",
-    "Multiplication and division",
-    "Scientific notation"
-  ],
-  answer: 2,
-  explanation:
-    "The lesson gives the order as parentheses, exponents, multiplication and division, then addition and subtraction."
+  q:"If stress is 150,000,000 Pa and strain is 0.003, what is Young's Modulus?",
+  choices:["50,000,000,000 Pa","450,000 Pa","150,000,003 Pa","0.00002 Pa"],
+  answer:0,
+  explanation:"Apply E = σ/ε. Dividing 150,000,000 Pa by 0.003 gives 50,000,000,000 Pa."
 },
 
 {
-  q: "What does checking the units in F = ma show?",
-  choices: [
-    "kg × m/s² produces N",
-    "kg × m/s² produces Pa",
-    "kg × m/s² produces W",
-    "kg × m/s² produces K"
-  ],
-  answer: 0,
-  explanation:
-    "The lesson checks F = ma using units and shows that kg × m/s² equals a newton."
+  q:"If stress is 60,000,000 Pa and strain is 0.002, what is Young's Modulus?",
+  choices:["30,000,000,000 Pa","120,000 Pa","60,000,002 Pa","0.00003 Pa"],
+  answer:0,
+  explanation:"Use E = σ/ε. Dividing 60,000,000 Pa by 0.002 gives 30,000,000,000 Pa."
 },
 
 {
-  q: "Which statement about significant figures matches the lesson?",
-  choices: [
-    "More digits should always be added to an answer",
-    "Significant figures help avoid reporting more precision than measurements support",
-    "Zeros can never be significant",
-    "Every measurement must have exactly three significant figures"
-  ],
-  answer: 1,
-  explanation:
-    "The lesson explains that significant figures help prevent engineers from reporting more precision than the original measurements support."
+  q:"If stress is 200,000,000 Pa and strain is 0.001, what is Young's Modulus?",
+  choices:["200,000,000,000 Pa","200,000 Pa","200,000,001 Pa","0.000005 Pa"],
+  answer:0,
+  explanation:"Using Hooke's Law, divide the stress by the strain: 200,000,000 ÷ 0.001 = 200,000,000,000 Pa."
 },
 
   {
-  q: "How many centimeters are equal to 9 meters?",
-  choices: ["90 cm", "900 cm", "9,000 cm", "0.09 cm"],
-  answer: 1,
-  explanation:
-    "The lesson states that 1 m = 100 cm. Therefore, 9 m = 9 × 100 = 900 cm."
+  q:"1 MPa equals how many Pascals?",
+  choices:["1,000,000 Pa","1,000 Pa","100 Pa","1 Pa"],
+  answer:0,
+  explanation:"The prefix 'mega' means one million, so 1 MPa is equal to 1,000,000 Pascals."
 },
 
 {
-  q: "How many grams are equal to 2.5 kilograms?",
-  choices: ["250 g", "2,500 g", "25,000 g", "0.0025 g"],
-  answer: 1,
-  explanation:
-    "The lesson states that 1 kg = 1,000 g. Therefore, 2.5 kg = 2.5 × 1,000 = 2,500 g."
+  q:"1 GPa equals how many Pascals?",
+  choices:["1,000,000,000 Pa","1,000,000 Pa","1000 Pa","10 Pa"],
+  answer:0,
+  explanation:"The prefix 'giga' means one billion, so 1 GPa equals 1,000,000,000 Pascals."
 },
 
 {
-  q: "How many newtons are equal to 12 kN?",
-  choices: ["120 N", "1,200 N", "12,000 N", "120,000 N"],
-  answer: 2,
-  explanation:
-    "The lesson states that 1 kN = 1,000 N. Therefore, 12 kN = 12 × 1,000 = 12,000 N."
+  q:"400 MPa equals how many Pascals?",
+  choices:["400,000,000 Pa","400,000 Pa","400 Pa","4,000 Pa"],
+  answer:0,
+  explanation:"Multiply 400 MPa by 1,000,000 Pa/MPa to get 400,000,000 Pa."
 },
 
 {
-  q: "How many seconds are equal to 3 hours?",
-  choices: ["1,080 seconds", "3,600 seconds", "10,800 seconds", "108,000 seconds"],
-  answer: 2,
-  explanation:
-    "The lesson states that 1 hour = 3,600 seconds. Therefore, 3 hours = 3 × 3,600 = 10,800 seconds."
+  q:"200 GPa equals how many Pascals?",
+  choices:["200,000,000,000 Pa","200,000,000 Pa","200,000 Pa","200 Pa"],
+  answer:0,
+  explanation:"Multiply 200 GPa by 1,000,000,000 Pa/GPa to obtain 200,000,000,000 Pa."
 },
 
 {
-  q: "Which SI prefix represents 10^3?",
-  choices: ["Milli", "Mega", "Kilo", "Micro"],
-  answer: 2,
-  explanation:
-    "Kilo, abbreviated k, represents 10^3, which is equal to 1,000."
+  q:"Which formula would you use to find stress if force and area are known?",
+  choices:["σ = F / A","ε = ΔL / L₀","σ = Eε","ΔL = εL₀"],
+  answer:0,
+  explanation:"Stress is calculated by dividing the applied force by the cross-sectional area using σ = F/A."
 },
 
 {
-  q: "Which SI prefix represents 10^-6?",
-  choices: ["Nano", "Micro", "Milli", "Mega"],
-  answer: 1,
-  explanation:
-    "Micro, represented by µ, means 10^-6."
+  q:"Which formula would you use to find strain if change in length and original length are known?",
+  choices:["ε = ΔL / L₀","σ = F / A","F = σA","E = σ / ε"],
+  answer:0,
+  explanation:"Strain is found by dividing the change in length by the original length: ε = ΔL/L₀."
 },
 
 {
-  q: "How should 9,000,000,000 be written in scientific notation?",
-  choices: ["9 × 10^6", "9 × 10^9", "9 × 10^-9", "90 × 10^9"],
-  answer: 1,
-  explanation:
-    "The decimal moves nine places to the left to produce 9. Therefore, 9,000,000,000 = 9 × 10^9."
+  q:"Which formula would you use to find Young's Modulus if stress and strain are known?",
+  choices:["E = σ / ε","F = σA","ΔL = εL₀","σ = F / A"],
+  answer:0,
+  explanation:"Young's Modulus equals stress divided by strain according to E = σ/ε."
 },
 
 {
-  q: "How should 0.000000004 be written in scientific notation?",
-  choices: ["4 × 10^-9", "4 × 10^-6", "4 × 10^9", "4 × 10^-8"],
-  answer: 0,
-  explanation:
-    "The decimal moves nine places to the right to produce 4. Therefore, 0.000000004 = 4 × 10^-9."
+  q:"Which formula would you use to find applied force if stress and area are known?",
+  choices:["F = σA","ε = ΔL / L₀","E = σ / ε","ΔL = εL₀"],
+  answer:0,
+  explanation:"Rearranging the stress equation gives F = σA."
 },
 
 {
-  q: "If F = 150 N and m = 30 kg, what is the acceleration?",
-  choices: ["5 m/s²", "30 m/s²", "120 m/s²", "4,500 m/s²"],
-  answer: 0,
-  explanation:
-    "Use a = F / m. Therefore, a = 150 / 30 = 5 m/s²."
+  q:"Which formula would you use to find change in length if strain and original length are known?",
+  choices:["ΔL = εL₀","F = σA","E = σ / ε","σ = F / A"],
+  answer:0,
+  explanation:"Multiply the strain by the original length to find the change in length: ΔL = εL₀."
 },
 
 {
-  q: "An object travels 200 meters in 20 seconds. What is its velocity?",
-  choices: ["5 m/s", "10 m/s", "20 m/s", "4,000 m/s"],
-  answer: 1,
-  explanation:
-    "Use v = d / t. Therefore, v = 200 / 20 = 10 m/s."
+  q:"What is the main foundation topic of Strength of Materials in this lesson?",
+  choices:["Stress and strain","Thermodynamic cycles","Fluid pressure","Electric current"],
+  answer:0,
+  explanation:"This lesson focuses on understanding stress and strain, which are the foundation of Strength of Materials."
 },
 
 {
-  q: "An object travels at 15 m/s for 4 seconds. How far does it travel?",
-  choices: ["3.75 m", "19 m", "60 m", "600 m"],
-  answer: 2,
-  explanation:
-    "Use d = vt. Therefore, d = 15 × 4 = 60 m."
+  q:"If a material deforms under a load, engineers compare that deformation to what?",
+  choices:["Original length","Color","Time of day","Temperature only"],
+  answer:0,
+  explanation:"Strain compares the change in length to the material's original length."
 },
 
 {
-  q: "An object travels 240 meters at 20 m/s. How much time does it take?",
-  choices: ["12 seconds", "20 seconds", "120 seconds", "4,800 seconds"],
-  answer: 0,
-  explanation:
-    "Use t = d / v. Therefore, t = 240 / 20 = 12 seconds."
+  q:"If two rods have the same force but one has a larger area, which has lower stress?",
+  choices:["The rod with larger area","The rod with smaller area","Both must have zero stress","Area does not matter"],
+  answer:0,
+  explanation:"Stress equals force divided by area, so a larger cross-sectional area produces lower stress for the same force."
 },
 
 {
-  q: "A 150 N force acts at a 30° angle. What is its vertical component?",
-  choices: ["75 N", "129.9 N", "150 N", "300 N"],
-  answer: 0,
-  explanation:
-    "Use Fy = F sin(θ). Fy = 150 sin(30°) = 150 × 0.5 = 75 N."
+  q:"If two rods have the same area but one has larger force, which has higher stress?",
+  choices:["The rod with larger force","The rod with smaller force","Both have no stress","Force does not matter"],
+  answer:0,
+  explanation:"With the same area, increasing the applied force increases the stress."
 },
 
 {
-  q: "A 150 N force acts at a 30° angle. What is its horizontal component approximately?",
-  choices: ["75 N", "129.9 N", "150 N", "259.8 N"],
-  answer: 1,
-  explanation:
-    "Use Fx = F cos(θ). Fx = 150 cos(30°) ≈ 150 × 0.866 = 129.9 N."
+  q:"Why can strain be written as a decimal like 0.002?",
+  choices:["Because it is a ratio","Because it is measured in Newtons","Because it is pressure","Because it is always a whole number"],
+  answer:0,
+  explanation:"Strain is a ratio of two lengths, so it has no units and is commonly written as a decimal."
 },
 
 {
-  q: "If you need the vertical part of an angled force, which trigonometric function does the lesson use?",
-  choices: ["Cosine", "Sine", "Tangent", "None"],
-  answer: 1,
-  explanation:
-    "The lesson gives the vertical component equation as Fy = F sin(θ), so sine is used."
+  q:"Which statement is true?",
+  choices:["Stress uses force and area","Stress uses only time","Strain uses only force","Young's Modulus measures color"],
+  answer:0,
+  explanation:"Stress is calculated from the applied force and the cross-sectional area using σ = F/A."
 },
 
 {
-  q: "Which is the correct order of operations from the lesson?",
-  choices: [
-    "Parentheses, Exponents, Multiplication and Division, Addition and Subtraction",
-    "Exponents, Parentheses, Addition, Multiplication",
-    "Multiplication, Addition, Parentheses, Exponents",
-    "Addition, Subtraction, Multiplication, Parentheses"
-  ],
-  answer: 0,
-  explanation:
-    "The lesson gives the order as parentheses, exponents, multiplication and division, then addition and subtraction."
+  q:"Which statement is true?",
+  choices:["Strain compares change in length to original length","Strain is measured in Pascals","Strain is always larger than stress","Strain means weight"],
+  answer:0,
+  explanation:"Strain measures how much a material deforms by comparing the change in length to the original length."
 },
 
 {
-  q: "If the units on both sides of an engineering equation are not consistent, what can this indicate?",
-  choices: [
-    "The calculation or equation setup may contain an error",
-    "The answer must be zero",
-    "The units should be ignored",
-    "The answer must be written in scientific notation"
-  ],
-  answer: 0,
-  explanation:
-    "Checking units helps engineers identify possible errors. If the units are not consistent, the calculation or equation setup should be checked."
+  q:"Which statement is true?",
+  choices:["Young's Modulus measures stiffness","Young's Modulus measures mass only","Young's Modulus measures speed","Young's Modulus measures volume only"],
+  answer:0,
+  explanation:"Young's Modulus measures how stiff a material is and how much it resists deformation."
 },
 
 {
-  q: "Which equation correctly shows the unit definition of a newton?",
-  choices: [
-    "1 N = 1 kg·m/s²",
-    "1 N = 1 kg·m/s",
-    "1 N = 1 kg/m²",
-    "1 N = 1 m/s²"
-  ],
-  answer: 0,
-  explanation:
-    "The lesson shows that 1 newton is equal to 1 kilogram-meter per second squared, written as 1 N = 1 kg·m/s²."
+  q:"Which statement is true about elastic deformation?",
+  choices:["It is temporary","It is always permanent","It means no stress exists","It means the material melted"],
+  answer:0,
+  explanation:"Elastic deformation is temporary because the material returns to its original shape when the load is removed."
 },
 
 {
-  q: "How many significant figures are in 0.00520?",
-  choices: ["One", "Two", "Three", "Five"],
-  answer: 2,
-  explanation:
-    "The lesson specifically gives 0.00520 as an example with three significant figures. The leading zeros do not count."
+  q:"Which statement is true about plastic deformation?",
+  choices:["It is permanent","It is always temporary","It means stress is zero","It means no load was applied"],
+  answer:0,
+  explanation:"Plastic deformation is permanent, so the material does not fully return to its original shape after unloading."
 },
 
 {
-  q: "Why are units, conversions, and engineering math important for later mechanical engineering courses?",
-  choices: [
-    "They provide mathematical skills used in subjects such as statics, dynamics, strength of materials, and thermodynamics",
-    "They eliminate the need to use equations",
-    "They are only useful for converting meters to millimeters",
-    "They prevent engineers from using trigonometry"
-  ],
-  answer: 0,
-  explanation:
-    "The lesson explains that these skills support subjects such as statics, dynamics, strength of materials, thermodynamics, and more advanced engineering courses."
+  q:"In normal design, engineers usually try to avoid what?",
+  choices:["Plastic deformation","Elastic behavior","Safe loading","Stiffness calculations"],
+  answer:0,
+  explanation:"Engineers typically design parts to remain in the elastic region because plastic deformation permanently changes a component's shape and can reduce its performance or safety."
 },
+];
+
+const shortQuizGroups = [
+
+  // GROUP 1 — Stress Fundamentals & Stress Calculations
+[
+  {
+    q: "A 12,000 N tensile force acts on a component with a cross-sectional area of 0.004 m². Using σ = F / A, what stress develops in the material?",
+    choices: [
+      "3,000 Pa",
+      "48 Pa",
+      "3,000,000 Pa",
+      "48,000,000 Pa"
+    ],
+    answer: 2,
+    explanation:
+      "Use σ = F / A. Therefore, σ = 12,000 N / 0.004 m² = 3,000,000 Pa."
+  },
+
+  {
+    q: "A material experiences a stress of 2,000,000 Pa while a 10,000 N force is applied. What cross-sectional area must the component have?",
+    choices: [
+      "0.005 m²",
+      "200 m²",
+      "2,010,000 m²",
+      "20,000,000,000 m²"
+    ],
+    answer: 0,
+    explanation:
+      "Rearrange σ = F / A to A = F / σ. Therefore, A = 10,000 N / 2,000,000 Pa = 0.005 m²."
+  },
+
+  {
+    q: "A component with a cross-sectional area of 0.002 m² experiences a stress of 4,000,000 Pa. What applied force produces this stress?",
+    choices: [
+      "2,000 N",
+      "8,000 N",
+      "4,000,002 N",
+      "2,000,000,000 N"
+    ],
+    answer: 1,
+    explanation:
+      "Rearrange σ = F / A to F = σA. Therefore, F = 4,000,000 Pa × 0.002 m² = 8,000 N."
+  },
+
+  {
+    q: "Two components have the same cross-sectional area, but Component B experiences twice the applied force of Component A. According to the stress equation, how does Component B's stress compare with Component A's?",
+    choices: [
+      "Component B has twice the stress",
+      "Component B has half the stress",
+      "Both have the same stress",
+      "Component B has four times the stress"
+    ],
+    answer: 0,
+    explanation:
+      "Stress is σ = F / A. If area stays the same, doubling the applied force doubles the stress."
+  },
+
+  {
+    q: "Two components experience the same applied force. Component A has a cross-sectional area of 0.002 m² while Component B has an area of 0.004 m². Which component experiences greater stress?",
+    choices: [
+      "Component A, because its smaller area produces greater stress",
+      "Component B, because its larger area produces greater stress",
+      "Both experience the same stress",
+      "Neither experiences stress because the forces are equal"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that increasing area decreases stress. Since Component A has the smaller cross-sectional area, the same force produces greater stress in Component A."
+  },
+
+  {
+    q: "An engineer redesigns a loaded component by increasing its cross-sectional area while keeping the applied force unchanged. What should happen to the stress?",
+    choices: [
+      "The stress decreases",
+      "The stress increases",
+      "The stress remains unchanged",
+      "The stress becomes equal to the applied force"
+    ],
+    answer: 0,
+    explanation:
+      "Stress is force divided by cross-sectional area. With the same force, increasing the area reduces the stress."
+  },
+
+  {
+    q: "Which statement best explains what stress represents inside a material?",
+    choices: [
+      "The internal force per unit area developed as the material resists an applied load",
+      "The total change in length divided by the original length",
+      "The permanent deformation remaining after a load is removed",
+      "The stiffness of the material measured by Young's Modulus"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines stress as the internal force per unit area inside a material. These internal resisting forces develop in response to an external load."
+  },
+
+  {
+    q: "A force pulls outward on a material and causes it to stretch. Which type of stress does the lesson identify in this situation?",
+    choices: [
+      "Tensile stress",
+      "Compressive stress",
+      "Shear stress",
+      "Plastic stress"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines tensile stress as stress caused by pulling forces that stretch a material."
+  },
+
+  {
+    q: "A machine component is squeezed by pushing forces acting toward it. Which type of stress is being produced?",
+    choices: [
+      "Compressive stress",
+      "Tensile stress",
+      "Shear stress",
+      "Elastic stress"
+    ],
+    answer: 0,
+    explanation:
+      "Compressive stress results from pushing forces that squeeze a material."
+  },
+
+  {
+    q: "A force acts parallel to the surface of a material and tends to make one portion slide relative to another. Which type of stress best matches this loading?",
+    choices: [
+      "Shear stress",
+      "Tensile stress",
+      "Compressive stress",
+      "Elastic deformation"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines shear stress as stress caused by forces acting parallel to a surface that produce a tendency for sliding."
+  }
+],
+
+  // GROUP 2 — Strain & Deformation
+[
+  {
+    q: "A material originally measures 2.0 m long and changes length by 0.010 m under a load. Using ε = ΔL / L₀, what strain does the material experience?",
+    choices: [
+      "0.005",
+      "0.020",
+      "0.200",
+      "200"
+    ],
+    answer: 0,
+    explanation:
+      "Use ε = ΔL / L₀. Therefore, ε = 0.010 m / 2.0 m = 0.005."
+  },
+
+  {
+    q: "A component has an original length of 1.5 m and experiences a strain of 0.004. What change in length produces this strain?",
+    choices: [
+      "0.006 m",
+      "0.060 m",
+      "0.375 m",
+      "375 m"
+    ],
+    answer: 0,
+    explanation:
+      "Rearrange ε = ΔL / L₀ to ΔL = εL₀. Therefore, ΔL = 0.004 × 1.5 m = 0.006 m."
+  },
+
+  {
+    q: "A material changes length by 0.015 m and experiences a strain of 0.005. What was its original length?",
+    choices: [
+      "0.000075 m",
+      "0.003 m",
+      "3 m",
+      "75 m"
+    ],
+    answer: 2,
+    explanation:
+      "Rearrange ε = ΔL / L₀ to L₀ = ΔL / ε. Therefore, L₀ = 0.015 m / 0.005 = 3 m."
+  },
+
+  {
+    q: "Two specimens have the same original length. Specimen A changes length by 0.004 m while Specimen B changes length by 0.012 m. How does Specimen B's strain compare with Specimen A's?",
+    choices: [
+      "Specimen B has three times the strain",
+      "Specimen B has one-third the strain",
+      "Both specimens have the same strain",
+      "Specimen B has nine times the strain"
+    ],
+    answer: 0,
+    explanation:
+      "Strain is ε = ΔL / L₀. Since the original lengths are equal, tripling the change in length from 0.004 m to 0.012 m produces three times the strain."
+  },
+
+  {
+    q: "Two materials each change length by 0.010 m. Material A originally measures 1 m while Material B originally measures 2 m. Which material experiences greater strain?",
+    choices: [
+      "Material A, because the same change in length is compared with a smaller original length",
+      "Material B, because a larger original length always produces greater strain",
+      "Both materials experience the same strain because their changes in length are equal",
+      "Neither material experiences strain because strain requires permanent deformation"
+    ],
+    answer: 0,
+    explanation:
+      "Using ε = ΔL / L₀, Material A has a strain of 0.010 / 1 = 0.010, while Material B has a strain of 0.010 / 2 = 0.005. Material A therefore experiences greater strain."
+  },
+
+  {
+    q: "Why does strain have no units according to the lesson?",
+    choices: [
+      "Because strain is a ratio of a change in length to an original length",
+      "Because strain measures force rather than length",
+      "Because strain is always equal to zero",
+      "Because strain and stress use the same units"
+    ],
+    answer: 0,
+    explanation:
+      "Strain is calculated by dividing one length by another length using ε = ΔL / L₀. The lesson therefore states that strain has no units."
+  },
+
+  {
+    q: "A loaded component changes shape slightly but completely returns to its original shape after the load is removed. How should this deformation be classified?",
+    choices: [
+      "Elastic deformation",
+      "Plastic deformation",
+      "Shear stress",
+      "Compressive stress"
+    ],
+    answer: 0,
+    explanation:
+      "Elastic deformation occurs when a material returns to its original shape after the load is removed."
+  },
+
+  {
+    q: "After a load is removed from a component, the component remains permanently deformed. Which type of deformation has occurred?",
+    choices: [
+      "Elastic deformation",
+      "Plastic deformation",
+      "Tensile stress",
+      "Strain-free deformation"
+    ],
+    answer: 1,
+    explanation:
+      "Plastic deformation occurs when a material remains permanently deformed after the applied load is removed."
+  },
+
+  {
+    q: "An engineer is designing a component for normal operation and wants it to recover its original shape after its usual loads are removed. According to the lesson, what should the engineer generally try to ensure?",
+    choices: [
+      "The component remains within the elastic region",
+      "The component remains permanently deformed",
+      "The component always experiences plastic deformation",
+      "The component has zero strain under every possible load"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that engineers often design components to remain within the elastic region during normal operation, allowing deformation to remain temporary."
+  },
+
+  {
+    q: "Which statement correctly distinguishes stress from strain based on the lesson?",
+    choices: [
+      "Stress describes internal force per unit area, while strain describes deformation relative to the original length",
+      "Stress describes deformation, while strain describes applied force per unit area",
+      "Stress and strain both measure only the applied force",
+      "Stress and strain are identical quantities with identical units"
+    ],
+    answer: 0,
+    explanation:
+      "Stress describes internal force per unit area inside a material, while strain measures how much the material changes length compared with its original length."
+  }
+],
+
+  // GROUP 3 — Elastic vs. Plastic Deformation
+[
+  {
+    q: "A metal component stretches slightly while carrying a load. After the load is completely removed, the component returns to its original shape. Which type of deformation occurred?",
+    choices: [
+      "Elastic deformation",
+      "Plastic deformation",
+      "Shear stress",
+      "Compressive stress"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines elastic deformation as deformation in which the material returns to its original shape after the load is removed."
+  },
+
+  {
+    q: "A component changes shape under a heavy load and remains deformed after the load is removed. How should this behavior be classified?",
+    choices: [
+      "Elastic deformation",
+      "Plastic deformation",
+      "Tensile stress",
+      "Young's Modulus"
+    ],
+    answer: 1,
+    explanation:
+      "Plastic deformation is permanent. The lesson states that a material undergoing plastic deformation remains deformed after the load is removed."
+  },
+
+  {
+    q: "Two components deform while carrying loads. Component A returns to its original shape after unloading, while Component B does not. Which statement correctly compares their behavior?",
+    choices: [
+      "Component A experienced elastic deformation, while Component B experienced plastic deformation",
+      "Component A experienced plastic deformation, while Component B experienced elastic deformation",
+      "Both components experienced elastic deformation because both changed shape",
+      "Both components experienced plastic deformation because deformation occurred"
+    ],
+    answer: 0,
+    explanation:
+      "Returning to the original shape after unloading indicates elastic deformation. Remaining permanently deformed indicates plastic deformation."
+  },
+
+  {
+    q: "An engineer is designing a machine component that will repeatedly carry and release its normal operating load. According to the lesson, which behavior is generally desired?",
+    choices: [
+      "The component should remain within the elastic region during normal operation",
+      "The component should permanently change shape after each load",
+      "The component should remain within the plastic region during normal operation",
+      "The component should experience no internal stress whenever a force is applied"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that engineers often design components to remain within the elastic region during normal operation."
+  },
+
+  {
+    q: "A material deforms while loaded, but an engineer does not yet know whether the deformation is elastic or plastic. Which observation would best allow the engineer to distinguish between the two using the lesson?",
+    choices: [
+      "Observe whether the material returns to its original shape after the load is removed",
+      "Determine whether the material experienced any stress",
+      "Check whether the applied force had a numerical value",
+      "Determine whether the material changed length while loaded"
+    ],
+    answer: 0,
+    explanation:
+      "Both elastic and plastic deformation involve deformation. The key distinction in the lesson is whether the material returns to its original shape after the load is removed."
+  },
+
+  {
+    q: "A student claims that any material that changes length under a load has experienced permanent deformation. Why is this conclusion incorrect?",
+    choices: [
+      "The deformation may be elastic and disappear when the load is removed",
+      "Materials can change length only when no force is applied",
+      "Permanent deformation is another name for elastic deformation",
+      "A change in length means the material has no strain"
+    ],
+    answer: 0,
+    explanation:
+      "Not all deformation is permanent. The lesson explains that elastic deformation disappears when the load is removed, while plastic deformation remains."
+  },
+
+  {
+    q: "A crane cable stretches slightly while lifting an object and returns to its original shape after the object is lowered and the load is removed. Based on the lesson, what can be concluded?",
+    choices: [
+      "The cable experienced elastic deformation",
+      "The cable experienced permanent plastic deformation",
+      "The cable experienced no deformation because it recovered",
+      "The cable must have experienced compressive stress"
+    ],
+    answer: 0,
+    explanation:
+      "The cable changed shape while loaded but recovered its original shape afterward. According to the lesson, this behavior is elastic deformation."
+  },
+
+  {
+    q: "A vehicle frame remains bent after a load that caused the deformation is removed. Which conclusion is supported by the lesson?",
+    choices: [
+      "The frame experienced plastic deformation",
+      "The frame experienced only elastic deformation",
+      "The frame experienced no strain",
+      "The frame must have returned to its original shape"
+    ],
+    answer: 0,
+    explanation:
+      "If the material remains permanently deformed after the load is removed, the lesson classifies the deformation as plastic."
+  },
+
+  {
+    q: "Why is remaining in the elastic region useful for a component during normal operation?",
+    choices: [
+      "The component can deform under a load and still return to its original shape when the load is removed",
+      "The component will remain permanently deformed after every normal load",
+      "The component will experience no stress or strain while carrying a load",
+      "The component's cross-sectional area must continuously increase"
+    ],
+    answer: 0,
+    explanation:
+      "Elastic deformation is temporary. A component operating in the elastic region can deform while loaded and return to its original shape after the load is removed."
+  },
+
+  {
+    q: "An engineer tests a component by applying a load, measuring its deformation, and then removing the load. The component does not recover its original shape. Which statement best describes the test result?",
+    choices: [
+      "The deformation was plastic because some deformation remained after unloading",
+      "The deformation was elastic because the component changed shape under the load",
+      "The component experienced no strain because its deformation was permanent",
+      "The component remained in the elastic region because the load was eventually removed"
+    ],
+    answer: 0,
+    explanation:
+      "The defining feature of plastic deformation in the lesson is that the material remains permanently deformed after the load is removed."
+  }
+],
+
+  // GROUP 4 — Hooke's Law & Young's Modulus
+[
+  {
+    q: "A material remains elastic and has a Young's Modulus of 200,000,000 Pa while experiencing a strain of 0.002. Using σ = Eε, what stress develops in the material?",
+    choices: [
+      "100,000 Pa",
+      "400,000 Pa",
+      "200,000,002 Pa",
+      "400,000,000 Pa"
+    ],
+    answer: 1,
+    explanation:
+      "Use Hooke's Law, σ = Eε. Therefore, σ = 200,000,000 Pa × 0.002 = 400,000 Pa."
+  },
+
+  {
+    q: "A material in the elastic region experiences a stress of 600,000 Pa and a strain of 0.003. What is its Young's Modulus?",
+    choices: [
+      "1,800 Pa",
+      "200,000 Pa",
+      "600,003 Pa",
+      "200,000,000 Pa"
+    ],
+    answer: 3,
+    explanation:
+      "Rearrange σ = Eε to E = σ / ε. Therefore, E = 600,000 Pa / 0.003 = 200,000,000 Pa."
+  },
+
+  {
+    q: "A material has a Young's Modulus of 150,000,000 Pa and experiences a stress of 300,000 Pa while remaining elastic. What strain does it experience?",
+    choices: [
+      "0.002",
+      "0.02",
+      "500",
+      "45,000,000,000,000"
+    ],
+    answer: 0,
+    explanation:
+      "Rearrange σ = Eε to ε = σ / E. Therefore, ε = 300,000 / 150,000,000 = 0.002."
+  },
+
+  {
+    q: "Two materials experience the same strain while remaining elastic. Material A has a larger Young's Modulus than Material B. According to σ = Eε, which material experiences greater stress?",
+    choices: [
+      "Material A",
+      "Material B",
+      "Both experience the same stress",
+      "Neither experiences stress because their strain is equal"
+    ],
+    answer: 0,
+    explanation:
+      "Hooke's Law is σ = Eε. With the same strain, the material with the larger Young's Modulus has the greater stress."
+  },
+
+  {
+    q: "Two materials experience the same stress while remaining elastic. Material A has a larger Young's Modulus than Material B. Which material experiences less strain?",
+    choices: [
+      "Material A",
+      "Material B",
+      "Both experience the same strain",
+      "Young's Modulus cannot affect deformation"
+    ],
+    answer: 0,
+    explanation:
+      "Rearranging Hooke's Law gives ε = σ / E. For the same stress, a larger Young's Modulus produces less strain, so Material A deforms less."
+  },
+
+  {
+    q: "An engineer compares two materials and finds that Material A has a larger Young's Modulus than Material B. What does the lesson indicate about Material A?",
+    choices: [
+      "It is stiffer and resists deformation more effectively",
+      "It must permanently deform under every load",
+      "It always experiences zero stress",
+      "It has a smaller cross-sectional area"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines Young's Modulus as a measure of stiffness and states that materials with a larger Young's Modulus resist deformation more effectively."
+  },
+
+  {
+    q: "A material remains elastic while its strain doubles. If its Young's Modulus remains unchanged, what happens to its stress according to Hooke's Law?",
+    choices: [
+      "The stress doubles",
+      "The stress is cut in half",
+      "The stress remains unchanged",
+      "The stress becomes zero"
+    ],
+    answer: 0,
+    explanation:
+      "Hooke's Law gives σ = Eε. If E remains constant and strain doubles, stress also doubles."
+  },
+
+  {
+    q: "A student wants to use σ = Eε to describe a material after it has left its linear-elastic range. What important limitation from the lesson should the student recognize?",
+    choices: [
+      "The equation should not be assumed to apply after the material leaves its linear-elastic range",
+      "The equation applies only after permanent deformation begins",
+      "Young's Modulus becomes equal to strain outside the elastic range",
+      "Stress automatically becomes zero outside the elastic range"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson's important note states that σ = Eε describes linear-elastic behavior and should not be assumed to apply after a material leaves its linear-elastic range."
+  },
+
+  {
+    q: "Material A and Material B experience the same stress while remaining in their elastic regions. Material A develops a strain of 0.002 while Material B develops a strain of 0.004. Based on σ = Eε, which material has the larger Young's Modulus?",
+    choices: [
+      "Material A",
+      "Material B",
+      "Both have the same Young's Modulus",
+      "Young's Modulus cannot be compared using stress and strain"
+    ],
+    answer: 0,
+    explanation:
+      "Rearranging Hooke's Law gives E = σ / ε. At the same stress, the material with the smaller strain has the larger Young's Modulus. Therefore, Material A is stiffer."
+  },
+
+  {
+    q: "Which statement best combines the stress-strain relationship and Young's Modulus described in the lesson?",
+    choices: [
+      "While many materials remain elastic, stress and strain are proportional, and Young's Modulus describes the material's stiffness",
+      "Stress and strain are proportional only after permanent plastic deformation occurs",
+      "Young's Modulus measures cross-sectional area and determines the type of stress",
+      "A larger Young's Modulus means a material experiences more deformation under the same stress"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that stress and strain are proportional for many materials while they remain elastic. Hooke's Law describes this relationship, and Young's Modulus measures stiffness."
+  }
+],
+
+ // GROUP 5 — Stress, Strain & Material Behavior Applications
+[
+  {
+    q: "Two components carry the same applied force. Component A has twice the cross-sectional area of Component B. According to σ = F / A, how does the stress in Component A compare with the stress in Component B?",
+    choices: [
+      "Component A experiences half the stress",
+      "Component A experiences twice the stress",
+      "Both components experience the same stress",
+      "Component A experiences four times the stress"
+    ],
+    answer: 0,
+    explanation:
+      "Stress is σ = F / A. With the same force, doubling the cross-sectional area cuts the stress in half. The lesson states that larger areas reduce stress."
+  },
+
+  {
+    q: "A component originally measures 2 m long and changes length by 0.008 m under a load. What strain does the component experience?",
+    choices: [
+      "0.002",
+      "0.004",
+      "0.016",
+      "250"
+    ],
+    answer: 1,
+    explanation:
+      "Use ε = ΔL / L₀. Therefore, ε = 0.008 m / 2 m = 0.004. Strain has no units because it is a ratio of two lengths."
+  },
+
+  {
+    q: "A material in its linear-elastic range experiences a stress of 800,000 Pa and a strain of 0.004. Using σ = Eε, what is its Young's Modulus?",
+    choices: [
+      "3,200 Pa",
+      "200,000 Pa",
+      "200,000,000 Pa",
+      "800,000,004 Pa"
+    ],
+    answer: 2,
+    explanation:
+      "Rearrange Hooke's Law to E = σ / ε. Therefore, E = 800,000 Pa / 0.004 = 200,000,000 Pa."
+  },
+
+  {
+    q: "Two materials experience the same stress while remaining in their linear-elastic ranges. Material A has a Young's Modulus of 200,000,000 Pa and Material B has a Young's Modulus of 100,000,000 Pa. Which material should experience less strain?",
+    choices: [
+      "Material A",
+      "Material B",
+      "Both experience the same strain",
+      "Young's Modulus has no relationship to deformation"
+    ],
+    answer: 0,
+    explanation:
+      "From σ = Eε, strain can be written as ε = σ / E. At the same stress, the material with the larger Young's Modulus experiences less strain. The lesson describes a larger Young's Modulus as greater resistance to deformation."
+  },
+
+  {
+    q: "An engineer increases the force on a component while leaving its cross-sectional area unchanged. The component remains within its linear-elastic range. Which sequence best describes what the lesson predicts?",
+    choices: [
+      "Stress increases, and the stress-strain relationship indicates that strain also increases",
+      "Stress decreases, while strain increases",
+      "Stress remains unchanged because area did not change",
+      "Stress increases, but strain must remain zero"
+    ],
+    answer: 0,
+    explanation:
+      "From σ = F / A, increasing force while area remains constant increases stress. For many materials in the linear-elastic range, stress and strain are proportional according to σ = Eε."
+  },
+
+  {
+    q: "A loaded component experiences strain but completely recovers its original shape after the load is removed. Which combination correctly describes what occurred?",
+    choices: [
+      "The component deformed, but the deformation was elastic",
+      "The component did not deform because it returned to its original shape",
+      "The component experienced permanent plastic deformation",
+      "The component could not have experienced stress"
+    ],
+    answer: 0,
+    explanation:
+      "Strain describes deformation, so the component did deform while loaded. Because it returned to its original shape after unloading, the lesson classifies the deformation as elastic."
+  },
+
+  {
+    q: "A force acts parallel to the surface of a component and tends to cause sliding. The component also remains permanently deformed after the load is removed. Which description correctly identifies both ideas?",
+    choices: [
+      "Shear stress and plastic deformation",
+      "Tensile stress and elastic deformation",
+      "Compressive stress and elastic deformation",
+      "Shear stress and elastic deformation"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines shear stress as resulting from forces acting parallel to a surface that cause sliding. Deformation that remains after the load is removed is plastic deformation."
+  },
+
+  {
+    q: "An engineer wants to reduce the stress in a component without changing the applied force. Which change is directly supported by the stress equation in the lesson?",
+    choices: [
+      "Increase the component's cross-sectional area",
+      "Decrease the component's cross-sectional area",
+      "Increase the strain without changing anything else",
+      "Make the original length smaller"
+    ],
+    answer: 0,
+    explanation:
+      "From σ = F / A, increasing cross-sectional area while force remains constant decreases stress. The lesson specifically states that larger areas reduce stress."
+  },
+
+  {
+    q: "A material experiences a strain of 0.003 and has a Young's Modulus of 300,000,000 Pa while remaining in its linear-elastic range. If its cross-sectional area is 0.002 m², what applied force corresponds to this condition?",
+    choices: [
+      "600 N",
+      "1,800 N",
+      "900,000 N",
+      "1,800,000 N"
+    ],
+    answer: 1,
+    explanation:
+      "First use σ = Eε: σ = 300,000,000 × 0.003 = 900,000 Pa. Then use F = σA: F = 900,000 × 0.002 = 1,800 N."
+  },
+
+  {
+    q: "An engineer is checking a machine component during normal operation. Which result best matches the design approach described in the lesson?",
+    choices: [
+      "The component supports its load and returns to its original shape after the load is removed",
+      "The component remains permanently deformed after every normal operating load",
+      "The component experiences no internal resisting forces even while carrying a load",
+      "The component must have zero stress and zero strain whenever it is operating"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that engineers often design components to remain within the elastic region during normal operation. A component that returns to its original shape after unloading demonstrates elastic behavior."
+  }
+],
+
+  // GROUP 6 — Engineering Applications of Stress & Strain
+[
+  {
+    q: "A bridge component must support a larger applied force while its cross-sectional area remains unchanged. According to the stress relationship in the lesson, what happens to the stress in the component?",
+    choices: [
+      "The stress increases",
+      "The stress decreases",
+      "The stress remains unchanged",
+      "The stress becomes equal to the cross-sectional area"
+    ],
+    answer: 0,
+    explanation:
+      "Stress is calculated using σ = F / A. If the applied force increases while the cross-sectional area remains unchanged, the stress increases."
+  },
+
+  {
+    q: "An engineer redesigns a loaded component with a larger cross-sectional area but keeps the applied force the same. Why can this help the component safely support the load?",
+    choices: [
+      "The larger area reduces the stress produced by the same force",
+      "The larger area increases the strain without affecting stress",
+      "The larger area guarantees that the material has no deformation",
+      "The larger area changes tensile stress into shear stress"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that increasing area decreases stress. From σ = F / A, the same force distributed over a larger cross-sectional area produces less stress."
+  },
+
+  {
+    q: "A crane cable changes length from its original length while lifting a heavy object. Which quantity specifically describes this change relative to the cable's original length?",
+    choices: [
+      "Stress",
+      "Strain",
+      "Young's Modulus",
+      "Cross-sectional area"
+    ],
+    answer: 1,
+    explanation:
+      "Strain measures how much a material changes length compared with its original length and is calculated using ε = ΔL / L₀."
+  },
+
+  {
+    q: "A crane cable stretches while lifting an object but returns completely to its original shape after the load is removed. Which conclusion is best supported by the lesson?",
+    choices: [
+      "The cable experienced elastic deformation",
+      "The cable experienced permanent plastic deformation",
+      "The cable experienced no strain while loaded",
+      "The cable could not have experienced stress"
+    ],
+    answer: 0,
+    explanation:
+      "Elastic deformation occurs when a material returns to its original shape after the load is removed. The cable can experience stress and strain while loaded and still deform elastically."
+  },
+
+  {
+    q: "A vehicle frame remains permanently deformed after an applied load is removed. Why would this behavior differ from the normal design goal described in the lesson?",
+    choices: [
+      "It indicates plastic deformation rather than remaining within the elastic region",
+      "It indicates that the frame experienced no deformation",
+      "It proves that the frame's stress was zero",
+      "It means the frame had no internal resisting forces"
+    ],
+    answer: 0,
+    explanation:
+      "Permanent deformation is classified as plastic deformation. The lesson states that engineers often design components to remain within the elastic region during normal operation."
+  },
+
+  {
+    q: "Two possible materials for an aircraft component experience the same stress while remaining linear-elastic. Material A has the larger Young's Modulus. Which behavior should the engineer expect from Material A?",
+    choices: [
+      "It should experience less strain because it is stiffer",
+      "It should experience more strain because it is stiffer",
+      "It must experience permanent deformation",
+      "It must experience the same strain regardless of Young's Modulus"
+    ],
+    answer: 0,
+    explanation:
+      "Young's Modulus measures stiffness. From σ = Eε, for the same stress a larger Young's Modulus corresponds to less strain, meaning the material resists deformation more effectively."
+  },
+
+  {
+    q: "A bolt holding machine components together has an applied force of 18,000 N acting over a cross-sectional area of 0.006 m². What stress develops according to σ = F / A?",
+    choices: [
+      "108 Pa",
+      "3,000 Pa",
+      "3,000,000 Pa",
+      "108,000,000 Pa"
+    ],
+    answer: 2,
+    explanation:
+      "Use σ = F / A. Therefore, σ = 18,000 N / 0.006 m² = 3,000,000 Pa."
+  },
+
+  {
+    q: "A loaded component has an original length of 2.5 m and changes length by 0.005 m. If it returns to its original length after unloading, which combination correctly describes its strain and deformation?",
+    choices: [
+      "Strain = 0.002 and the deformation is elastic",
+      "Strain = 0.002 and the deformation is plastic",
+      "Strain = 500 and the deformation is elastic",
+      "Strain = 0 because elastic deformation cannot produce strain"
+    ],
+    answer: 0,
+    explanation:
+      "Use ε = ΔL / L₀, giving ε = 0.005 / 2.5 = 0.002. Because the component returns to its original length after unloading, the deformation is elastic."
+  },
+
+  {
+    q: "An engineer analyzes a material in its linear-elastic range and determines that its strain is 0.002 and its Young's Modulus is 250,000,000 Pa. What stress is predicted by Hooke's Law?",
+    choices: [
+      "125,000 Pa",
+      "250,000 Pa",
+      "500,000 Pa",
+      "500,000,000 Pa"
+    ],
+    answer: 2,
+    explanation:
+      "Use σ = Eε. Therefore, σ = 250,000,000 Pa × 0.002 = 500,000 Pa."
+  },
+
+  {
+    q: "Why do mechanical engineers analyze stress and strain in components such as bridges, aircraft wings, bolts, crane cables, and vehicle frames?",
+    choices: [
+      "To determine whether the components can safely support loads during operation",
+      "To guarantee that every component permanently deforms under its load",
+      "To eliminate all internal forces from loaded materials",
+      "To make every material respond identically to tensile, compressive, and shear stress"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that mechanical engineers use stress and strain analysis to determine whether parts will safely support loads during operation, and it specifically lists bridges, aircraft wings, bolts, crane cables, and vehicle frames as examples."
+  }
+],
+
+  // GROUP 7 — Types of Stress & Loading Scenarios
+[
+  {
+    q: "A metal rod is pulled outward from both ends, causing the material to stretch. Which type of stress is primarily described by this loading?",
+    choices: [
+      "Tensile stress",
+      "Compressive stress",
+      "Shear stress",
+      "Plastic deformation"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines tensile stress as stress produced by pulling forces that stretch a material."
+  },
+
+  {
+    q: "A structural member is pushed inward from opposite ends so that the material is squeezed. Which type of stress is acting on the member?",
+    choices: [
+      "Shear stress",
+      "Tensile stress",
+      "Compressive stress",
+      "Elastic strain"
+    ],
+    answer: 2,
+    explanation:
+      "The lesson defines compressive stress as stress caused by pushing forces that squeeze a material."
+  },
+
+  {
+    q: "A force acts parallel to the surface of a material and tends to make one section slide relative to another. Which type of stress does this describe?",
+    choices: [
+      "Tensile stress",
+      "Compressive stress",
+      "Shear stress",
+      "Elastic deformation"
+    ],
+    answer: 2,
+    explanation:
+      "Shear stress results from forces acting parallel to a surface that create a tendency for sliding."
+  },
+
+  {
+    q: "Two loading situations are compared. Situation A pulls a material apart, while Situation B pushes the material together. Which pairing correctly identifies the stresses?",
+    choices: [
+      "A—Tensile, B—Compressive",
+      "A—Compressive, B—Tensile",
+      "A—Shear, B—Tensile",
+      "A—Shear, B—Compressive"
+    ],
+    answer: 0,
+    explanation:
+      "Pulling forces that stretch a material create tensile stress, while pushing forces that squeeze a material create compressive stress."
+  },
+
+  {
+    q: "A student says that shear stress is caused by forces pulling directly away from each other along the length of a material. What is incorrect about this statement?",
+    choices: [
+      "That description matches tensile stress, while shear stress involves forces acting parallel to a surface",
+      "That description matches compressive stress, while shear stress involves no forces",
+      "Shear stress occurs only after permanent deformation",
+      "Shear stress and tensile stress are exactly the same type of loading"
+    ],
+    answer: 0,
+    explanation:
+      "Pulling forces that stretch a material describe tensile stress. The lesson describes shear stress as forces acting parallel to a surface that cause sliding."
+  },
+
+  {
+    q: "A component is loaded so that its material is being squeezed rather than stretched or made to slide. Which stress classification best matches the situation?",
+    choices: [
+      "Compressive stress",
+      "Tensile stress",
+      "Shear stress",
+      "Strain"
+    ],
+    answer: 0,
+    explanation:
+      "Compressive stress is produced by pushing forces that squeeze a material."
+  },
+
+  {
+    q: "Which loading situation is most consistent with shear stress according to the lesson?",
+    choices: [
+      "Forces act parallel to a surface and tend to cause sliding",
+      "Forces pull directly outward and stretch the material",
+      "Forces push inward and squeeze the material",
+      "The material returns to its original shape after unloading"
+    ],
+    answer: 0,
+    explanation:
+      "The defining feature of shear stress in the lesson is that the forces act parallel to a surface and cause a tendency for sliding."
+  },
+
+  {
+    q: "An engineer compares three components. Component A is stretched by pulling forces, Component B is squeezed by pushing forces, and Component C experiences forces parallel to its surface. Which order correctly identifies their stresses?",
+    choices: [
+      "A—Tensile, B—Compressive, C—Shear",
+      "A—Compressive, B—Shear, C—Tensile",
+      "A—Shear, B—Tensile, C—Compressive",
+      "A—Tensile, B—Shear, C—Compressive"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson identifies pulling and stretching as tensile stress, pushing and squeezing as compressive stress, and parallel sliding forces as shear stress."
+  },
+
+  {
+    q: "Why can two materials respond differently even when they experience the same general type of stress?",
+    choices: [
+      "The lesson states that different materials handle tensile, compressive, and shear stresses differently",
+      "Every material must respond identically to the same stress type",
+      "The type of material matters only when no force is applied",
+      "Stress type determines that all materials have the same deformation"
+    ],
+    answer: 0,
+    explanation:
+      "After describing tensile, compressive, and shear stress, the lesson explains that different materials handle these stresses differently."
+  },
+
+  {
+    q: "Which statement best summarizes the three types of stress introduced in the lesson?",
+    choices: [
+      "Tensile stress stretches, compressive stress squeezes, and shear stress involves forces parallel to a surface that cause sliding",
+      "Tensile stress squeezes, compressive stress slides, and shear stress stretches",
+      "Tensile stress is permanent, compressive stress is temporary, and shear stress has no force",
+      "All three stress types describe exactly the same loading direction"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson distinguishes the three types by their loading: tensile forces stretch, compressive forces squeeze, and shear forces act parallel to a surface and cause sliding."
+  }
+],
+
+  // GROUP 8 — Stress-Strain Relationships & Comparing Materials
+[
+  {
+    q: "Two materials remain within their linear-elastic regions and experience the same strain. Material A has a Young's Modulus of 300,000,000 Pa while Material B has a Young's Modulus of 150,000,000 Pa. Which material experiences greater stress?",
+    choices: [
+      "Material A",
+      "Material B",
+      "Both experience the same stress",
+      "Neither experiences stress because the strain is equal"
+    ],
+    answer: 0,
+    explanation:
+      "Use σ = Eε. If strain is the same, the material with the larger Young's Modulus experiences the greater stress. Material A has twice the Young's Modulus of Material B."
+  },
+
+  {
+    q: "Two materials experience the same stress while remaining in their linear-elastic regions. Material A has twice the Young's Modulus of Material B. How does Material A's strain compare with Material B's?",
+    choices: [
+      "Material A has half the strain",
+      "Material A has twice the strain",
+      "Both have the same strain",
+      "Material A has four times the strain"
+    ],
+    answer: 0,
+    explanation:
+      "Rearrange Hooke's Law to ε = σ / E. At the same stress, doubling Young's Modulus reduces the strain by half."
+  },
+
+  {
+    q: "Material A experiences a stress of 600,000 Pa and a strain of 0.002, while Material B experiences the same stress and a strain of 0.004. Which material has the greater Young's Modulus?",
+    choices: [
+      "Material A",
+      "Material B",
+      "Both have the same Young's Modulus",
+      "Young's Modulus cannot be determined from stress and strain"
+    ],
+    answer: 0,
+    explanation:
+      "Use E = σ / ε. At the same stress, the material with the smaller strain has the larger Young's Modulus. Therefore, Material A is stiffer."
+  },
+
+  {
+    q: "A material has a Young's Modulus of 250,000,000 Pa and experiences a strain of 0.004 while remaining linear-elastic. What stress is predicted by Hooke's Law?",
+    choices: [
+      "62,500 Pa",
+      "1,000,000 Pa",
+      "250,004,000 Pa",
+      "1,000,000,000 Pa"
+    ],
+    answer: 1,
+    explanation:
+      "Use σ = Eε. Therefore, σ = 250,000,000 Pa × 0.004 = 1,000,000 Pa."
+  },
+
+  {
+    q: "A material experiences a stress of 900,000 Pa and has a Young's Modulus of 300,000,000 Pa while remaining linear-elastic. What strain does it experience?",
+    choices: [
+      "0.003",
+      "0.03",
+      "300",
+      "270,000,000,000,000"
+    ],
+    answer: 0,
+    explanation:
+      "Use ε = σ / E. Therefore, ε = 900,000 / 300,000,000 = 0.003."
+  },
+
+  {
+    q: "Two materials have the same Young's Modulus and remain linear-elastic. Material B experiences three times the strain of Material A. How does Material B's stress compare with Material A's?",
+    choices: [
+      "Material B experiences three times the stress",
+      "Material B experiences one-third the stress",
+      "Both experience the same stress",
+      "Material B experiences nine times the stress"
+    ],
+    answer: 0,
+    explanation:
+      "From σ = Eε, if Young's Modulus remains the same, stress is proportional to strain. Three times the strain therefore produces three times the stress."
+  },
+
+  {
+    q: "An engineer wants a material that will deform less than another material when both experience the same stress in their linear-elastic regions. According to the lesson, which property should be larger?",
+    choices: [
+      "Young's Modulus",
+      "Strain",
+      "Change in length",
+      "Plastic deformation"
+    ],
+    answer: 0,
+    explanation:
+      "Young's Modulus measures stiffness. A material with a larger Young's Modulus resists deformation more effectively and therefore experiences less strain under the same stress."
+  },
+
+  {
+    q: "Material A has a Young's Modulus of 200,000,000 Pa and experiences a strain of 0.002. Material B has a Young's Modulus of 100,000,000 Pa and experiences a strain of 0.004. What can be concluded about their stresses while both remain linear-elastic?",
+    choices: [
+      "Both materials experience the same stress",
+      "Material A experiences twice the stress of Material B",
+      "Material B experiences twice the stress of Material A",
+      "Material A experiences four times the stress of Material B"
+    ],
+    answer: 0,
+    explanation:
+      "For Material A, σ = 200,000,000 × 0.002 = 400,000 Pa. For Material B, σ = 100,000,000 × 0.004 = 400,000 Pa. Their stresses are equal."
+  },
+
+  {
+    q: "A material's stress increases from 300,000 Pa to 600,000 Pa while it remains in the same linear-elastic region and its Young's Modulus does not change. What should happen to its strain?",
+    choices: [
+      "The strain doubles",
+      "The strain is cut in half",
+      "The strain remains unchanged",
+      "The strain becomes zero"
+    ],
+    answer: 0,
+    explanation:
+      "For a constant Young's Modulus, Hooke's Law shows that stress and strain are proportional. Doubling the stress therefore doubles the strain."
+  },
+
+  {
+    q: "Why must an engineer be careful when using σ = Eε to compare material behavior after a material has left its linear-elastic range?",
+    choices: [
+      "The lesson states that the equation should not be assumed to apply outside the linear-elastic range",
+      "Young's Modulus becomes equal to cross-sectional area outside that range",
+      "Stress automatically becomes zero after leaving the elastic range",
+      "Strain can no longer occur once plastic deformation begins"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson's important note states that σ = Eε describes linear-elastic behavior and should not be assumed to apply after a material leaves its linear-elastic range."
+  }
+],
+
+  // GROUP 9 — Stress, Strain & Design Reasoning
+[
+  {
+    q: "Two components are made from the same material and carry the same applied force. Component A has a cross-sectional area twice as large as Component B. Which statement correctly compares their stresses?",
+    choices: [
+      "Component A experiences half the stress of Component B",
+      "Component A experiences twice the stress of Component B",
+      "Both components experience the same stress",
+      "Component A experiences four times the stress of Component B"
+    ],
+    answer: 0,
+    explanation:
+      "Stress is σ = F / A. With the same applied force, doubling the cross-sectional area reduces the stress by half."
+  },
+
+  {
+    q: "A component originally measures 4 m and changes length by 0.012 m while loaded. What strain does the component experience?",
+    choices: [
+      "0.003",
+      "0.03",
+      "0.048",
+      "333.3"
+    ],
+    answer: 0,
+    explanation:
+      "Use ε = ΔL / L₀. Therefore, ε = 0.012 m / 4 m = 0.003. Because strain is a ratio of two lengths, it has no units."
+  },
+
+  {
+    q: "A material remains linear-elastic and has a Young's Modulus of 200,000,000 Pa. If it experiences a strain of 0.003, what stress is predicted by Hooke's Law?",
+    choices: [
+      "60,000 Pa",
+      "600,000 Pa",
+      "200,000,003 Pa",
+      "600,000,000 Pa"
+    ],
+    answer: 1,
+    explanation:
+      "Use σ = Eε. Therefore, σ = 200,000,000 Pa × 0.003 = 600,000 Pa."
+  },
+
+  {
+    q: "A component experiences a stress of 500,000 Pa over a cross-sectional area of 0.004 m². What applied force produces this stress?",
+    choices: [
+      "125 N",
+      "2,000 N",
+      "125,000,000 N",
+      "500,004 N"
+    ],
+    answer: 1,
+    explanation:
+      "Rearrange σ = F / A to F = σA. Therefore, F = 500,000 Pa × 0.004 m² = 2,000 N."
+  },
+
+  {
+    q: "An engineer wants to reduce the stress in a component while keeping the applied force unchanged. The engineer also wants the component to continue safely supporting its normal load. Which change is directly supported by the lesson?",
+    choices: [
+      "Increase the cross-sectional area",
+      "Decrease the cross-sectional area",
+      "Increase the applied force",
+      "Force the component into permanent deformation"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that increasing area decreases stress. From σ = F / A, a larger cross-sectional area reduces stress when the applied force remains unchanged."
+  },
+
+  {
+    q: "Two materials experience the same stress in their linear-elastic regions. Material A develops a strain of 0.002 while Material B develops a strain of 0.006. What does this indicate about their relative stiffness?",
+    choices: [
+      "Material A is stiffer because it experiences less strain under the same stress",
+      "Material B is stiffer because it experiences more strain",
+      "Both materials have the same stiffness because their stresses are equal",
+      "Neither material can have a Young's Modulus because both experience strain"
+    ],
+    answer: 0,
+    explanation:
+      "From E = σ / ε, the material with less strain under the same stress has the larger Young's Modulus. The lesson states that a larger Young's Modulus means greater stiffness."
+  },
+
+  {
+    q: "A component stretches while carrying a normal operating load and returns to its original shape when the load is removed. Which statement best describes the complete situation?",
+    choices: [
+      "The component experienced strain, but its deformation was elastic",
+      "The component experienced no strain because it eventually recovered",
+      "The component experienced plastic deformation because its length changed",
+      "The component could not have experienced stress because the deformation was temporary"
+    ],
+    answer: 0,
+    explanation:
+      "Strain describes the deformation that occurs while the component is loaded. Because the component returns to its original shape after unloading, that deformation is elastic."
+  },
+
+  {
+    q: "A component remains permanently changed in shape after its load is removed. Why should an engineer not automatically continue using σ = Eε to describe its behavior?",
+    choices: [
+      "The lesson states that σ = Eε describes linear-elastic behavior and should not be assumed after the material leaves that range",
+      "Hooke's Law applies only to materials undergoing permanent deformation",
+      "Young's Modulus becomes zero whenever deformation is permanent",
+      "Stress and strain stop existing when plastic deformation occurs"
+    ],
+    answer: 0,
+    explanation:
+      "Permanent deformation indicates plastic behavior. The lesson specifically warns that σ = Eε describes linear-elastic behavior and should not be assumed to apply after a material leaves that range."
+  },
+
+  {
+    q: "A component experiences a strain of 0.002 while remaining linear-elastic and has a Young's Modulus of 300,000,000 Pa. Its cross-sectional area is 0.005 m². What applied force corresponds to this condition?",
+    choices: [
+      "1,200 N",
+      "3,000 N",
+      "600,000 N",
+      "1,500,000 N"
+    ],
+    answer: 1,
+    explanation:
+      "First calculate stress using σ = Eε: σ = 300,000,000 × 0.002 = 600,000 Pa. Then use F = σA: F = 600,000 × 0.005 = 3,000 N."
+  },
+
+  {
+    q: "An engineer is evaluating a component for normal operation. Which combination of observations best matches the design ideas presented in the lesson?",
+    choices: [
+      "The component safely supports its load, its deformation remains elastic, and it returns to its original shape after unloading",
+      "The component permanently changes shape every time its normal load is applied",
+      "The component experiences no internal resisting forces even though an external force is applied",
+      "The component must experience zero stress and zero strain whenever it carries a load"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that engineers use stress and strain analysis to determine whether components can safely support loads and often design them to remain within the elastic region during normal operation."
+  }
+],
+
+  // GROUP 10 — Comprehensive Strength of Materials Applications
+[
+  {
+    q: "A component carries a 24,000 N load over a cross-sectional area of 0.008 m². What stress develops in the component?",
+    choices: [
+      "3,000 Pa",
+      "192,000 Pa",
+      "3,000,000 Pa",
+      "192,000,000 Pa"
+    ],
+    answer: 2,
+    explanation:
+      "Use σ = F / A. Therefore, σ = 24,000 N / 0.008 m² = 3,000,000 Pa."
+  },
+
+  {
+    q: "A component originally measures 3 m long and changes length by 0.009 m while loaded. What strain does it experience?",
+    choices: [
+      "0.003",
+      "0.027",
+      "333.3",
+      "3.009"
+    ],
+    answer: 0,
+    explanation:
+      "Use ε = ΔL / L₀. Therefore, ε = 0.009 m / 3 m = 0.003. Strain has no units because it is a ratio of two lengths."
+  },
+
+  {
+    q: "A material remains in its linear-elastic range and experiences a strain of 0.0025. If its Young's Modulus is 240,000,000 Pa, what stress is predicted by Hooke's Law?",
+    choices: [
+      "96,000 Pa",
+      "600,000 Pa",
+      "960,000 Pa",
+      "240,000,002.5 Pa"
+    ],
+    answer: 1,
+    explanation:
+      "Use σ = Eε. Therefore, σ = 240,000,000 Pa × 0.0025 = 600,000 Pa."
+  },
+
+  {
+    q: "Two components carry the same applied force. Component A has a cross-sectional area three times as large as Component B. How does Component A's stress compare with Component B's?",
+    choices: [
+      "Component A has one-third the stress",
+      "Component A has three times the stress",
+      "Both have the same stress",
+      "Component A has nine times the stress"
+    ],
+    answer: 0,
+    explanation:
+      "Stress is σ = F / A. With the same force, making the cross-sectional area three times larger reduces the stress to one-third."
+  },
+
+  {
+    q: "Two materials experience the same stress in their linear-elastic regions. Material A has a larger Young's Modulus than Material B. Which statement is correct?",
+    choices: [
+      "Material A experiences less strain and is stiffer",
+      "Material A experiences more strain and is less stiff",
+      "Both materials must experience the same strain",
+      "Material B experiences no deformation"
+    ],
+    answer: 0,
+    explanation:
+      "From ε = σ / E, a larger Young's Modulus produces less strain for the same stress. The lesson also states that a larger Young's Modulus indicates greater stiffness."
+  },
+
+  {
+    q: "A crane cable stretches while lifting a load but returns completely to its original shape after the load is removed. Which combination correctly describes the cable's behavior?",
+    choices: [
+      "It experienced strain and elastic deformation",
+      "It experienced strain and plastic deformation",
+      "It experienced no deformation because it recovered",
+      "It experienced plastic deformation because it changed length"
+    ],
+    answer: 0,
+    explanation:
+      "The cable experienced strain because its length changed while loaded. Since it returned to its original shape after unloading, the deformation was elastic."
+  },
+
+  {
+    q: "A vehicle frame remains permanently bent after a load is removed. Which conclusion best follows from the lesson?",
+    choices: [
+      "The frame experienced plastic deformation",
+      "The frame remained entirely within the elastic region",
+      "The frame experienced no strain",
+      "The frame must have had zero stress"
+    ],
+    answer: 0,
+    explanation:
+      "Plastic deformation is permanent deformation that remains after the load is removed."
+  },
+
+  {
+    q: "A force acts parallel to the surface of a material and tends to cause one portion to slide relative to another. At the same time, the material returns to its original shape after unloading. Which description is correct?",
+    choices: [
+      "Shear stress with elastic deformation",
+      "Tensile stress with plastic deformation",
+      "Compressive stress with plastic deformation",
+      "Shear stress with plastic deformation"
+    ],
+    answer: 0,
+    explanation:
+      "Forces acting parallel to a surface produce shear stress. Because the material returns to its original shape after the load is removed, the deformation is elastic."
+  },
+
+  {
+    q: "A material in its linear-elastic range has a Young's Modulus of 300,000,000 Pa and a strain of 0.002. Its cross-sectional area is 0.004 m². What applied force produces this condition?",
+    choices: [
+      "600 N",
+      "1,200 N",
+      "2,400 N",
+      "600,000 N"
+    ],
+    answer: 2,
+    explanation:
+      "First use σ = Eε: σ = 300,000,000 × 0.002 = 600,000 Pa. Then use F = σA: F = 600,000 × 0.004 = 2,400 N."
+  },
+
+  {
+    q: "Which statement best summarizes how the lesson says Strength of Materials is used in mechanical engineering?",
+    choices: [
+      "Engineers study how materials respond to forces so components can safely withstand loads without failing",
+      "Engineers use Strength of Materials only to calculate the original length of objects",
+      "Strength of Materials assumes that all deformation is permanent",
+      "Strength of Materials is concerned only with forces that create tensile stress"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines Strength of Materials as the study of how materials respond when forces are applied and explains that engineers use it to help ensure structures and machine components can safely withstand loads without failing."
+  }
+]
+
 ];
 
 function shuffleArray(array) {
@@ -2127,8 +2983,24 @@ function shuffleArray(array) {
   return array;
 }
 
-function shuffleQuestions() {
-  allQuestions = quizQuestions.map(question => {
+function buildShortQuiz() {
+  const selectedQuestions = [];
+
+  shortQuizGroups.forEach(group => {
+
+    const randomIndex =
+      Math.floor(Math.random() * group.length);
+
+    selectedQuestions.push(group[randomIndex]);
+
+  });
+
+  return selectedQuestions;
+}
+
+function shuffleQuestions(questionBank) {
+
+  allQuestions = questionBank.map(question => {
 
     // Connect each choice to whether it is the correct answer.
     const shuffledChoices = question.choices.map((choice, index) => {
@@ -2152,23 +3024,70 @@ function shuffleQuestions() {
         choice => choice.isCorrect
       )
     };
+
   });
 
   // Randomize the order of the questions too.
   shuffleArray(allQuestions);
 }
 
-function openRandomQuizSet() {
+function hideQuizStartButtons() {
+
+  document
+    .querySelectorAll("#quiz .quiz-start-btn")
+    .forEach(btn => {
+      btn.style.display = "none";
+    });
+
+}
+
+
+function openFullQuiz() {
+
   const panel = document.getElementById("quiz-panel");
-  const randomBtn = document.querySelector(".quiz-btn");
 
   panel.classList.add("open");
-  randomBtn.style.display = "none";
 
-  shuffleQuestions();
+  hideQuizStartButtons();
+
+  currentQuizMode = "full";
+
+  shuffleQuestions(quizQuestions);
+
   currentQuestionIndex = 0;
   answeredQuestions = {};
+
   loadQuestion();
+}
+
+function openShortQuiz() {
+
+  const panel = document.getElementById("quiz-panel");
+
+  panel.classList.add("open");
+
+  hideQuizStartButtons();
+
+  currentQuizMode = "short";
+
+  const shortQuizQuestions = buildShortQuiz();
+
+  shuffleQuestions(shortQuizQuestions);
+
+  currentQuestionIndex = 0;
+  answeredQuestions = {};
+
+  loadQuestion();
+}
+
+function restartCurrentQuiz() {
+
+  if (currentQuizMode === "short") {
+    openShortQuiz();
+  } else {
+    openFullQuiz();
+  }
+
 }
 
 function loadQuestion() {
@@ -2395,9 +3314,9 @@ function submitQuiz() {
     <p><strong>Wrong:</strong> ${wrong}</p>
     <p><strong>Score:</strong> ${percent}%</p>
 
-    <button onclick="openRandomQuizSet()" class="quiz-btn">
-      Restart Quiz
-    </button>
+    <button onclick="restartCurrentQuiz()" class="quiz-btn">
+  Restart Quiz
+</button>
   </div>
 `;
 }
