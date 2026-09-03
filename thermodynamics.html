@@ -1561,9 +1561,21 @@
 <div id="quiz" class="tab-content" style="display:none;">
   <h2>Thermodynamics Quiz</h2>
 
-  <button type="button" onclick="openRandomQuizSet()" class="quiz-btn">
-    Random Quiz
-  </button>
+  <button
+  type="button"
+  onclick="openFullQuiz()"
+  class="quiz-btn quiz-start-btn"
+>
+  Randomized 100-Question Quiz
+</button>
+
+<button
+  type="button"
+  onclick="openShortQuiz()"
+  class="quiz-btn quiz-start-btn"
+>
+  Randomized 10-Question Quiz
+</button>
 
   <p class="quiz-warning">
     Warning: Once you select an answer, click the "Check Answer" button to lock in your response.
@@ -1869,57 +1881,55 @@
 
   </div>
 
-  <!-- TAB JAVASCRIPT -->
+  <!-- JAVASCRIPT -->
   <script>
-    function showSection(id, button) {
-      const section = document.getElementById(id);
+function showSection(id, button) {
+  const section = document.getElementById(id);
+  const isOpen = section.style.display === "block";
 
-      if (!section) {
-        console.error("Tab section not found:", id);
-        return;
-      }
+  // Hide all tab sections
+  document.querySelectorAll(".tab-content").forEach(s => {
+    s.style.display = "none";
+  });
 
-      const isOpen = section.style.display === "block";
+  // Remove active class from tab buttons
+  document.querySelectorAll(".tabs button").forEach(btn => {
+    btn.classList.remove("active");
+  });
 
-      document.querySelectorAll(".tab-content").forEach(tabSection => {
-        tabSection.style.setProperty("display", "none", "important");
-      });
+  // Reset quiz when changing tabs
+  const quizPanel = document.getElementById("quiz-panel");
+  const quizContainer = document.getElementById("quiz-container");
+  const quizStartButtons =
+  document.querySelectorAll("#quiz .quiz-start-btn");
 
-      document.querySelectorAll(".tabs button").forEach(tabButton => {
-        tabButton.classList.remove("active");
-      });
+  if (quizPanel) {
+    quizPanel.classList.remove("open");
+  }
 
-      if (!isOpen) {
-        section.style.setProperty("display", "block", "important");
-        button.classList.add("active");
-      }
-    }
-  </script>
+  if (quizContainer) {
+    quizContainer.innerHTML = "";
+  }
 
-  <!-- QUIZ, MENU, AND COURSE JAVASCRIPT -->
-  <script>
-    let currentQuestionIndex = 0;
-    let allQuestions = [];
-    let answeredQuestions = {};
+  quizStartButtons.forEach(btn => {
+  btn.style.display = "inline-block";
+});
 
-    /*
-      Thermodynamics quiz questions will be added here later.
+  // Open clicked tab if it was closed
+  if (!isOpen) {
+    section.style.display = "block";
+    button.classList.add("active");
+  }
+}
+</script>
 
-      Use this format:
+<script>
+let currentQuestionIndex = 0;
+let allQuestions = [];
+let answeredQuestions = {};
+let currentQuizMode = "";
 
-      {
-        q: "Question goes here",
-        choices: [
-          "Correct answer",
-          "Wrong answer",
-          "Wrong answer",
-          "Wrong answer"
-        ],
-        answer: 0
-      }
-    */
-
-    const quizQuestions = [
+const quizQuestions = [
   {
   q:"What is thermodynamics the study of?",
   choices:["Energy, heat, temperature, and work","Only forces and motion","Only material strength","Only electrical circuits"],
@@ -2621,7 +2631,1341 @@
 },
 ];
 
-    function shuffleArray(array) {
+const shortQuizGroups = [
+
+  // GROUP 1 — Energy, Heat, Temperature & Conservation of Energy
+[
+  {
+    q: "A mechanical system converts energy stored in fuel into thermal energy and then into mechanical motion. Which principle explains why the energy is changing form rather than being created?",
+    choices: [
+      "Conservation of energy",
+      "Thermal equilibrium",
+      "Specific heat capacity",
+      "Pressure"
+    ],
+    answer: 0,
+    explanation:
+      "The conservation of energy states that energy cannot be created or destroyed. It can be transferred or converted from one form into another."
+  },
+
+  {
+    q: "An engineer observes a moving machine component. Which form of energy from the lesson is directly associated with the component's motion?",
+    choices: [
+      "Potential energy",
+      "Chemical energy",
+      "Kinetic energy",
+      "Thermal energy"
+    ],
+    answer: 2,
+    explanation:
+      "Kinetic energy is energy caused by motion. Because the machine component is moving, kinetic energy is the form directly associated with its motion."
+  },
+
+  {
+    q: "A component is raised to a higher position and remains stationary. Which form of energy from the lesson best describes the energy stored because of its position?",
+    choices: [
+      "Kinetic energy",
+      "Potential energy",
+      "Electrical energy",
+      "Thermal energy"
+    ],
+    answer: 1,
+    explanation:
+      "Potential energy is stored energy caused by position. The component does not need to be moving for it to have potential energy."
+  },
+
+  {
+    q: "Fuel contains energy stored within chemical bonds before it is used by an engine. Which form of energy does the lesson identify this as?",
+    choices: [
+      "Electrical energy",
+      "Potential energy",
+      "Chemical energy",
+      "Kinetic energy"
+    ],
+    answer: 2,
+    explanation:
+      "The lesson defines chemical energy as energy stored in chemical bonds."
+  },
+
+  {
+    q: "Two metal objects have different temperatures and are placed in contact with each other. According to the lesson, what happens naturally?",
+    choices: [
+      "Heat moves from the lower-temperature object to the higher-temperature object",
+      "Heat moves from the higher-temperature object to the lower-temperature object",
+      "Temperature moves from one object to the other without energy transfer",
+      "Both objects immediately lose all of their thermal energy"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson states that heat naturally moves from a region of higher temperature to a region of lower temperature."
+  },
+
+  {
+    q: "A student says that heat and temperature mean the same thing because both involve how hot an object is. Which statement best corrects the student using the lesson?",
+    choices: [
+      "Temperature describes how hot or cold a substance is, while heat is energy transferred because of a temperature difference",
+      "Heat describes how hot or cold a substance is, while temperature is energy transferred between objects",
+      "Heat and temperature are exactly the same quantity but use different units",
+      "Temperature measures only energy stored in chemical bonds"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson distinguishes the two concepts. Temperature describes how hot or cold a substance is, while heat is energy transferred from one object or system to another because of a temperature difference."
+  },
+
+  {
+    q: "Temperature is related to which microscopic behavior of the particles inside a substance according to the lesson?",
+    choices: [
+      "Their average kinetic energy",
+      "Their total electrical charge",
+      "The pressure applied to their surface",
+      "The amount of chemical energy leaving the substance"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that temperature is related to the average kinetic energy of the particles inside a substance."
+  },
+
+  {
+    q: "A hot object and a colder object remain in contact long enough that they eventually reach the same temperature. What condition has been reached?",
+    choices: [
+      "Conservation of pressure",
+      "Thermal equilibrium",
+      "Maximum efficiency",
+      "An isolated system"
+    ],
+    answer: 1,
+    explanation:
+      "Thermal equilibrium occurs when heat transfer continues until the objects reach the same temperature."
+  },
+
+  {
+    q: "During heat transfer between two objects, when does the lesson indicate that the temperature-driven heat transfer between them stops?",
+    choices: [
+      "When both objects reach the same temperature",
+      "When the hotter object reaches 0°C",
+      "When all energy has been destroyed",
+      "When both objects contain the same amount of mass"
+    ],
+    answer: 0,
+    explanation:
+      "Heat transfers from the hotter object to the colder object until they reach the same temperature. At that point, they are in thermal equilibrium."
+  },
+
+  {
+    q: "An engineer tracks energy through a machine and finds that some energy becomes thermal energy while another portion becomes mechanical motion. Which statement is most consistent with the lesson?",
+    choices: [
+      "Energy can change between different forms while the total energy is conserved",
+      "Energy disappears whenever it changes into thermal energy",
+      "Mechanical energy can be created without another form of energy changing",
+      "Energy must remain in its original form during every engineering process"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that energy cannot be created or destroyed, but it can be transferred or converted from one form into another. Therefore, thermal and mechanical forms can change while energy is conserved."
+  }
+],
+
+  // GROUP 2 — Thermodynamic Systems & Boundaries
+[
+  {
+    q: "Before analyzing a thermodynamics problem, an engineer chooses the specific machine or region that will be studied. What is this selected object or region called?",
+    choices: [
+      "The surroundings",
+      "The system",
+      "The boundary",
+      "The property"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson defines the system as the object, machine, or region being studied in a thermodynamics problem."
+  },
+
+  {
+    q: "An engineer selects a machine as the thermodynamic system. What does the term surroundings refer to in this analysis?",
+    choices: [
+      "Only the material inside the machine",
+      "The surface separating the machine from everything else",
+      "Everything outside the selected system",
+      "Only the energy entering the machine"
+    ],
+    answer: 2,
+    explanation:
+      "Once a system has been selected, everything outside that system is defined as the surroundings."
+  },
+
+  {
+    q: "An engineer draws an imaginary surface around a machine to separate the selected system from its surroundings. What is this surface called?",
+    choices: [
+      "The boundary",
+      "The state",
+      "The pressure",
+      "The equilibrium line"
+    ],
+    answer: 0,
+    explanation:
+      "The boundary is the real or imaginary surface that separates a thermodynamic system from its surroundings."
+  },
+
+  {
+    q: "During operation, both mass and energy cross the boundary of a thermodynamic system. How should the system be classified according to the lesson?",
+    choices: [
+      "Closed system",
+      "Isolated system",
+      "Open system",
+      "Equilibrium system"
+    ],
+    answer: 2,
+    explanation:
+      "An open system allows both mass and energy to cross its system boundary."
+  },
+
+  {
+    q: "Energy crosses the boundary of a system during an engineering process, but the amount of mass inside the system remains constant. Which classification best describes the system?",
+    choices: [
+      "Open system",
+      "Closed system",
+      "Isolated system",
+      "Surrounding system"
+    ],
+    answer: 1,
+    explanation:
+      "A closed system allows energy to cross its boundary while maintaining a constant amount of mass inside the system."
+  },
+
+  {
+    q: "An idealized system is analyzed under the assumption that neither mass nor energy can cross its boundary. What type of thermodynamic system is being described?",
+    choices: [
+      "Open system",
+      "Closed system",
+      "Isolated system",
+      "Mechanical system"
+    ],
+    answer: 2,
+    explanation:
+      "An isolated system does not allow either mass or energy to cross its boundary."
+  },
+
+  {
+    q: "A student says that a closed system prevents both mass and energy from crossing its boundary. What is wrong with this statement?",
+    choices: [
+      "A closed system allows mass to cross but prevents energy from crossing",
+      "A closed system allows energy to cross while the amount of mass remains constant",
+      "A closed system allows both mass and energy to cross",
+      "There is nothing wrong with the statement"
+    ],
+    answer: 1,
+    explanation:
+      "The student has confused a closed system with an isolated system. A closed system can exchange energy across its boundary, but the amount of mass inside remains constant."
+  },
+
+  {
+    q: "A turbine is being analyzed while material and energy pass through it during operation. Based on the examples given in the lesson, how would engineers commonly classify the turbine?",
+    choices: [
+      "As an open system",
+      "As a closed system",
+      "As an isolated system",
+      "As the surroundings"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson specifically identifies turbines, compressors, and pumps as devices commonly analyzed as open systems."
+  },
+
+  {
+    q: "An engineer analyzes a sealed piston-cylinder device. Based on the example in the lesson, which system classification would commonly be used?",
+    choices: [
+      "Open system",
+      "Closed system",
+      "Isolated system",
+      "Boundary system"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson identifies a sealed piston-cylinder device as an example commonly analyzed as a closed system."
+  },
+
+  {
+    q: "Which comparison correctly distinguishes all three thermodynamic system types taught in the lesson?",
+    choices: [
+      "Open: mass and energy can cross; Closed: energy can cross but mass remains constant; Isolated: neither mass nor energy can cross",
+      "Open: only energy can cross; Closed: mass and energy can cross; Isolated: only mass can cross",
+      "Open: neither mass nor energy can cross; Closed: both can cross; Isolated: only energy can cross",
+      "Open: only mass can cross; Closed: neither can cross; Isolated: mass and energy can cross"
+    ],
+    answer: 0,
+    explanation:
+      "An open system allows both mass and energy to cross its boundary. A closed system allows energy to cross while its amount of mass remains constant. An isolated system allows neither mass nor energy to cross."
+  }
+],
+
+  // GROUP 3 — Thermodynamic Properties, State & Property Classification
+[
+  {
+    q: "An engineer records the pressure, temperature, volume, mass, density, and internal energy of a thermodynamic system. According to the lesson, what are these measurable characteristics called?",
+    choices: [
+      "Thermodynamic properties",
+      "System boundaries",
+      "Heat-transfer methods",
+      "Energy conversions"
+    ],
+    answer: 0,
+    explanation:
+      "A thermodynamic property is a measurable characteristic that describes the condition of a system. The lesson lists pressure, temperature, volume, mass, density, and internal energy as common properties."
+  },
+
+  {
+    q: "An engineer records several thermodynamic properties to describe the condition of a system at a particular moment. What does the lesson call this condition?",
+    choices: [
+      "The boundary",
+      "The state",
+      "The surroundings",
+      "The efficiency"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson defines the state as the condition of a thermodynamic system at a particular moment."
+  },
+
+  {
+    q: "Two samples contain different amounts of the same material but are at the same temperature. Which classification explains why temperature does not depend on how much matter is present?",
+    choices: [
+      "Temperature is an extensive property",
+      "Temperature is an intensive property",
+      "Temperature is a system boundary",
+      "Temperature is not a thermodynamic property"
+    ],
+    answer: 1,
+    explanation:
+      "Intensive properties do not depend on the amount of matter present. The lesson specifically lists temperature as an intensive property."
+  },
+
+  {
+    q: "An engineer increases the amount of matter being considered in a system. Which property from the lesson is classified as extensive because it depends on the amount of matter present?",
+    choices: [
+      "Temperature",
+      "Pressure",
+      "Density",
+      "Mass"
+    ],
+    answer: 3,
+    explanation:
+      "Mass is an extensive property because extensive properties depend on the amount of matter present. Temperature, pressure, and density are listed as intensive properties."
+  },
+
+  {
+    q: "Which set contains only intensive properties according to the classifications taught in the lesson?",
+    choices: [
+      "Temperature, pressure, and density",
+      "Mass, total volume, and total internal energy",
+      "Temperature, mass, and total volume",
+      "Pressure, mass, and total internal energy"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson identifies temperature, pressure, and density as intensive properties because they do not depend on the amount of matter present."
+  },
+
+  {
+    q: "Which set contains only extensive properties according to the lesson?",
+    choices: [
+      "Temperature, pressure, and density",
+      "Pressure, total volume, and density",
+      "Mass, total volume, and total internal energy",
+      "Temperature, mass, and density"
+    ],
+    answer: 2,
+    explanation:
+      "The lesson identifies mass, total volume, and total internal energy as extensive properties because they depend on the amount of matter present."
+  },
+
+  {
+    q: "A student classifies density as an extensive property because a larger system can contain more material. Based on the lesson, why is this classification incorrect?",
+    choices: [
+      "Density is intensive because it does not depend on the amount of matter present",
+      "Density is extensive because it always increases with mass",
+      "Density is not considered a thermodynamic property",
+      "Density is actually a type of energy"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson specifically identifies density as an intensive property. Intensive properties do not depend on the amount of matter present."
+  },
+
+  {
+    q: "An engineer needs to distinguish between total internal energy and temperature when classifying system properties. Which statement correctly classifies them?",
+    choices: [
+      "Both are intensive properties",
+      "Both are extensive properties",
+      "Total internal energy is extensive, while temperature is intensive",
+      "Total internal energy is intensive, while temperature is extensive"
+    ],
+    answer: 2,
+    explanation:
+      "The lesson identifies total internal energy as an extensive property because it depends on the amount of matter, while temperature is an intensive property."
+  },
+
+  {
+    q: "An engineer is given four properties: pressure, density, mass, and total volume. Which two belong to the same intensive-property classification?",
+    choices: [
+      "Pressure and density",
+      "Mass and pressure",
+      "Total volume and density",
+      "Mass and density"
+    ],
+    answer: 0,
+    explanation:
+      "Pressure and density are both intensive properties. Mass and total volume are extensive properties."
+  },
+
+  {
+    q: "Why is distinguishing between intensive and extensive properties useful when describing a thermodynamic system?",
+    choices: [
+      "It identifies whether a property depends on the amount of matter present",
+      "It determines whether the system must be open or closed",
+      "It determines whether heat must flow into the system",
+      "It converts every thermodynamic property into energy"
+    ],
+    answer: 0,
+    explanation:
+      "The distinction is based on whether a property depends on the amount of matter present. Intensive properties do not, while extensive properties do."
+  }
+],
+
+  // GROUP 4 — Pressure & Thermodynamic Work
+[
+  {
+    q: "An engineer applies a force of 600 N evenly over an area of 3 m². Using the pressure equation from the lesson, what pressure is produced?",
+    choices: [
+      "200 Pa",
+      "600 Pa",
+      "1,800 Pa",
+      "0.005 Pa"
+    ],
+    answer: 0,
+    explanation:
+      "Use P = F / A. Substituting the values gives P = 600 N / 3 m² = 200 Pa."
+  },
+
+  {
+    q: "A mechanical system produces a pressure of 500 Pa over an area of 4 m². Using the rearranged pressure equation from the lesson, what force is applied?",
+    choices: [
+      "125 N",
+      "500 N",
+      "2,000 N",
+      "4,500 N"
+    ],
+    answer: 2,
+    explanation:
+      "Use the rearranged equation F = PA. Therefore, F = 500 Pa × 4 m² = 2,000 N."
+  },
+
+  {
+    q: "A force of 900 N produces a pressure of 300 Pa. Using the rearranged pressure equation from the lesson, over what area is the force applied?",
+    choices: [
+      "0.33 m²",
+      "3 m²",
+      "600 m²",
+      "270,000 m²"
+    ],
+    answer: 1,
+    explanation:
+      "Use A = F / P. Therefore, A = 900 N / 300 Pa = 3 m²."
+  },
+
+  {
+    q: "Two surfaces experience the same applied force. Surface A has an area of 2 m² and Surface B has an area of 4 m². Based on P = F / A, which surface experiences the greater pressure?",
+    choices: [
+      "Surface A, because the same force is applied over a smaller area",
+      "Surface B, because the same force is applied over a larger area",
+      "Both surfaces must have the same pressure because their forces are equal",
+      "The pressure cannot be compared using the equation from the lesson"
+    ],
+    answer: 0,
+    explanation:
+      "Pressure is force divided by area. With the same force, dividing by the smaller area produces the greater pressure, so Surface A experiences the greater pressure."
+  },
+
+  {
+    q: "An engineer calculates pressure by dividing a force measured in newtons by an area measured in square meters. Which unit should the final pressure have?",
+    choices: [
+      "Joules",
+      "Newtons",
+      "Pascals",
+      "Watts"
+    ],
+    answer: 2,
+    explanation:
+      "The lesson states that pressure is measured in Pascals and that 1 Pa = 1 N/m². Therefore, newtons divided by square meters produces Pascals."
+  },
+
+  {
+    q: "A student uses P = F / A but multiplies the force by the area instead of dividing. Which equation from the lesson actually uses pressure multiplied by area?",
+    choices: [
+      "F = PA",
+      "A = F / P",
+      "P = F / A",
+      "Q = mL"
+    ],
+    answer: 0,
+    explanation:
+      "The pressure equation can be rearranged to F = PA when force is the unknown. Pressure itself is found using P = F / A."
+  },
+
+  {
+    q: "A pressure of 6 kPa must be used in a calculation requiring Pascals. What pressure should the engineer use?",
+    choices: [
+      "6 Pa",
+      "600 Pa",
+      "6,000 Pa",
+      "60,000 Pa"
+    ],
+    answer: 2,
+    explanation:
+      "The lesson states that 1 kPa = 1,000 Pa. Therefore, 6 kPa × 1,000 = 6,000 Pa."
+  },
+
+  {
+    q: "A pressure measurement is 25,000 Pa. What is the equivalent pressure in kilopascals using the conversion taught in the lesson?",
+    choices: [
+      "0.025 kPa",
+      "2.5 kPa",
+      "25 kPa",
+      "250 kPa"
+    ],
+    answer: 2,
+    explanation:
+      "To convert Pascals to kilopascals, divide by 1,000. Therefore, 25,000 Pa / 1,000 = 25 kPa."
+  },
+
+  {
+    q: "Expanding gas pushes a piston and causes the piston to move. Why does this qualify as thermodynamic work according to the lesson?",
+    choices: [
+      "A force causes movement, producing a transfer of energy",
+      "The gas must have reached thermal equilibrium",
+      "The piston converts pressure directly into temperature",
+      "Any system containing a gas automatically performs work"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines thermodynamic work as a transfer of energy that occurs when a force causes movement. Expanding gas pushing and moving a piston fits this definition."
+  },
+
+  {
+    q: "Which situation best matches an example of thermodynamic work taught in the lesson?",
+    choices: [
+      "Steam causes a turbine shaft to rotate",
+      "Two stationary objects remain at the same temperature",
+      "An engineer records the density of a material",
+      "A sealed container remains motionless while its properties are measured"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson specifically gives steam rotating a turbine shaft as an example of thermodynamic work. Work involves a transfer of energy when a force causes movement."
+  }
+],
+
+  // GROUP 5 — Units, Conversions & Rearranging Thermodynamic Equations
+[
+  {
+    q: "A thermodynamics calculation gives an energy transfer of 48,000 J, but the final answer must be reported in kilojoules. What value should the engineer report?",
+    choices: [
+      "4.8 kJ",
+      "48 kJ",
+      "480 kJ",
+      "48,000 kJ"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson states that 1 kJ = 1,000 J. To convert Joules to kilojoules, divide by 1,000. Therefore, 48,000 J / 1,000 = 48 kJ."
+  },
+
+  {
+    q: "An engineer records 7.5 kJ of heat transfer but needs to use Joules in an equation. What value should be substituted?",
+    choices: [
+      "75 J",
+      "750 J",
+      "7,500 J",
+      "75,000 J"
+    ],
+    answer: 2,
+    explanation:
+      "To convert kilojoules to Joules, multiply by 1,000. Therefore, 7.5 kJ × 1,000 = 7,500 J."
+  },
+
+  {
+    q: "A pressure is measured as 32 kPa. If an equation requires the pressure in Pascals, which value should be used?",
+    choices: [
+      "32 Pa",
+      "320 Pa",
+      "3,200 Pa",
+      "32,000 Pa"
+    ],
+    answer: 3,
+    explanation:
+      "The lesson states that 1 kPa = 1,000 Pa. Therefore, 32 kPa × 1,000 = 32,000 Pa."
+  },
+
+  {
+    q: "A pressure calculation produces 85,000 Pa. What is this pressure in kilopascals?",
+    choices: [
+      "8.5 kPa",
+      "85 kPa",
+      "850 kPa",
+      "85,000 kPa"
+    ],
+    answer: 1,
+    explanation:
+      "To convert Pascals to kilopascals, divide by 1,000. Therefore, 85,000 Pa / 1,000 = 85 kPa."
+  },
+
+  {
+    q: "A specific heat problem gives Q = 12,000 J, m = 4 kg, and c = 500 J/(kg·°C). Which rearranged equation should be used to find the temperature change?",
+    choices: [
+      "ΔT = Q / (mc)",
+      "ΔT = Qmc",
+      "ΔT = mc / Q",
+      "ΔT = Q / m + c"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson rearranges Q = mcΔT to ΔT = Q / (mc). This isolates the temperature change when heat transferred, mass, and specific heat capacity are known."
+  },
+
+  {
+    q: "Using Q = 12,000 J, m = 4 kg, and c = 500 J/(kg·°C), what temperature change would the engineer calculate?",
+    choices: [
+      "6°C",
+      "24°C",
+      "1,500°C",
+      "6,000°C"
+    ],
+    answer: 0,
+    explanation:
+      "Use ΔT = Q / (mc). Therefore, ΔT = 12,000 / (4 × 500) = 12,000 / 2,000 = 6°C."
+  },
+
+  {
+    q: "During a phase-change calculation, an engineer knows the heat transferred Q and the mass m but needs to determine the latent heat L. Which rearranged equation from the lesson should be used?",
+    choices: [
+      "L = Q / m",
+      "L = Qm",
+      "L = m / Q",
+      "L = Q + m"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson gives Q = mL for phase changes. Rearranging this equation to isolate latent heat gives L = Q / m."
+  },
+
+  {
+    q: "A phase change requires 60,000 J of heat for 3 kg of material. Using the rearranged equation L = Q / m, what is the material's latent heat?",
+    choices: [
+      "20,000 J/kg",
+      "60,000 J/kg",
+      "180,000 J/kg",
+      "20 J/kg"
+    ],
+    answer: 0,
+    explanation:
+      "Use L = Q / m. Therefore, L = 60,000 J / 3 kg = 20,000 J/kg."
+  },
+
+  {
+    q: "A machine has an efficiency of 65%. Before using this efficiency in the equation Useful Energy Output = η × Energy Input, what decimal value should represent η?",
+    choices: [
+      "0.065",
+      "0.65",
+      "6.5",
+      "65"
+    ],
+    answer: 1,
+    explanation:
+      "The lesson states that a percentage is converted to a decimal by dividing by 100. Therefore, 65% / 100 = 0.65."
+  },
+
+  {
+    q: "A machine is 40% efficient and receives 5,000 J of energy input. Using the efficiency equation taught in the lesson, how much useful energy output does the machine produce?",
+    choices: [
+      "200 J",
+      "2,000 J",
+      "5,040 J",
+      "12,500 J"
+    ],
+    answer: 1,
+    explanation:
+      "First convert 40% to the decimal 0.40. Then use Useful Energy Output = η × Energy Input. The useful output is 0.40 × 5,000 J = 2,000 J."
+  }
+],
+
+  // GROUP 6 — First Law of Thermodynamics & Internal Energy
+[
+  {
+    q: "A thermodynamic system receives 900 J of heat and performs 350 J of work. Using ΔU = Q − W, what is the change in the system's internal energy?",
+    choices: [
+      "550 J",
+      "1,250 J",
+      "-550 J",
+      "350 J"
+    ],
+    answer: 0,
+    explanation:
+      "Use ΔU = Q − W. Substituting the values gives ΔU = 900 J − 350 J = 550 J. The positive result means the system's internal energy increases."
+  },
+
+  {
+    q: "A system receives 1,400 J of heat and performs 600 J of work. Which calculation correctly applies the First Law of Thermodynamics?",
+    choices: [
+      "ΔU = 1,400 − 600 = 800 J",
+      "ΔU = 1,400 + 600 = 2,000 J",
+      "ΔU = 600 − 1,400 = -800 J",
+      "ΔU = 1,400 / 600 = 2.33 J"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson uses ΔU = Q − W. With Q = 1,400 J and W = 600 J, the change in internal energy is 800 J."
+  },
+
+  {
+    q: "A system's internal energy increases by 500 J while the system performs 300 J of work. How much heat must have been added to the system?",
+    choices: [
+      "200 J",
+      "500 J",
+      "800 J",
+      "1,500 J"
+    ],
+    answer: 2,
+    explanation:
+      "Use the rearranged First Law equation Q = ΔU + W. Therefore, Q = 500 J + 300 J = 800 J."
+  },
+
+  {
+    q: "A system receives 1,000 J of heat while its internal energy increases by 650 J. How much work is performed by the system?",
+    choices: [
+      "350 J",
+      "650 J",
+      "1,000 J",
+      "1,650 J"
+    ],
+    answer: 0,
+    explanation:
+      "Use W = Q − ΔU. Therefore, W = 1,000 J − 650 J = 350 J of work performed by the system."
+  },
+
+  {
+    q: "A system receives 700 J of heat but performs 900 J of work. What happens to its internal energy according to the First Law?",
+    choices: [
+      "It increases by 1,600 J",
+      "It increases by 200 J",
+      "It decreases by 200 J",
+      "It remains unchanged"
+    ],
+    answer: 2,
+    explanation:
+      "Use ΔU = Q − W. This gives ΔU = 700 J − 900 J = -200 J. The negative value means the system's internal energy decreases by 200 J."
+  },
+
+  {
+    q: "A system receives 750 J of heat and its internal energy does not change. How much work must the system perform?",
+    choices: [
+      "0 J",
+      "375 J",
+      "750 J",
+      "1,500 J"
+    ],
+    answer: 2,
+    explanation:
+      "If internal energy does not change, ΔU = 0. Using 0 = 750 J − W gives W = 750 J. The heat entering the system equals the work performed by the system."
+  },
+
+  {
+    q: "Using the sign convention taught in the lesson, which situation corresponds to a positive value of W?",
+    choices: [
+      "The system performs work",
+      "Work is performed on the system",
+      "Heat leaves the system",
+      "The system's internal energy must decrease"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson states that, for the sign convention used with ΔU = Q − W, work performed by the system is positive."
+  },
+
+  {
+    q: "An engineer calculates Q = -400 J for a thermodynamic process. Based on the sign convention taught in the lesson, what does the negative value indicate?",
+    choices: [
+      "400 J of heat leaves the system",
+      "400 J of heat enters the system",
+      "The system performs 400 J of work",
+      "The internal energy must equal -400 J"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines heat entering the system as positive. Therefore, a negative value of Q represents heat leaving the system."
+  },
+
+  {
+    q: "Two systems each receive 1,000 J of heat. System A performs 200 J of work, while System B performs 700 J of work. Which system has the greater increase in internal energy?",
+    choices: [
+      "System A, because less of the added energy leaves as work",
+      "System B, because performing more work increases stored internal energy",
+      "Both systems, because they receive the same amount of heat",
+      "Neither system, because work does not affect internal energy"
+    ],
+    answer: 0,
+    explanation:
+      "For System A, ΔU = 1,000 − 200 = 800 J. For System B, ΔU = 1,000 − 700 = 300 J. System A has the greater increase because less of its incoming energy is transferred out as work."
+  },
+
+  {
+    q: "Which description best matches internal energy as it is defined in the lesson?",
+    choices: [
+      "Microscopic energy stored inside a substance, including energy associated with molecular motion, vibration, rotation, particle interactions, and chemical bonds",
+      "Only the energy transferred when a force causes an entire system to move",
+      "Only the kinetic energy caused by the motion of a machine",
+      "The total amount of heat that enters a system during a process"
+    ],
+    answer: 0,
+    explanation:
+      "Internal energy is the microscopic energy stored inside a substance. The lesson includes molecular motion, vibration, rotation, interactions between particles, and chemical bonds as contributors to internal energy."
+  }
+],
+
+  // GROUP 7 — Specific Heat Capacity & Temperature Change
+[
+  {
+    q: "A 2 kg material has a specific heat capacity of 500 J/(kg·°C). If its temperature increases by 8°C, how much heat must be transferred to the material?",
+    choices: [
+      "2,000 J",
+      "4,000 J",
+      "8,000 J",
+      "16,000 J"
+    ],
+    answer: 2,
+    explanation:
+      "Use Q = mcΔT. Substituting the values gives Q = 2 kg × 500 J/(kg·°C) × 8°C = 8,000 J."
+  },
+
+  {
+    q: "A 5 kg material receives 20,000 J of heat and has a specific heat capacity of 800 J/(kg·°C). What is its temperature change?",
+    choices: [
+      "2°C",
+      "5°C",
+      "16°C",
+      "32°C"
+    ],
+    answer: 1,
+    explanation:
+      "Use ΔT = Q / (mc). Therefore, ΔT = 20,000 / (5 × 800) = 20,000 / 4,000 = 5°C."
+  },
+
+  {
+    q: "A material begins at 22°C and reaches 37°C after heating. What value should be used for ΔT in Q = mcΔT?",
+    choices: [
+      "15°C",
+      "22°C",
+      "37°C",
+      "59°C"
+    ],
+    answer: 0,
+    explanation:
+      "Use ΔT = Tfinal − Tinitial. Therefore, ΔT = 37°C − 22°C = 15°C."
+  },
+
+  {
+    q: "An engineer knows that 18,000 J of heat raises the temperature of a 3 kg material by 12°C. What is the material's specific heat capacity?",
+    choices: [
+      "250 J/(kg·°C)",
+      "500 J/(kg·°C)",
+      "750 J/(kg·°C)",
+      "1,500 J/(kg·°C)"
+    ],
+    answer: 1,
+    explanation:
+      "Use c = Q / (mΔT). Therefore, c = 18,000 / (3 × 12) = 18,000 / 36 = 500 J/(kg·°C)."
+  },
+
+  {
+    q: "A material absorbs 30,000 J of heat, has a specific heat capacity of 600 J/(kg·°C), and experiences a temperature increase of 10°C. What mass of material is being heated?",
+    choices: [
+      "2 kg",
+      "5 kg",
+      "18 kg",
+      "50 kg"
+    ],
+    answer: 1,
+    explanation:
+      "Use m = Q / (cΔT). Therefore, m = 30,000 / (600 × 10) = 30,000 / 6,000 = 5 kg."
+  },
+
+  {
+    q: "Two materials have the same mass and experience the same temperature increase. Material A has a higher specific heat capacity than Material B. Based on Q = mcΔT, which material requires more heat?",
+    choices: [
+      "Material A",
+      "Material B",
+      "They require the same amount of heat",
+      "There is not enough information because mass must be different"
+    ],
+    answer: 0,
+    explanation:
+      "With mass and temperature change held constant, Q increases as specific heat capacity increases. The lesson also states that materials with a high specific heat capacity require more energy to increase their temperature."
+  },
+
+  {
+    q: "Two samples of the same material undergo the same temperature increase, but Sample A has twice the mass of Sample B. According to Q = mcΔT, how does the required heat for Sample A compare with Sample B?",
+    choices: [
+      "Sample A requires twice as much heat",
+      "Sample A requires half as much heat",
+      "Both require the same heat",
+      "Sample A requires four times as much heat"
+    ],
+    answer: 0,
+    explanation:
+      "In Q = mcΔT, heat transferred is directly affected by mass. If the specific heat capacity and temperature change remain the same, doubling the mass doubles the required heat."
+  },
+
+  {
+    q: "An engineer calculates Q using mass in kilograms, specific heat capacity in J/(kg·°C), and temperature change in °C. What unit should remain for Q after the units cancel?",
+    choices: [
+      "Joules",
+      "Kilograms",
+      "Degrees Celsius",
+      "Joules per kilogram"
+    ],
+    answer: 0,
+    explanation:
+      "In Q = mcΔT, kg × J/(kg·°C) × °C leaves J after kilograms and degrees Celsius cancel. The lesson identifies Q as heat transferred in Joules."
+  },
+
+  {
+    q: "A 4 kg material with c = 750 J/(kg·°C) is heated from 20°C to 30°C. Which sequence correctly determines the heat transferred?",
+    choices: [
+      "Find ΔT = 10°C, then calculate Q = 4 × 750 × 10 = 30,000 J",
+      "Add the temperatures to get ΔT = 50°C, then calculate Q = 4 × 750 × 50",
+      "Find ΔT = 10°C, then calculate Q = 750 / (4 × 10) = 18.75 J",
+      "Use the final temperature directly and calculate Q = 4 × 750 × 30 = 90,000 J"
+    ],
+    answer: 0,
+    explanation:
+      "First calculate ΔT = Tfinal − Tinitial = 30°C − 20°C = 10°C. Then use Q = mcΔT: Q = 4 × 750 × 10 = 30,000 J."
+  },
+
+  {
+    q: "A student uses the initial temperature of 25°C as ΔT when solving Q = mcΔT. The material actually warms from 25°C to 45°C. What should the student use for ΔT, and why?",
+    choices: [
+      "20°C, because ΔT = Tfinal − Tinitial",
+      "25°C, because the initial temperature is always used as ΔT",
+      "45°C, because the final temperature is always used as ΔT",
+      "70°C, because the initial and final temperatures should be added"
+    ],
+    answer: 0,
+    explanation:
+      "Temperature change is not simply the initial or final temperature. Use ΔT = Tfinal − Tinitial, so ΔT = 45°C − 25°C = 20°C."
+  }
+],
+
+  // GROUP 8 — Methods of Heat Transfer
+[
+  {
+    q: "Heat travels through a solid metal component from its hotter end toward its colder end without the material itself flowing. Which method of heat transfer best describes this process?",
+    choices: [
+      "Conduction",
+      "Convection",
+      "Radiation",
+      "Thermal equilibrium"
+    ],
+    answer: 0,
+    explanation:
+      "Conduction is heat transfer through direct contact or through a material. Heat moving through the solid metal component is therefore conduction."
+  },
+
+  {
+    q: "Air near a heater becomes warm and rises through a room. Which method of heat transfer is primarily responsible for the movement of thermal energy described in the lesson?",
+    choices: [
+      "Conduction",
+      "Convection",
+      "Radiation",
+      "Phase change"
+    ],
+    answer: 1,
+    explanation:
+      "Convection is heat transfer caused by the movement of a liquid or gas. Warm air rising from a heater is the example of convection given in the lesson."
+  },
+
+  {
+    q: "Energy travels from the Sun to Earth through electromagnetic waves. Which heat-transfer method does this demonstrate?",
+    choices: [
+      "Conduction",
+      "Convection",
+      "Radiation",
+      "Thermal equilibrium"
+    ],
+    answer: 2,
+    explanation:
+      "Radiation is energy transfer through electromagnetic waves. The lesson specifically gives energy traveling from the Sun to Earth as an example of radiation."
+  },
+
+  {
+    q: "A metal spoon is placed in hot soup, and after some time the handle of the spoon becomes hot. Which explanation best matches the lesson?",
+    choices: [
+      "Heat is transferred through the spoon by conduction",
+      "The spoon rises through the soup because of convection",
+      "The spoon produces heat only through radiation",
+      "The spoon reaches a phase change and releases heat"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson specifically identifies a metal spoon becoming hot in soup as an example of conduction, which transfers heat through direct contact or through a material."
+  },
+
+  {
+    q: "An engineer is identifying a heat-transfer process involving the movement of a liquid. Which method should the engineer consider based on the lesson?",
+    choices: [
+      "Convection",
+      "Conduction",
+      "Radiation",
+      "Internal energy"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines convection as heat transfer caused by the movement of a liquid or gas."
+  },
+
+  {
+    q: "Two solid components at different temperatures are placed directly against each other, and heat moves through their contact surfaces. Which method of heat transfer is occurring?",
+    choices: [
+      "Radiation",
+      "Convection",
+      "Conduction",
+      "Efficiency"
+    ],
+    answer: 2,
+    explanation:
+      "Conduction involves heat transfer through direct contact or through a material. Because the solid components are touching and heat moves through their contact surfaces, the process is conduction."
+  },
+
+  {
+    q: "Which situation would be best classified as convection rather than conduction according to the definitions in the lesson?",
+    choices: [
+      "Warm air moves upward from a heater",
+      "Heat travels through a metal spoon",
+      "Two solid surfaces transfer heat through direct contact",
+      "Energy travels through electromagnetic waves"
+    ],
+    answer: 0,
+    explanation:
+      "Convection involves the movement of a liquid or gas. Warm air rising from a heater therefore represents convection rather than conduction."
+  },
+
+  {
+    q: "A student says radiation must involve direct contact between two objects for energy to be transferred. Which statement best corrects the student using the lesson?",
+    choices: [
+      "Radiation transfers energy through electromagnetic waves",
+      "Radiation transfers heat only through moving liquids",
+      "Radiation is another name for direct-contact conduction",
+      "Radiation occurs only after thermal equilibrium is reached"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines radiation as energy transfer through electromagnetic waves, not as heat transfer through direct contact."
+  },
+
+  {
+    q: "An engineer compares three processes: heat traveling through a solid material, heat carried by moving air, and energy transferred through electromagnetic waves. Which sequence correctly identifies the three methods?",
+    choices: [
+      "Conduction, convection, radiation",
+      "Convection, radiation, conduction",
+      "Radiation, conduction, convection",
+      "Conduction, radiation, convection"
+    ],
+    answer: 0,
+    explanation:
+      "Heat transfer through a material is conduction, heat transfer caused by moving air is convection, and energy transfer through electromagnetic waves is radiation."
+  },
+
+  {
+    q: "A machine contains a hot solid surface, nearby moving air, and energy being transferred through electromagnetic waves. Based on the lesson, what can an engineer conclude?",
+    choices: [
+      "The situation can involve conduction, convection, and radiation as different methods of heat transfer",
+      "Only conduction can occur because a solid surface is present",
+      "Only convection can occur because air is present",
+      "The three processes are all different names for thermal equilibrium"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson identifies conduction, convection, and radiation as the three main methods of heat transfer. A situation containing the conditions associated with each method can therefore involve all three types."
+  }
+],
+
+  // GROUP 9 — Phase Changes & Latent Heat
+[
+  {
+    q: "A solid material changes into a liquid during a heating process. Which phase change from the lesson is occurring?",
+    choices: [
+      "Melting",
+      "Freezing",
+      "Condensation",
+      "Sublimation"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson defines melting as a phase change from a solid to a liquid."
+  },
+
+  {
+    q: "A gas changes into a liquid during a thermodynamic process. Which phase change correctly describes this transition?",
+    choices: [
+      "Vaporization",
+      "Sublimation",
+      "Condensation",
+      "Freezing"
+    ],
+    answer: 2,
+    explanation:
+      "Condensation is the phase change from a gas to a liquid."
+  },
+
+  {
+    q: "A substance changes directly from a solid into a gas without first becoming a liquid. Which phase change is occurring?",
+    choices: [
+      "Melting",
+      "Vaporization",
+      "Condensation",
+      "Sublimation"
+    ],
+    answer: 3,
+    explanation:
+      "The lesson defines sublimation as a phase change in which a solid changes directly into a gas."
+  },
+
+  {
+    q: "During a phase change, 120,000 J of heat is transferred to 3 kg of material. If the latent heat is unknown, which equation should be used to find it?",
+    choices: [
+      "L = Q / m",
+      "L = Qm",
+      "L = m / Q",
+      "L = Q - m"
+    ],
+    answer: 0,
+    explanation:
+      "The phase-change equation is Q = mL. Rearranging it to isolate latent heat gives L = Q / m."
+  },
+
+  {
+    q: "A 3 kg material undergoes a phase change while 120,000 J of heat is transferred. What is the latent heat of the material?",
+    choices: [
+      "40,000 J/kg",
+      "120,000 J/kg",
+      "360,000 J/kg",
+      "4,000 J/kg"
+    ],
+    answer: 0,
+    explanation:
+      "Use L = Q / m. Therefore, L = 120,000 J / 3 kg = 40,000 J/kg."
+  },
+
+  {
+    q: "A material has a latent heat of 50,000 J/kg. If 4 kg of the material undergoes a phase change, how much heat is transferred?",
+    choices: [
+      "12,500 J",
+      "50,000 J",
+      "200,000 J",
+      "2,000,000 J"
+    ],
+    answer: 2,
+    explanation:
+      "Use Q = mL. Therefore, Q = 4 kg × 50,000 J/kg = 200,000 J."
+  },
+
+  {
+    q: "A phase change requires 300,000 J of heat, and the material has a latent heat of 75,000 J/kg. What mass of material undergoes the phase change?",
+    choices: [
+      "0.25 kg",
+      "4 kg",
+      "25 kg",
+      "225 kg"
+    ],
+    answer: 1,
+    explanation:
+      "Use the rearranged equation m = Q / L. Therefore, m = 300,000 J / 75,000 J/kg = 4 kg."
+  },
+
+  {
+    q: "Two samples of the same material undergo the same type of phase change. Sample A has a mass of 2 kg and Sample B has a mass of 6 kg. Based on Q = mL, which sample requires more heat transfer?",
+    choices: [
+      "Sample A, because smaller masses always require more heat",
+      "Sample B, because it has the greater mass",
+      "Both require the same heat because their latent heat is the same",
+      "Their heat transfer cannot be compared using Q = mL"
+    ],
+    answer: 1,
+    explanation:
+      "For the same material and phase change, L is the same. According to Q = mL, the larger mass requires more heat, so Sample B requires more heat transfer."
+  },
+
+  {
+    q: "An engineer calculates latent heat by dividing heat transferred in Joules by mass in kilograms. What unit should the final latent heat have?",
+    choices: [
+      "J/kg",
+      "J",
+      "kg/J",
+      "J/(kg·°C)"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson gives latent heat in Joules per kilogram (J/kg). This also follows from L = Q / m, where Joules divided by kilograms gives J/kg."
+  },
+
+  {
+    q: "A student is solving a phase-change problem with Q = 180,000 J, m = 3 kg, and L = 60,000 J/kg. Which calculation correctly checks whether these values are consistent with Q = mL?",
+    choices: [
+      "3 kg × 60,000 J/kg = 180,000 J",
+      "180,000 J × 3 kg = 540,000 J",
+      "60,000 J/kg / 3 kg = 20,000 J",
+      "180,000 J + 60,000 J/kg = 240,000 J"
+    ],
+    answer: 0,
+    explanation:
+      "Use Q = mL. Multiplying 3 kg by 60,000 J/kg gives 180,000 J. The kilogram units cancel, leaving Joules, so the values are consistent."
+  }
+],
+
+  // GROUP 10 — Efficiency & Engineering Applications
+[
+  {
+    q: "A machine receives 8,000 J of energy and produces 6,000 J of useful energy output. What is the efficiency of the machine?",
+    choices: [
+      "25%",
+      "60%",
+      "75%",
+      "80%"
+    ],
+    answer: 2,
+    explanation:
+      "Use η = Useful Energy Output / Energy Input. Therefore, η = 6,000 / 8,000 = 0.75. Converting 0.75 to a percentage gives 75%."
+  },
+
+  {
+    q: "A machine has an efficiency of 60% and receives 12,000 J of energy input. How much useful energy output does the machine produce?",
+    choices: [
+      "4,800 J",
+      "7,200 J",
+      "12,600 J",
+      "20,000 J"
+    ],
+    answer: 1,
+    explanation:
+      "First convert 60% to 0.60. Then use Useful Energy Output = η × Energy Input. Therefore, useful output = 0.60 × 12,000 J = 7,200 J."
+  },
+
+  {
+    q: "A machine produces 4,500 J of useful energy output and operates at an efficiency of 75%. How much energy input is required?",
+    choices: [
+      "3,375 J",
+      "4,575 J",
+      "6,000 J",
+      "33,750 J"
+    ],
+    answer: 2,
+    explanation:
+      "Convert 75% to 0.75 and use Energy Input = Useful Energy Output / η. Therefore, input = 4,500 J / 0.75 = 6,000 J."
+  },
+
+  {
+    q: "An engineer calculates an efficiency of 0.82 for a machine. How should this efficiency be expressed as a percentage?",
+    choices: [
+      "0.82%",
+      "8.2%",
+      "82%",
+      "820%"
+    ],
+    answer: 2,
+    explanation:
+      "To convert a decimal efficiency to a percentage, multiply by 100%. Therefore, 0.82 × 100% = 82%."
+  },
+
+  {
+    q: "Two machines each receive 10,000 J of energy input. Machine A is 80% efficient and Machine B is 65% efficient. Which machine produces more useful energy output, and by how much?",
+    choices: [
+      "Machine A by 1,500 J",
+      "Machine B by 1,500 J",
+      "Machine A by 6,500 J",
+      "Both produce the same useful output"
+    ],
+    answer: 0,
+    explanation:
+      "Machine A produces 0.80 × 10,000 = 8,000 J. Machine B produces 0.65 × 10,000 = 6,500 J. Machine A therefore produces 1,500 J more useful energy output."
+  },
+
+  {
+    q: "A real machine receives 5,000 J of energy but produces only 4,000 J of useful output. According to the lesson, which explanation best accounts for the difference?",
+    choices: [
+      "Some energy is transferred to the surroundings, often as waste heat",
+      "The missing energy has been destroyed",
+      "The machine created less energy because conservation of energy does not apply to machines",
+      "Useful energy output must always equal energy input"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson explains that real machines are not 100% efficient because some energy is transferred to the surroundings, often as waste heat. The energy is not destroyed."
+  },
+
+  {
+    q: "An engineer improves a machine so that its useful output increases from 7,000 J to 8,500 J while its energy input remains 10,000 J. How does the machine's efficiency change?",
+    choices: [
+      "It increases from 70% to 85%",
+      "It decreases from 85% to 70%",
+      "It increases from 7% to 8.5%",
+      "It remains at 70% because the energy input did not change"
+    ],
+    answer: 0,
+    explanation:
+      "The original efficiency is 7,000 / 10,000 = 0.70, or 70%. The improved efficiency is 8,500 / 10,000 = 0.85, or 85%. Increasing useful output while keeping the same input increases efficiency."
+  },
+
+  {
+    q: "A student claims that a machine with 90% efficiency destroys the remaining 10% of the supplied energy. Which response best follows the thermodynamics lesson?",
+    choices: [
+      "The remaining energy is not destroyed; some energy is transferred to the surroundings, often as waste heat",
+      "The student is correct because inefficient machines destroy unused energy",
+      "The remaining energy becomes additional useful output",
+      "Efficiency has no relationship to energy input or output"
+    ],
+    answer: 0,
+    explanation:
+      "Energy cannot be created or destroyed. The lesson explains that real machines are less than 100% efficient because some energy is transferred to the surroundings, often as waste heat."
+  },
+
+  {
+    q: "An engineer wants to improve a system that transfers or converts energy. Which group contains only examples of systems that the lesson specifically identifies as applications of thermodynamics?",
+    choices: [
+      "Automobile engines, power plants, refrigerators, and heat pumps",
+      "Rulers, pencils, notebooks, and calculators",
+      "Bridges, road signs, desks, and shelves",
+      "Bolts, screws, nails, and washers"
+    ],
+    answer: 0,
+    explanation:
+      "The lesson identifies systems such as automobile engines, power plants, refrigerators, air-conditioning systems, heat pumps, turbines, boilers, and other energy systems as applications of thermodynamics."
+  },
+
+  {
+    q: "A mechanical engineer compares two designs that perform the same task. Both receive the same energy input, but Design A produces a greater useful energy output than Design B. Based on the efficiency relationship taught in the lesson, what can the engineer conclude?",
+    choices: [
+      "Design A is more efficient because a greater fraction of the supplied energy becomes useful output",
+      "Design B is more efficient because it produces less useful output",
+      "Both designs must have the same efficiency because their energy inputs are equal",
+      "Efficiency cannot be compared unless both machines produce zero waste heat"
+    ],
+    answer: 0,
+    explanation:
+      "Efficiency compares useful energy output with energy input. If both designs receive the same input but Design A produces more useful output, Design A has the greater efficiency."
+  }
+]
+
+];
+
+function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const randomIndex = Math.floor(Math.random() * (i + 1));
 
@@ -2632,8 +3976,24 @@
   return array;
 }
 
-function shuffleQuestions() {
-  allQuestions = quizQuestions.map(question => {
+function buildShortQuiz() {
+  const selectedQuestions = [];
+
+  shortQuizGroups.forEach(group => {
+
+    const randomIndex =
+      Math.floor(Math.random() * group.length);
+
+    selectedQuestions.push(group[randomIndex]);
+
+  });
+
+  return selectedQuestions;
+}
+
+function shuffleQuestions(questionBank) {
+
+  allQuestions = questionBank.map(question => {
 
     // Connect each choice to whether it is the correct answer.
     const shuffledChoices = question.choices.map((choice, index) => {
@@ -2657,106 +4017,73 @@ function shuffleQuestions() {
         choice => choice.isCorrect
       )
     };
+
   });
 
   // Randomize the order of the questions too.
   shuffleArray(allQuestions);
 }
 
-    function openRandomQuizSet() {
-      const panel = document.getElementById("quiz-panel");
-      const randomButton = document.querySelector("#quiz .quiz-btn");
+function hideQuizStartButtons() {
 
-      if (!panel) {
-        console.error("The quiz-panel element was not found.");
-        return;
-      }
+  document
+    .querySelectorAll("#quiz .quiz-start-btn")
+    .forEach(btn => {
+      btn.style.display = "none";
+    });
 
-      if (quizQuestions.length === 0) {
-        panel.classList.add("open");
+}
 
-        if (randomButton) {
-          randomButton.style.display = "none";
-        }
 
-        const container = document.getElementById("quiz-container");
+function openFullQuiz() {
 
-        if (container) {
-          container.innerHTML = `
-            <div class="quiz-question">
-              <h3>Thermodynamics Quiz</h3>
+  const panel = document.getElementById("quiz-panel");
 
-              <p>
-                Quiz questions have not been added yet.
-                Please check back later.
-              </p>
+  panel.classList.add("open");
 
-              <button
-                type="button"
-                class="quiz-btn"
-                onclick="closeQuizMessage()"
-              >
-                Close
-              </button>
-            </div>
-          `;
-        }
+  hideQuizStartButtons();
 
-        return;
-      }
+  currentQuizMode = "full";
 
-      panel.classList.add("open");
+  shuffleQuestions(quizQuestions);
 
-      if (randomButton) {
-        randomButton.style.display = "none";
-      }
+  currentQuestionIndex = 0;
+  answeredQuestions = {};
 
-      shuffleQuestions();
+  loadQuestion();
+}
 
-      currentQuestionIndex = 0;
-      answeredQuestions = {};
+function openShortQuiz() {
 
-      loadQuestion();
-    }
+  const panel = document.getElementById("quiz-panel");
 
-    function closeQuizMessage() {
-      const panel = document.getElementById("quiz-panel");
-      const randomButton = document.querySelector("#quiz .quiz-btn");
+  panel.classList.add("open");
 
-      if (panel) {
-        panel.classList.remove("open");
-      }
+  hideQuizStartButtons();
 
-      if (randomButton) {
-        randomButton.style.display = "";
-      }
-    }
+  currentQuizMode = "short";
 
-    function shuffleChoices(question) {
-      const choices = question.choices.map((choice, index) => ({
-        text: choice,
-        originalIndex: index
-      }));
+  const shortQuizQuestions = buildShortQuiz();
 
-      for (let i = choices.length - 1; i > 0; i--) {
-        const randomIndex = Math.floor(Math.random() * (i + 1));
+  shuffleQuestions(shortQuizQuestions);
 
-        [choices[i], choices[randomIndex]] =
-          [choices[randomIndex], choices[i]];
-      }
+  currentQuestionIndex = 0;
+  answeredQuestions = {};
 
-      const newCorrectIndex = choices.findIndex(
-        choice => choice.originalIndex === question.answer
-      );
+  loadQuestion();
+}
 
-      return {
-        question: question.q,
-        choices: choices,
-        correctIndex: newCorrectIndex
-      };
-    }
+function restartCurrentQuiz() {
 
-    function loadQuestion() {
+  if (currentQuizMode === "short") {
+    openShortQuiz();
+  } else {
+    openFullQuiz();
+  }
+
+}
+
+function loadQuestion() {
   const container = document.getElementById("quiz-container");
   const question = allQuestions[currentQuestionIndex];
   const saved = answeredQuestions[currentQuestionIndex];
@@ -2916,6 +4243,10 @@ function shuffleQuestions() {
   `;
 }
 
+function showCheckButton() {
+  document.getElementById("check-answer-btn").style.display = "block";
+}
+
 function checkAnswer() {
   const selected = document.querySelector('input[name="question"]:checked');
   if (!selected) return;
@@ -2931,143 +4262,116 @@ function checkAnswer() {
   loadQuestion();
 }
 
-    function nextQuestion() {
-      if (currentQuestionIndex < allQuestions.length - 1) {
-        currentQuestionIndex++;
-        loadQuestion();
-      }
-    }
+function nextQuestion() {
+  currentQuestionIndex++;
 
-    function prevQuestion() {
+  if (currentQuestionIndex >= allQuestions.length) {
+    currentQuestionIndex = allQuestions.length - 1;
+    loadQuestion();
+    return;
+  }
+
+  loadQuestion();
+}
+
+function prevQuestion() {
   if (currentQuestionIndex > 0) {
     currentQuestionIndex--;
     loadQuestion();
   }
 }
 
-    function submitQuiz() {
-      if (allQuestions.length === 0) {
-        return;
-      }
+function submitQuiz() {
+  let correct = 0;
+  let wrong = 0;
 
-      let correctAnswers = 0;
-      let wrongAnswers = 0;
+  allQuestions.forEach((question, index) => {
+    const saved = answeredQuestions[index];
 
-      allQuestions.forEach((question, index) => {
-        const savedAnswer = answeredQuestions[index];
-
-        if (
-          savedAnswer &&
-          savedAnswer.selectedIndex === savedAnswer.correctIndex
-        ) {
-          correctAnswers++;
-        } else {
-          wrongAnswers++;
-        }
-      });
-
-      const percent = Math.round(
-        (correctAnswers / allQuestions.length) * 100
-      );
-
-      launchConfetti();
-
-      document.getElementById("quiz-container").innerHTML = `
-        <div class="quiz-question">
-          <h3>Quiz Results</h3>
-
-          <p>
-            <strong>Correct:</strong>
-            ${correctAnswers}
-          </p>
-
-          <p>
-            <strong>Wrong:</strong>
-            ${wrongAnswers}
-          </p>
-
-          <p>
-            <strong>Score:</strong>
-            ${percent}%
-          </p>
-
-          <button
-            type="button"
-            onclick="openRandomQuizSet()"
-            class="quiz-btn"
-          >
-            Restart Quiz
-          </button>
-        </div>
-      `;
+    if (saved && saved.selectedIndex === question.answer) {
+      correct++;
+    } else {
+      wrong++;
     }
+  });
 
-    function launchConfetti() {
-      const colors = [
-        "#ff4d4d",
-        "#4dff88",
-        "#4da6ff",
-        "#ffff66",
-        "#ff66ff",
-        "#ffffff"
-      ];
+  const percent = Math.round((correct / allQuestions.length) * 100);
 
-      for (let i = 0; i < 120; i++) {
-        const confetti = document.createElement("div");
+  launchConfetti();
 
-        confetti.classList.add("confetti");
+  document.getElementById("quiz-container").innerHTML = `
+  <div class="quiz-question">
+    <h3>Quiz Results</h3>
 
-        confetti.style.left =
-          Math.random() * 100 + "vw";
+    <p><strong>Correct:</strong> ${correct}</p>
+    <p><strong>Wrong:</strong> ${wrong}</p>
+    <p><strong>Score:</strong> ${percent}%</p>
 
-        confetti.style.backgroundColor =
-          colors[Math.floor(Math.random() * colors.length)];
+    <button onclick="restartCurrentQuiz()" class="quiz-btn">
+  Restart Quiz
+</button>
+  </div>
+`;
+}
 
-        confetti.style.width =
-          Math.random() * 8 + 6 + "px";
+function launchConfetti() {
 
-        confetti.style.height =
-          confetti.style.width;
+  const colors = [
+    "#ff4d4d",
+    "#4dff88",
+    "#4da6ff",
+    "#ffff66",
+    "#ff66ff",
+    "#ffffff"
+  ];
 
-        confetti.style.animationDuration =
-          Math.random() * 3 + 7 + "s";
+  for (let i = 0; i < 120; i++) {
 
-        confetti.style.animationDelay =
-          Math.random() * 2 + "s";
+    const confetti = document.createElement("div");
+    confetti.classList.add("confetti");
 
-        document.body.appendChild(confetti);
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.backgroundColor =
+      colors[Math.floor(Math.random() * colors.length)];
 
-        confetti.addEventListener("animationend", () => {
-          confetti.remove();
-        });
-      }
-    }
+    confetti.style.width = Math.random() * 8 + 6 + "px";
+    confetti.style.height = confetti.style.width;
 
-    function toggleMenu() {
-      const sideMenu = document.getElementById("sideMenu");
+    confetti.style.animationDuration =
+  (Math.random() * 3 + 7) + "s";
 
-      if (sideMenu) {
-        sideMenu.classList.toggle("open");
-      }
-    }
+  confetti.style.animationDelay =
+  (Math.random() * 2) + "s";
 
-    function toggleCourses() {
-      const coursesSubmenu =
-        document.getElementById("coursesSubmenu");
+    document.body.appendChild(confetti);
 
-      if (coursesSubmenu) {
-        coursesSubmenu.classList.toggle("open");
-      }
-    }
+    confetti.addEventListener("animationend", () => {
+  confetti.remove();
+   });
+  }
+}
 
-    console.log(
-      "Thermodynamics page loaded. Total quiz questions:",
-      quizQuestions.length
-    );
-  </script>
+console.log("Quiz loaded. Total questions:", quizQuestions.length);
 
-</body>
-</html>
+function toggleMenu(){
+
+  document
+    .getElementById("sideMenu")
+    .classList
+    .toggle("open");
+
+}
+
+function toggleCourses(){
+
+  document
+    .getElementById("coursesSubmenu")
+    .classList
+    .toggle("open");
+
+}
+
+</script>
 
 </body>
 </html>
