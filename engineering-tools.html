@@ -110,65 +110,181 @@
       check your work, and better understand common engineering equations.
     </p>
 
-    <!-- UNIT CONVERTER -->
-    <div class="tool-card">
+    <!-- TOOL TAB BUTTONS -->
+<div class="tool-tab-buttons">
 
-      <h2>Unit Converter</h2>
+  <button
+    type="button"
+    class="tool-tab-button"
+    onclick="toggleToolTab('unitConverterTool', this)"
+  >
+    Unit Converter
+  </button>
 
-      <p>
-        Convert between common engineering units.
-      </p>
+  <button
+    type="button"
+    class="tool-tab-button"
+    onclick="toggleToolTab('forceComponentsTool', this)"
+  >
+    Force Components
+  </button>
 
-      <div class="calculator-form">
+</div>
 
-        <label for="unitValue">
-          Value
-        </label>
 
-        <input
-          type="number"
-          id="unitValue"
-          placeholder="Enter a value"
-          step="any"
-        >
+<!-- INITIAL MESSAGE -->
+<div id="toolInstructions" class="tool-instructions tool-card">
 
-        <label for="fromUnit">
-          Convert From
-        </label>
+  <h2>Select an Engineering Tool</h2>
 
-        <select id="fromUnit">
-          <option value="m">Meters</option>
-          <option value="cm">Centimeters</option>
-          <option value="mm">Millimeters</option>
-          <option value="km">Kilometers</option>
-          <option value="in">Inches</option>
-          <option value="ft">Feet</option>
-        </select>
+  <p>
+    Choose one of the tools above to open its calculator.
+    Only one tool will be displayed at a time.
+  </p>
 
-        <label for="toUnit">
-          Convert To
-        </label>
+</div>
 
-        <select id="toUnit">
-          <option value="m">Meters</option>
-          <option value="cm">Centimeters</option>
-          <option value="mm">Millimeters</option>
-          <option value="km">Kilometers</option>
-          <option value="in">Inches</option>
-          <option value="ft">Feet</option>
-        </select>
 
-        <button onclick="convertUnits()">
-          Convert
-        </button>
+<!-- =====================================================
+     UNIT CONVERTER
+     ===================================================== -->
 
-      </div>
+<section
+  id="unitConverterTool"
+  class="tool-tab-content"
+  hidden
+>
 
-      <div id="conversionResult" class="calculator-result">
-        Enter a value and choose two units.
-      </div>
+  <div class="tool-card">
+
+    <h2>Unit Converter</h2>
+
+    <p>
+      Convert between common engineering length units.
+    </p>
+
+    <div class="calculator-form">
+
+      <label for="unitValue">
+        Value
+      </label>
+
+      <input
+        type="number"
+        id="unitValue"
+        placeholder="Enter a value"
+        step="any"
+      >
+
+      <label for="fromUnit">
+        Convert From
+      </label>
+
+      <select id="fromUnit">
+        <option value="m">Meters</option>
+        <option value="cm">Centimeters</option>
+        <option value="mm">Millimeters</option>
+        <option value="km">Kilometers</option>
+        <option value="in">Inches</option>
+        <option value="ft">Feet</option>
+      </select>
+
+      <label for="toUnit">
+        Convert To
+      </label>
+
+      <select id="toUnit">
+        <option value="m">Meters</option>
+        <option value="cm">Centimeters</option>
+        <option value="mm">Millimeters</option>
+        <option value="km">Kilometers</option>
+        <option value="in">Inches</option>
+        <option value="ft">Feet</option>
+      </select>
+
+      <button
+        type="button"
+        onclick="convertUnits()"
+      >
+        Convert
+      </button>
 
     </div>
+
+    <div
+      id="conversionResult"
+      class="calculator-result"
+    >
+      Enter a value and choose two units.
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FORCE COMPONENT CALCULATOR
+     ===================================================== -->
+
+<section
+  id="forceComponentsTool"
+  class="tool-tab-content"
+  hidden
+>
+
+  <div class="tool-card">
+
+    <h2>Force Component Calculator</h2>
+
+    <p>
+      Resolve a force into its horizontal and vertical components.
+      The angle is measured from the positive horizontal x-axis.
+    </p>
+
+    <div class="calculator-form">
+
+      <label for="forceMagnitude">
+        Force Magnitude
+      </label>
+
+      <input
+        type="number"
+        id="forceMagnitude"
+        placeholder="Example: 100"
+        step="any"
+      >
+
+      <label for="forceAngle">
+        Angle in Degrees
+      </label>
+
+      <input
+        type="number"
+        id="forceAngle"
+        placeholder="Example: 30"
+        step="any"
+      >
+
+      <button
+        type="button"
+        onclick="calculateForceComponents()"
+      >
+        Calculate Components
+      </button>
+
+    </div>
+
+    <div
+      id="forceComponentResult"
+      class="calculator-result"
+    >
+      Enter a force and angle to calculate the x and y components.
+    </div>
+
+  </div>
+
+</section>
 
     <a href="index.html" class="back-link back-button">
       Back Home
@@ -259,6 +375,155 @@
         toUnit +
         "</strong>";
     }
+
+    function toggleToolTab(toolId, clickedButton) {
+
+  const allTools =
+    document.querySelectorAll(".tool-tab-content");
+
+  const allButtons =
+    document.querySelectorAll(".tool-tab-button");
+
+  const selectedTool =
+    document.getElementById(toolId);
+
+  const instructions =
+    document.getElementById("toolInstructions");
+
+  const selectedToolIsOpen =
+    !selectedTool.hasAttribute("hidden");
+
+
+  // Close every tool
+  allTools.forEach(function(tool) {
+    tool.setAttribute("hidden", "");
+  });
+
+
+  // Remove active appearance from every button
+  allButtons.forEach(function(button) {
+    button.classList.remove("active");
+  });
+
+
+  // If the selected tool was already open,
+  // leave everything closed and show instructions
+  if (selectedToolIsOpen) {
+
+    instructions.style.display = "block";
+
+    return;
+  }
+
+
+  // Otherwise open the selected tool
+  selectedTool.removeAttribute("hidden");
+
+
+  // Highlight the selected button
+  clickedButton.classList.add("active");
+
+
+  // Hide the instructions
+  instructions.style.display = "none";
+
+
+  // Smoothly move to the calculator
+  selectedTool.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+function calculateForceComponents() {
+
+  const force =
+    parseFloat(
+      document.getElementById("forceMagnitude").value
+    );
+
+  const angle =
+    parseFloat(
+      document.getElementById("forceAngle").value
+    );
+
+  const resultBox =
+    document.getElementById("forceComponentResult");
+
+
+  if (isNaN(force) || isNaN(angle)) {
+
+    resultBox.innerHTML =
+      "Please enter both a force magnitude and an angle.";
+
+    return;
+  }
+
+
+  if (force < 0) {
+
+    resultBox.innerHTML =
+      "Please enter a positive force magnitude.";
+
+    return;
+  }
+
+
+  /*
+    JavaScript trigonometric functions use radians,
+    so convert degrees to radians first.
+  */
+
+  const angleRadians =
+    angle * Math.PI / 180;
+
+
+  /*
+    Resolve the force into components.
+
+    Fx = F cos(theta)
+    Fy = F sin(theta)
+  */
+
+  const forceX =
+    force * Math.cos(angleRadians);
+
+  const forceY =
+    force * Math.sin(angleRadians);
+
+
+  resultBox.innerHTML =
+
+    "<strong>Horizontal Component:</strong><br>" +
+
+    "F<sub>x</sub> = F cos(&theta;)<br>" +
+
+    "F<sub>x</sub> = " +
+    force +
+    " cos(" +
+    angle +
+    "&deg;)<br>" +
+
+    "<strong>F<sub>x</sub> = " +
+    forceX.toFixed(2) +
+    " N</strong>" +
+
+    "<br><br>" +
+
+    "<strong>Vertical Component:</strong><br>" +
+
+    "F<sub>y</sub> = F sin(&theta;)<br>" +
+
+    "F<sub>y</sub> = " +
+    force +
+    " sin(" +
+    angle +
+    "&deg;)<br>" +
+
+    "<strong>F<sub>y</sub> = " +
+    forceY.toFixed(2) +
+    " N</strong>";
+}
 
   </script>
 
