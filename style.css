@@ -2188,4 +2188,191 @@ button:hover {
     padding: 11px 20px;
   }
 
+  /* =========================
+   ENGINEERING TOOLS
+   ========================= */
+
+.tools-page {
+  padding-top: 110px;
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-bottom: 50px;
+}
+
+.tools-page h1 {
+  font-size: 36px;
+}
+
+.tools-description {
+  width: 94%;
+
+  font-size: 15px;
+
+  padding: 18px 16px;
+}
+
+.tool-card {
+  width: 94%;
+
+  padding: 22px 16px;
+}
+
+.tool-card h2 {
+  font-size: 25px;
+}
+
+.calculator-form input,
+.calculator-form select {
+  font-size: 16px;
+}
+
+.calculator-result {
+  font-size: 17px;
+}
+
+}
+
+/* =========================================================
+   ENGINEERING TOOLS PAGE
+   ========================================================= */
+
+.tools-page {
+  position: relative;
+  z-index: 2;
+
+  min-height: 100vh;
+
+  padding: 120px 30px 60px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+}
+
+
+.tools-page h1 {
+  font-size: 52px;
+
+  margin-bottom: 25px;
+
+  text-shadow:
+    0 0 18px rgba(255,255,255,0.7);
+}
+
+
+.tools-description {
+  width: min(850px, 95%);
+
+  margin: 0 auto 35px;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      to bottom right,
+      rgba(40,40,40,0.78),
+      rgba(15,15,15,0.72)
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.15);
+
+  border-radius: 18px;
+
+  line-height: 1.6;
+
+  box-shadow:
+    0 0 20px rgba(0,0,0,0.45),
+    0 0 10px rgba(255,255,255,0.08);
+}
+
+
+.tool-card {
+  width: min(650px, 95%);
+
+  margin: 30px auto;
+
+  padding: 30px;
+
+  box-sizing: border-box;
+
+  background:
+    rgba(0,0,0,0.55);
+
+  border:
+    1px solid rgba(255,255,255,0.25);
+
+  border-radius: 18px;
+
+  backdrop-filter: blur(8px);
+
+  box-shadow:
+    0 0 20px rgba(255,255,255,0.18);
+}
+
+
+.tool-card h2 {
+  font-size: 30px;
+
+  margin-top: 0;
+}
+
+
+.calculator-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin-top: 25px;
+
+  text-align: left;
+}
+
+
+.calculator-form label {
+  font-weight: bold;
+}
+
+
+.calculator-form input,
+.calculator-form select {
+  width: 100%;
+
+  padding: 12px;
+
+  box-sizing: border-box;
+
+  border: none;
+
+  border-radius: 8px;
+
+  font-size: 17px;
+}
+
+
+.calculator-form button {
+  margin-top: 10px;
+}
+
+
+.calculator-result {
+  margin-top: 25px;
+
+  padding: 18px;
+
+  border-radius: 12px;
+
+  background:
+    rgba(255,255,255,0.10);
+
+  border:
+    1px solid rgba(255,255,255,0.25);
+
+  font-size: 20px;
+
+  line-height: 1.5;
 }
