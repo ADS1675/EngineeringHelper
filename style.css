@@ -1580,6 +1580,21 @@ button:hover {
     box-sizing: border-box;
     text-align: center;
   }
+
+  .tool-tab-buttons {
+  width: 94%;
+
+  gap: 8px;
+}
+
+
+.tool-tab-button {
+  flex: 1 1 140px;
+
+  padding: 11px 12px;
+
+  font-size: 14px;
+}
 }
 
 .quiz-feedback {
@@ -2375,4 +2390,76 @@ button:hover {
   font-size: 20px;
 
   line-height: 1.5;
+}
+
+/* =========================================================
+   ENGINEERING TOOL TABS
+   ========================================================= */
+
+.tool-tab-buttons {
+  width: min(750px, 95%);
+
+  margin: 30px auto;
+
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+}
+
+
+.tool-tab-button {
+  padding: 13px 24px;
+
+  font-size: 17px;
+
+  font-weight: bold;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
+}
+
+
+.tool-tab-button:hover {
+  transform: translateY(-2px);
+
+  background: rgba(255, 255, 255, 0.12);
+
+  box-shadow:
+    0 0 14px rgba(255, 255, 255, 0.25);
+}
+
+
+.tool-tab-button.active {
+  background: white;
+
+  color: black;
+
+  box-shadow:
+    0 0 18px rgba(255, 255, 255, 0.55);
+}
+
+
+.tool-tab-content[hidden] {
+  display: none;
+}
+
+
+.tool-instructions {
+  margin-top: 30px;
 }
