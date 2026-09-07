@@ -636,6 +636,55 @@ button:hover {
     0 0 10px rgba(255,255,255,0.08);
 }
 
+/* RECOMMENDED COURSE ORDER */
+
+.recommended-order {
+  max-width: 850px;
+  margin: 15px auto;
+
+  padding: 20px 35px;
+
+  background: linear-gradient(
+    to bottom right,
+    rgba(40,40,40,0.78),
+    rgba(15,15,15,0.72)
+  );
+
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 18px;
+
+  backdrop-filter: blur(10px);
+
+  color: white;
+  text-align: center;
+
+  box-shadow:
+    0 0 20px rgba(0,0,0,0.45),
+    0 0 10px rgba(255,255,255,0.08);
+}
+
+.recommended-order h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.recommended-order p {
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.recommended-order ol {
+  width: fit-content;
+  margin: 15px auto;
+  padding-left: 30px;
+  text-align: left;
+}
+
+.recommended-order li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
 .course-features {
   max-width: 850px;
   margin: 15px auto 35px auto;
@@ -1537,4 +1586,576 @@ button:hover {
 
 .incorrect-feedback h4 {
   color: #ff8f84;
+}
+
+.quiz-button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* =========================================================
+   FULL WEBSITE MOBILE RESPONSIVE STYLES
+   ========================================================= */
+
+@media screen and (max-width: 700px) {
+
+  /* =========================
+     GENERAL PAGE FIXES
+     ========================= */
+
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .courses-container,
+  .course-page {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+
+  /* =========================
+     MENU
+     ========================= */
+
+  .menu-button {
+    top: 12px;
+    left: 12px;
+
+    padding: 8px 12px;
+
+    font-size: 22px;
+    border-radius: 12px;
+  }
+
+  .menu-button span {
+    font-size: 14px;
+  }
+
+  .side-menu {
+    width: 240px;
+    left: -250px;
+  }
+
+  .side-menu a,
+  .courses-toggle {
+    font-size: 17px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .courses-submenu a {
+    font-size: 15px;
+  }
+
+
+  /* =========================
+     LOGO
+     ========================= */
+
+  .logo-button {
+    top: 14px;
+    right: 12px;
+  }
+
+  .logo-button img {
+    width: 145px;
+    max-width: 38vw;
+  }
+
+
+  /* =========================
+     HOME PAGE
+     ========================= */
+
+  .container {
+    min-height: 100vh;
+    height: auto;
+
+    justify-content: flex-start;
+
+    padding-top: 155px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 55px;
+
+    box-sizing: border-box;
+  }
+
+  .title-orbit-wrapper {
+    width: 100%;
+    margin-top: 70px;
+    margin-bottom: 30px;
+  }
+
+  .title-banner {
+    width: 92vw;
+    max-width: 92vw;
+    height: 82px;
+  }
+
+  .title-orbit-wrapper h1 {
+    font-size: 30px;
+    line-height: 1.1;
+
+    padding: 0 18px;
+    box-sizing: border-box;
+  }
+
+  .belt-orbit {
+    width: 92vw;
+    height: 112px;
+  }
+
+  .belt-symbol {
+    font-size: 21px;
+  }
+
+  .home-description {
+    width: 92%;
+    max-width: 92%;
+
+    padding: 16px 16px;
+
+    box-sizing: border-box;
+
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .home-button-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    width: 92%;
+    gap: 10px;
+
+    margin-top: 14px;
+  }
+
+  .home-button-grid button {
+    width: 100%;
+    min-height: 55px;
+    height: auto;
+
+    padding: 9px 8px;
+
+    font-size: 15px;
+    line-height: 1.1;
+  }
+
+
+  /* =========================
+     COURSES PAGE
+     ========================= */
+
+  .courses-container {
+    padding-top: 115px;
+    padding-bottom: 50px;
+  }
+
+  .courses-title {
+    font-size: 38px;
+    margin-bottom: 25px;
+  }
+
+  .courses-description {
+    width: 94%;
+    max-width: 94%;
+
+    padding: 18px 16px;
+
+    box-sizing: border-box;
+
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .course-features {
+    width: 94%;
+    max-width: 94%;
+
+    padding: 18px 24px;
+
+    box-sizing: border-box;
+
+    font-size: 15px;
+  }
+
+  .recommended-order {
+    width: 94%;
+    max-width: 94%;
+
+    padding: 18px 20px;
+
+    box-sizing: border-box;
+  }
+
+  .recommended-order h2 {
+    font-size: 23px;
+  }
+
+  .recommended-order p,
+  .recommended-order li {
+    font-size: 15px;
+  }
+
+  .course-grid {
+    grid-template-columns: 1fr;
+
+    width: 94%;
+    max-width: 94%;
+
+    gap: 18px;
+  }
+
+  .course-card {
+    padding: 24px 16px;
+  }
+
+  .course-card h2 {
+    font-size: 23px;
+  }
+
+  .course-card p {
+    font-size: 16px;
+  }
+
+
+  /* =========================
+     INDIVIDUAL COURSE PAGES
+     ========================= */
+
+  .course-page {
+    min-height: 100vh;
+
+    justify-content: flex-start;
+
+    padding-top: 110px;
+    padding-bottom: 50px;
+  }
+
+  .course-page h1 {
+    font-size: 34px;
+    line-height: 1.15;
+
+    margin-bottom: 16px;
+
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .course-description {
+    width: 94%;
+    max-width: 94%;
+
+    padding: 18px 16px;
+
+    box-sizing: border-box;
+  }
+
+  .course-description h2 {
+    font-size: 23px;
+  }
+
+  .course-description p {
+    font-size: 15px;
+  }
+
+
+  /* =========================
+     COURSE TAB BUTTONS
+     ========================= */
+
+  .tabs {
+    width: 96%;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 7px;
+  }
+
+  .tabs button {
+    margin: 2px;
+
+    padding: 10px 13px;
+
+    font-size: 14px;
+  }
+
+
+  /* =========================
+     LESSON / PROBLEM / VIDEO
+     CONTENT
+     ========================= */
+
+  .tab-content {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .lesson-content {
+    width: 94%;
+    max-width: 94%;
+
+    padding: 20px 17px;
+
+    box-sizing: border-box;
+
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .lesson-content h2 {
+    font-size: 25px;
+    line-height: 1.2;
+  }
+
+  .lesson-content h3 {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .lesson-content ul,
+  .lesson-content ol {
+    padding-left: 24px;
+  }
+
+  .lesson-content img {
+    max-width: 100%;
+    height: auto;
+  }
+
+
+  /* =========================
+     EXAMPLE PROBLEMS
+     ========================= */
+
+  .problems-layout {
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 20px;
+
+    align-items: center;
+  }
+
+
+  /* =========================
+     QUIZZES
+     ========================= */
+
+  .quiz-question {
+    width: 94%;
+    max-width: 94%;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    box-sizing: border-box;
+
+    padding: 15px;
+  }
+
+  .answer-choice {
+    line-height: 1.45;
+  }
+
+  .quiz-nav-buttons {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  #check-answer-btn,
+  #back-btn,
+  #next-btn,
+  #submit-btn {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+
+  .quiz-warning {
+    width: 92%;
+    max-width: 92%;
+
+    box-sizing: border-box;
+
+    font-size: 14px;
+  }
+
+  .quiz-feedback {
+    font-size: 14px;
+  }
+
+
+  /* =========================
+     FORMULA SHEETS
+     ========================= */
+
+  .formula-sheet {
+    width: 94%;
+    max-width: 94%;
+
+    box-sizing: border-box;
+
+    padding: 18px 15px;
+  }
+
+
+  /* =========================
+     VIDEO SECTIONS
+     ========================= */
+
+  .video-container {
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .video-container iframe {
+    width: 100%;
+    max-width: 100%;
+
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+
+  /* =========================
+     IMAGES AND DIAGRAMS
+     ========================= */
+
+  .diagram-card {
+    width: 94%;
+    max-width: 94%;
+
+    box-sizing: border-box;
+
+    padding: 15px;
+  }
+
+  .content-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+
+  /* =========================
+     CREATOR'S JOURNEY
+     ========================= */
+
+  .journey-tabs {
+    width: 94%;
+
+    gap: 8px;
+  }
+
+  .journey-tabs button {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .journey-logo {
+    width: 210px;
+    max-width: 75%;
+  }
+
+
+  /* =========================
+     REVIEWS
+     ========================= */
+
+  .review-form {
+    width: 94%;
+    max-width: 94%;
+
+    box-sizing: border-box;
+  }
+
+  .review-form input,
+  .review-form select,
+  .review-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    font-size: 15px;
+  }
+
+
+  /* =========================
+     REFERENCES PAGE
+     ========================= */
+
+  .references-page .lesson-content {
+    width: 94%;
+    max-width: 94%;
+  }
+
+  .reference-tab-buttons {
+    width: 94%;
+  }
+
+  .reference-tab-button {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .references-section {
+    width: 100%;
+
+    padding: 18px 14px;
+
+    box-sizing: border-box;
+  }
+
+  .references-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reference-card {
+    padding: 18px;
+  }
+
+  .reference-card h3 {
+    font-size: 20px;
+  }
+
+  .references-heading {
+    font-size: 26px;
+  }
+
+  .references-intro {
+    font-size: 15px;
+  }
+
+
+  /* =========================
+     GENERAL BUTTONS
+     ========================= */
+
+  button {
+    max-width: 100%;
+  }
+
+  .back-button {
+    margin-top: 25px;
+
+    font-size: 15px;
+
+    padding: 11px 20px;
+  }
+
 }
