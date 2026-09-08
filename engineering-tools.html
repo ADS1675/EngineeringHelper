@@ -129,6 +129,14 @@
     Force Components
   </button>
 
+  <button
+  type="button"
+  class="tool-tab-button"
+  onclick="toggleToolTab('resultantForceTool', this)"
+>
+  Resultant Force
+</button>
+
 </div>
 
 
@@ -280,6 +288,99 @@
       class="calculator-result"
     >
       Enter a force and angle to calculate the x and y components.
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     RESULTANT FORCE CALCULATOR
+     ===================================================== -->
+
+<section
+  id="resultantForceTool"
+  class="tool-tab-content"
+  hidden
+>
+
+  <div class="tool-card">
+
+    <h2>Resultant Force Calculator</h2>
+
+    <p>
+      Combine two forces using their horizontal and vertical
+      components to find the magnitude and direction of the
+      resultant force.
+    </p>
+
+    <div class="calculator-form">
+
+      <h3>Force 1</h3>
+
+      <label for="force1X">
+        Horizontal Component (F₁x)
+      </label>
+
+      <input
+        type="number"
+        id="force1X"
+        placeholder="Example: 40"
+        step="any"
+      >
+
+      <label for="force1Y">
+        Vertical Component (F₁y)
+      </label>
+
+      <input
+        type="number"
+        id="force1Y"
+        placeholder="Example: 30"
+        step="any"
+      >
+
+
+      <h3>Force 2</h3>
+
+      <label for="force2X">
+        Horizontal Component (F₂x)
+      </label>
+
+      <input
+        type="number"
+        id="force2X"
+        placeholder="Example: 20"
+        step="any"
+      >
+
+      <label for="force2Y">
+        Vertical Component (F₂y)
+      </label>
+
+      <input
+        type="number"
+        id="force2Y"
+        placeholder="Example: -10"
+        step="any"
+      >
+
+
+      <button
+        type="button"
+        onclick="calculateResultantForce()"
+      >
+        Calculate Resultant
+      </button>
+
+    </div>
+
+
+    <div
+      id="resultantForceResult"
+      class="calculator-result"
+    >
+      Enter the x and y components of both forces.
     </div>
 
   </div>
@@ -523,6 +624,194 @@ function calculateForceComponents() {
     "<strong>F<sub>y</sub> = " +
     forceY.toFixed(2) +
     " N</strong>";
+}
+
+function calculateResultantForce() {
+
+  const force1X =
+    parseFloat(
+      document.getElementById("force1X").value
+    );
+
+  const force1Y =
+    parseFloat(
+      document.getElementById("force1Y").value
+    );
+
+  const force2X =
+    parseFloat(
+      document.getElementById("force2X").value
+    );
+
+  const force2Y =
+    parseFloat(
+      document.getElementById("force2Y").value
+    );
+
+  const resultBox =
+    document.getElementById("resultantForceResult");
+
+
+  // Make sure all four values were entered
+
+  if (
+    isNaN(force1X) ||
+    isNaN(force1Y) ||
+    isNaN(force2X) ||
+    isNaN(force2Y)
+  ) {
+
+    resultBox.innerHTML =
+      "Please enter all four force components.";
+
+    return;
+  }
+
+
+  /*
+    Add the horizontal components.
+
+    Rx = F1x + F2x
+  */
+
+  const resultantX =
+    force1X + force2X;
+
+
+  /*
+    Add the vertical components.
+
+    Ry = F1y + F2y
+  */
+
+  const resultantY =
+    force1Y + force2Y;
+
+
+  /*
+    Find the magnitude of the resultant.
+
+    R = sqrt(Rx^2 + Ry^2)
+  */
+
+  const resultantMagnitude =
+    Math.sqrt(
+      Math.pow(resultantX, 2) +
+      Math.pow(resultantY, 2)
+    );
+
+
+  /*
+    Find the direction.
+
+    atan2 is used instead of atan so that
+    the correct quadrant is determined.
+  */
+
+  let resultantAngle =
+    Math.atan2(
+      resultantY,
+      resultantX
+    ) * 180 / Math.PI;
+
+
+  /*
+    Convert negative angles into
+    the 0 to 360 degree format.
+  */
+
+  if (resultantAngle < 0) {
+    resultantAngle += 360;
+  }
+
+
+  /*
+    Special case:
+    If the resultant is zero, there is
+    no meaningful direction.
+  */
+
+  let directionText;
+
+  if (resultantMagnitude < 0.0000001) {
+
+    directionText =
+      "No direction because the resultant force is zero.";
+
+  } else {
+
+    directionText =
+      resultantAngle.toFixed(2) +
+      "&deg; from the positive x-axis";
+
+  }
+
+
+  // Display the complete solution
+
+  resultBox.innerHTML =
+
+    "<strong>Step 1: Add Horizontal Components</strong><br>" +
+
+    "R<sub>x</sub> = F<sub>1x</sub> + F<sub>2x</sub><br>" +
+
+    "R<sub>x</sub> = " +
+    force1X +
+    " + " +
+    force2X +
+    "<br>" +
+
+    "<strong>R<sub>x</sub> = " +
+    resultantX.toFixed(2) +
+    " N</strong>" +
+
+
+    "<br><br>" +
+
+
+    "<strong>Step 2: Add Vertical Components</strong><br>" +
+
+    "R<sub>y</sub> = F<sub>1y</sub> + F<sub>2y</sub><br>" +
+
+    "R<sub>y</sub> = " +
+    force1Y +
+    " + " +
+    force2Y +
+    "<br>" +
+
+    "<strong>R<sub>y</sub> = " +
+    resultantY.toFixed(2) +
+    " N</strong>" +
+
+
+    "<br><br>" +
+
+
+    "<strong>Step 3: Find Resultant Magnitude</strong><br>" +
+
+    "R = &radic;(R<sub>x</sub>&sup2; + R<sub>y</sub>&sup2;)<br>" +
+
+    "R = &radic;(" +
+    resultantX.toFixed(2) +
+    "&sup2; + " +
+    resultantY.toFixed(2) +
+    "&sup2;)<br>" +
+
+    "<strong>R = " +
+    resultantMagnitude.toFixed(2) +
+    " N</strong>" +
+
+
+    "<br><br>" +
+
+
+    "<strong>Step 4: Find Direction</strong><br>" +
+
+    "&theta; = atan2(R<sub>y</sub>, R<sub>x</sub>)<br>" +
+
+    "<strong>&theta; = " +
+    directionText +
+    "</strong>";
 }
 
   </script>
