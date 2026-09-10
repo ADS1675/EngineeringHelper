@@ -137,6 +137,46 @@
   Resultant Force
 </button>
 
+<button
+  type="button"
+  class="tool-tab-button"
+  onclick="toggleToolTab('kinematicsTool', this)"
+>
+  Kinematics
+</button>
+
+<button
+  type="button"
+  class="tool-tab-button"
+  onclick="toggleToolTab('newtonsSecondLawTool', this)"
+>
+  Newton's Second Law
+</button>
+
+<button
+  type="button"
+  class="tool-tab-button"
+  onclick="toggleToolTab('stressStrainTool', this)"
+>
+  Stress & Strain
+</button>
+
+<button
+  type="button"
+  class="tool-tab-button"
+  onclick="toggleToolTab('factorSafetyTool', this)"
+>
+  Factor of Safety
+</button>
+
+<button
+  type="button"
+  class="tool-tab-button"
+  onclick="toggleToolTab('heatEnergyTool', this)"
+>
+  Heat Energy
+</button>
+
 </div>
 
 
@@ -381,6 +421,727 @@
       class="calculator-result"
     >
       Enter the x and y components of both forces.
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     KINEMATICS CALCULATOR
+     ===================================================== -->
+
+<section
+  id="kinematicsTool"
+  class="tool-tab-content"
+  hidden
+>
+
+  <div class="tool-card">
+
+    <h2>Kinematics Calculator</h2>
+
+    <p>
+      Solve common one-dimensional constant-acceleration
+      kinematics problems. Choose the quantity you want to
+      calculate and enter the known values.
+    </p>
+
+    <div class="calculator-form">
+
+      <label for="kinematicsSolveFor">
+        Solve For
+      </label>
+
+      <select
+        id="kinematicsSolveFor"
+        onchange="updateKinematicsInputs()"
+      >
+
+        <option value="finalVelocity">
+          Final Velocity (vf)
+        </option>
+
+        <option value="initialVelocity">
+          Initial Velocity (vi)
+        </option>
+
+        <option value="acceleration">
+          Acceleration (a)
+        </option>
+
+        <option value="time">
+          Time (t)
+        </option>
+
+        <option value="displacement">
+          Displacement (Δx)
+        </option>
+
+      </select>
+
+
+      <!-- INITIAL VELOCITY -->
+
+      <div id="initialVelocityGroup">
+
+        <label for="kinInitialVelocity">
+          Initial Velocity (m/s)
+        </label>
+
+        <input
+          type="number"
+          id="kinInitialVelocity"
+          placeholder="Example: 5"
+          step="any"
+        >
+
+      </div>
+
+
+      <!-- FINAL VELOCITY -->
+
+      <div id="finalVelocityGroup">
+
+        <label for="kinFinalVelocity">
+          Final Velocity (m/s)
+        </label>
+
+        <input
+          type="number"
+          id="kinFinalVelocity"
+          placeholder="Example: 25"
+          step="any"
+        >
+
+      </div>
+
+
+      <!-- ACCELERATION -->
+
+      <div id="accelerationGroup">
+
+        <label for="kinAcceleration">
+          Acceleration (m/s²)
+        </label>
+
+        <input
+          type="number"
+          id="kinAcceleration"
+          placeholder="Example: 4"
+          step="any"
+        >
+
+      </div>
+
+
+      <!-- TIME -->
+
+      <div id="timeGroup">
+
+        <label for="kinTime">
+          Time (s)
+        </label>
+
+        <input
+          type="number"
+          id="kinTime"
+          placeholder="Example: 5"
+          step="any"
+        >
+
+      </div>
+
+
+      <!-- DISPLACEMENT -->
+
+      <div id="displacementGroup">
+
+        <label for="kinDisplacement">
+          Displacement (m)
+        </label>
+
+        <input
+          type="number"
+          id="kinDisplacement"
+          placeholder="Example: 75"
+          step="any"
+        >
+
+      </div>
+
+
+      <button
+        type="button"
+        onclick="calculateKinematics()"
+      >
+        Calculate
+      </button>
+
+    </div>
+
+
+    <div
+      id="kinematicsResult"
+      class="calculator-result"
+    >
+      Choose what you want to solve for and enter the known values.
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     NEWTON'S SECOND LAW CALCULATOR
+     ===================================================== -->
+
+<section
+  id="newtonsSecondLawTool"
+  class="tool-tab-content"
+  hidden
+>
+
+  <div class="tool-card">
+
+    <h2>Newton's Second Law Calculator</h2>
+
+    <p>
+      Use Newton's Second Law to calculate force, mass,
+      or acceleration using the relationship F = ma.
+    </p>
+
+    <div class="calculator-form">
+
+      <label for="newtonSolveFor">
+        Solve For
+      </label>
+
+      <select
+        id="newtonSolveFor"
+        onchange="updateNewtonInputs()"
+      >
+
+        <option value="force">
+          Force (F)
+        </option>
+
+        <option value="mass">
+          Mass (m)
+        </option>
+
+        <option value="acceleration">
+          Acceleration (a)
+        </option>
+
+      </select>
+
+
+      <!-- FORCE -->
+
+      <div id="newtonForceGroup">
+
+        <label for="newtonForce">
+          Force (N)
+        </label>
+
+        <input
+          type="number"
+          id="newtonForce"
+          placeholder="Example: 50"
+          step="any"
+        >
+
+      </div>
+
+
+      <!-- MASS -->
+
+      <div id="newtonMassGroup">
+
+        <label for="newtonMass">
+          Mass (kg)
+        </label>
+
+        <input
+          type="number"
+          id="newtonMass"
+          placeholder="Example: 10"
+          step="any"
+        >
+
+      </div>
+
+
+      <!-- ACCELERATION -->
+
+      <div id="newtonAccelerationGroup">
+
+        <label for="newtonAcceleration">
+          Acceleration (m/s²)
+        </label>
+
+        <input
+          type="number"
+          id="newtonAcceleration"
+          placeholder="Example: 5"
+          step="any"
+        >
+
+      </div>
+
+
+      <button
+        type="button"
+        onclick="calculateNewtonsSecondLaw()"
+      >
+        Calculate
+      </button>
+
+    </div>
+
+
+    <div
+      id="newtonResult"
+      class="calculator-result"
+    >
+      Choose what you want to solve for and enter the known values.
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     STRESS & STRAIN CALCULATOR
+     ===================================================== -->
+
+<section
+  id="stressStrainTool"
+  class="tool-tab-content"
+  hidden
+>
+
+  <div class="tool-card">
+
+    <h2>Stress & Strain Calculator</h2>
+
+    <p>
+      Calculate normal stress, strain, or elastic modulus
+      using common Strength of Materials equations.
+    </p>
+
+    <div class="calculator-form">
+
+      <label for="stressStrainSolveFor">
+        Solve For
+      </label>
+
+      <select
+        id="stressStrainSolveFor"
+        onchange="updateStressStrainInputs()"
+      >
+
+        <option value="stress">
+          Stress (σ)
+        </option>
+
+        <option value="strain">
+          Strain (ε)
+        </option>
+
+        <option value="elasticModulus">
+          Elastic Modulus (E)
+        </option>
+
+      </select>
+
+
+      <!-- FORCE -->
+
+      <div id="stressForceGroup">
+
+        <label for="stressForce">
+          Force (N)
+        </label>
+
+        <input
+          type="number"
+          id="stressForce"
+          placeholder="Example: 10000"
+          step="any"
+        >
+
+      </div>
+
+
+      <!-- AREA -->
+
+      <div id="stressAreaGroup">
+
+        <label for="stressArea">
+          Cross-Sectional Area (mm²)
+        </label>
+
+        <input
+          type="number"
+          id="stressArea"
+          placeholder="Example: 500"
+          step="any"
+        >
+
+      </div>
+
+
+      <!-- CHANGE IN LENGTH -->
+
+      <div id="changeLengthGroup">
+
+        <label for="changeLength">
+          Change in Length (mm)
+        </label>
+
+        <input
+          type="number"
+          id="changeLength"
+          placeholder="Example: 0.5"
+          step="any"
+        >
+
+      </div>
+
+
+      <!-- ORIGINAL LENGTH -->
+
+      <div id="originalLengthGroup">
+
+        <label for="originalLength">
+          Original Length (mm)
+        </label>
+
+        <input
+          type="number"
+          id="originalLength"
+          placeholder="Example: 250"
+          step="any"
+        >
+
+      </div>
+
+
+      <!-- STRESS -->
+
+      <div id="stressValueGroup">
+
+        <label for="stressValue">
+          Stress (MPa)
+        </label>
+
+        <input
+          type="number"
+          id="stressValue"
+          placeholder="Example: 200"
+          step="any"
+        >
+
+      </div>
+
+
+      <!-- STRAIN -->
+
+      <div id="strainValueGroup">
+
+        <label for="strainValue">
+          Strain
+        </label>
+
+        <input
+          type="number"
+          id="strainValue"
+          placeholder="Example: 0.002"
+          step="any"
+        >
+
+      </div>
+
+
+      <button
+        type="button"
+        onclick="calculateStressStrain()"
+      >
+        Calculate
+      </button>
+
+    </div>
+
+
+    <div
+      id="stressStrainResult"
+      class="calculator-result"
+    >
+      Choose what you want to solve for and enter the known values.
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     FACTOR OF SAFETY CALCULATOR
+     ===================================================== -->
+
+<section
+  id="factorSafetyTool"
+  class="tool-tab-content"
+  hidden
+>
+
+  <div class="tool-card">
+
+    <h2>Factor of Safety Calculator</h2>
+
+    <p>
+      Calculate factor of safety, allowable stress,
+      or failure strength using a basic strength relationship.
+    </p>
+
+    <div class="calculator-form">
+
+      <label for="factorSafetySolveFor">
+        Solve For
+      </label>
+
+      <select
+        id="factorSafetySolveFor"
+        onchange="updateFactorSafetyInputs()"
+      >
+
+        <option value="factorOfSafety">
+          Factor of Safety (n)
+        </option>
+
+        <option value="allowableStress">
+          Allowable Stress
+        </option>
+
+        <option value="failureStrength">
+          Failure Strength
+        </option>
+
+      </select>
+
+
+      <!-- FACTOR OF SAFETY -->
+
+      <div id="factorOfSafetyGroup">
+
+        <label for="factorOfSafetyValue">
+          Factor of Safety (n)
+        </label>
+
+        <input
+          type="number"
+          id="factorOfSafetyValue"
+          placeholder="Example: 2"
+          step="any"
+        >
+
+      </div>
+
+
+      <!-- ALLOWABLE STRESS -->
+
+      <div id="allowableStressGroup">
+
+        <label for="allowableStressValue">
+          Allowable Stress (MPa)
+        </label>
+
+        <input
+          type="number"
+          id="allowableStressValue"
+          placeholder="Example: 125"
+          step="any"
+        >
+
+      </div>
+
+
+      <!-- FAILURE STRENGTH -->
+
+      <div id="failureStrengthGroup">
+
+        <label for="failureStrengthValue">
+          Failure Strength (MPa)
+        </label>
+
+        <input
+          type="number"
+          id="failureStrengthValue"
+          placeholder="Example: 250"
+          step="any"
+        >
+
+      </div>
+
+
+      <button
+        type="button"
+        onclick="calculateFactorSafety()"
+      >
+        Calculate
+      </button>
+
+    </div>
+
+
+    <div
+      id="factorSafetyResult"
+      class="calculator-result"
+    >
+      Choose what you want to solve for and enter the known values.
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =====================================================
+     HEAT ENERGY CALCULATOR
+     ===================================================== -->
+
+<section
+  id="heatEnergyTool"
+  class="tool-tab-content"
+  hidden
+>
+
+  <div class="tool-card">
+
+    <h2>Heat Energy Calculator</h2>
+
+    <p>
+      Calculate heat energy, mass, specific heat capacity,
+      or temperature change using Q = mcΔT.
+    </p>
+
+    <div class="calculator-form">
+
+      <label for="heatEnergySolveFor">
+        Solve For
+      </label>
+
+      <select
+        id="heatEnergySolveFor"
+        onchange="updateHeatEnergyInputs()"
+      >
+
+        <option value="heatEnergy">
+          Heat Energy (Q)
+        </option>
+
+        <option value="mass">
+          Mass (m)
+        </option>
+
+        <option value="specificHeat">
+          Specific Heat Capacity (c)
+        </option>
+
+        <option value="temperatureChange">
+          Temperature Change (ΔT)
+        </option>
+
+      </select>
+
+
+      <!-- HEAT ENERGY -->
+
+      <div id="heatEnergyValueGroup">
+
+        <label for="heatEnergyValue">
+          Heat Energy (J)
+        </label>
+
+        <input
+          type="number"
+          id="heatEnergyValue"
+          placeholder="Example: 83600"
+          step="any"
+        >
+
+      </div>
+
+
+      <!-- MASS -->
+
+      <div id="heatMassGroup">
+
+        <label for="heatMass">
+          Mass (kg)
+        </label>
+
+        <input
+          type="number"
+          id="heatMass"
+          placeholder="Example: 2"
+          step="any"
+        >
+
+      </div>
+
+
+      <!-- SPECIFIC HEAT -->
+
+      <div id="specificHeatGroup">
+
+        <label for="specificHeat">
+          Specific Heat Capacity (J/kg°C)
+        </label>
+
+        <input
+          type="number"
+          id="specificHeat"
+          placeholder="Example: 4180"
+          step="any"
+        >
+
+      </div>
+
+
+      <!-- TEMPERATURE CHANGE -->
+
+      <div id="temperatureChangeGroup">
+
+        <label for="temperatureChange">
+          Temperature Change (°C)
+        </label>
+
+        <input
+          type="number"
+          id="temperatureChange"
+          placeholder="Example: 10"
+          step="any"
+        >
+
+      </div>
+
+
+      <button
+        type="button"
+        onclick="calculateHeatEnergy()"
+      >
+        Calculate
+      </button>
+
+    </div>
+
+
+    <div
+      id="heatEnergyResult"
+      class="calculator-result"
+    >
+      Choose what you want to solve for and enter the known values.
     </div>
 
   </div>
@@ -813,6 +1574,1690 @@ function calculateResultantForce() {
     directionText +
     "</strong>";
 }
+
+function updateKinematicsInputs() {
+
+  const solveFor =
+    document.getElementById("kinematicsSolveFor").value;
+
+
+  const groups = {
+
+    initialVelocity:
+      document.getElementById("initialVelocityGroup"),
+
+    finalVelocity:
+      document.getElementById("finalVelocityGroup"),
+
+    acceleration:
+      document.getElementById("accelerationGroup"),
+
+    time:
+      document.getElementById("timeGroup"),
+
+    displacement:
+      document.getElementById("displacementGroup")
+
+  };
+
+
+  // Show every input first
+
+  Object.values(groups).forEach(function(group) {
+    group.style.display = "block";
+  });
+
+
+  // Hide the value being solved for
+
+  if (groups[solveFor]) {
+    groups[solveFor].style.display = "none";
+  }
+
+
+  // Reset result message
+
+  document.getElementById("kinematicsResult").innerHTML =
+    "Enter the known values and press Calculate.";
+}
+
+function calculateKinematics() {
+
+  const solveFor =
+    document.getElementById("kinematicsSolveFor").value;
+
+
+  const vi =
+    parseFloat(
+      document.getElementById("kinInitialVelocity").value
+    );
+
+  const vf =
+    parseFloat(
+      document.getElementById("kinFinalVelocity").value
+    );
+
+  const a =
+    parseFloat(
+      document.getElementById("kinAcceleration").value
+    );
+
+  const t =
+    parseFloat(
+      document.getElementById("kinTime").value
+    );
+
+  const dx =
+    parseFloat(
+      document.getElementById("kinDisplacement").value
+    );
+
+
+  const resultBox =
+    document.getElementById("kinematicsResult");
+
+
+  /*
+    =====================================================
+    FINAL VELOCITY
+    vf = vi + at
+    =====================================================
+  */
+
+  if (solveFor === "finalVelocity") {
+
+    if (
+      isNaN(vi) ||
+      isNaN(a) ||
+      isNaN(t)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate final velocity, enter initial velocity, acceleration, and time.";
+
+      return;
+    }
+
+
+    const answer =
+      vi + (a * t);
+
+
+    resultBox.innerHTML =
+
+      "<strong>Final Velocity</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "v<sub>f</sub> = v<sub>i</sub> + at" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "v<sub>f</sub> = " +
+      vi +
+      " + (" +
+      a +
+      ")(" +
+      t +
+      ")" +
+
+      "<br><br>" +
+
+      "<strong>v<sub>f</sub> = " +
+      answer.toFixed(2) +
+      " m/s</strong>";
+
+    return;
+  }
+
+
+  /*
+    =====================================================
+    INITIAL VELOCITY
+    vi = vf - at
+    =====================================================
+  */
+
+  if (solveFor === "initialVelocity") {
+
+    if (
+      isNaN(vf) ||
+      isNaN(a) ||
+      isNaN(t)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate initial velocity, enter final velocity, acceleration, and time.";
+
+      return;
+    }
+
+
+    const answer =
+      vf - (a * t);
+
+
+    resultBox.innerHTML =
+
+      "<strong>Initial Velocity</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "v<sub>i</sub> = v<sub>f</sub> - at" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "v<sub>i</sub> = " +
+      vf +
+      " - (" +
+      a +
+      ")(" +
+      t +
+      ")" +
+
+      "<br><br>" +
+
+      "<strong>v<sub>i</sub> = " +
+      answer.toFixed(2) +
+      " m/s</strong>";
+
+    return;
+  }
+
+
+  /*
+    =====================================================
+    ACCELERATION
+    a = (vf - vi) / t
+    =====================================================
+  */
+
+  if (solveFor === "acceleration") {
+
+    if (
+      isNaN(vi) ||
+      isNaN(vf) ||
+      isNaN(t)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate acceleration, enter initial velocity, final velocity, and time.";
+
+      return;
+    }
+
+
+    if (t === 0) {
+
+      resultBox.innerHTML =
+        "Time cannot be zero when calculating acceleration.";
+
+      return;
+    }
+
+
+    const answer =
+      (vf - vi) / t;
+
+
+    resultBox.innerHTML =
+
+      "<strong>Acceleration</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "a = (v<sub>f</sub> - v<sub>i</sub>) / t" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "a = (" +
+      vf +
+      " - " +
+      vi +
+      ") / " +
+      t +
+
+      "<br><br>" +
+
+      "<strong>a = " +
+      answer.toFixed(2) +
+      " m/s&sup2;</strong>";
+
+    return;
+  }
+
+
+  /*
+    =====================================================
+    TIME
+    t = (vf - vi) / a
+    =====================================================
+  */
+
+  if (solveFor === "time") {
+
+    if (
+      isNaN(vi) ||
+      isNaN(vf) ||
+      isNaN(a)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate time, enter initial velocity, final velocity, and acceleration.";
+
+      return;
+    }
+
+
+    if (a === 0) {
+
+      resultBox.innerHTML =
+        "Acceleration cannot be zero when using this equation to calculate time.";
+
+      return;
+    }
+
+
+    const answer =
+      (vf - vi) / a;
+
+
+    resultBox.innerHTML =
+
+      "<strong>Time</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "t = (v<sub>f</sub> - v<sub>i</sub>) / a" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "t = (" +
+      vf +
+      " - " +
+      vi +
+      ") / " +
+      a +
+
+      "<br><br>" +
+
+      "<strong>t = " +
+      answer.toFixed(2) +
+      " s</strong>";
+
+    return;
+  }
+
+
+  /*
+    =====================================================
+    DISPLACEMENT
+    dx = vi*t + 1/2*a*t^2
+    =====================================================
+  */
+
+  if (solveFor === "displacement") {
+
+    if (
+      isNaN(vi) ||
+      isNaN(a) ||
+      isNaN(t)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate displacement, enter initial velocity, acceleration, and time.";
+
+      return;
+    }
+
+
+    const answer =
+      (vi * t) +
+      (0.5 * a * Math.pow(t, 2));
+
+
+    resultBox.innerHTML =
+
+      "<strong>Displacement</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "&Delta;x = v<sub>i</sub>t + &frac12;at&sup2;" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "&Delta;x = (" +
+      vi +
+      ")(" +
+      t +
+      ") + &frac12;(" +
+      a +
+      ")(" +
+      t +
+      "&sup2;)" +
+
+      "<br><br>" +
+
+      "<strong>&Delta;x = " +
+      answer.toFixed(2) +
+      " m</strong>";
+
+    return;
+  }
+
+}
+
+updateKinematicsInputs();
+
+function updateNewtonInputs() {
+
+  const solveFor =
+    document.getElementById("newtonSolveFor").value;
+
+
+  const forceGroup =
+    document.getElementById("newtonForceGroup");
+
+  const massGroup =
+    document.getElementById("newtonMassGroup");
+
+  const accelerationGroup =
+    document.getElementById("newtonAccelerationGroup");
+
+
+  // Show all input groups first
+
+  forceGroup.style.display = "block";
+  massGroup.style.display = "block";
+  accelerationGroup.style.display = "block";
+
+
+  // Hide the quantity being solved for
+
+  if (solveFor === "force") {
+
+    forceGroup.style.display = "none";
+
+  }
+
+  else if (solveFor === "mass") {
+
+    massGroup.style.display = "none";
+
+  }
+
+  else if (solveFor === "acceleration") {
+
+    accelerationGroup.style.display = "none";
+
+  }
+
+
+  document.getElementById("newtonResult").innerHTML =
+    "Enter the known values and press Calculate.";
+}
+
+function calculateNewtonsSecondLaw() {
+
+  const solveFor =
+    document.getElementById("newtonSolveFor").value;
+
+
+  const force =
+    parseFloat(
+      document.getElementById("newtonForce").value
+    );
+
+  const mass =
+    parseFloat(
+      document.getElementById("newtonMass").value
+    );
+
+  const acceleration =
+    parseFloat(
+      document.getElementById("newtonAcceleration").value
+    );
+
+
+  const resultBox =
+    document.getElementById("newtonResult");
+
+
+  /*
+    =====================================================
+    FORCE
+
+    F = ma
+    =====================================================
+  */
+
+  if (solveFor === "force") {
+
+    if (
+      isNaN(mass) ||
+      isNaN(acceleration)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate force, enter mass and acceleration.";
+
+      return;
+    }
+
+
+    if (mass <= 0) {
+
+      resultBox.innerHTML =
+        "Mass must be greater than zero.";
+
+      return;
+    }
+
+
+    const answer =
+      mass * acceleration;
+
+
+    resultBox.innerHTML =
+
+      "<strong>Force</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "F = ma" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "F = (" +
+      mass +
+      " kg)(" +
+      acceleration +
+      " m/s&sup2;)" +
+
+      "<br><br>" +
+
+      "<strong>F = " +
+      answer.toFixed(2) +
+      " N</strong>";
+
+    return;
+  }
+
+
+  /*
+    =====================================================
+    MASS
+
+    m = F / a
+    =====================================================
+  */
+
+  if (solveFor === "mass") {
+
+    if (
+      isNaN(force) ||
+      isNaN(acceleration)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate mass, enter force and acceleration.";
+
+      return;
+    }
+
+
+    if (acceleration === 0) {
+
+      resultBox.innerHTML =
+        "Acceleration cannot be zero when calculating mass with this equation.";
+
+      return;
+    }
+
+
+    const answer =
+      force / acceleration;
+
+
+    if (answer <= 0) {
+
+      resultBox.innerHTML =
+        "The entered values do not produce a positive mass. Check your force and acceleration.";
+
+      return;
+    }
+
+
+    resultBox.innerHTML =
+
+      "<strong>Mass</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "m = F / a" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "m = " +
+      force +
+      " N / " +
+      acceleration +
+      " m/s&sup2;" +
+
+      "<br><br>" +
+
+      "<strong>m = " +
+      answer.toFixed(2) +
+      " kg</strong>";
+
+    return;
+  }
+
+
+  /*
+    =====================================================
+    ACCELERATION
+
+    a = F / m
+    =====================================================
+  */
+
+  if (solveFor === "acceleration") {
+
+    if (
+      isNaN(force) ||
+      isNaN(mass)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate acceleration, enter force and mass.";
+
+      return;
+    }
+
+
+    if (mass <= 0) {
+
+      resultBox.innerHTML =
+        "Mass must be greater than zero.";
+
+      return;
+    }
+
+
+    const answer =
+      force / mass;
+
+
+    resultBox.innerHTML =
+
+      "<strong>Acceleration</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "a = F / m" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "a = " +
+      force +
+      " N / " +
+      mass +
+      " kg" +
+
+      "<br><br>" +
+
+      "<strong>a = " +
+      answer.toFixed(2) +
+      " m/s&sup2;</strong>";
+
+    return;
+  }
+
+}
+
+updateKinematicsInputs();
+updateNewtonInputs();
+
+function updateStressStrainInputs() {
+
+  const solveFor =
+    document.getElementById("stressStrainSolveFor").value;
+
+
+  const forceGroup =
+    document.getElementById("stressForceGroup");
+
+  const areaGroup =
+    document.getElementById("stressAreaGroup");
+
+  const changeLengthGroup =
+    document.getElementById("changeLengthGroup");
+
+  const originalLengthGroup =
+    document.getElementById("originalLengthGroup");
+
+  const stressGroup =
+    document.getElementById("stressValueGroup");
+
+  const strainGroup =
+    document.getElementById("strainValueGroup");
+
+
+  // Hide everything first
+
+  forceGroup.style.display = "none";
+  areaGroup.style.display = "none";
+  changeLengthGroup.style.display = "none";
+  originalLengthGroup.style.display = "none";
+  stressGroup.style.display = "none";
+  strainGroup.style.display = "none";
+
+
+  /*
+    STRESS
+
+    sigma = F / A
+  */
+
+  if (solveFor === "stress") {
+
+    forceGroup.style.display = "block";
+    areaGroup.style.display = "block";
+
+  }
+
+
+  /*
+    STRAIN
+
+    epsilon = change in length / original length
+  */
+
+  else if (solveFor === "strain") {
+
+    changeLengthGroup.style.display = "block";
+    originalLengthGroup.style.display = "block";
+
+  }
+
+
+  /*
+    ELASTIC MODULUS
+
+    E = stress / strain
+  */
+
+  else if (solveFor === "elasticModulus") {
+
+    stressGroup.style.display = "block";
+    strainGroup.style.display = "block";
+
+  }
+
+
+  document.getElementById("stressStrainResult").innerHTML =
+    "Enter the known values and press Calculate.";
+}
+
+function calculateStressStrain() {
+
+  const solveFor =
+    document.getElementById("stressStrainSolveFor").value;
+
+
+  const force =
+    parseFloat(
+      document.getElementById("stressForce").value
+    );
+
+  const area =
+    parseFloat(
+      document.getElementById("stressArea").value
+    );
+
+  const changeLength =
+    parseFloat(
+      document.getElementById("changeLength").value
+    );
+
+  const originalLength =
+    parseFloat(
+      document.getElementById("originalLength").value
+    );
+
+  const stress =
+    parseFloat(
+      document.getElementById("stressValue").value
+    );
+
+  const strain =
+    parseFloat(
+      document.getElementById("strainValue").value
+    );
+
+
+  const resultBox =
+    document.getElementById("stressStrainResult");
+
+
+  /*
+    =====================================================
+    STRESS
+
+    sigma = F / A
+
+    Because:
+    1 N/mm^2 = 1 MPa
+    =====================================================
+  */
+
+  if (solveFor === "stress") {
+
+    if (
+      isNaN(force) ||
+      isNaN(area)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate stress, enter force and cross-sectional area.";
+
+      return;
+    }
+
+
+    if (area <= 0) {
+
+      resultBox.innerHTML =
+        "Cross-sectional area must be greater than zero.";
+
+      return;
+    }
+
+
+    const answer =
+      force / area;
+
+
+    resultBox.innerHTML =
+
+      "<strong>Normal Stress</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "&sigma; = F / A" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "&sigma; = " +
+      force +
+      " N / " +
+      area +
+      " mm&sup2;" +
+
+      "<br><br>" +
+
+      "<strong>&sigma; = " +
+      answer.toFixed(2) +
+      " MPa</strong>" +
+
+      "<br><br>" +
+
+      "Since 1 N/mm&sup2; = 1 MPa.";
+
+    return;
+  }
+
+
+  /*
+    =====================================================
+    STRAIN
+
+    epsilon = delta L / L0
+    =====================================================
+  */
+
+  if (solveFor === "strain") {
+
+    if (
+      isNaN(changeLength) ||
+      isNaN(originalLength)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate strain, enter the change in length and original length.";
+
+      return;
+    }
+
+
+    if (originalLength <= 0) {
+
+      resultBox.innerHTML =
+        "Original length must be greater than zero.";
+
+      return;
+    }
+
+
+    const answer =
+      changeLength / originalLength;
+
+
+    resultBox.innerHTML =
+
+      "<strong>Strain</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "&epsilon; = &Delta;L / L<sub>0</sub>" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "&epsilon; = " +
+      changeLength +
+      " mm / " +
+      originalLength +
+      " mm" +
+
+      "<br><br>" +
+
+      "<strong>&epsilon; = " +
+      answer.toFixed(6) +
+      "</strong>" +
+
+      "<br><br>" +
+
+      "Strain is dimensionless because the length units cancel.";
+
+    return;
+  }
+
+
+  /*
+    =====================================================
+    ELASTIC MODULUS
+
+    E = stress / strain
+    =====================================================
+  */
+
+  if (solveFor === "elasticModulus") {
+
+    if (
+      isNaN(stress) ||
+      isNaN(strain)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate elastic modulus, enter stress and strain.";
+
+      return;
+    }
+
+
+    if (strain === 0) {
+
+      resultBox.innerHTML =
+        "Strain cannot be zero when calculating elastic modulus.";
+
+      return;
+    }
+
+
+    const answer =
+      stress / strain;
+
+
+    resultBox.innerHTML =
+
+      "<strong>Elastic Modulus</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "E = &sigma; / &epsilon;" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "E = " +
+      stress +
+      " MPa / " +
+      strain +
+
+      "<br><br>" +
+
+      "<strong>E = " +
+      answer.toFixed(2) +
+      " MPa</strong>" +
+
+      "<br>" +
+
+      "<strong>E = " +
+      (answer / 1000).toFixed(2) +
+      " GPa</strong>";
+
+    return;
+  }
+
+}
+
+updateStressStrainInputs();
+
+function updateFactorSafetyInputs() {
+
+  const solveFor =
+    document.getElementById("factorSafetySolveFor").value;
+
+
+  const factorGroup =
+    document.getElementById("factorOfSafetyGroup");
+
+  const allowableGroup =
+    document.getElementById("allowableStressGroup");
+
+  const failureGroup =
+    document.getElementById("failureStrengthGroup");
+
+
+  // Show all inputs first
+
+  factorGroup.style.display = "block";
+  allowableGroup.style.display = "block";
+  failureGroup.style.display = "block";
+
+
+  // Hide the value being solved for
+
+  if (solveFor === "factorOfSafety") {
+
+    factorGroup.style.display = "none";
+
+  }
+
+  else if (solveFor === "allowableStress") {
+
+    allowableGroup.style.display = "none";
+
+  }
+
+  else if (solveFor === "failureStrength") {
+
+    failureGroup.style.display = "none";
+
+  }
+
+
+  document.getElementById("factorSafetyResult").innerHTML =
+    "Enter the known values and press Calculate.";
+}
+
+function calculateFactorSafety() {
+
+  const solveFor =
+    document.getElementById("factorSafetySolveFor").value;
+
+
+  const factorOfSafety =
+    parseFloat(
+      document.getElementById("factorOfSafetyValue").value
+    );
+
+  const allowableStress =
+    parseFloat(
+      document.getElementById("allowableStressValue").value
+    );
+
+  const failureStrength =
+    parseFloat(
+      document.getElementById("failureStrengthValue").value
+    );
+
+
+  const resultBox =
+    document.getElementById("factorSafetyResult");
+
+
+  /*
+    =====================================================
+    FACTOR OF SAFETY
+
+    n = failure strength / allowable stress
+    =====================================================
+  */
+
+  if (solveFor === "factorOfSafety") {
+
+    if (
+      isNaN(failureStrength) ||
+      isNaN(allowableStress)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate factor of safety, enter failure strength and allowable stress.";
+
+      return;
+    }
+
+
+    if (
+      failureStrength <= 0 ||
+      allowableStress <= 0
+    ) {
+
+      resultBox.innerHTML =
+        "Strength and stress values must be greater than zero.";
+
+      return;
+    }
+
+
+    const answer =
+      failureStrength / allowableStress;
+
+
+    resultBox.innerHTML =
+
+      "<strong>Factor of Safety</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "n = Failure Strength / Allowable Stress" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "n = " +
+      failureStrength +
+      " MPa / " +
+      allowableStress +
+      " MPa" +
+
+      "<br><br>" +
+
+      "<strong>n = " +
+      answer.toFixed(2) +
+      "</strong>";
+
+    return;
+  }
+
+
+  /*
+    =====================================================
+    ALLOWABLE STRESS
+
+    allowable stress = failure strength / n
+    =====================================================
+  */
+
+  if (solveFor === "allowableStress") {
+
+    if (
+      isNaN(failureStrength) ||
+      isNaN(factorOfSafety)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate allowable stress, enter failure strength and factor of safety.";
+
+      return;
+    }
+
+
+    if (
+      failureStrength <= 0 ||
+      factorOfSafety <= 0
+    ) {
+
+      resultBox.innerHTML =
+        "Failure strength and factor of safety must be greater than zero.";
+
+      return;
+    }
+
+
+    const answer =
+      failureStrength / factorOfSafety;
+
+
+    resultBox.innerHTML =
+
+      "<strong>Allowable Stress</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "Allowable Stress = Failure Strength / n" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "Allowable Stress = " +
+      failureStrength +
+      " MPa / " +
+      factorOfSafety +
+
+      "<br><br>" +
+
+      "<strong>Allowable Stress = " +
+      answer.toFixed(2) +
+      " MPa</strong>";
+
+    return;
+  }
+
+
+  /*
+    =====================================================
+    FAILURE STRENGTH
+
+    failure strength = allowable stress * n
+    =====================================================
+  */
+
+  if (solveFor === "failureStrength") {
+
+    if (
+      isNaN(allowableStress) ||
+      isNaN(factorOfSafety)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate failure strength, enter allowable stress and factor of safety.";
+
+      return;
+    }
+
+
+    if (
+      allowableStress <= 0 ||
+      factorOfSafety <= 0
+    ) {
+
+      resultBox.innerHTML =
+        "Allowable stress and factor of safety must be greater than zero.";
+
+      return;
+    }
+
+
+    const answer =
+      allowableStress * factorOfSafety;
+
+
+    resultBox.innerHTML =
+
+      "<strong>Failure Strength</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "Failure Strength = Allowable Stress × n" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "Failure Strength = " +
+      allowableStress +
+      " MPa × " +
+      factorOfSafety +
+
+      "<br><br>" +
+
+      "<strong>Failure Strength = " +
+      answer.toFixed(2) +
+      " MPa</strong>";
+
+    return;
+  }
+
+}
+
+updateFactorSafetyInputs();
+
+function updateHeatEnergyInputs() {
+
+  const solveFor =
+    document.getElementById("heatEnergySolveFor").value;
+
+
+  const heatEnergyGroup =
+    document.getElementById("heatEnergyValueGroup");
+
+  const massGroup =
+    document.getElementById("heatMassGroup");
+
+  const specificHeatGroup =
+    document.getElementById("specificHeatGroup");
+
+  const temperatureChangeGroup =
+    document.getElementById("temperatureChangeGroup");
+
+
+  // Show all input groups first
+
+  heatEnergyGroup.style.display = "block";
+  massGroup.style.display = "block";
+  specificHeatGroup.style.display = "block";
+  temperatureChangeGroup.style.display = "block";
+
+
+  // Hide the quantity being solved for
+
+  if (solveFor === "heatEnergy") {
+
+    heatEnergyGroup.style.display = "none";
+
+  }
+
+  else if (solveFor === "mass") {
+
+    massGroup.style.display = "none";
+
+  }
+
+  else if (solveFor === "specificHeat") {
+
+    specificHeatGroup.style.display = "none";
+
+  }
+
+  else if (solveFor === "temperatureChange") {
+
+    temperatureChangeGroup.style.display = "none";
+
+  }
+
+
+  document.getElementById("heatEnergyResult").innerHTML =
+    "Enter the known values and press Calculate.";
+}
+
+function calculateHeatEnergy() {
+
+  const solveFor =
+    document.getElementById("heatEnergySolveFor").value;
+
+
+  const heatEnergy =
+    parseFloat(
+      document.getElementById("heatEnergyValue").value
+    );
+
+  const mass =
+    parseFloat(
+      document.getElementById("heatMass").value
+    );
+
+  const specificHeat =
+    parseFloat(
+      document.getElementById("specificHeat").value
+    );
+
+  const temperatureChange =
+    parseFloat(
+      document.getElementById("temperatureChange").value
+    );
+
+
+  const resultBox =
+    document.getElementById("heatEnergyResult");
+
+
+  /*
+    =====================================================
+    HEAT ENERGY
+
+    Q = mcΔT
+    =====================================================
+  */
+
+  if (solveFor === "heatEnergy") {
+
+    if (
+      isNaN(mass) ||
+      isNaN(specificHeat) ||
+      isNaN(temperatureChange)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate heat energy, enter mass, specific heat capacity, and temperature change.";
+
+      return;
+    }
+
+
+    if (mass <= 0) {
+
+      resultBox.innerHTML =
+        "Mass must be greater than zero.";
+
+      return;
+    }
+
+
+    if (specificHeat <= 0) {
+
+      resultBox.innerHTML =
+        "Specific heat capacity must be greater than zero.";
+
+      return;
+    }
+
+
+    const answer =
+      mass *
+      specificHeat *
+      temperatureChange;
+
+
+    resultBox.innerHTML =
+
+      "<strong>Heat Energy</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "Q = mc&Delta;T" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "Q = (" +
+      mass +
+      " kg)(" +
+      specificHeat +
+      " J/kg&deg;C)(" +
+      temperatureChange +
+      "&deg;C)" +
+
+      "<br><br>" +
+
+      "<strong>Q = " +
+      answer.toFixed(2) +
+      " J</strong>" +
+
+      "<br>" +
+
+      "<strong>Q = " +
+      (answer / 1000).toFixed(2) +
+      " kJ</strong>";
+
+    return;
+  }
+
+
+  /*
+    =====================================================
+    MASS
+
+    m = Q / (cΔT)
+    =====================================================
+  */
+
+  if (solveFor === "mass") {
+
+    if (
+      isNaN(heatEnergy) ||
+      isNaN(specificHeat) ||
+      isNaN(temperatureChange)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate mass, enter heat energy, specific heat capacity, and temperature change.";
+
+      return;
+    }
+
+
+    if (specificHeat <= 0) {
+
+      resultBox.innerHTML =
+        "Specific heat capacity must be greater than zero.";
+
+      return;
+    }
+
+
+    if (temperatureChange === 0) {
+
+      resultBox.innerHTML =
+        "Temperature change cannot be zero when calculating mass.";
+
+      return;
+    }
+
+
+    const answer =
+      heatEnergy /
+      (specificHeat * temperatureChange);
+
+
+    if (answer <= 0) {
+
+      resultBox.innerHTML =
+        "The entered values do not produce a positive mass. Check the signs of heat energy and temperature change.";
+
+      return;
+    }
+
+
+    resultBox.innerHTML =
+
+      "<strong>Mass</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "m = Q / (c&Delta;T)" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "m = " +
+      heatEnergy +
+      " J / ((" +
+      specificHeat +
+      " J/kg&deg;C)(" +
+      temperatureChange +
+      "&deg;C))" +
+
+      "<br><br>" +
+
+      "<strong>m = " +
+      answer.toFixed(4) +
+      " kg</strong>";
+
+    return;
+  }
+
+
+  /*
+    =====================================================
+    SPECIFIC HEAT CAPACITY
+
+    c = Q / (mΔT)
+    =====================================================
+  */
+
+  if (solveFor === "specificHeat") {
+
+    if (
+      isNaN(heatEnergy) ||
+      isNaN(mass) ||
+      isNaN(temperatureChange)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate specific heat capacity, enter heat energy, mass, and temperature change.";
+
+      return;
+    }
+
+
+    if (mass <= 0) {
+
+      resultBox.innerHTML =
+        "Mass must be greater than zero.";
+
+      return;
+    }
+
+
+    if (temperatureChange === 0) {
+
+      resultBox.innerHTML =
+        "Temperature change cannot be zero when calculating specific heat capacity.";
+
+      return;
+    }
+
+
+    const answer =
+      heatEnergy /
+      (mass * temperatureChange);
+
+
+    if (answer <= 0) {
+
+      resultBox.innerHTML =
+        "The entered values do not produce a positive specific heat capacity. Check the signs of heat energy and temperature change.";
+
+      return;
+    }
+
+
+    resultBox.innerHTML =
+
+      "<strong>Specific Heat Capacity</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "c = Q / (m&Delta;T)" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "c = " +
+      heatEnergy +
+      " J / ((" +
+      mass +
+      " kg)(" +
+      temperatureChange +
+      "&deg;C))" +
+
+      "<br><br>" +
+
+      "<strong>c = " +
+      answer.toFixed(2) +
+      " J/kg&deg;C</strong>";
+
+    return;
+  }
+
+
+  /*
+    =====================================================
+    TEMPERATURE CHANGE
+
+    ΔT = Q / (mc)
+    =====================================================
+  */
+
+  if (solveFor === "temperatureChange") {
+
+    if (
+      isNaN(heatEnergy) ||
+      isNaN(mass) ||
+      isNaN(specificHeat)
+    ) {
+
+      resultBox.innerHTML =
+        "To calculate temperature change, enter heat energy, mass, and specific heat capacity.";
+
+      return;
+    }
+
+
+    if (mass <= 0) {
+
+      resultBox.innerHTML =
+        "Mass must be greater than zero.";
+
+      return;
+    }
+
+
+    if (specificHeat <= 0) {
+
+      resultBox.innerHTML =
+        "Specific heat capacity must be greater than zero.";
+
+      return;
+    }
+
+
+    const answer =
+      heatEnergy /
+      (mass * specificHeat);
+
+
+    resultBox.innerHTML =
+
+      "<strong>Temperature Change</strong><br><br>" +
+
+      "Equation:<br>" +
+
+      "&Delta;T = Q / (mc)" +
+
+      "<br><br>" +
+
+      "Substitute the values:<br>" +
+
+      "&Delta;T = " +
+      heatEnergy +
+      " J / ((" +
+      mass +
+      " kg)(" +
+      specificHeat +
+      " J/kg&deg;C))" +
+
+      "<br><br>" +
+
+      "<strong>&Delta;T = " +
+      answer.toFixed(2) +
+      "&deg;C</strong>";
+
+    return;
+  }
+
+}
+
+updateHeatEnergyInputs();
 
   </script>
 
